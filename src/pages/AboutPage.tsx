@@ -4,7 +4,9 @@ import { FadeUp } from '../components/ui/FadeUp';
 import { AnimatedText } from '../components/ui/AnimatedText';
 import Founders from '../components/Founders';
 import About from '../components/About';
-import { Compass, Layers, ShieldCheck, Ruler, Landmark, Leaf } from 'lucide-react';
+import { Compass, Layers, ShieldCheck, Ruler, Landmark, Leaf, Sparkles } from 'lucide-react';
+import { StaggerContainer } from '../components/ui/StaggerContainer';
+import { PointerHighlight } from '../components/ui/pointer-highlight';
 
 export const AboutPage: React.FC = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -141,6 +143,68 @@ export const AboutPage: React.FC = () => {
 
       {/* 3. Story, Vision, Mission Tabs Component */}
       <About />
+
+      {/* 3.5 Innovation x Vision Section */}
+      <section className="py-24 md:py-32 bg-[#FAF7F5] text-[#2A2A2A] border-t border-black/5 relative overflow-hidden">
+        {/* Subtle grid lines background overlay */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+          <div className="w-full h-full bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:50px_50px]" />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+          <FadeUp delay={0.1}>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-[#1B1B1B] mb-16 md:mb-24 text-left">
+              Innovation <span className="text-[#C92C15] italic">x</span> Vision
+            </h2>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Column: Aspect 4/3 Video */}
+            <FadeUp delay={0.2} x={-40} className="rounded-3xl overflow-hidden aspect-[4/3] bg-gray-100 shadow-2xl border border-black/5">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover select-none pointer-events-none opacity-90"
+                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4"
+              />
+            </FadeUp>
+
+            {/* Right Column: Narrative Blocks */}
+            <StaggerContainer staggerChildren={0.2} className="space-y-10 text-left">
+              
+              {/* Block 1 */}
+              <FadeUp delay={0.3} x={40} className="space-y-4">
+                <div className="flex items-center gap-2 text-[#6F6F6F]">
+                  <Sparkles className="h-4 w-4 text-[#C92C15]" />
+                  <span className="text-xs uppercase tracking-[0.2em] font-semibold">Choose Your Space</span>
+                </div>
+                <p className="text-base md:text-lg text-[#2A2A2A] font-light leading-relaxed">
+                  Every great building starts with solid engineering and a clear design. We combine both to turn raw concrete and steel into <PointerHighlight delay={0.9}>beautiful homes</PointerHighlight> that you will love to live in.
+                </p>
+              </FadeUp>
+
+              {/* Separator line */}
+              <div className="w-full h-px bg-black/5" />
+
+              {/* Block 2 */}
+              <FadeUp delay={0.4} x={40} className="space-y-4">
+                <div className="flex items-center gap-2 text-[#6F6F6F]">
+                  <Sparkles className="h-4 w-4 text-[#C92C15]" />
+                  <span className="text-xs uppercase tracking-[0.2em] font-semibold">Shape The Future</span>
+                </div>
+                <p className="text-base md:text-lg text-[#2A2A2A] font-light leading-relaxed">
+                  We believe the best buildings are those that are both highly practical and beautiful. Our team is dedicated to bringing your blueprints to life with absolute care and top quality.
+                </p>
+              </FadeUp>
+
+            </StaggerContainer>
+
+          </div>
+        </div>
+      </section>
 
       {/* Beyond Construction Section (Developer positioning) */}
       <section className="py-24 bg-white border-t border-black/5 relative z-10">
