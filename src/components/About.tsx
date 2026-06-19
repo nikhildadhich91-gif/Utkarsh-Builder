@@ -50,7 +50,7 @@ export const About: React.FC = () => {
           {/* Right Side: Narrative (7 cols) */}
           <div className="lg:col-span-7 flex flex-col justify-center text-left">
             <FadeUp delay={0.2} className="mb-4">
-              <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Who We Are</span>
+              <span className="text-[#C92C15] text-xs font-extrabold tracking-[0.2em] uppercase">Who We Are</span>
             </FadeUp>
 
             <FadeUp delay={0.3} className="mb-6">
@@ -60,7 +60,7 @@ export const About: React.FC = () => {
             </FadeUp>
 
             <FadeUp delay={0.4} className="mb-8">
-              <p className="text-base md:text-lg text-[#6F6F6F] leading-relaxed font-light">
+              <p className="text-lg md:text-xl text-[#6F6F6F] leading-relaxed font-light">
                 Welcome to Utkarsh Builder, where we turn your dream spaces into reality. With over 30 years of experience and more than 100 completed projects in Jaipur, we build premium homes and commercial buildings with outstanding quality, honest pricing, and on-time completion.
               </p>
             </FadeUp>

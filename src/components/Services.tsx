@@ -66,7 +66,7 @@ export const Services: React.FC = () => {
         <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
           <div>
             <FadeUp delay={0.1} className="mb-3">
-              <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Our Capabilities</span>
+              <span className="text-[#C92C15] text-xs font-extrabold tracking-[0.2em] uppercase">Our Capabilities</span>
             </FadeUp>
             <FadeUp delay={0.2}>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
@@ -75,7 +75,7 @@ export const Services: React.FC = () => {
             </FadeUp>
           </div>
           <FadeUp delay={0.3}>
-            <p className="text-[#6F6F6F] font-light text-base leading-relaxed">
+            <p className="text-[#6F6F6F] font-light text-lg md:text-xl leading-relaxed">
               We design and build high quality properties, combining 30 years of local construction experience with modern methods.
             </p>
           </FadeUp>
