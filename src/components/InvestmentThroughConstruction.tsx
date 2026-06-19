@@ -6,18 +6,18 @@ export const InvestmentThroughConstruction: React.FC = () => {
   const pillars = [
     {
       icon: TrendingUp,
-      title: 'Value Appreciation',
-      desc: 'Smart floor plans, top-quality materials, and prime locations ensure your property gains value over time.'
+      title: 'Property Value Growth',
+      desc: 'We design smart layouts and use high-quality materials so your property naturally gains value over time.'
     },
     {
       icon: Landmark,
-      title: 'Growth Corridors',
-      desc: "We build in Jaipur's fastest-growing areas, placing your home or business in high-demand neighborhoods."
+      title: 'Great Locations',
+      desc: "We build in Jaipur's most popular and rapidly developing areas, putting you in the perfect spot."
     },
     {
       icon: Shield,
-      title: 'Structural Safety & Longevity',
-      desc: 'Using rust-free steel and strict safety standards, we build structures that require low maintenance and last for generations.'
+      title: 'Strong and Safe Buildings',
+      desc: 'Using high-grade steel and strict safety checks, we build solid structures that require very little maintenance.'
     }
   ];
 
@@ -31,25 +31,21 @@ export const InvestmentThroughConstruction: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         
         {/* Header Block */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end mb-20">
-          <div className="lg:col-span-8 text-left space-y-4">
-            <FadeUp delay={0.1}>
-              <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Wealth Multiplication</span>
-            </FadeUp>
-            <FadeUp delay={0.2}>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#1B1B1B] leading-tight">
-                Investment Through<br />
-                <span className="text-[#C92C15] font-normal italic">Construction Excellence.</span>
-              </h2>
-            </FadeUp>
-          </div>
-          <div className="lg:col-span-4 text-left">
-            <FadeUp delay={0.3}>
-              <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
-                We bridge the gap between building contractor and strategic developer. Every structural column and floor layout is an exercise in asset value creation.
-              </p>
-            </FadeUp>
-          </div>
+        <div className="max-w-3xl text-left space-y-4 mb-20">
+          <FadeUp delay={0.1}>
+            <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Building Long Term Value</span>
+          </FadeUp>
+          <FadeUp delay={0.2}>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#1B1B1B] leading-tight">
+              Spaces Built to<br />
+              <span className="text-[#C92C15] font-normal italic">Grow in Value.</span>
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.3}>
+            <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
+              We do more than just build walls. We design and construct properties that are smart investments, ensuring your home or business grows in value over the years.
+            </p>
+          </FadeUp>
         </div>
 
         {/* Value Pillars Grid */}

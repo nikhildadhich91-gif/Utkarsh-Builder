@@ -12,32 +12,32 @@ interface ReasonItem {
 const reasonsList: ReasonItem[] = [
   {
     title: '30+ Years Experience',
-    description: 'Decades of proven structural safety and premium building expertise across Rajasthan.',
+    description: 'Over 30 years of building safe, reliable, and premium properties across Rajasthan.',
     icon: Award,
   },
   {
-    title: '100+ Projects',
-    description: 'A vast portfolio spanning luxurious residential villas to heritage commercial complexes.',
+    title: '100+ Projects Completed',
+    description: 'We have successfully built everything from luxury villas to large commercial complexes.',
     icon: ShieldCheck,
   },
   {
-    title: 'Dedicated Project Management',
-    description: 'A single point of contact coordinating all contractors, material suppliers, and architects.',
+    title: 'Dedicated Project Manager',
+    description: 'You work with a single person who handles all the builders, materials, and architects for you.',
     icon: Briefcase,
   },
   {
     title: 'Transparent Communication',
-    description: 'Clear cost estimation breakdowns, honest raw material contracts, and zero hidden fees.',
+    description: 'We offer clear cost estimates, honest contracts, and absolutely no hidden fees.',
     icon: MessageSquare,
   },
   {
     title: 'Quality Construction',
-    description: 'High-grade cement mixes, corrosion-resistant steel, and multi-tier quality checks.',
+    description: 'We use top grade cement and steel, and run regular quality checks at every step.',
     icon: CheckCircle2,
   },
   {
-    title: 'On-Time Delivery',
-    description: 'A disciplined milestone schedule ensures timely handovers and reliable move-in dates.',
+    title: 'On Time Delivery',
+    description: 'We follow a strict schedule so we can hand over your keys on the exact day promised.',
     icon: Calendar,
   },
 ];
@@ -59,12 +59,12 @@ export const WhyChooseUs: React.FC = () => {
           </FadeUp>
           <FadeUp delay={0.2}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
-              Setting New Benchmarks in Construction
+              Why People Trust Us to Build
             </h2>
           </FadeUp>
           <FadeUp delay={0.3} className="mt-4">
             <p className="text-[#6F6F6F] font-light max-w-xl mx-auto">
-              Our business is built on trust, quality craftsmanship, and strict timeline execution. Discover what makes us different.
+              Our work is based on trust, high quality building, and meeting our promises. Here is why clients choose us.
             </p>
           </FadeUp>
         </div>

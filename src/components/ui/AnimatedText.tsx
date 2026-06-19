@@ -32,13 +32,55 @@ const playTickSound = () => {
   }
 };
 
+// Global trigger for iOS switch haptic workaround
+let iosHapticInput: HTMLInputElement | null = null;
+
+const triggerIOSHaptic = () => {
+  if (typeof document === 'undefined') return;
+  
+  if (!iosHapticInput) {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (!isIOS) return;
+
+    try {
+      const input = document.createElement('input');
+      input.type = 'checkbox';
+      input.setAttribute('switch', '');
+      input.style.position = 'absolute';
+      input.style.width = '1px';
+      input.style.height = '1px';
+      input.style.opacity = '0';
+      input.style.pointerEvents = 'none';
+      input.style.overflow = 'hidden';
+      document.body.appendChild(input);
+      iosHapticInput = input;
+    } catch (e) {
+      return;
+    }
+  }
+
+  if (iosHapticInput) {
+    try {
+      iosHapticInput.click();
+    } catch (e) {
+      iosHapticInput.checked = !iosHapticInput.checked;
+    }
+  }
+};
+
 // Subtle, crisp haptic feedback for premium mobile feel
 const vibrateDevice = () => {
-  if (typeof navigator !== 'undefined' && navigator.vibrate) {
-    try {
-      navigator.vibrate(12);
-    } catch (e) {
-      // Fail silently
+  if (typeof navigator !== 'undefined') {
+    if (navigator.vibrate) {
+      try {
+        navigator.vibrate(12);
+      } catch (e) {
+        // Fail silently
+      }
+    } else {
+      // Fallback for iOS Chrome / Safari using native switch haptic
+      triggerIOSHaptic();
     }
   }
 };

@@ -58,13 +58,14 @@ export const ContainerScroll = ({
   ...props
 }: React.HtmlHTMLAttributes<HTMLDivElement>) => {
   const { scrollY } = useScroll()
+
   return (
     <ContainerScrollContext.Provider value={{ scrollY }}>
       <div
-        className={cn("relative min-h-[110vh]", className)}
+        className={cn("relative min-h-[150vh]", className)}
         style={{
-          perspective: "1000px",
-          perspectiveOrigin: "center top",
+          perspective: "1200px",
+          perspectiveOrigin: "center center",
           transformStyle: "preserve-3d",
           ...style,
         }}
@@ -89,8 +90,8 @@ export const ContainerSticky = ({
         className
       )}
       style={{
-        perspective: "1000px",
-        perspectiveOrigin: "center top",
+        perspective: "1200px",
+        perspectiveOrigin: "center center",
         transformStyle: "preserve-3d",
         transformOrigin: "50% 50%",
         ...style,
@@ -108,10 +109,10 @@ export const GalleryContainer = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & HTMLMotionProps<"div">) => {
   const { scrollY } = useContainerScrollContext()
-  const rotateX = useTransform(scrollY, [0, 180], [70, 0])
-  const scale = useTransform(scrollY, [180, 360], [1.15, 1])
-  const filter = useTransform(scrollY, [0, 25], ["blur(3px)", "blur(0px)"])
-  const opacity = useTransform(scrollY, [0, 25], [0.85, 1])
+  const rotateX = useTransform(scrollY, [0, 450], [60, 0])
+  const scale = useTransform(scrollY, [0, 450], [0.92, 1])
+  const filter = useTransform(scrollY, [0, 100], ["blur(3px)", "blur(0px)"])
+  const opacity = useTransform(scrollY, [0, 100], [0.85, 1])
 
   return (
     <motion.div
@@ -125,7 +126,7 @@ export const GalleryContainer = ({
         filter,
         opacity,
         transformStyle: "preserve-3d",
-        perspective: "1000px",
+        perspective: "1200px",
         ...style,
       }}
       {...props}
@@ -143,7 +144,7 @@ export const GalleryCol = ({
   ...props
 }: HTMLMotionProps<"div"> & { yRange?: string[] }) => {
   const { scrollY } = useContainerScrollContext()
-  const y = useTransform(scrollY, [80, 400], yRange)
+  const y = useTransform(scrollY, [0, 600], yRange)
 
   return (
     <motion.div
@@ -224,6 +225,13 @@ const column1Items: GalleryItem[] = [
     category: "Bespoke Residential",
     location: "Jaipur, Rajasthan",
     image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85"
+  },
+  {
+    id: "col1-4",
+    name: "Vedic Villa Resort",
+    category: "Bespoke Residential",
+    location: "Jaipur, Rajasthan",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
   }
 ]
 
@@ -248,6 +256,13 @@ const column2Items: GalleryItem[] = [
     category: "Interior Design",
     location: "Jaipur, Rajasthan",
     image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85"
+  },
+  {
+    id: "col2-4",
+    name: "The Grand Meridian",
+    category: "Luxury Interiors",
+    location: "Jaipur, Rajasthan",
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80"
   }
 ]
 
@@ -272,6 +287,13 @@ const column3Items: GalleryItem[] = [
     category: "Commercial Development",
     location: "Jaipur, Rajasthan",
     image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85"
+  },
+  {
+    id: "col3-4",
+    name: "Skyview Heights",
+    category: "Commercial Development",
+    location: "Jaipur, Rajasthan",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
   }
 ]
 
@@ -305,14 +327,14 @@ const ProjectCard: React.FC<{ item: GalleryItem }> = ({ item }) => {
 
 const BannerHeader: React.FC = () => {
   const { scrollY } = useContainerScrollContext()
-  const opacity = useTransform(scrollY, [0, 180], [1, 0])
-  const y = useTransform(scrollY, [0, 180], [0, -40])
-  const scale = useTransform(scrollY, [0, 180], [1, 0.96])
+  const opacity = useTransform(scrollY, [0, 200], [1, 0])
+  const y = useTransform(scrollY, [0, 200], [0, -40])
+  const scale = useTransform(scrollY, [0, 200], [1, 0.96])
 
   return (
     <motion.div
       style={{ opacity, y, scale }}
-      className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-12 md:pt-16"
+      className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-2 md:pt-4"
     >
       <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] block mb-3 md:mb-4">
         Our Portfolio
@@ -334,23 +356,23 @@ export const ProjectBanner: React.FC = () => {
       <div className="absolute top-[-50px] right-[-100px] w-[500px] h-[300px] bg-radial from-[rgba(201,44,21,0.06)] to-transparent filter blur-[40px] pointer-events-none rounded-full z-0" />
       <div className="absolute bottom-[50px] left-[-100px] w-[500px] h-[300px] bg-radial from-[rgba(201,44,21,0.06)] to-transparent filter blur-[40px] pointer-events-none rounded-full z-0" />
 
-      <ContainerSticky className="h-[75vh] md:h-[80vh] flex flex-col justify-between py-6 md:py-10 bg-[#FAF7F5] overflow-hidden">
+      <ContainerSticky className="h-screen flex flex-col justify-start items-center pt-24 md:pt-32 pb-4 bg-[#FAF7F5] overflow-hidden">
         {/* Animated header text */}
         <BannerHeader />
 
         {/* 3D scrolling parallax grid */}
-        <GalleryContainer className="w-full max-w-6xl mx-auto h-[42vh] md:h-[46vh] px-4 md:px-8 mt-4">
-          <GalleryCol yRange={["0%", "-18%"]} className="gap-3 md:gap-4">
+        <GalleryContainer className="w-full max-w-6xl mx-auto h-[65vh] md:h-[70vh] px-4 md:px-8 mt-2">
+          <GalleryCol yRange={["5%", "-12%"]} className="gap-3 md:gap-4">
             {column1Items.map((item) => (
               <ProjectCard key={item.id} item={item} />
             ))}
           </GalleryCol>
-          <GalleryCol yRange={["0%", "12%"]} className="gap-3 md:gap-4">
+          <GalleryCol yRange={["-5%", "10%"]} className="gap-3 md:gap-4">
             {column2Items.map((item) => (
               <ProjectCard key={item.id} item={item} />
             ))}
           </GalleryCol>
-          <GalleryCol yRange={["0%", "-24%"]} className="gap-3 md:gap-4">
+          <GalleryCol yRange={["8%", "-15%"]} className="gap-3 md:gap-4">
             {column3Items.map((item) => (
               <ProjectCard key={item.id} item={item} />
             ))}

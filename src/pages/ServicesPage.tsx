@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { FadeUp } from '../components/ui/FadeUp';
 import { StaggerContainer } from '../components/ui/StaggerContainer';
 import { Calculator } from 'lucide-react';
+import { HeroSection } from '../components/ui/hero-section-2';
 
 
 interface ServiceItem {
@@ -15,51 +16,51 @@ interface ServiceItem {
 const servicesData: ServiceItem[] = [
   {
     number: '01',
-    title: 'Residential & Commercial Construction',
-    description: 'Creation of detailed architectural objects, luxury houses, or commercial plazas tailored to client structural demands.',
-    extendedDetails: 'We deploy advanced engineering techniques, corrosion-resistant rebar, and high-strength concrete mixes. Each site is governed by strict structural safety parameters conforming to national building standards.'
+    title: 'Residential and Commercial Construction',
+    description: 'We design and build strong, beautiful houses and commercial offices tailored to exactly what you need.',
+    extendedDetails: 'We use high quality steel and strong concrete mixes to make sure every building is completely safe, durable, and built to the highest local safety standards.'
   },
   {
     number: '02',
-    title: 'Turnkey Projects',
-    description: 'High-quality, comprehensive renders and structural execution from initial permits down to handovers.',
-    extendedDetails: 'Our turnkey service covers soil testing, blueprint architectural styling, structural engineering, raw material procurement, interior completion, and final keys handover. You deal with a single company for all requirements.'
+    title: 'Complete Start to Finish Construction',
+    description: 'We take care of the entire project from start to finish, managing all approvals, designs, and building work.',
+    extendedDetails: 'This service covers everything: testing the soil, creating architectural blueprints, handling structural engineering, buying materials, finishing the interiors, and handing over the keys.'
   },
   {
     number: '03',
     title: 'Project Management',
-    description: 'Complete project oversight ensuring quality, milestone timeline compliance, and strict budget control.',
-    extendedDetails: 'We supervise daily labor schedules, audit incoming raw material quality, coordinate sub-contractors, manage municipal inspections, and provide detailed weekly progress reports with real-time photographic updates.'
+    description: 'We supervise daily construction, check material quality, and handle schedules to keep your project on time and within budget.',
+    extendedDetails: 'We oversee daily labor, check the quality of materials delivered to the site, coordinate all builders, handle city inspections, and send you weekly progress updates with photos.'
   },
   {
     number: '04',
     title: 'Interior Design Services',
-    description: 'Crafting cohesive and visually refined internal environments that communicate style, symmetry, and legacy.',
-    extendedDetails: 'We specialize in modern luxury interior styling, utilizing premium marble floorings, custom woodwork, lighting design plans, and heritage-inspired aesthetic combinations that reflect your lifestyle.'
+    description: 'We design beautiful, custom interiors that fit your personal style, using premium materials and lighting.',
+    extendedDetails: 'We specialize in modern luxury interior styling, offering premium marble flooring, custom wood cabinets, smart lighting, and styling that matches your lifestyle.'
   },
   {
     number: '05',
-    title: 'Renovation & Remodeling',
-    description: 'Transforming existing structural shells into modernized, highly functional, and striking environments.',
-    extendedDetails: 'We restore heritage structures, extend current building envelopes, reinforce structural pillars, and completely redesign interior and exterior facades to modern efficiency benchmarks.'
+    title: 'Renovation and Remodeling',
+    description: 'We transform old properties into modern, functional spaces by updating layouts, reinforcing structures, and refreshing styling.',
+    extendedDetails: 'We restore older structures, add new rooms, strengthen supporting columns, and completely redesign the interior and exterior to make it feel brand new.'
   },
   {
     number: '06',
-    title: 'Real Estate Development Advisory',
-    description: 'Strategic market advice helping clients identify prime local corridors with highest compounding appreciation potential.',
-    extendedDetails: 'We leverage 30+ years of local Jaipur real estate experience, compiling registry indexes, municipal planning layouts, and market trends to deliver actionable asset allocation blueprints.'
+    title: 'Real Estate Planning and Property Selection',
+    description: 'We help you find and choose the best locations and properties in Jaipur that will grow in value over time.',
+    extendedDetails: 'With over 30 years of local real estate experience, we guide you through local market trends, municipal plans, and pricing to help you make the best decision for your property.'
   },
   {
     number: '07',
-    title: 'Site Feasibility Analysis',
-    description: 'Detailed analysis of density optimization models, sunlight orientations, soil metrics, and utility layouts.',
-    extendedDetails: 'Before any brick is laid, we run virtual design iterations to identify spacing opportunities, calculate loading metrics, and ensure full compliance with the Jaipur Development Authority (JDA) zoning regulations.'
+    title: 'Land and Property Testing',
+    description: 'We check the soil, sunlight direction, utilities, and layout options before starting construction.',
+    extendedDetails: 'Before we lay a single brick, we carefully check the ground, plan for natural light, and make sure everything perfectly follows all Jaipur Development Authority regulations.'
   },
   {
     number: '08',
-    title: 'End-To-End Development Planning',
-    description: 'Comprehensive management of the full real estate lifecycle, from raw land procurement to final handovers.',
-    extendedDetails: 'We act as your development partner, coordinating engineering blueprints, municipal permits, structural execution, internal decor spacing, and post-delivery lifecycle audits.'
+    title: 'Property Development Support',
+    description: 'We handle the entire journey for you, coordinating building approvals, blueprints, structural building, interior styling, and checking in on your property even after move-in.',
+    extendedDetails: 'We act as your reliable development partner, managing blueprints, municipal permits, structural building, internal decor spacing, and post-delivery checkups.'
   }
 ];
 
@@ -111,28 +112,27 @@ export const ServicesPage = () => {
     <div className="bg-[#FAF7F5] w-full min-h-screen text-[#2A2A2A] pb-24">
       
       {/* 1. Premium Header Banner */}
-      <div className="inner-hero-banner">
-        {/* Decorative radial glows */}
-        <div className="inner-hero-banner-glow top-[-50px] right-[-100px]" />
-        <div className="inner-hero-banner-glow bottom-[-50px] left-[-100px]" />
-        
-        <div className="relative z-10 max-w-4xl pt-16">
-          <FadeUp delay={0.1}>
-            <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] block mb-4">
-              Our Capabilities
-            </span>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <h1 className="text-[#1B1B1B] mb-6">
-              Our Professional Services
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.3}>
-            <p className="text-[#6F6F6F] font-light text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              We provide high-quality building services in Jaipur, custom-tailored to meet residential, commercial, and turnkey design needs.
-            </p>
-          </FadeUp>
-        </div>
+      <div className="w-full pt-20">
+        <HeroSection
+          className="rounded-none border-none shadow-none w-full min-h-[500px] md:min-h-[600px]"
+          title={
+            <>
+              Quality Construction <br />
+              <span className="text-[#C92C15]">Built for Generations</span>
+            </>
+          }
+          subtitle="From premium custom residential villas to commercial corporate spaces and complete turnkey solutions, we bring structural integrity and luxury interior design to life in Jaipur."
+          callToAction={{
+            text: "Book A Consultation",
+            href: "/contact"
+          }}
+          backgroundImage="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+          contactInfo={{
+            email: "nowalutkarsh@gmail.com",
+            phone: "+91 8562034491",
+            address: "Raja Park, Jaipur"
+          }}
+        />
       </div>
 
       {/* 2. Jack-Style Services Section (Vertical list, white bg) */}
@@ -190,18 +190,16 @@ export const ServicesPage = () => {
       <div className="py-24 bg-[#FAF7F5] text-[#1B1B1B] border-t border-black/5">
         <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-            <div className="text-left">
+          <div className="text-left max-w-3xl mb-16 space-y-4">
+            <div>
               <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase block mb-3">Our Standards</span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-[#1B1B1B]">
                 Execution Divisions
               </h2>
             </div>
-            <div className="text-left md:text-right mt-4 md:mt-0">
-              <p className="text-[#6F6F6F] font-light max-w-sm">
-                How we bifurcate our engineering divisions to guarantee specialized, high-end attention.
-              </p>
-            </div>
+            <p className="text-[#6F6F6F] font-light text-base leading-relaxed">
+              How we bifurcate our engineering divisions to guarantee specialized, high-end attention.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

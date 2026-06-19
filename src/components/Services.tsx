@@ -18,16 +18,16 @@ const servicesList: ServiceItem[] = [
   {
     id: 'res-comm',
     number: '01',
-    title: 'Residential & Commercial Construction',
-    description: 'Creating durable and elegant spaces tailored to modern lifestyles. From bespoke residential villas to sophisticated commercial developments.',
+    title: 'Residential and Commercial Construction',
+    description: 'We build strong, modern houses and office spaces tailored to your needs. From custom private villas to premium commercial centers.',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80',
     icon: Building2,
   },
   {
     id: 'turnkey',
     number: '02',
-    title: 'Turnkey Projects',
-    description: 'End-to-end execution from initial concept planning and design permissions down to structural handovers and keys delivery.',
+    title: 'Complete Start to Finish Builds',
+    description: 'We manage your whole project from start to finish. This includes planning, design approvals, construction, and handing you the final keys.',
     image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80',
     icon: Compass,
   },
@@ -35,7 +35,7 @@ const servicesList: ServiceItem[] = [
     id: 'pm',
     number: '03',
     title: 'Project Management',
-    description: 'Complete oversight ensuring strict quality benchmarks, seamless timelines, and rigid budget control across all site operations.',
+    description: 'We supervise daily construction work to ensure top quality, keep the project on track, and stick to your budget.',
     image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80',
     icon: Briefcase,
   },
@@ -43,15 +43,15 @@ const servicesList: ServiceItem[] = [
     id: 'interior',
     number: '04',
     title: 'Interior Design',
-    description: 'Functional and visually refined interiors that blend Jaipur’s rich heritage symmetry with contemporary minimalist aesthetics.',
+    description: 'We design beautiful, practical interiors that combine classic Jaipur style with clean, modern designs.',
     image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80',
     icon: Paintbrush,
   },
   {
     id: 'renovation',
     number: '05',
-    title: 'Renovation & Remodeling',
-    description: 'Transforming existing structural properties into modern, functional, and aesthetically striking residential and corporate environments.',
+    title: 'Renovation and Remodeling',
+    description: 'We refresh older properties, updating layouts and styles to make them feel modern, safe, and brand new.',
     image: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=600&q=80',
     icon: Hammer,
   },
@@ -63,24 +63,22 @@ export const Services: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24">
-          <div className="text-left max-w-2xl">
+        <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
+          <div>
             <FadeUp delay={0.1} className="mb-3">
               <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Our Capabilities</span>
             </FadeUp>
             <FadeUp delay={0.2}>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
-                Architectural Expertise &amp; Execution
+                Our Building Services
               </h2>
             </FadeUp>
           </div>
-          <div className="text-left md:text-right mt-4 md:mt-0">
-            <FadeUp delay={0.3}>
-              <p className="text-[#6F6F6F] font-light max-w-md">
-                We design and build premium structures combining decades of manual construction expertise with modernized workflows.
-              </p>
-            </FadeUp>
-          </div>
+          <FadeUp delay={0.3}>
+            <p className="text-[#6F6F6F] font-light text-base leading-relaxed">
+              We design and build high quality properties, combining 30 years of local construction experience with modern methods.
+            </p>
+          </FadeUp>
         </div>
 
         {/* Services Bento/List Cards */}

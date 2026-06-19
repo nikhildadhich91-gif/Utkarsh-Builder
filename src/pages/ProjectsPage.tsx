@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FadeUp } from '../components/ui/FadeUp';
 import Projects from '../components/Projects';
 import { Shield } from 'lucide-react';
@@ -6,7 +6,6 @@ import ProjectBanner from '../components/ProjectBanner';
 
 
 export const ProjectsPage: React.FC = () => {
-  const [filter, setFilter] = useState<'all' | 'residential' | 'commercial' | 'development' | 'interiors'>('all');
 
   // Specs lists for Jaipur landmark building materials
   const projectSpecifications = [
@@ -34,34 +33,9 @@ export const ProjectsPage: React.FC = () => {
       {/* 1. Scroll-Animated Header Banner */}
       <ProjectBanner />
 
-      {/* 2. Project Category Filter Controls */}
-      <div className="py-12 bg-white border-b border-gray-100 relative z-10 -mt-36 md:-mt-48 rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-wrap justify-center items-center gap-4">
-          {[
-            { id: 'all', label: 'All Developments' },
-            { id: 'residential', label: 'Bespoke Residential' },
-            { id: 'commercial', label: 'Commercial Developments' },
-            { id: 'development', label: 'Land Developments' },
-            { id: 'interiors', label: 'Luxury Interiors' }
-          ].map((btn) => (
-            <button
-              key={btn.id}
-              onClick={() => setFilter(btn.id as any)}
-              className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-sm hover:scale-105 active:scale-95 ${
-                filter === btn.id 
-                  ? 'bg-[#C92C15] text-white' 
-                  : 'bg-[#FAF7F5] text-[#1B1B1B] border border-black/5 hover:bg-gray-100'
-              }`}
-            >
-              {btn.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* 3. Stacking Card Showcase Component */}
-      <div className="relative">
-        <Projects filter={filter} />
+      {/* 2. Stacking Card Showcase Component */}
+      <div className="relative z-10 -mt-[45vh] md:-mt-[50vh]">
+        <Projects filter="all" />
       </div>
 
       {/* 4. Quality & Material Specifications Grid (Additional luxury detail) */}

@@ -41,7 +41,7 @@ export const Testimonials = () => {
     stopTimer();
     timerRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
+    }, 3500);
   };
 
   const stopTimer = () => {

@@ -133,7 +133,7 @@ export const AboutPage: React.FC = () => {
           {/* Scroll reveal paragraph */}
           <div className="text-xl md:text-2xl lg:text-3xl text-[#2A2A2A] font-light leading-relaxed max-w-3xl mx-auto">
             <AnimatedText 
-              text="With over 30 years of experience in construction and real estate, we deliver outstanding quality with complete transparency. We manage your entire project—from land purchase to keys handover—keeping your needs first."
+              text="With over 30 years of experience in construction and real estate, we deliver outstanding quality with complete transparency. We manage your entire project from land purchase to keys handover, keeping your needs first."
             />
           </div>
         </div>
@@ -151,17 +151,17 @@ export const AboutPage: React.FC = () => {
             <div className="lg:col-span-5 text-left space-y-6">
               <FadeUp delay={0.1}>
                 <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.2em] block">
-                  Strategic Stewardship
+                  Our Promise to You
                 </span>
               </FadeUp>
               <FadeUp delay={0.2}>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight leading-tight">
-                  Beyond Construction
+                  More Than Just Building
                 </h2>
               </FadeUp>
               <FadeUp delay={0.3}>
                 <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
-                  We operate as a developer and long-term asset creator. Our work doesn't start or stop with brick laying. We build and manage frameworks to secure multi-generational value, lifecycle utility, and structural legacy.
+                  We act as your long term property partner. Our work does not start or stop with laying bricks. We help you plan, build, and maintain your properties so they remain valuable and safe for years to come.
                 </p>
               </FadeUp>
             </div>
@@ -171,18 +171,18 @@ export const AboutPage: React.FC = () => {
               {[
                 {
                   icon: Landmark,
-                  title: 'Land Intelligence',
-                  desc: 'Analyzing growth corridors and municipal bylaws to identify prime locations with strong appreciation profiles.'
+                  title: 'Selecting the Best Land',
+                  desc: 'We look for areas that are growing fast and check city rules to find the perfect plot for your building.'
                 },
                 {
                   icon: Layers,
-                  title: 'Development Planning',
-                  desc: 'Designing spaces for sunlight optimization, density efficiency, and high layouts adaptability.'
+                  title: 'Smart Design Planning',
+                  desc: 'We design rooms for great natural sunlight, maximum space utility, and flexible layouts.'
                 },
                 {
                   icon: ShieldCheck,
-                  title: 'Lifecycle Ownership',
-                  desc: 'Ensuring ongoing support, safety audits, and stewardship of assets long after the initial handover.'
+                  title: 'Long Term Support',
+                  desc: 'We offer checkups and support to keep your building completely safe even after you move in.'
                 }
               ].map((item, idx) => {
                 const Icon = item.icon;

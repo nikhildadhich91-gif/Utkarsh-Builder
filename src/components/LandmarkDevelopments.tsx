@@ -26,7 +26,7 @@ export const LandmarkDevelopments: React.FC = () => {
               {/* Location Tag */}
               <div className="absolute top-6 left-6 bg-black/60 text-white backdrop-blur-md px-4 py-2 rounded-full text-xs font-medium tracking-wide flex items-center gap-1.5 shadow-md">
                 <MapPin className="h-3.5 w-3.5 text-[#C92C15]" />
-                <span>Jaipur Growth Corridor</span>
+                <span>Prime Areas in Jaipur</span>
               </div>
             </FadeUp>
           </div>
@@ -35,18 +35,18 @@ export const LandmarkDevelopments: React.FC = () => {
           <div className="lg:col-span-6 text-left space-y-8 flex flex-col justify-center">
             <div className="space-y-4">
               <FadeUp delay={0.1} className="inline-block">
-                <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Landmark Developments</span>
+                <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Land Development</span>
               </FadeUp>
               <FadeUp delay={0.2}>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight leading-tight">
-                  Creating Communities,<br />Not Just Structures.
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight leading-tight" style={{ textWrap: 'balance' }}>
+                  Turning Empty Land Into Beautiful Places to Live.
                 </h2>
               </FadeUp>
             </div>
 
             <FadeUp delay={0.3}>
               <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
-                We believe that premium development starts with layout foresight. Our approach combines location analysis, zoning compliance, and architectural safety to establish cohesive communities. By orchestrating residential communities, mixed-use commercial hubs, and forward-looking estates, we translate land into sustainable value.
+                We do more than just build single properties. We plan entire gated communities, residential areas, and commercial blocks in Jaipur. From finding the perfect plots of land to designing safe roads, green parks, and building spaces that bring neighbors together, we turn land into beautiful communities.
               </p>
             </FadeUp>
 
@@ -57,8 +57,8 @@ export const LandmarkDevelopments: React.FC = () => {
                   <Grid className="h-4.5 w-4.5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-sm text-[#1B1B1B]">Mixed-Use Planning</h4>
-                  <p className="text-xs text-[#6F6F6F] font-light mt-1">Intertwining commercial assets with vibrant spaces.</p>
+                  <h4 className="font-semibold text-sm text-[#1B1B1B]">Neighborhood Design</h4>
+                  <p className="text-xs text-[#6F6F6F] font-light mt-1">We blend homes, shopping, and green parks together.</p>
                 </div>
               </FadeUp>
 
@@ -67,8 +67,8 @@ export const LandmarkDevelopments: React.FC = () => {
                   <Layers className="h-4.5 w-4.5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-sm text-[#1B1B1B]">Asset Optimization</h4>
-                  <p className="text-xs text-[#6F6F6F] font-light mt-1">Thoughtful spacing yielding long-term lifestyle utility.</p>
+                  <h4 className="font-semibold text-sm text-[#1B1B1B]">Smart Use of Land</h4>
+                  <p className="text-xs text-[#6F6F6F] font-light mt-1">We plan layouts for roads, spaces, and light.</p>
                 </div>
               </FadeUp>
             </div>
@@ -78,7 +78,7 @@ export const LandmarkDevelopments: React.FC = () => {
                 to="/projects"
                 className="inline-flex items-center gap-2 bg-[#C92C15] text-white hover:bg-[#D43B13] px-8 py-3.5 rounded-xl text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
               >
-                <span>Explore Developments</span>
+                <span>See Our Projects</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </FadeUp>

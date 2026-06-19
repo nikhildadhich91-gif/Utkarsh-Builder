@@ -43,37 +43,65 @@ export const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
   return (
     <h1 className={`${className}`} style={{ letterSpacing }}>
       {lines.map((line, lineIndex) => {
-        const chars = Array.from(line);
+        const words = line.split(' ');
 
         const renderedLine = (
-          <span key={lineIndex} className="block whitespace-nowrap">
-            {chars.map((char, charIndex) => {
-              const delay = globalCharCount * charDelay;
-              globalCharCount++;
-
-              // Check if this character falls inside the highlight boundaries
-              const isHighlighted = highlightStart !== -1 && 
-                absoluteIndex >= highlightStart && 
-                absoluteIndex < highlightEnd;
-              
-              absoluteIndex++;
-
-              // Render space as non-breaking space
-              const displayChar = char === ' ' ? '\u00A0' : char;
+          <span key={lineIndex} className="block md:whitespace-nowrap whitespace-normal">
+            {words.map((word, wordIndex) => {
+              const chars = Array.from(word);
 
               return (
-                <span
-                  key={charIndex}
-                  className={`inline-block transition-all ease-out ${isHighlighted ? highlightClassName : ''}`}
-                  style={{
-                    opacity: animate ? 1 : 0,
-                    transform: animate ? 'translateX(0)' : 'translateX(-18px)',
-                    transitionDuration: `${charDuration}ms`,
-                    transitionDelay: `${delay}ms`,
-                  }}
-                >
-                  {displayChar}
-                </span>
+                <React.Fragment key={wordIndex}>
+                  {/* Wrap each word in an inline-block container to prevent letter splitting */}
+                  <span className="inline-block whitespace-nowrap">
+                    {chars.map((char, charIndex) => {
+                      const delay = globalCharCount * charDelay;
+                      globalCharCount++;
+
+                      // Check if this character falls inside the highlight boundaries
+                      const isHighlighted = highlightStart !== -1 && 
+                        absoluteIndex >= highlightStart && 
+                        absoluteIndex < highlightEnd;
+                      
+                      absoluteIndex++;
+
+                      return (
+                        <span
+                          key={charIndex}
+                          className={`inline-block transition-all ease-out ${isHighlighted ? highlightClassName : ''}`}
+                          style={{
+                            opacity: animate ? 1 : 0,
+                            transform: animate ? 'translateX(0)' : 'translateX(-18px)',
+                            transitionDuration: `${charDuration}ms`,
+                            transitionDelay: `${delay}ms`,
+                          }}
+                        >
+                          {char}
+                        </span>
+                      );
+                    })}
+                  </span>
+                  
+                  {/* Append a space after the word, unless it is the last word in the line */}
+                  {wordIndex < words.length - 1 && (() => {
+                    const spaceDelay = globalCharCount * charDelay;
+                    globalCharCount++;
+                    absoluteIndex++; // Account for space in absoluteIndex
+                    
+                    return (
+                      <span
+                        className="inline-block"
+                        style={{
+                          opacity: animate ? 1 : 0,
+                          transitionDuration: `${charDuration}ms`,
+                          transitionDelay: `${spaceDelay}ms`,
+                        }}
+                      >
+                        {'\u00A0'}
+                      </span>
+                    );
+                  })()}
+                </React.Fragment>
               );
             })}
           </span>

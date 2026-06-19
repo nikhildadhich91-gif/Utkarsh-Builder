@@ -56,7 +56,7 @@ export const Founders: React.FC = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               whileHover={{ y: -12, scale: 1.03 }}
-              className="group flex flex-col bg-white rounded-t-[50%] rounded-b-[32px] overflow-hidden border border-black/5 shadow-md hover:shadow-2xl transition-shadow duration-500 bg-gradient-to-b from-white to-[#FAF7F5]"
+              className="group flex flex-col bg-white rounded-[32px] overflow-hidden border border-black/5 shadow-md hover:shadow-2xl transition-shadow duration-500 bg-gradient-to-b from-white to-[#FAF7F5]"
             >
               {/* Arch Image Container */}
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">

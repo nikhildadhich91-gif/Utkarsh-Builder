@@ -45,15 +45,13 @@ export const FeaturedDevelopments: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         
         {/* Section Header */}
-        <div className="text-left mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="space-y-4">
-            <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase block">Asset Portfolio</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
-              Featured Developments
-            </h2>
-          </div>
-          <p className="text-[#6F6F6F] font-light max-w-sm text-left md:text-right">
-            Explore carefully structured developments that blend engineering longevity with lifestyle design.
+        <div className="text-left mb-16 md:mb-24 space-y-4 max-w-3xl">
+          <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase block">Our Featured Projects</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
+            Featured Developments
+          </h2>
+          <p className="text-[#6F6F6F] font-light text-base leading-relaxed">
+            Explore our beautifully built properties that combine solid strength with comfortable living spaces.
           </p>
         </div>
 
@@ -97,7 +95,7 @@ export const FeaturedDevelopments: React.FC = () => {
                     to={dev.link}
                     className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#C92C15] group-hover:text-[#D43B13] transition-colors duration-300 cursor-pointer"
                   >
-                    <span>View Architecture</span>
+                    <span>See Details</span>
                     <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                   </Link>
                 </div>

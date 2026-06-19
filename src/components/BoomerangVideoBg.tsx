@@ -23,6 +23,13 @@ export const BoomerangVideoBg: React.FC<BoomerangVideoBgProps> = ({ src, classNa
   const fpsInterval = 1000 / 30;
 
   useEffect(() => {
+    // Detect mobile device or narrow screen width to bypass canvas loop
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+    if (isMobile) {
+      setFallback(true);
+      return;
+    }
+
     const video = videoRef.current;
     const canvas = canvasRef.current;
     if (!video || !canvas || fallback) return;

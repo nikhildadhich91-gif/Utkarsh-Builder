@@ -83,8 +83,8 @@ export const DevelopmentShowcase: React.FC = () => {
             <div className="absolute inset-0 w-full h-full bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none z-10" />
             
             {/* Content block */}
-            <div className="p-8 md:p-10 flex flex-col justify-between flex-1 space-y-6">
-              <div className="space-y-4">
+            <div className="p-6 md:p-8 flex flex-col justify-between flex-1 space-y-4">
+              <div className="space-y-3">
                 <div className="flex justify-between items-start">
                   <span className="text-3xl md:text-4xl font-light text-[#C92C15] leading-none select-none">
                     {items[0].number}
@@ -121,7 +121,7 @@ export const DevelopmentShowcase: React.FC = () => {
             </div>
 
             {/* Image block */}
-            <div className="relative w-full md:w-[45%] shrink-0 overflow-hidden min-h-[220px] md:min-h-full">
+            <div className="relative w-full md:w-[45%] shrink-0 overflow-hidden min-h-[180px] md:min-h-full">
               <img
                 src={items[0].image}
                 alt={items[0].title}
@@ -152,7 +152,7 @@ export const DevelopmentShowcase: React.FC = () => {
             <div className="absolute inset-0 w-full h-full bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none z-10" />
 
             {/* Image block top */}
-            <div className="relative w-full h-[180px] overflow-hidden shrink-0">
+            <div className="relative w-full h-[140px] overflow-hidden shrink-0">
               <img
                 src={items[1].image}
                 alt={items[1].title}
@@ -163,8 +163,8 @@ export const DevelopmentShowcase: React.FC = () => {
             </div>
 
             {/* Content block bottom */}
-            <div className="p-8 flex flex-col justify-between flex-1 space-y-6">
-              <div className="space-y-4">
+            <div className="p-6 flex flex-col justify-between flex-1 space-y-4">
+              <div className="space-y-3">
                 <div className="flex justify-between items-start">
                   <span className="text-3xl font-light text-[#C92C15] leading-none select-none">
                     {items[1].number}

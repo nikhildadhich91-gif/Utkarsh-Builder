@@ -16,17 +16,17 @@ export const ShuffleHero = () => {
         <div className="text-left space-y-6">
           <FadeUp delay={0.1}>
             <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.2em] block">
-              Better Every Day
+              Building With Trust
             </span>
           </FadeUp>
           <FadeUp delay={0.2}>
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#1B1B1B] tracking-tight leading-tight">
-              Crafting Spaces, Redefining Standards.
+              Beautiful Spaces, Built to Last.
             </h3>
           </FadeUp>
           <FadeUp delay={0.3}>
             <p className="text-base text-[#6F6F6F] font-light leading-relaxed my-2">
-              From custom luxury estates to landmark commercial centers, we are committed to building long-term value and structural perfection across Jaipur. Ditch the old, tedious construction processes—we build with precision.
+              From custom family homes to modern commercial centers, we build high quality properties across Jaipur. We handle everything for you, making the entire building process simple and stress free.
             </p>
           </FadeUp>
           <FadeUp delay={0.4} className="pt-2">
@@ -34,7 +34,7 @@ export const ShuffleHero = () => {
               to="/projects"
               className="inline-flex items-center gap-2 bg-[#C92C15] text-white hover:bg-[#D43B13] px-8 py-3.5 rounded-xl text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
-              <span>Explore Our Portfolio</span>
+              <span>See Our Projects</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </FadeUp>

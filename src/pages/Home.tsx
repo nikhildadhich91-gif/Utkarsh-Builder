@@ -77,7 +77,7 @@ export const Home: React.FC = () => {
                   Our Approach
                 </span>
                 <p className="text-sm text-gray-100 font-light leading-relaxed">
-                  We believe in the power of planning-driven structural integrity. Every blueprint starts with a question of space optimization, and every concrete lay opens a new standard of luxury.
+                  We believe in careful planning and solid building quality. Every drawing is designed to make the best use of space, and every construction step is made to ensure your property is comfortable and built to last.
                 </p>
               </div>
 
@@ -133,7 +133,7 @@ export const Home: React.FC = () => {
                   <span className="text-xs uppercase tracking-[0.2em] font-semibold">Choose Your Space</span>
                 </div>
                 <p className="text-base md:text-lg text-[#2A2A2A] font-light leading-relaxed">
-                  Every meaningful build begins at the intersection of structural discipline and refined design vision. We operate at that crossroads, turning raw concrete into <PointerHighlight delay={0.9}>timeless estates</PointerHighlight> that inspire lifestyles.
+                  Every great building starts with solid engineering and a clear design. We combine both to turn raw concrete and steel into <PointerHighlight delay={0.9}>beautiful homes</PointerHighlight> that you will love to live in.
                 </p>
               </FadeUp>
 
@@ -147,7 +147,7 @@ export const Home: React.FC = () => {
                   <span className="text-xs uppercase tracking-[0.2em] font-semibold">Shape The Future</span>
                 </div>
                 <p className="text-base md:text-lg text-[#2A2A2A] font-light leading-relaxed">
-                  We believe that the best architectural structures emerge when functional longevity meets <PointerHighlight delay={1.0}>aesthetic conviction</PointerHighlight>. Our processes are engineered to translate blueprints into legacies.
+                  We believe the best buildings are those that are both highly practical and beautiful. Our team is dedicated to bringing your blueprints to life with absolute care and top quality.
                 </p>
               </FadeUp>
 
