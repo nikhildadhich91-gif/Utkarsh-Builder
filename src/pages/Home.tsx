@@ -4,15 +4,12 @@ import Hero from '../components/Hero';
 import TrustBar from '../components/TrustBar';
 import About from '../components/About';
 import LandmarkDevelopments from '../components/LandmarkDevelopments';
-import InvestmentThroughConstruction from '../components/InvestmentThroughConstruction';
 import MarketPresence from '../components/MarketPresence';
 import ValueCreationTimeline from '../components/ValueCreationTimeline';
 import DevelopmentShowcase from '../components/DevelopmentShowcase';
 import FeaturedDevelopments from '../components/FeaturedDevelopments';
-import Services from '../components/Services';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Process from '../components/Process';
-import Industries from '../components/Industries';
 import Testimonials from '../components/Testimonials';
 import Founders from '../components/Founders';
 import ShuffleHero from '../components/ShuffleHero';
@@ -36,9 +33,6 @@ export const Home: React.FC = () => {
 
       {/* 4. Landmark Developments (Creating Communities, Not Just Structures) */}
       <LandmarkDevelopments />
-
-      {/* 5. Investment Through Construction (Dark premium appreciation section) */}
-      <InvestmentThroughConstruction />
 
       {/* 6. Market Presence Stats (Animated counters) */}
       <MarketPresence />
@@ -157,17 +151,11 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 12. Services Teaser Section */}
-      <Services />
-
       {/* 13. Why Choose Us Section */}
       <WhyChooseUs />
 
       {/* 15. Construction Process Timeline */}
       <Process />
-
-      {/* 16. Sectors/Industries Serviced */}
-      <Industries />
 
       {/* 17. Client Testimonials Slider */}
       <Testimonials />

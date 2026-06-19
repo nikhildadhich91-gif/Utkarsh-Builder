@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FadeUp } from './ui/FadeUp';
 import { ArrowRight, MapPin, Grid, Layers } from 'lucide-react';
+import { Magnet } from './ui/Magnet';
 
 export const LandmarkDevelopments: React.FC = () => {
   return (
@@ -13,21 +14,25 @@ export const LandmarkDevelopments: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 lg:items-stretch">
           
           {/* Left Side: Large Image with parallax reveal styled card (lg:col-span-6) */}
-          <div className="lg:col-span-6 flex flex-col">
-            <FadeUp delay={0.1} y={50} className="relative rounded-3xl overflow-hidden shadow-2xl border border-black/5 aspect-[4/3] lg:aspect-auto lg:h-full group bg-white flex-1 flex flex-col">
-              {/* Premium image representing a luxury real estate community asset */}
-              <img 
-                src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85" 
-                alt="Landmark Development Community" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 flex-1"
-                loading="lazy"
-              />
-              
-              {/* Location Tag */}
-              <div className="absolute top-6 left-6 bg-black/60 text-white backdrop-blur-md px-4 py-2 rounded-full text-xs font-medium tracking-wide flex items-center gap-1.5 shadow-md">
-                <MapPin className="h-3.5 w-3.5 text-[#C92C15]" />
-                <span>Prime Areas in Jaipur</span>
-              </div>
+          <div className="lg:col-span-6 flex flex-col justify-center">
+            <FadeUp delay={0.1} y={50} className="w-full">
+              <Magnet>
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-black/5 aspect-[4/3] w-full group bg-white flex flex-col">
+                  {/* Premium image representing a luxury real estate community asset */}
+                  <img 
+                    src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85" 
+                    alt="Landmark Development Community" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 flex-1"
+                    loading="lazy"
+                  />
+                  
+                  {/* Location Tag */}
+                  <div className="absolute top-6 left-6 bg-black/60 text-white backdrop-blur-md px-4 py-2 rounded-full text-xs font-medium tracking-wide flex items-center gap-1.5 shadow-md">
+                    <MapPin className="h-3.5 w-3.5 text-[#C92C15]" />
+                    <span>Prime Areas in Jaipur</span>
+                  </div>
+                </div>
+              </Magnet>
             </FadeUp>
           </div>
 
@@ -35,7 +40,7 @@ export const LandmarkDevelopments: React.FC = () => {
           <div className="lg:col-span-6 text-left space-y-8 flex flex-col justify-center">
             <div className="space-y-4">
               <FadeUp delay={0.1} className="inline-block">
-                <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Land Development</span>
+                <span className="text-[#C92C15] text-xs font-extrabold tracking-[0.2em] uppercase">Land Development</span>
               </FadeUp>
               <FadeUp delay={0.2}>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight leading-tight" style={{ textWrap: 'balance' }}>
@@ -45,7 +50,7 @@ export const LandmarkDevelopments: React.FC = () => {
             </div>
 
             <FadeUp delay={0.3}>
-              <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
+              <p className="text-[#6F6F6F] font-light text-lg md:text-xl leading-relaxed">
                 We do more than just build single properties. We plan entire gated communities, residential areas, and commercial blocks in Jaipur. From finding the perfect plots of land to designing safe roads, green parks, and building spaces that bring neighbors together, we turn land into beautiful communities.
               </p>
             </FadeUp>

@@ -89,7 +89,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       <motion.section
         ref={ref as any}
         className={cn(
-          "relative flex w-full flex-col overflow-hidden bg-background text-foreground md:flex-row rounded-3xl border border-black/5 shadow-2xl min-h-[480px]",
+          "relative flex w-full flex-col overflow-hidden bg-white text-foreground md:flex-row rounded-3xl border border-black/5 shadow-2xl min-h-[480px]",
           className
         )}
         initial="hidden"
@@ -158,6 +158,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
           className="w-full min-h-[300px] bg-cover bg-center md:w-1/2 md:min-h-full lg:w-2/5"
           style={{ 
             backgroundImage: `url(${backgroundImage})`,
+            filter: 'drop-shadow(-12px 0px 16px rgba(0, 0, 0, 0.12))'
           }}
           initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
           animate={{ clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0% 100%)' }}
