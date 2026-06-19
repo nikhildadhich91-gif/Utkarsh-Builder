@@ -10,16 +10,16 @@ export const LandmarkDevelopments: React.FC = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#C92C15]/3 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 lg:items-stretch">
           
           {/* Left Side: Large Image with parallax reveal styled card (lg:col-span-6) */}
-          <div className="lg:col-span-6">
-            <FadeUp delay={0.1} y={50} className="relative rounded-3xl overflow-hidden shadow-2xl border border-black/5 aspect-[4/3] group bg-white">
+          <div className="lg:col-span-6 flex flex-col">
+            <FadeUp delay={0.1} y={50} className="relative rounded-3xl overflow-hidden shadow-2xl border border-black/5 aspect-[4/3] lg:aspect-auto lg:h-full group bg-white flex-1 flex flex-col">
               {/* Premium image representing a luxury real estate community asset */}
               <img 
                 src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85" 
                 alt="Landmark Development Community" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 flex-1"
                 loading="lazy"
               />
               
@@ -32,7 +32,7 @@ export const LandmarkDevelopments: React.FC = () => {
           </div>
 
           {/* Right Side: Content Block (lg:col-span-6) */}
-          <div className="lg:col-span-6 text-left space-y-8">
+          <div className="lg:col-span-6 text-left space-y-8 flex flex-col justify-center">
             <div className="space-y-4">
               <FadeUp delay={0.1} className="inline-block">
                 <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Landmark Developments</span>

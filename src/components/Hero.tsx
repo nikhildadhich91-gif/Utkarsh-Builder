@@ -8,7 +8,7 @@ export const Hero = () => {
   const videoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260503_144509_89e2d612-8af2-45c3-90f4-4831bc60715d.mp4';
 
   return (
-    <section id="home" className="hero bg-black text-white relative">
+    <section id="home" className="hero bg-[#FAF7F5] text-[#1B1B1B] relative">
       {/* Top Blur Overlay */}
       <div className="blur-overlay blur-overlay-top" />
 
@@ -26,15 +26,7 @@ export const Hero = () => {
           transform: 'translateY(-42%)',
         }}
       >
-        <div 
-          className="relative -ml-6 md:-ml-12 lg:-ml-16 pl-6 md:pl-12 lg:pl-16 pr-12 md:pr-24 py-10 md:py-14 w-full max-w-4xl bg-white/70 backdrop-blur-md flex flex-col justify-center text-left rounded-r-[32px] shadow-2xl"
-          style={{
-            maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%), linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%), linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%)',
-            maskComposite: 'intersect',
-            WebkitMaskComposite: 'source-in',
-          }}
-        >
+        <div className="relative -ml-6 md:-ml-12 lg:-ml-16 pl-6 md:pl-12 lg:pl-16 pr-6 md:pr-24 py-10 md:py-14 w-full max-w-4xl bg-white/70 backdrop-blur-md flex flex-col justify-center text-left rounded-r-[32px] shadow-2xl hero-overlay-mask">
           <AnimatedHeading
             text={"Building Spaces That\nDefine Generations."}
             className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal tracking-tight text-[#1B1B1B] mb-4 leading-[1.1]"

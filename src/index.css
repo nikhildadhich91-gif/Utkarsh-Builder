@@ -222,7 +222,6 @@ p {
   background-size: 50px 50px;
 }
 
-/* Radial Terracotta Blush */
 .inner-hero-banner-glow {
   position: absolute;
   width: 500px;
@@ -232,6 +231,23 @@ p {
   pointer-events: none;
   border-radius: 9999px;
   z-index: 1;
+}
+
+/* Responsive Hero Text Overlay Submerge Mask */
+.hero-overlay-mask {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+}
+
+@media (min-width: 768px) {
+  .hero-overlay-mask {
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%), 
+                linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%), 
+                        linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
 }
 
 

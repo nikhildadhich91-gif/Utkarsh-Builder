@@ -115,13 +115,16 @@ export const MarketPresence: React.FC = () => {
                 className="bg-white hover:bg-[#FAF7F5] p-8 rounded-3xl border border-black/5 flex flex-col justify-between text-left group hover:border-[#C92C15]/20 transition-all duration-300"
               >
                 <div>
-                  <div className="h-10 w-10 bg-[#C92C15]/5 rounded-lg flex items-center justify-center text-[#C92C15] mb-6">
-                    <Icon className="h-5 w-5" />
+                  {/* Top Row: Counter and Icon */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="text-3xl sm:text-4xl md:text-5xl font-light text-[#1B1B1B] tracking-tight leading-none">
+                      <AnimatedCounter value={stat.targetValue} suffix={stat.suffix} />
+                    </div>
+                    <div className="h-10 w-10 bg-[#C92C15]/5 rounded-lg flex items-center justify-center text-[#C92C15] shrink-0">
+                      <Icon className="h-5 w-5" />
+                    </div>
                   </div>
-                  <div className="text-4xl md:text-5xl font-light text-[#1B1B1B] tracking-tight leading-none mb-3">
-                    <AnimatedCounter value={stat.targetValue} suffix={stat.suffix} />
-                  </div>
-                  <h4 className="text-xs uppercase tracking-wider text-[#C92C15] font-bold mb-4">
+                  <h4 className="text-xs uppercase tracking-wider text-[#C92C15] font-bold mb-3">
                     {stat.label}
                   </h4>
                   <p className="text-xs text-[#6F6F6F] font-light leading-relaxed">
