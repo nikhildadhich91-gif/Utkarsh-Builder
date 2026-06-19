@@ -16,18 +16,18 @@ export const LandmarkDevelopments: React.FC = () => {
           {/* Left Side: Large Image with parallax reveal styled card (lg:col-span-6) */}
           <div className="lg:col-span-6 flex flex-col justify-center">
             <FadeUp delay={0.1} y={50} className="w-full">
-              <Magnet>
+              <Magnet className="w-full block">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-black/5 aspect-[4/3] w-full group bg-white flex flex-col">
                   {/* Premium image representing a luxury real estate community asset */}
                   <img 
                     src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85" 
                     alt="Landmark Development Community" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 flex-1"
+                    className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.22] flex-1"
                     loading="lazy"
                   />
                   
                   {/* Location Tag */}
-                  <div className="absolute top-6 left-6 bg-black/60 text-white backdrop-blur-md px-4 py-2 rounded-full text-xs font-medium tracking-wide flex items-center gap-1.5 shadow-md">
+                  <div className="absolute top-6 left-6 bg-black/60 text-white backdrop-blur-md px-4 py-2 rounded-full text-xs font-medium tracking-wide flex items-center gap-1.5 shadow-md z-10">
                     <MapPin className="h-3.5 w-3.5 text-[#C92C15]" />
                     <span>Prime Areas in Jaipur</span>
                   </div>

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FadeUp } from './ui/FadeUp';
-import { Award, CheckCircle, Grid, MapPin } from 'lucide-react';
 
 interface AnimatedCounterProps {
   value: number;
@@ -55,36 +54,24 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ value, suffix = '', d
 export const MarketPresence: React.FC = () => {
   const stats = [
     {
-      icon: Award,
       targetValue: 30,
       valueSuffix: '+',
-      unit: 'Years',
-      label: 'Decades of Trust',
-      desc: 'Building value, engineering safety, and delivering legacies in Jaipur since 1995.'
+      unit: 'Years'
     },
     {
-      icon: CheckCircle,
       targetValue: 100,
       valueSuffix: '+',
-      unit: 'Projects',
-      label: 'Delivered Assets',
-      desc: 'Successfully completed residential layouts, turnkey homes, and corporate centers.'
+      unit: 'Projects'
     },
     {
-      icon: Grid,
       targetValue: 4,
       valueSuffix: '',
-      unit: 'Key Assets',
-      label: 'Multiple Classes',
-      desc: 'Specialized divisions for Residential, Commercial, Mixed-Use, and Interior works.'
+      unit: 'Key Assets'
     },
     {
-      icon: MapPin,
       targetValue: 100,
       valueSuffix: '%',
-      unit: 'Focus',
-      label: 'Jaipur Expertise',
-      desc: 'Deep local knowledge of municipal JDA laws, building codes, and optimal sub-locations.'
+      unit: 'Focus'
     }
   ];
 
@@ -110,37 +97,19 @@ export const MarketPresence: React.FC = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, idx) => {
-            const Icon = stat.icon;
             return (
               <FadeUp
                 key={idx}
                 delay={idx * 0.1}
                 y={30}
-                className="bg-white hover:bg-[#FAF7F5] p-8 pt-10 rounded-3xl border border-black/5 flex flex-col justify-between text-left group hover:border-[#C92C15]/20 transition-all duration-300 relative"
+                className="bg-white p-10 rounded-3xl border border-black/5 flex flex-col items-center justify-center text-center group hover:border-[#C92C15]/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative"
               >
-                <div>
-                  {/* Top Right Icon Badge */}
-                  <div className="absolute top-8 right-8 h-10 w-10 bg-[#C92C15]/5 rounded-lg flex items-center justify-center text-[#C92C15] shrink-0 transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="h-5 w-5" />
-                  </div>
-
-                  {/* Vertical Stack: Number & Unit */}
-                  <div className="text-4xl md:text-5xl font-semibold text-[#1B1B1B] tracking-tight leading-none">
-                    <AnimatedCounter value={stat.targetValue} suffix={stat.valueSuffix} />
-                  </div>
-                  <div className="text-xs uppercase tracking-wider text-[#6F6F6F] font-bold mt-1.5 mb-5">
-                    {stat.unit}
-                  </div>
-
-                  {/* Divider */}
-                  <div className="w-12 h-[1px] bg-black/5 mb-4 group-hover:w-20 transition-all duration-300" />
-
-                  <h4 className="text-xs uppercase tracking-wider text-[#C92C15] font-bold mb-2">
-                    {stat.label}
-                  </h4>
-                  <p className="text-xs text-[#6F6F6F] font-light leading-relaxed">
-                    {stat.desc}
-                  </p>
+                {/* Vertical Stack: Number & Unit */}
+                <div className="text-5xl md:text-6xl font-semibold text-[#1B1B1B] tracking-tight leading-none group-hover:text-[#C92C15] transition-colors duration-300">
+                  <AnimatedCounter value={stat.targetValue} suffix={stat.valueSuffix} />
+                </div>
+                <div className="text-xs md:text-sm uppercase tracking-[0.2em] text-[#6F6F6F] font-bold mt-3">
+                  {stat.unit}
                 </div>
               </FadeUp>
             );

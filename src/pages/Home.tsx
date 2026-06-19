@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import TrustBar from '../components/TrustBar';
 import About from '../components/About';
-import LandmarkDevelopments from '../components/LandmarkDevelopments';
 import MarketPresence from '../components/MarketPresence';
 import ValueCreationTimeline from '../components/ValueCreationTimeline';
 import DevelopmentShowcase from '../components/DevelopmentShowcase';
-import FeaturedDevelopments from '../components/FeaturedDevelopments';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Process from '../components/Process';
 import Testimonials from '../components/Testimonials';
@@ -29,9 +27,6 @@ export const Home: React.FC = () => {
       {/* 3. About Section (Heritage summary with tab selectors) */}
       <About />
 
-      {/* 4. Landmark Developments (Creating Communities, Not Just Structures) */}
-      <LandmarkDevelopments />
-
       {/* 6. Market Presence Stats (Animated counters) */}
       <MarketPresence />
 
@@ -40,9 +35,6 @@ export const Home: React.FC = () => {
 
       {/* 8. Development Showcase (Sticky card stack core operations) */}
       <DevelopmentShowcase />
-
-      {/* 9. Featured Developments (Hover-zoom portfolio cards) */}
-      <FeaturedDevelopments />
 
       {/* 10. Custom Featured Video Section (Asme Section 3 customized for builder) */}
       <section className="py-24 bg-white text-[#2A2A2A] border-t border-black/5">
