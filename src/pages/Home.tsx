@@ -11,7 +11,6 @@ import DevelopmentShowcase from '../components/DevelopmentShowcase';
 import FeaturedDevelopments from '../components/FeaturedDevelopments';
 import Services from '../components/Services';
 import WhyChooseUs from '../components/WhyChooseUs';
-import Projects from '../components/Projects';
 import Process from '../components/Process';
 import Industries from '../components/Industries';
 import Testimonials from '../components/Testimonials';
@@ -163,9 +162,6 @@ export const Home: React.FC = () => {
 
       {/* 13. Why Choose Us Section */}
       <WhyChooseUs />
-
-      {/* 14. Stacking Projects Showcase */}
-      <Projects />
 
       {/* 15. Construction Process Timeline */}
       <Process />

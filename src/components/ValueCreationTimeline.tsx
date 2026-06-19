@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Link as LinkIcon, Zap, Map, Layout, Feather, HardHat, Award, TrendingUp } from 'lucide-react';
 import { FadeUp } from './ui/FadeUp';
+import LogoImg from '../assets/logo.png';
 
 // Inline simple UI sub-components to bypass shadcn dependency and guarantee compilation
 const Badge = ({ children, className }: { children: React.ReactNode; className?: string }) => (
@@ -131,11 +132,11 @@ export const ValueCreationTimeline: React.FC = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        setRadius(120);
+        setRadius(140);
       } else if (window.innerWidth < 1024) {
-        setRadius(160);
+        setRadius(190);
       } else {
-        setRadius(200);
+        setRadius(230);
       }
     };
     handleResize();
@@ -229,44 +230,80 @@ export const ValueCreationTimeline: React.FC = () => {
   };
 
   return (
-    <section id="timeline" className="py-24 bg-[#FAF7F5] relative overflow-hidden border-t border-black/5 flex flex-col items-center">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full relative z-10 flex flex-col items-center">
+    <section id="timeline" className="py-24 md:py-32 bg-[#FAF7F5] relative overflow-hidden border-t border-black/5">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full relative z-10">
         
-        {/* Header Block */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <FadeUp delay={0.1} className="mb-3 block">
-            <span className="text-[#C92C15] text-xs font-bold tracking-[0.25em] uppercase">Structured Progression</span>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
-              Value Creation Timeline
-            </h2>
-          </FadeUp>
-          <FadeUp delay={0.3} className="mt-4">
-            <p className="text-[#6F6F6F] font-light text-sm">
-              We design and manage the entire asset lifecycle, ensuring value multipliers at every phase. Click on nodes to explore.
-            </p>
-          </FadeUp>
-        </div>
+        {/* Two-Column Layout: Left Text + Right Orbital */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[600px]">
+          
+          {/* Left Column: Subtle Text Content */}
+          <div className="lg:col-span-4 text-left space-y-6">
+            <FadeUp delay={0.1}>
+              <span className="text-[#C92C15] text-xs font-bold tracking-[0.25em] uppercase block">Our Process</span>
+            </FadeUp>
+            <FadeUp delay={0.2}>
+              <h2 className="text-3xl md:text-4xl font-semibold text-[#1B1B1B] tracking-tight leading-tight">
+                From Vision<br />to Reality
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.3}>
+              <p className="text-[#6F6F6F] font-light text-sm leading-relaxed">
+                Every project follows our proven six-phase lifecycle. Click on any node to explore.
+              </p>
+            </FadeUp>
 
-        {/* Radial Orbital Animation Container */}
-        <div 
-          className="relative w-full max-w-4xl h-[420px] sm:h-[500px] md:h-[550px] flex items-center justify-center cursor-default overflow-visible"
-          ref={containerRef}
-          onClick={handleContainerClick}
-        >
-          <div
-            className="absolute w-full h-full flex items-center justify-center"
-            ref={orbitRef}
+            {/* Compact Phase List — just icon + title */}
+            <FadeUp delay={0.4} className="space-y-2 pt-2">
+              {timelineData.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div 
+                    key={item.id} 
+                    className={`flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-all duration-300 ${
+                      activeNodeId === item.id 
+                        ? 'bg-white shadow-md border border-[#C92C15]/10' 
+                        : 'hover:bg-white/60'
+                    }`}
+                    onClick={() => toggleItem(item.id)}
+                  >
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                      activeNodeId === item.id
+                        ? 'bg-[#C92C15] text-white'
+                        : 'bg-[#C92C15]/5 text-[#C92C15]'
+                    }`}>
+                      <Icon className="h-4 w-4" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <span className="text-[10px] text-[#C92C15] font-bold uppercase tracking-wider">{item.date}</span>
+                      <h4 className="text-sm font-semibold text-[#1B1B1B] leading-snug">{item.title}</h4>
+                    </div>
+                  </div>
+                );
+              })}
+            </FadeUp>
+          </div>
+
+          {/* Right Column: Orbital Animation — larger */}
+          <div className="lg:col-span-8 flex items-center justify-center">
+            <div 
+              className="relative w-full max-w-[600px] h-[500px] sm:h-[580px] md:h-[620px] flex items-center justify-center cursor-default overflow-visible"
+              ref={containerRef}
+              onClick={handleContainerClick}
+            >
+              <div
+                className="absolute w-full h-full flex items-center justify-center"
+                ref={orbitRef}
             style={{ perspective: "1000px" }}
           >
-            {/* Glowing Center Node representing Builder Nucleus */}
-            <div className="absolute w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#C92C15] via-[#D43B13] to-[#CF2C15] animate-pulse flex items-center justify-center z-10 shadow-lg shadow-[#C92C15]/30">
-              <div className="absolute w-20 h-20 rounded-full border border-[#C92C15]/20 animate-ping opacity-70"></div>
-              <div className="absolute w-24 h-24 rounded-full border border-[#C92C15]/10 animate-ping opacity-50" style={{ animationDelay: "0.5s" }}></div>
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center">
-                <Zap size={14} className="text-[#C92C15] animate-bounce" />
-              </div>
+            {/* Center Logo Circle */}
+            <div className="absolute w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white flex items-center justify-center z-10 shadow-xl border border-black/5">
+              <div className="absolute w-28 h-28 sm:w-32 sm:h-32 rounded-full border border-[#C92C15]/10 animate-ping opacity-40"></div>
+              <div className="absolute w-36 h-36 sm:w-40 sm:h-40 rounded-full border border-[#C92C15]/5 animate-ping opacity-20" style={{ animationDelay: "0.5s" }}></div>
+              <img 
+                src={LogoImg} 
+                alt="Utkarsh Builder" 
+                className="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded-full"
+              />
             </div>
 
             {/* Circular Orbit Path Line */}
@@ -318,7 +355,7 @@ export const ValueCreationTimeline: React.FC = () => {
                   {/* Core Node Circle */}
                   <div
                     className={`
-                      w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md
+                      w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-lg
                       ${
                         isExpanded
                           ? "bg-[#C92C15] text-white"
@@ -337,7 +374,7 @@ export const ValueCreationTimeline: React.FC = () => {
                       transition-all duration-300 transform hover:scale-110
                     `}
                   >
-                    <Icon size={16} />
+                    <Icon size={20} />
                   </div>
 
                   {/* Numerical Badge */}
@@ -348,7 +385,7 @@ export const ValueCreationTimeline: React.FC = () => {
                   {/* Category text label below node */}
                   <div
                     className={`
-                      absolute top-11 whitespace-nowrap
+                      absolute top-14 sm:top-16 whitespace-nowrap
                       text-[9px] font-bold tracking-wider uppercase
                       transition-all duration-300 pointer-events-none select-none
                       ${isExpanded ? "text-[#C92C15] scale-105" : "text-[#6F6F6F]"}
@@ -452,6 +489,9 @@ export const ValueCreationTimeline: React.FC = () => {
               );
             })}
           </div>
+        </div>
+          </div>
+
         </div>
 
       </div>

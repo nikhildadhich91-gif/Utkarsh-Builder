@@ -28,7 +28,7 @@ export const AboutPage: React.FC = () => {
     <div className="bg-[#FAF7F5] w-full min-h-screen text-[#2A2A2A] pb-24">
       
       {/* 1. Premium Animated Text-Rotating Header Banner */}
-      <div className="inner-hero-banner relative overflow-hidden py-24 md:py-32 flex items-center justify-center min-h-[400px]">
+      <div className="inner-hero-banner relative overflow-hidden pt-36 pb-24 md:pt-48 md:pb-32 flex flex-col items-center justify-center !h-auto min-h-[520px] md:min-h-[600px]">
         {/* Decorative radial glows */}
         <div className="inner-hero-banner-glow top-[-50px] right-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="inner-hero-banner-glow bottom-[-50px] left-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none" />
@@ -89,7 +89,7 @@ export const AboutPage: React.FC = () => {
       </div>
 
       {/* 2. Jack-Style About Section (min-h-screen, corner floating graphics, scroll-reveal paragraph) */}
-      <div id="philosophy" className="relative min-h-[80vh] flex flex-col justify-center items-center py-24 bg-white text-[#2A2A2A] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] z-10 -mt-10 overflow-hidden border-t border-black/5 shadow-inner">
+      <div id="philosophy" className="relative min-h-[80vh] flex flex-col justify-center items-center py-24 bg-white text-[#2A2A2A] border-t border-black/5 overflow-hidden">
         {/* Decorative corner absolute graphics */}
         {/* Top-left */}
         <div className="absolute top-[8%] left-[5%] hidden md:block">

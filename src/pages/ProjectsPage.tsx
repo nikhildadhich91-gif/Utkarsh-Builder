@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FadeUp } from '../components/ui/FadeUp';
 import Projects from '../components/Projects';
 import { Shield } from 'lucide-react';
+import ProjectBanner from '../components/ProjectBanner';
 
 
 export const ProjectsPage: React.FC = () => {
@@ -28,35 +29,13 @@ export const ProjectsPage: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#FAF7F5] w-full min-h-screen text-[#2A2A2A] pb-24">
+    <div className="bg-[#FAF7F5] w-full min-h-screen text-[#2A2A2A] pb-24 overflow-x-hidden">
       
-      {/* 1. Premium Header Banner */}
-      <div className="inner-hero-banner">
-        {/* Decorative radial glows */}
-        <div className="inner-hero-banner-glow top-[-50px] right-[-100px]" />
-        <div className="inner-hero-banner-glow bottom-[-50px] left-[-100px]" />
-        
-        <div className="relative z-10 max-w-4xl pt-16">
-          <FadeUp delay={0.1}>
-            <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] block mb-4">
-              Our Portfolio
-            </span>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <h1 className="text-[#1B1B1B] mb-6">
-              Crafted With Precision
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.3}>
-            <p className="text-[#6F6F6F] font-light text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              Explore our landmark projects across Jaipur, from modern offices to custom-built luxury villas.
-            </p>
-          </FadeUp>
-        </div>
-      </div>
+      {/* 1. Scroll-Animated Header Banner */}
+      <ProjectBanner />
 
       {/* 2. Project Category Filter Controls */}
-      <div className="py-12 bg-white border-b border-gray-100 relative z-10 -mt-10 rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px]">
+      <div className="py-12 bg-white border-b border-gray-100 relative z-10 -mt-36 md:-mt-48 rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-wrap justify-center items-center gap-4">
           {[
             { id: 'all', label: 'All Developments' },
