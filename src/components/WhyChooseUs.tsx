@@ -55,7 +55,7 @@ export const WhyChooseUs: React.FC = () => {
         {/* Title details */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <FadeUp delay={0.1} className="mb-3">
-            <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Why Utkarsh</span>
+            <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Why Choose Us</span>
           </FadeUp>
           <FadeUp delay={0.2}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">

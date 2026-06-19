@@ -39,7 +39,7 @@ export const ProjectsPage: React.FC = () => {
         <div className="relative z-10 max-w-4xl pt-16">
           <FadeUp delay={0.1}>
             <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] block mb-4">
-              Utkarsh Portfolio
+              Our Portfolio
             </span>
           </FadeUp>
           <FadeUp delay={0.2}>

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { motion } from 'framer-motion';
 import { FadeUp } from '../components/ui/FadeUp';
 import { AnimatedText } from '../components/ui/AnimatedText';
 import Founders from '../components/Founders';
@@ -6,36 +7,89 @@ import About from '../components/About';
 import { Compass, Layers, ShieldCheck, Ruler, Landmark, Leaf } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
+  const [titleNumber, setTitleNumber] = useState(0);
+  const titles = useMemo(
+    () => ["luxurious", "durable", "modern", "sustainable", "timeless"],
+    []
+  );
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (titleNumber === titles.length - 1) {
+        setTitleNumber(0);
+      } else {
+        setTitleNumber(titleNumber + 1);
+      }
+    }, 2000);
+    return () => clearTimeout(timeoutId);
+  }, [titleNumber, titles]);
+
   return (
     <div className="bg-[#FAF7F5] w-full min-h-screen text-[#2A2A2A] pb-24">
       
-      {/* 1. Premium Header Banner */}
-      <div className="inner-hero-banner">
+      {/* 1. Premium Animated Text-Rotating Header Banner */}
+      <div className="inner-hero-banner relative overflow-hidden py-24 md:py-32 flex items-center justify-center min-h-[400px]">
         {/* Decorative radial glows */}
-        <div className="inner-hero-banner-glow top-[-50px] right-[-100px]" />
-        <div className="inner-hero-banner-glow bottom-[-50px] left-[-100px]" />
+        <div className="inner-hero-banner-glow top-[-50px] right-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="inner-hero-banner-glow bottom-[-50px] left-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none" />
         
-        <div className="relative z-10 max-w-4xl pt-16">
+        <div className="relative z-10 max-w-4xl text-center px-6 space-y-8 flex flex-col items-center">
           <FadeUp delay={0.1}>
-            <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] block mb-4">
-              Utkarsh Legacy
+            <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] bg-[#C92C15]/5 px-4 py-1.5 rounded-full inline-block">
+              Our Legacy
             </span>
           </FadeUp>
-          <FadeUp delay={0.2}>
-            <h1 className="text-[#1B1B1B] mb-6">
-              Building Trust Since 1995
+          
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-6xl font-light text-[#1B1B1B] tracking-tight leading-tight max-w-3xl mx-auto flex flex-wrap justify-center items-center gap-x-3 gap-y-2">
+              <span>We build spaces that are</span>
+              <span className="relative inline-block font-semibold text-[#C92C15] min-w-[200px] text-center md:text-left h-[1.2em]">
+                {titles.map((title, index) => (
+                  <motion.span
+                    key={index}
+                    className="absolute inset-0 flex justify-center md:justify-start items-center whitespace-nowrap"
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={
+                      titleNumber === index
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: 0, y: -15 }
+                    }
+                    transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                  >
+                    {title}
+                  </motion.span>
+                ))}
+              </span>
             </h1>
-          </FadeUp>
-          <FadeUp delay={0.3}>
-            <p className="text-[#6F6F6F] font-light text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              A heritage of craftsmanship, structural safety, and transparent client communication in every project.
-            </p>
+
+            <FadeUp delay={0.3}>
+              <p className="text-[#6F6F6F] font-light text-base md:text-lg max-w-2xl mx-auto leading-relaxed pt-2">
+                A heritage of craftsmanship, structural safety, and transparent client communication in every project since 1995.
+              </p>
+            </FadeUp>
+          </div>
+
+          <FadeUp delay={0.4} className="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a 
+              href="#philosophy"
+              className="px-8 py-3.5 bg-[#C92C15] text-white hover:bg-[#D43B13] rounded-xl text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] cursor-pointer inline-flex items-center gap-2"
+            >
+              <span>Our Philosophy</span>
+              <span className="text-lg">↓</span>
+            </a>
+            <a 
+              href="#contact"
+              className="px-8 py-3.5 bg-white text-[#2A2A2A] hover:bg-gray-50 border border-black/10 rounded-xl text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.02] active:scale-[0.98] cursor-pointer inline-flex items-center gap-2"
+            >
+              <span>Contact Us</span>
+              <span className="text-lg">→</span>
+            </a>
           </FadeUp>
         </div>
       </div>
 
       {/* 2. Jack-Style About Section (min-h-screen, corner floating graphics, scroll-reveal paragraph) */}
-      <div className="relative min-h-[80vh] flex flex-col justify-center items-center py-24 bg-white text-[#2A2A2A] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] z-10 -mt-10 overflow-hidden border-t border-black/5 shadow-inner">
+      <div id="philosophy" className="relative min-h-[80vh] flex flex-col justify-center items-center py-24 bg-white text-[#2A2A2A] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] z-10 -mt-10 overflow-hidden border-t border-black/5 shadow-inner">
         {/* Decorative corner absolute graphics */}
         {/* Top-left */}
         <div className="absolute top-[8%] left-[5%] hidden md:block">

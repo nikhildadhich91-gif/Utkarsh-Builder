@@ -16,6 +16,7 @@ import Process from '../components/Process';
 import Industries from '../components/Industries';
 import Testimonials from '../components/Testimonials';
 import Founders from '../components/Founders';
+import ShuffleHero from '../components/ShuffleHero';
 import Contact from '../components/Contact';
 import { FadeUp } from '../components/ui/FadeUp';
 import { StaggerContainer } from '../components/ui/StaggerContainer';
@@ -178,7 +179,10 @@ export const Home: React.FC = () => {
       {/* 18. Founders Profiles */}
       <Founders />
 
-      {/* 19. Contact Form */}
+      {/* 19. Shuffle Image Gallery Grid */}
+      <ShuffleHero />
+
+      {/* 20. Contact Form */}
       <Contact />
     </main>
   );
