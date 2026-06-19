@@ -250,4 +250,18 @@ p {
   }
 }
 
+/* Global brand overrides */
+span[class*="text-[#C92C15]"][class*="uppercase"] {
+  font-weight: 800 !important;
+}
+
+p[class*="text-[#6F6F6F]"]:not([class*="text-xxs"]):not([class*="text-xs"]):not([class*="text-sm"]) {
+  font-size: 1.125rem !important; /* ~18px */
+}
+@media (min-width: 768px) {
+  p[class*="text-[#6F6F6F]"]:not([class*="text-xxs"]):not([class*="text-xs"]):not([class*="text-sm"]) {
+    font-size: 1.25rem !important; /* ~20px */
+  }
+}
+
 
