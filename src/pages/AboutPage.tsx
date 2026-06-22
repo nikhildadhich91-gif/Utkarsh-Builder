@@ -41,6 +41,7 @@ export const AboutPage: React.FC = () => {
           playsInline
           preload="auto"
           className="absolute top-[72px] md:top-[88px] right-[-50px] md:right-[-100px] w-[500px] md:w-[800px] h-auto pointer-events-none z-20 mix-blend-multiply filter contrast-[1.1] brightness-[1.05]"
+          style={{ transform: 'scale(7)' }}
         >
           <source src={HookWebm} type="video/webm" />
           <source src={HookVideo} type="video/mp4" />

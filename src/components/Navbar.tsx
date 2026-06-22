@@ -49,16 +49,16 @@ export const Navbar = () => {
               isScrolled || isMenuOpen ? 'bg-black/60 shadow-lg backdrop-blur-md border border-white/10' : 'bg-black/25'
             }`}
           >
-            {/* Left: Logo Badge */}
             <Link 
               to="/" 
               onClick={() => setIsMenuOpen(false)}
-              className="flex items-center justify-center cursor-pointer bg-white px-2 py-1 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md"
+              className="flex items-center justify-center cursor-pointer bg-white px-2 py-1 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md overflow-hidden"
             >
               <img 
                 src={LogoImg} 
                 alt="Utkarsh Builder Logo" 
                 className="h-[40px] md:h-[48px] lg:h-[52px] w-auto object-contain transition-all duration-300"
+                style={{ transform: 'scale(7)' }}
               />
             </Link>
 

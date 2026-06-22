@@ -22,3 +22,19 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Temporary optimization scripts
+optimize-*.js
+optimize-*.cjs
+compress-*.js
+compress-*.cjs
+src/optimize.cjs
+src/compress-video.cjs
+
+# Raw/Unoptimized Media assets
+src/assets/raw/
+src/assets/temp_check/
+*.raw.mp4
+*.raw.png
+*.raw.jpg
+*.raw.jpeg
