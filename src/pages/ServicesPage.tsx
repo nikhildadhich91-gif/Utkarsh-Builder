@@ -89,11 +89,11 @@ export const ServicesPage = () => {
     if (timeline === 'fast') timelineMultiplier = 1.08; // crash schedules require overtime wages
 
     const calculatedBase = area * baseRate * typeMultiplier * timelineMultiplier;
-    
+
     // Project management overhead (usually 10-15%)
     const pmo = Math.round(calculatedBase * 0.12);
     const total = Math.round(calculatedBase + pmo);
-    
+
     // Provide a premium range
     const min = Math.round(total * 0.95);
     const max = Math.round(total * 1.05);
@@ -110,7 +110,7 @@ export const ServicesPage = () => {
 
   return (
     <div className="bg-[#FAF7F5] w-full min-h-screen text-[#2A2A2A] pb-24">
-      
+
       {/* 1. Premium Header Banner */}
       <div className="w-full pt-20">
         <HeroSection
@@ -138,7 +138,7 @@ export const ServicesPage = () => {
       {/* 2. Jack-Style Services Section (Vertical list, white bg) */}
       <div className="py-24 bg-white rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] relative z-10 -mt-10">
         <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16">
-          
+
           <div className="text-center mb-16 md:mb-24">
             <FadeUp delay={0.1} className="mb-3">
               <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">The Services</span>
@@ -170,11 +170,11 @@ export const ServicesPage = () => {
                   <h3 className="text-xl md:text-2xl font-semibold text-[#1B1B1B] tracking-tight group-hover:text-[#C92C15] transition-colors duration-300">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-base text-[#6F6F6F] font-light leading-relaxed">
                     {service.description}
                   </p>
-                  
+
                   <p className="text-sm text-[#6F6F6F]/80 font-light leading-relaxed border-l-2 border-[#C92C15]/30 pl-4 group-hover:border-[#C92C15] transition-all">
                     {service.extendedDetails}
                   </p>
@@ -189,7 +189,7 @@ export const ServicesPage = () => {
       {/* 3. Asme-Style Video Bento Grid */}
       <div className="py-24 bg-[#FAF7F5] text-[#1B1B1B] border-t border-black/5">
         <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
-          
+
           <div className="text-left max-w-3xl mb-16 space-y-4">
             <div>
               <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase block mb-3">Our Standards</span>
@@ -203,7 +203,7 @@ export const ServicesPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
+
             {/* Card 1: Residential */}
             <FadeUp delay={0.1} y={40} className="bg-white rounded-3xl overflow-hidden group border border-black/5 shadow-xl flex flex-col justify-between min-h-[420px] hover:shadow-2xl transition-all duration-300">
               <div className="relative h-60 w-full overflow-hidden">
@@ -281,7 +281,7 @@ export const ServicesPage = () => {
 
         {/* 2-Column Calculator Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden border border-black/5 shadow-2xl bg-white text-[#1B1B1B]">
-          
+
           {/* Left Form Column (7 spans) */}
           <div className="lg:col-span-7 p-8 md:p-12 space-y-8 bg-[#FAF7F5]/50 border-r border-black/5 text-left">
             <div className="space-y-2">
@@ -295,10 +295,10 @@ export const ServicesPage = () => {
                 <label className="text-sm font-semibold tracking-wider uppercase text-[#6F6F6F]">Plot / Construction Area</label>
                 <span className="text-lg font-bold text-[#C92C15]">{area.toLocaleString()} Sq. Ft.</span>
               </div>
-              <input 
-                type="range" 
-                min="1000" 
-                max="10000" 
+              <input
+                type="range"
+                min="1000"
+                max="10000"
                 step="250"
                 value={area}
                 onChange={(e) => setArea(Number(e.target.value))}
@@ -323,11 +323,10 @@ export const ServicesPage = () => {
                     key={item.id}
                     type="button"
                     onClick={() => setQuality(item.id as any)}
-                    className={`p-4 rounded-xl border text-left cursor-pointer transition-all duration-300 flex flex-col justify-between min-h-[90px] ${
-                      quality === item.id 
-                        ? 'border-[#C92C15] bg-[#C92C15]/10 text-[#C92C15]' 
+                    className={`p-4 rounded-xl border text-left cursor-pointer transition-all duration-300 flex flex-col justify-between min-h-[90px] ${quality === item.id
+                        ? 'border-[#C92C15] bg-[#C92C15]/10 text-[#C92C15]'
                         : 'border-black/10 bg-black/[0.01] hover:border-black/20 text-[#1B1B1B]'
-                    }`}
+                      }`}
                   >
                     <span className="text-xs font-semibold">{item.title}</span>
                     <span className={`text-xxs font-light mt-2 ${quality === item.id ? 'text-[#C92C15]' : 'text-[#6F6F6F]'}`}>
@@ -375,12 +374,12 @@ export const ServicesPage = () => {
           <div className="lg:col-span-5 p-8 md:p-12 bg-[#FAF7F5] text-[#1B1B1B] flex flex-col justify-between text-left relative">
             {/* Elegant architectural background pattern */}
             <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:20px_20px]" />
-            
+
             <div className="space-y-6 relative z-10 w-full">
               <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.2em] block">
                 Estimated Quote
               </span>
-              
+
               <div className="border-b border-[#1B1B1B]/10 pb-6">
                 <h4 className="text-xs text-[#6F6F6F] uppercase tracking-wider font-medium">Estimated Pricing Range</h4>
                 <p className="text-3xl md:text-4xl font-light text-[#C92C15] mt-2 tracking-tight">
@@ -411,8 +410,8 @@ export const ServicesPage = () => {
             </div>
 
             <div className="mt-12 relative z-10 w-full">
-              <a 
-                href="/contact" 
+              <a
+                href="/contact"
                 className="w-full bg-[#C92C15] text-white hover:bg-[#D43B13] transition-all duration-300 py-4 px-6 rounded-xl font-medium tracking-wide flex items-center justify-center gap-3 cursor-pointer shadow-lg active:scale-95 text-center text-sm uppercase"
               >
                 <Calculator className="h-4 w-4" />

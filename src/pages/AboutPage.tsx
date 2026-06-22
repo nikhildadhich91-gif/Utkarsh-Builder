@@ -28,20 +28,20 @@ export const AboutPage: React.FC = () => {
 
   return (
     <div className="bg-[#FAF7F5] w-full min-h-screen text-[#2A2A2A] pb-24">
-      
+
       {/* 1. Premium Animated Text-Rotating Header Banner */}
       <div className="inner-hero-banner relative overflow-hidden pt-36 pb-24 md:pt-48 md:pb-32 flex flex-col items-center justify-center !h-auto min-h-[520px] md:min-h-[600px]">
         {/* Decorative radial glows */}
         <div className="inner-hero-banner-glow top-[-50px] right-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="inner-hero-banner-glow bottom-[-50px] left-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none" />
-        
+
         <div className="relative z-10 max-w-4xl text-center px-6 space-y-8 flex flex-col items-center">
           <FadeUp delay={0.1}>
             <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] bg-[#C92C15]/5 px-4 py-1.5 rounded-full inline-block">
               Our Legacy
             </span>
           </FadeUp>
-          
+
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl font-light text-[#1B1B1B] tracking-tight leading-tight max-w-3xl mx-auto flex flex-wrap justify-center items-center gap-x-3 gap-y-2">
               <span>We build spaces that are</span>
@@ -72,14 +72,14 @@ export const AboutPage: React.FC = () => {
           </div>
 
           <FadeUp delay={0.4} className="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a 
+            <a
               href="#philosophy"
               className="px-8 py-3.5 bg-[#C92C15] text-white hover:bg-[#D43B13] rounded-xl text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] cursor-pointer inline-flex items-center gap-2"
             >
               <span>Our Philosophy</span>
               <span className="text-lg">↓</span>
             </a>
-            <a 
+            <a
               href="#contact"
               className="px-8 py-3.5 bg-white text-[#2A2A2A] hover:bg-gray-50 border border-black/10 rounded-xl text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.02] active:scale-[0.98] cursor-pointer inline-flex items-center gap-2"
             >
@@ -99,7 +99,7 @@ export const AboutPage: React.FC = () => {
             <Compass className="h-8 w-8" />
           </FadeUp>
         </div>
-        
+
         {/* Bottom-left */}
         <div className="absolute bottom-[10%] left-[8%] hidden md:block">
           <FadeUp delay={0.25} y={40} className="bg-white/50 border border-black/5 rounded-full p-6 text-[#C92C15] hover:scale-110 hover:border-[#C92C15]/30 hover:bg-white transition-all duration-300 shadow-md backdrop-blur-md">
@@ -125,7 +125,7 @@ export const AboutPage: React.FC = () => {
           <FadeUp delay={0.1}>
             <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em]">Our Philosophy</span>
           </FadeUp>
-          
+
           <FadeUp delay={0.2}>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#1B1B1B] mb-6">
               Precision Meets Passion
@@ -134,7 +134,7 @@ export const AboutPage: React.FC = () => {
 
           {/* Scroll reveal paragraph */}
           <div className="text-xl md:text-2xl lg:text-3xl text-[#2A2A2A] font-light leading-relaxed max-w-3xl mx-auto">
-            <AnimatedText 
+            <AnimatedText
               text="With over 30 years of experience in construction and real estate, we deliver outstanding quality with complete transparency. We manage your entire project from land purchase to keys handover, keeping your needs first."
             />
           </div>
@@ -159,7 +159,7 @@ export const AboutPage: React.FC = () => {
           </FadeUp>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
-            
+
             {/* Left Column: Aspect 4/3 Video */}
             <FadeUp delay={0.2} x={-40} className="rounded-3xl overflow-hidden aspect-[4/3] bg-gray-100 shadow-2xl border border-black/5">
               <video
@@ -174,7 +174,7 @@ export const AboutPage: React.FC = () => {
 
             {/* Right Column: Narrative Blocks */}
             <StaggerContainer staggerChildren={0.2} className="space-y-10 text-left">
-              
+
               {/* Block 1 */}
               <FadeUp delay={0.3} x={40} className="space-y-4">
                 <div className="flex items-center gap-2 text-[#6F6F6F]">
@@ -210,7 +210,7 @@ export const AboutPage: React.FC = () => {
       <section className="py-24 bg-white border-t border-black/5 relative z-10">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
+
             {/* Left: Text detail */}
             <div className="lg:col-span-5 text-left space-y-6">
               <FadeUp delay={0.1}>

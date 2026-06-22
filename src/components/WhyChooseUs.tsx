@@ -51,7 +51,7 @@ export const WhyChooseUs: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-        
+
         {/* Title details */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <FadeUp delay={0.1} className="mb-3">

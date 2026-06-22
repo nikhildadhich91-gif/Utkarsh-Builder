@@ -27,8 +27,8 @@ export const TrustBar: React.FC = () => {
         {marqueeItems.map((item, index) => {
           const Icon = item.icon;
           return (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="flex items-center gap-3 px-8 text-[#2A2A2A] uppercase tracking-wider text-xs md:text-sm font-semibold select-none whitespace-nowrap"
             >
               <Icon className="h-4 w-4 text-[#C92C15]" />

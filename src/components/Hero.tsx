@@ -22,7 +22,7 @@ export const Hero = () => {
       <div className="h-24 w-full relative z-20 hidden md:block" />
 
       {/* ================= DESKTOP LAYOUT (md and up) ================= */}
-      <div 
+      <div
         className="hidden md:block absolute left-0 right-0 z-20 px-12 lg:px-16 text-left"
         style={{
           top: '42%',
@@ -32,7 +32,7 @@ export const Hero = () => {
         <div className="relative -ml-12 lg:-ml-16 pl-12 lg:pl-16 pr-24 py-10 md:py-14 w-full max-w-4xl flex flex-col justify-center text-left rounded-r-[32px]">
           {/* Fading Glass Card Background */}
           <div className="absolute inset-0 bg-white/70 backdrop-blur-md rounded-r-[32px] shadow-2xl hero-overlay-mask pointer-events-none z-0" />
-          
+
           <div className="relative z-10 w-full flex flex-col justify-center">
             <AnimatedHeading
               text={"Building Spaces\nThat Define Generations."}

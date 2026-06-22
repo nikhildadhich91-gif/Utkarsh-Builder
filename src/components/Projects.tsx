@@ -93,11 +93,11 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, progress, total }) => {
   const targetScale = 1 - (total - 1 - index) * 0.03;
-  
+
   // Custom scroll transform to scale down each card slightly as we scroll past it
   const scale = useTransform(
-    progress, 
-    [index / total, (index + 1) / total], 
+    progress,
+    [index / total, (index + 1) / total],
     [1, targetScale]
   );
 
@@ -122,8 +122,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, progress, tot
               </h3>
             </div>
           </div>
-          
-          <button 
+
+          <button
             className="flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
           >
             <span>View Project</span>
@@ -138,21 +138,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, progress, tot
 
         {/* Bottom Row: Image Grid (Left 40% two stacked, Right 60% one tall) */}
         <div className="grid grid-cols-1 md:grid-cols-10 gap-4 md:gap-6">
-          
+
           {/* Left Column (40% width = 4 grid spans) */}
           <div className="md:col-span-4 flex flex-col gap-4 md:gap-6">
             <div className="rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[140px] md:h-[180px] lg:h-[220px]">
-              <img 
-                src={project.images.col1_1} 
-                alt={`${project.name} detail`} 
+              <img
+                src={project.images.col1_1}
+                alt={`${project.name} detail`}
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 loading="lazy"
               />
             </div>
             <div className="rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[160px] md:h-[220px] lg:h-[280px]">
-              <img 
-                src={project.images.col1_2} 
-                alt={`${project.name} detail view`} 
+              <img
+                src={project.images.col1_2}
+                alt={`${project.name} detail view`}
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 loading="lazy"
               />
@@ -161,9 +161,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, progress, tot
 
           {/* Right Column (60% width = 6 grid spans) */}
           <div className="md:col-span-6 rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[316px] md:h-[416px] lg:h-[526px]">
-            <img 
-              src={project.images.col2} 
-              alt={`${project.name} facade view`} 
+            <img
+              src={project.images.col2}
+              alt={`${project.name} facade view`}
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               loading="lazy"
             />
@@ -182,7 +182,7 @@ interface ProjectsProps {
 
 export const Projects: React.FC<ProjectsProps> = ({ filter = 'all' }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   // Track scroll position of the entire projects section
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -194,13 +194,13 @@ export const Projects: React.FC<ProjectsProps> = ({ filter = 'all' }) => {
     : projectsList.filter(p => p.tag === filter);
 
   return (
-    <section 
-      id="projects" 
+    <section
+      id="projects"
       ref={containerRef}
       className="relative bg-[#FAF7F5] py-24 md:py-32 overflow-visible"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-        
+
         {/* Section Heading */}
         <div className="text-left mb-16 md:mb-24">
           <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase block mb-3">

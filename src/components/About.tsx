@@ -19,7 +19,7 @@ export const About: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+
           {/* Left Side: Image display (5 cols) */}
           <div className="lg:col-span-5 flex justify-center">
             <FadeUp delay={0.1} y={40} className="w-full flex justify-center">
@@ -33,7 +33,7 @@ export const About: React.FC = () => {
                   />
                   {/* Absolute subtle outline overlay */}
                   <div className="absolute inset-4 border border-black/5 pointer-events-none rounded-xl" />
-                  
+
                   {/* Floating brand badge */}
                   <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md px-6 py-4 rounded-xl border border-black/5 flex items-center gap-3">
                     <Award className="h-8 w-8 text-[#C92C15] shrink-0" />
@@ -77,11 +77,10 @@ export const About: React.FC = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as any)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-all duration-300 cursor-pointer ${
-                      activeTab === tab.id
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-all duration-300 cursor-pointer ${activeTab === tab.id
                         ? 'bg-[#C92C15] text-white shadow-md'
                         : 'text-[#6F6F6F] hover:text-[#C92C15] hover:bg-black/5'
-                    }`}
+                      }`}
                   >
                     <Icon className="h-4 w-4" />
                     <span className="font-medium">{tab.label}</span>

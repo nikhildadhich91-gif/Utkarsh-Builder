@@ -54,7 +54,7 @@ export const DevelopmentShowcase: React.FC = () => {
       className="relative bg-[#FAF7F5] py-24 md:py-32 overflow-visible border-t border-black/5"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-        
+
         {/* Section Heading */}
         <div className="text-left mb-16 md:mb-20">
           <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase block mb-3">
@@ -70,7 +70,7 @@ export const DevelopmentShowcase: React.FC = () => {
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-          
+
           {/* Card 1: Residential Development (spans 2 columns on lg) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -81,7 +81,7 @@ export const DevelopmentShowcase: React.FC = () => {
           >
             {/* Liquid glass shimmer overlay */}
             <div className="absolute inset-0 w-full h-full bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none z-10" />
-            
+
             {/* Content block */}
             <div className="p-6 md:p-8 flex flex-col justify-between flex-1 space-y-4">
               <div className="space-y-3">
@@ -93,7 +93,7 @@ export const DevelopmentShowcase: React.FC = () => {
                     <Home className="h-5 w-5" />
                   </div>
                 </div>
-                
+
                 <div className="space-y-1">
                   <span className="text-[10px] uppercase tracking-wider text-[#6F6F6F] font-bold block">
                     {items[0].subtitle}

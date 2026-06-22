@@ -54,7 +54,7 @@ export const Home: React.FC = () => {
 
             {/* Bottom Overlay Content */}
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 z-10">
-              
+
               {/* Left Approach Card */}
               <div className="liquid-glass border border-white/20 p-6 md:p-8 rounded-2xl max-w-md text-left">
                 <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.2em] block mb-2">
@@ -66,7 +66,7 @@ export const Home: React.FC = () => {
               </div>
 
               {/* Right Explore Button */}
-              <Link 
+              <Link
                 to="/services"
                 className="bg-white text-black hover:bg-gray-100 px-8 py-3.5 rounded-full text-sm font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-lg hover:scale-105 active:scale-95 duration-300"
               >

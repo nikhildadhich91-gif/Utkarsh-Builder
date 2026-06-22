@@ -16,16 +16,16 @@ export const Footer = () => {
 
   return (
     <footer className="bg-[#FAF7F5] text-[#2A2A2A] pt-16 pb-8 border-t border-black/5 relative overflow-hidden">
-      
+
       {/* Footer Top Content */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 mb-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-          
+
           {/* Col 1: Logo & Tagline (5 spans) */}
           <div className="md:col-span-5 text-left space-y-6">
-            <img 
-              src={LogoImg} 
-              alt="Utkarsh Builder Logo" 
+            <img
+              src={LogoImg}
+              alt="Utkarsh Builder Logo"
               className="h-12 w-auto object-contain brightness-100"
             />
             <p className="text-[#6F6F6F] font-light text-sm leading-relaxed max-w-sm">
@@ -47,7 +47,7 @@ export const Footer = () => {
                 { id: 'contact', label: 'Contact' },
               ].map((link) => (
                 <li key={link.id}>
-                  <button 
+                  <button
                     onClick={() => handleScrollToSection(link.id)}
                     className="hover:text-[#C92C15] transition-colors cursor-pointer"
                   >
@@ -78,7 +78,7 @@ export const Footer = () => {
       {/* Footer Bottom Bar */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-8 border-t border-black/5">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-          
+
           {/* Legal / Copyright */}
           <div className="text-left text-xs text-[#6F6F6F] font-light space-y-1">
             <p>&copy; 2025 Utkarsh Builder. All rights reserved.</p>

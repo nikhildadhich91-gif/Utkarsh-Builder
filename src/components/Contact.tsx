@@ -30,23 +30,23 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
 
   const formContent = (
     <form onSubmit={handleSubmit} className="space-y-6">
-      
+
       {/* Row 1: Name & Phone */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {/* Name */}
         <div className="relative">
-          <input 
-            type="text" 
-            id="name" 
+          <input
+            type="text"
+            id="name"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
             required
-            placeholder=" " 
+            placeholder=" "
             className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors"
           />
-          <label 
-            htmlFor="name" 
+          <label
+            htmlFor="name"
             className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
           >
             Full Name *
@@ -55,18 +55,18 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
 
         {/* Phone */}
         <div className="relative">
-          <input 
-            type="tel" 
-            id="phone" 
+          <input
+            type="tel"
+            id="phone"
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
             required
-            placeholder=" " 
+            placeholder=" "
             className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors"
           />
-          <label 
-            htmlFor="phone" 
+          <label
+            htmlFor="phone"
             className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
           >
             Phone Number *
@@ -78,18 +78,18 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {/* Email */}
         <div className="relative">
-          <input 
-            type="email" 
-            id="email" 
+          <input
+            type="email"
+            id="email"
             name="email"
             value={formData.email}
             onChange={handleInputChange}
             required
-            placeholder=" " 
+            placeholder=" "
             className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors"
           />
-          <label 
-            htmlFor="email" 
+          <label
+            htmlFor="email"
             className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
           >
             Email Address *
@@ -98,8 +98,8 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
 
         {/* Project Type */}
         <div className="relative">
-          <select 
-            id="projectType" 
+          <select
+            id="projectType"
             name="projectType"
             value={formData.projectType}
             onChange={handleInputChange}
@@ -124,17 +124,17 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {/* Property Size */}
         <div className="relative">
-          <input 
-            type="text" 
-            id="propertySize" 
+          <input
+            type="text"
+            id="propertySize"
             name="propertySize"
             value={formData.propertySize}
             onChange={handleInputChange}
-            placeholder=" " 
+            placeholder=" "
             className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors"
           />
-          <label 
-            htmlFor="propertySize" 
+          <label
+            htmlFor="propertySize"
             className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
           >
             Property / Plot Size (e.g., 2500 sq.ft.)
@@ -143,8 +143,8 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
 
         {/* Construction Timeline */}
         <div className="relative">
-          <select 
-            id="timeline" 
+          <select
+            id="timeline"
             name="timeline"
             value={formData.timeline}
             onChange={handleInputChange}
@@ -165,18 +165,18 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
 
       {/* Row 4: Plot Address */}
       <div className="relative">
-        <input 
-          type="text" 
-          id="address" 
+        <input
+          type="text"
+          id="address"
           name="address"
           value={formData.address}
           onChange={handleInputChange}
           required
-          placeholder=" " 
+          placeholder=" "
           className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors"
         />
-        <label 
-          htmlFor="address" 
+        <label
+          htmlFor="address"
           className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
         >
           Plot Address / Location *
@@ -185,17 +185,17 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
 
       {/* Row 5: Message */}
       <div className="relative">
-        <textarea 
-          id="message" 
+        <textarea
+          id="message"
           name="message"
           value={formData.message}
           onChange={handleInputChange}
           rows={3}
-          placeholder=" " 
+          placeholder=" "
           className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors resize-none"
         />
-        <label 
-          htmlFor="message" 
+        <label
+          htmlFor="message"
           className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
         >
           Tell us more about your vision...
@@ -231,7 +231,7 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
+
           {/* Left Side: Contact Information & Heading (5 cols) */}
           <div className="lg:col-span-5 text-left flex flex-col justify-between h-full">
             <div>

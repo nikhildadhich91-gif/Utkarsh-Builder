@@ -37,13 +37,13 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div className="bg-[#FAF7F5] w-full min-h-screen text-[#2A2A2A] pb-24">
-      
+
       {/* 1. Premium Header Banner */}
       <div className="inner-hero-banner">
         {/* Decorative radial glows */}
         <div className="inner-hero-banner-glow top-[-50px] right-[-100px]" />
         <div className="inner-hero-banner-glow bottom-[-50px] left-[-100px]" />
-        
+
         <div className="relative z-10 max-w-4xl pt-16">
           <FadeUp delay={0.1}>
             <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] block mb-4">
@@ -66,15 +66,15 @@ export const ContactPage: React.FC = () => {
       {/* 2. Content Layout: Contact form + Max Reed styled Reach Me card */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10 -mt-10 rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] bg-white pt-16 border-t border-gray-100 shadow-sm">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          
+
           {/* Left Column: Reach Me Widget (Max Reed Style) - 4 spans */}
           <div className="lg:col-span-4 text-left space-y-6">
-            
+
             {/* Direct Contact Card */}
             <FadeUp delay={0.1} y={30} className="bg-white text-[#1B1B1B] p-8 rounded-3xl border border-black/5 shadow-xl relative overflow-hidden group">
               {/* Corner action button */}
               <div className="absolute top-6 right-6">
-                <a 
+                <a
                   href="mailto:nowalutkarsh@gmail.com"
                   className="h-11 w-11 rounded-full bg-black/5 hover:bg-[#C92C15] hover:text-white transition-all duration-300 flex items-center justify-center text-[#1B1B1B] cursor-pointer shadow-md"
                 >
@@ -86,7 +86,7 @@ export const ContactPage: React.FC = () => {
                 <span className="text-xs uppercase tracking-[0.22em] text-[#C92C15] font-bold block">
                   Reach Me
                 </span>
-                
+
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Mail className="h-4 w-4 text-[#6F6F6F] shrink-0" />
@@ -150,8 +150,8 @@ export const ContactPage: React.FC = () => {
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
-            <FadeUp 
-              key={idx} 
+            <FadeUp
+              key={idx}
               delay={idx * 0.08}
               y={20}
               className="bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden"
@@ -165,15 +165,13 @@ export const ContactPage: React.FC = () => {
                   <HelpCircle className="h-4 w-4 text-[#C92C15] shrink-0" />
                   <span className="font-semibold text-sm md:text-base text-[#1B1B1B]">{faq.question}</span>
                 </div>
-                <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform duration-300 ${
-                  openFaq === idx ? 'transform rotate-180 text-[#C92C15]' : ''
-                }`} />
+                <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform duration-300 ${openFaq === idx ? 'transform rotate-180 text-[#C92C15]' : ''
+                  }`} />
               </button>
-              
-              <div 
-                className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                  openFaq === idx ? 'max-h-[200px] border-t border-gray-100' : 'max-h-0'
-                }`}
+
+              <div
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${openFaq === idx ? 'max-h-[200px] border-t border-gray-100' : 'max-h-0'
+                  }`}
               >
                 <p className="p-6 text-sm text-[#6F6F6F] font-light leading-relaxed text-left bg-gray-50/50">
                   {faq.answer}
