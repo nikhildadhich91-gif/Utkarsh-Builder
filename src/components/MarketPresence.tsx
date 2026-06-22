@@ -116,13 +116,18 @@ export const MarketPresence: React.FC = () => {
                 key={idx}
                 delay={idx * 0.1}
                 y={30}
-                className="bg-white p-10 rounded-3xl border border-black/5 flex flex-col items-center justify-center text-center group hover:border-[#C92C15]/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative"
+                className="bg-white px-6 py-12 rounded-3xl border border-black/5 flex flex-col items-center justify-center text-center group hover:border-[#C92C15]/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative"
               >
                 {/* Vertical Stack: Number & Unit */}
-                <div className="text-4xl xl:text-5xl font-semibold text-[#1B1B1B] tracking-tight leading-none group-hover:text-[#C92C15] transition-colors duration-300">
-                  <AnimatedCounter value={stat.targetValue} suffix={stat.valueSuffix} decimals={stat.decimals} />
+                <div className="flex items-baseline justify-center select-none">
+                  <span className="text-5xl md:text-6xl font-extrabold tracking-tighter text-[#1B1B1B] group-hover:text-[#C92C15] transition-colors duration-300">
+                    <AnimatedCounter value={stat.targetValue} decimals={stat.decimals} />
+                  </span>
+                  <span className="text-xl md:text-2xl font-bold ml-0.5 text-[#C92C15] select-none">
+                    {stat.valueSuffix}
+                  </span>
                 </div>
-                <div className="text-xs md:text-sm uppercase tracking-[0.2em] text-[#6F6F6F] font-bold mt-3">
+                <div className="text-xs uppercase tracking-[0.25em] text-[#8C8C8C] font-semibold mt-4">
                   {stat.unit}
                 </div>
               </FadeUp>

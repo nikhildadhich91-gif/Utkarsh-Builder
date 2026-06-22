@@ -38,7 +38,7 @@ export const AboutPage: React.FC = () => {
           loop
           muted
           playsInline
-          className="absolute top-[72px] md:top-[88px] left-[-50px] w-[500px] md:w-[800px] h-auto pointer-events-none z-20 mix-blend-multiply filter contrast-[1.1] brightness-[1.05]"
+          className="absolute top-[72px] md:top-[88px] right-[-50px] md:right-[-100px] w-[500px] md:w-[800px] h-auto pointer-events-none z-20 mix-blend-multiply filter contrast-[1.1] brightness-[1.05]"
           src={HookVideo}
         />
 
