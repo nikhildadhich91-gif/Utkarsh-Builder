@@ -8,6 +8,23 @@ import {
 import type { HTMLMotionProps, Variants } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 
+import msCol1_1 from "../assets/projects/ms-jewellers-col1-1.webp"
+import msCol1_2 from "../assets/projects/ms-jewellers-col1-2.webp"
+import msCol2 from "../assets/projects/ms-jewellers-col2.webp"
+
+import indieCol1_1 from "../assets/projects/indie-stitch-col1-1.webp"
+import indieCol1_2 from "../assets/projects/indie-stitch-col1-2.webp"
+import indieCol2 from "../assets/projects/indie-stitch-col2.webp"
+
+import kitchenCol1_1 from "../assets/projects/modular-kitchen-col1-1.webp"
+import kitchenCol1_2 from "../assets/projects/modular-kitchen-col1-2.webp"
+import kitchenCol2 from "../assets/projects/modular-kitchen-col2.webp"
+
+import hotelCol1_1 from "../assets/projects/hotel-reeve-inn-col1-1.webp"
+import hotelCol1_2 from "../assets/projects/hotel-reeve-inn-col1-2.webp"
+import hotelCol2 from "../assets/projects/hotel-reeve-inn-col2.webp"
+
+
 // Helper function to merge class names locally
 const cn = (...classes: (string | undefined | null | boolean)[]) => {
   return classes.filter(Boolean).join(" ")
@@ -207,93 +224,93 @@ interface GalleryItem {
 const column1Items: GalleryItem[] = [
   {
     id: "col1-1",
-    name: "Nextlevel Studio",
-    category: "Commercial Development",
+    name: "Hotel Reeve Inn",
+    category: "Commercial & Hospitality",
     location: "Jaipur, Rajasthan",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85"
+    image: hotelCol1_1
   },
   {
     id: "col1-2",
-    name: "Solaris Commercial Plaza",
-    category: "Corporate Office Complex",
+    name: "MS Jewellers Showroom",
+    category: "Commercial Showroom",
     location: "Jaipur, Rajasthan",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85"
+    image: msCol1_2
   },
   {
     id: "col1-3",
-    name: "Aura Luxury Residences",
-    category: "Bespoke Residential",
+    name: "Elegant Modular Kitchen",
+    category: "Residential Interiors",
     location: "Jaipur, Rajasthan",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85"
+    image: kitchenCol1_1
   },
   {
     id: "col1-4",
-    name: "Vedic Villa Resort",
-    category: "Bespoke Residential",
+    name: "Indie Stitch Boutique",
+    category: "Bespoke Boutique & Office",
     location: "Jaipur, Rajasthan",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+    image: indieCol2
   }
 ]
 
 const column2Items: GalleryItem[] = [
   {
     id: "col2-1",
-    name: "Aura Luxury Residences",
-    category: "Bespoke Residential",
+    name: "Indie Stitch Boutique",
+    category: "Bespoke Boutique & Office",
     location: "Jaipur, Rajasthan",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85"
+    image: indieCol1_1
   },
   {
     id: "col2-2",
-    name: "Nextlevel Studio",
-    category: "Commercial Development",
+    name: "Elegant Modular Kitchen",
+    category: "Residential Interiors",
     location: "Jaipur, Rajasthan",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85"
+    image: kitchenCol2
   },
   {
     id: "col2-3",
-    name: "Pink Square Showroom",
-    category: "Interior Design",
+    name: "MS Jewellers Showroom",
+    category: "Commercial Showroom",
     location: "Jaipur, Rajasthan",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85"
+    image: msCol1_1
   },
   {
     id: "col2-4",
-    name: "The Grand Meridian",
-    category: "Luxury Interiors",
+    name: "Hotel Reeve Inn",
+    category: "Commercial & Hospitality",
     location: "Jaipur, Rajasthan",
-    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80"
+    image: hotelCol2
   }
 ]
 
 const column3Items: GalleryItem[] = [
   {
     id: "col3-1",
-    name: "Solaris Commercial Plaza",
-    category: "Corporate Office Complex",
+    name: "MS Jewellers Showroom",
+    category: "Commercial Showroom",
     location: "Jaipur, Rajasthan",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85"
+    image: msCol2
   },
   {
     id: "col3-2",
-    name: "Landmark Gated Communities",
-    category: "Land Development & Planning",
-    location: "Jaipur Expansion Zone",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85"
+    name: "Hotel Reeve Inn",
+    category: "Commercial & Hospitality",
+    location: "Jaipur, Rajasthan",
+    image: hotelCol1_2
   },
   {
     id: "col3-3",
-    name: "Nextlevel Studio",
-    category: "Commercial Development",
+    name: "Indie Stitch Boutique",
+    category: "Bespoke Boutique & Office",
     location: "Jaipur, Rajasthan",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85"
+    image: indieCol1_2
   },
   {
     id: "col3-4",
-    name: "Skyview Heights",
-    category: "Commercial Development",
+    name: "Elegant Modular Kitchen",
+    category: "Residential Interiors",
     location: "Jaipur, Rajasthan",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+    image: kitchenCol1_2
   }
 ]
 

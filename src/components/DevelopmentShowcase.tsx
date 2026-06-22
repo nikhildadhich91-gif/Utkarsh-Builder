@@ -3,6 +3,10 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Building, Home, CheckSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import bedroomImg from '../assets/generated/bedroom.webp';
+import officeImg from '../assets/generated/office.webp';
+import wardrobeImg from '../assets/generated/wardrobe.webp';
+
 interface ShowcaseItem {
   number: string;
   title: string;
@@ -22,7 +26,7 @@ const items: ShowcaseItem[] = [
     icon: Home,
     desc: 'We design and build custom private homes and gated neighborhoods in Jaipur. Our focus is on spacious layouts, plenty of natural light, and premium quality styling to create perfect family homes.',
     highlights: ['Vastu Compliant', 'Strong Concrete Structures', 'Energy-Efficient Glass'],
-    image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
+    image: bedroomImg,
     color: '#C92C15'
   },
   {
@@ -32,7 +36,7 @@ const items: ShowcaseItem[] = [
     icon: Building,
     desc: "We build modern, energy-efficient offices and shopping spaces. Located in Jaipur's primary business hubs, these spaces are designed to support your business growth.",
     highlights: ['Prime Locations', 'Soundproof Windows', 'Flexible Office Layouts'],
-    image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85',
+    image: officeImg,
     color: '#1B1B1B'
   },
   {
@@ -42,7 +46,7 @@ const items: ShowcaseItem[] = [
     icon: CheckSquare,
     desc: 'We take care of everything—from soil testing and JDA approvals to architectural design, building, and final styling. You get a ready-to-move-in property with a complete structural warranty.',
     highlights: ['One Point of Contact', 'Clear Stage-Wise Billing', 'Guaranteed Timelines'],
-    image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85',
+    image: wardrobeImg,
     color: '#C92C15'
   }
 ];

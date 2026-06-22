@@ -251,36 +251,6 @@ export const ValueCreationTimeline: React.FC = () => {
                 Every project follows our proven six-phase lifecycle. Click on any node to explore.
               </p>
             </FadeUp>
-
-            {/* Compact Phase List — just icon + title */}
-            <FadeUp delay={0.4} className="space-y-2 pt-2">
-              {timelineData.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div 
-                    key={item.id} 
-                    className={`flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-all duration-300 ${
-                      activeNodeId === item.id 
-                        ? 'bg-white shadow-md border border-[#C92C15]/10' 
-                        : 'hover:bg-white/60'
-                    }`}
-                    onClick={() => toggleItem(item.id)}
-                  >
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-300 ${
-                      activeNodeId === item.id
-                        ? 'bg-[#C92C15] text-white'
-                        : 'bg-[#C92C15]/5 text-[#C92C15]'
-                    }`}>
-                      <Icon className="h-4 w-4" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <span className="text-[10px] text-[#C92C15] font-bold uppercase tracking-wider">{item.date}</span>
-                      <h4 className="text-sm font-semibold text-[#1B1B1B] leading-snug">{item.title}</h4>
-                    </div>
-                  </div>
-                );
-              })}
-            </FadeUp>
           </div>
 
           {/* Right Column: Orbital Animation — larger */}

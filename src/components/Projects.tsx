@@ -2,6 +2,22 @@ import React, { useRef } from 'react';
 import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
+import msJewellersCol1_1 from '../assets/projects/ms-jewellers-col1-1.webp';
+import msJewellersCol1_2 from '../assets/projects/ms-jewellers-col1-2.webp';
+import msJewellersCol2 from '../assets/projects/ms-jewellers-col2.webp';
+
+import indieStitchCol1_1 from '../assets/projects/indie-stitch-col1-1.webp';
+import indieStitchCol1_2 from '../assets/projects/indie-stitch-col1-2.webp';
+import indieStitchCol2 from '../assets/projects/indie-stitch-col2.webp';
+
+import modularKitchenCol1_1 from '../assets/projects/modular-kitchen-col1-1.webp';
+import modularKitchenCol1_2 from '../assets/projects/modular-kitchen-col1-2.webp';
+import modularKitchenCol2 from '../assets/projects/modular-kitchen-col2.webp';
+
+import hotelReeveInnCol1_1 from '../assets/projects/hotel-reeve-inn-col1-1.webp';
+import hotelReeveInnCol1_2 from '../assets/projects/hotel-reeve-inn-col1-2.webp';
+import hotelReeveInnCol2 from '../assets/projects/hotel-reeve-inn-col2.webp';
+
 interface ProjectData {
   number: string;
   name: string;
@@ -19,70 +35,58 @@ interface ProjectData {
 const projectsList: ProjectData[] = [
   {
     number: '01',
-    name: 'Nextlevel Studio',
-    category: 'Commercial Development',
+    name: 'MS Jewellers Showroom',
+    category: 'Commercial Showroom',
     location: 'Jaipur, Rajasthan',
-    description: 'A modern, high-concept corporate media studio blending acoustic perfection with contemporary design aesthetics.',
-    tag: 'development',
+    description: 'A high-concept jewelry showroom combining state-of-the-art security, custom-engineered display counters, and precise task lighting.',
+    tag: 'commercial',
     images: {
-      col1_1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85',
-      col1_2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85',
-      col2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85'
+      col1_1: msJewellersCol1_1,
+      col1_2: msJewellersCol1_2,
+      col2: msJewellersCol2
     }
   },
   {
     number: '02',
-    name: 'Aura Luxury Residences',
-    category: 'Bespoke Residential',
+    name: 'Indie Stitch Designer Boutique',
+    category: 'Bespoke Boutique & Office',
     location: 'Jaipur, Rajasthan',
-    description: 'A high-end private estate showcasing structural symmetry, customized concrete finishes, and state-of-the-art automation.',
-    tag: 'residential',
+    description: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing, and modern design aesthetics.',
+    tag: 'interiors',
     images: {
-      col1_1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
-      col1_2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85',
-      col2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85'
+      col1_1: indieStitchCol1_1,
+      col1_2: indieStitchCol1_2,
+      col2: indieStitchCol2
     }
   },
   {
     number: '03',
-    name: 'Solaris Commercial Plaza',
-    category: 'Corporate Office Complex',
+    name: 'Elegant Modular Kitchen',
+    category: 'Residential Interiors',
     location: 'Jaipur, Rajasthan',
-    description: 'An architectural marvel incorporating eco-friendly green workspaces, double-glazed glass facades, and modular layout zones.',
-    tag: 'commercial',
+    description: 'A fully customized modular kitchen showcasing gloss finishes, quartz countertops, high-capacity chimneys, and integrated storage solutions.',
+    tag: 'residential',
     images: {
-      col1_1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85',
-      col1_2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85',
-      col2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85'
+      col1_1: modularKitchenCol1_1,
+      col1_2: modularKitchenCol1_2,
+      col2: modularKitchenCol2
     }
   },
   {
     number: '04',
-    name: 'Pink Square Showroom',
-    category: 'Interior Design',
+    name: 'Hotel Reeve Inn',
+    category: 'Commercial & Hospitality',
     location: 'Jaipur, Rajasthan',
-    description: 'A heritage-inspired premium showroom redesign matching Jaipur\'s local aesthetic legacy with custom marble layouts and optimized display structures.',
-    tag: 'interiors',
-    images: {
-      col1_1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85',
-      col1_2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85',
-      col2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85'
-    }
-  },
-  {
-    number: '05',
-    name: 'Landmark Gated Communities',
-    category: 'Land Development & Planning',
-    location: 'Jaipur Expansion Zone',
-    description: 'Site feasibility analysis, plotting layouts, and central common facilities design for a luxury residential community corridor.',
+    description: 'A modern commercial hotel development showcasing structural concrete integrity, customized exterior finishes, and premium room layouts.',
     tag: 'development',
     images: {
-      col1_1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
-      col1_2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85',
-      col2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85'
+      col1_1: hotelReeveInnCol1_1,
+      col1_2: hotelReeveInnCol1_2,
+      col2: hotelReeveInnCol2
     }
   }
 ];
+
 
 interface ProjectCardProps {
   project: ProjectData;

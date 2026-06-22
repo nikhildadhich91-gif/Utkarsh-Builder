@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { FadeUp } from './ui/FadeUp';
 import { ArrowRight, MapPin, Grid, Layers } from 'lucide-react';
 import { Magnet } from './ui/Magnet';
+import balconyImg from '../assets/generated/balcony.webp';
+
 
 export const LandmarkDevelopments: React.FC = () => {
   return (
@@ -20,7 +22,7 @@ export const LandmarkDevelopments: React.FC = () => {
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-black/5 aspect-[4/3] w-full group bg-white flex flex-col">
                   {/* Premium image representing a luxury real estate community asset */}
                   <img 
-                    src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85" 
+                    src={balconyImg} 
                     alt="Landmark Development Community" 
                     className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.22] flex-1"
                     loading="lazy"

@@ -58,7 +58,6 @@ export const Navbar = () => {
                 src={LogoImg} 
                 alt="Utkarsh Builder Logo" 
                 className="h-[40px] md:h-[48px] lg:h-[52px] w-auto object-contain transition-all duration-300"
-                style={{ transform: 'scale(7)' }}
               />
             </Link>
 

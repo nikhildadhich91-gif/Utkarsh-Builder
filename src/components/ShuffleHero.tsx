@@ -64,71 +64,40 @@ const shuffle = (array: any[]) => {
   return array;
 };
 
+import bedroomImg from "../assets/generated/bedroom.webp";
+import receptionImg from "../assets/generated/reception.webp";
+import bathroomImg from "../assets/generated/bathroom.webp";
+import wardrobeImg from "../assets/generated/wardrobe.webp";
+import corridorImg from "../assets/generated/corridor.webp";
+import balconyImg from "../assets/generated/balcony.webp";
+import officeImg from "../assets/generated/office.webp";
+
+import msCol1_1 from "../assets/projects/ms-jewellers-col1-1.webp";
+import msCol2 from "../assets/projects/ms-jewellers-col2.webp";
+import indieCol1_1 from "../assets/projects/indie-stitch-col1-1.webp";
+import indieCol2 from "../assets/projects/indie-stitch-col2.webp";
+import kitchenCol1_1 from "../assets/projects/modular-kitchen-col1-1.webp";
+import kitchenCol2 from "../assets/projects/modular-kitchen-col2.webp";
+import hotelCol1_1 from "../assets/projects/hotel-reeve-inn-col1-1.webp";
+import hotelCol2 from "../assets/projects/hotel-reeve-inn-col2.webp";
+
 const squareData = [
-  {
-    id: 1,
-    src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 6,
-    src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 7,
-    src: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 8,
-    src: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 9,
-    src: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 10,
-    src: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 11,
-    src: "https://images.unsplash.com/photo-1527030280862-64139fbe04ca?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 12,
-    src: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 13,
-    src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 14,
-    src: "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 15,
-    src: "https://images.unsplash.com/photo-1502005229762-fc1b2b812ca5?auto=format&fit=crop&w=400&h=400&q=80",
-  },
-  {
-    id: 16,
-    src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=400&h=400&q=80",
-  },
+  { id: 1, src: bedroomImg },
+  { id: 2, src: receptionImg },
+  { id: 3, src: bathroomImg },
+  { id: 4, src: wardrobeImg },
+  { id: 5, src: corridorImg },
+  { id: 6, src: balconyImg },
+  { id: 7, src: officeImg },
+  { id: 8, src: msCol1_1 },
+  { id: 9, src: msCol2 },
+  { id: 10, src: indieCol1_1 },
+  { id: 11, src: indieCol2 },
+  { id: 12, src: kitchenCol1_1 },
+  { id: 13, src: kitchenCol2 },
+  { id: 14, src: hotelCol1_1 },
+  { id: 15, src: hotelCol2 },
+  { id: 16, src: bedroomImg }
 ];
 
 const generateSquares = () => {

@@ -7,6 +7,7 @@ import { PointerHighlight } from './ui/pointer-highlight';
 export const Hero = () => {
   const videoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260503_144509_89e2d612-8af2-45c3-90f4-4831bc60715d.mp4';
 
+
   return (
     <section id="home" className="hero bg-[#FAF7F5] relative h-screen w-full overflow-hidden">
       {/* Seamless Boomerang Video Background */}

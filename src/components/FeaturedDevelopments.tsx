@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { FadeUp } from './ui/FadeUp';
 import { ArrowUpRight } from 'lucide-react';
 
+import msJewellersImg from '../assets/projects/ms-jewellers-col1-1.webp';
+import hotelReeveInnImg from '../assets/projects/hotel-reeve-inn-col1-1.webp';
+import indieStitchImg from '../assets/projects/indie-stitch-col1-1.webp';
+
 interface DevelopmentCard {
   title: string;
   type: string;
@@ -15,30 +19,31 @@ interface DevelopmentCard {
 export const FeaturedDevelopments: React.FC = () => {
   const developments: DevelopmentCard[] = [
     {
-      title: 'Aura Luxury Estates',
-      type: 'Residential Development',
-      location: 'Jaipur Growth Corridor',
-      desc: 'Premium private residences designed for modern comfort, structural strength, and natural cooling.',
-      image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
-      link: '/projects?filter=residential'
+      title: 'Hotel Reeve Inn',
+      type: 'Commercial & Hospitality',
+      location: 'Jaipur, Rajasthan',
+      desc: 'A modern commercial hotel development showcasing structural concrete integrity, customized exterior finishes, and premium room layouts.',
+      image: hotelReeveInnImg,
+      link: '/projects?filter=development'
     },
     {
-      title: 'Solaris Innovation Center',
-      type: 'Commercial Development',
-      location: 'C-Scheme District, Jaipur',
-      desc: 'A modern, eco-friendly office complex featuring energy-efficient glass designs and spacious workspaces.',
-      image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85',
+      title: 'MS Jewellers Showroom',
+      type: 'Commercial Showroom',
+      location: 'Jaipur, Rajasthan',
+      desc: 'A high-concept jewelry showroom combining state-of-the-art security, custom-engineered display counters, and precise task lighting.',
+      image: msJewellersImg,
       link: '/projects?filter=commercial'
     },
     {
-      title: 'Nextlevel Corporate Plaza',
-      type: 'Mixed Use Development',
-      location: 'Raja Park Premium Hub',
-      desc: 'A premium mix of luxury shopping galleries, executive offices, and beautiful heritage-inspired design.',
-      image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85',
-      link: '/projects?filter=development'
+      title: 'Indie Stitch Designer Boutique',
+      type: 'Bespoke Boutique & Office',
+      location: 'Jaipur, Rajasthan',
+      desc: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing, and modern design aesthetics.',
+      image: indieStitchImg,
+      link: '/projects?filter=interiors'
     }
   ];
+
 
   return (
     <section id="featured-developments" className="py-24 md:py-32 bg-[#FAF7F5] relative overflow-hidden">
