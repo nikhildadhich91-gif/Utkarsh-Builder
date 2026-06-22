@@ -7,7 +7,7 @@ import Founders from '../components/Founders';
 import About from '../components/About';
 import { Compass, Layers, ShieldCheck, Ruler, Landmark, Leaf, Sparkles } from 'lucide-react';
 import { StaggerContainer } from '../components/ui/StaggerContainer';
-import BoomerangVideoBg from '../components/BoomerangVideoBg';
+import HookVideo from '../assets/Hook_going_down_metal_rod_202606221152.mp4';
 
 export const AboutPage: React.FC = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -16,8 +16,6 @@ export const AboutPage: React.FC = () => {
     []
   );
 
-  const bannerVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4';
-
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (titleNumber === titles.length - 1) {
@@ -25,7 +23,7 @@ export const AboutPage: React.FC = () => {
       } else {
         setTitleNumber(titleNumber + 1);
       }
-    }, 4000);
+    }, 4000); // slowed down to 4 seconds
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
 
@@ -34,13 +32,19 @@ export const AboutPage: React.FC = () => {
 
       {/* 1. Premium Animated Text-Rotating Header Banner */}
       <div className="inner-hero-banner relative overflow-hidden pt-36 pb-24 md:pt-48 md:pb-32 flex flex-col items-center justify-center !h-auto min-h-[520px] md:min-h-[600px]">
-        {/* Background Boomerang Video covering the header area */}
-        <BoomerangVideoBg src={bannerVideoUrl} className="hero-bg opacity-30" />
-        <div className="absolute inset-0 bg-white/40 z-0 pointer-events-none" />
+        {/* Hanging Hook Video Component on Top Left */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 md:left-8 w-28 md:w-36 h-auto pointer-events-none z-20 mix-blend-multiply"
+          src={HookVideo}
+        />
 
         {/* Decorative radial glows */}
-        <div className="inner-hero-banner-glow top-[-50px] right-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none z-10" />
-        <div className="inner-hero-banner-glow bottom-[-50px] left-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none z-10" />
+        <div className="inner-hero-banner-glow top-[-50px] right-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="inner-hero-banner-glow bottom-[-50px] left-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl text-center px-6 space-y-8 flex flex-col items-center">
           <FadeUp delay={0.1}>
@@ -73,7 +77,7 @@ export const AboutPage: React.FC = () => {
 
             <FadeUp delay={0.3}>
               <p className="text-[#6F6F6F] font-light text-base md:text-lg max-w-2xl mx-auto leading-relaxed pt-2">
-                Over 30 years of building strong offices and commercial spaces with good quality, clear pricing and honest communication.
+                A heritage of craftsmanship, structural safety, and transparent client communication in every project since 1995.
               </p>
             </FadeUp>
           </div>
