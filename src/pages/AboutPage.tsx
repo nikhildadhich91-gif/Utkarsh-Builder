@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { FadeUp } from '../components/ui/FadeUp';
 import { AnimatedText } from '../components/ui/AnimatedText';
 import Founders from '../components/Founders';
 import About from '../components/About';
 import { Compass, Layers, ShieldCheck, Ruler, Landmark, Leaf, Sparkles } from 'lucide-react';
 import { StaggerContainer } from '../components/ui/StaggerContainer';
-import { PointerHighlight } from '../components/ui/pointer-highlight';
+import BoomerangVideoBg from '../components/BoomerangVideoBg';
 
 export const AboutPage: React.FC = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -15,6 +16,8 @@ export const AboutPage: React.FC = () => {
     []
   );
 
+  const bannerVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4';
+
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (titleNumber === titles.length - 1) {
@@ -22,7 +25,7 @@ export const AboutPage: React.FC = () => {
       } else {
         setTitleNumber(titleNumber + 1);
       }
-    }, 2000);
+    }, 4000);
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
 
@@ -31,9 +34,13 @@ export const AboutPage: React.FC = () => {
 
       {/* 1. Premium Animated Text-Rotating Header Banner */}
       <div className="inner-hero-banner relative overflow-hidden pt-36 pb-24 md:pt-48 md:pb-32 flex flex-col items-center justify-center !h-auto min-h-[520px] md:min-h-[600px]">
+        {/* Background Boomerang Video covering the header area */}
+        <BoomerangVideoBg src={bannerVideoUrl} className="hero-bg opacity-30" />
+        <div className="absolute inset-0 bg-white/40 z-0 pointer-events-none" />
+
         {/* Decorative radial glows */}
-        <div className="inner-hero-banner-glow top-[-50px] right-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="inner-hero-banner-glow bottom-[-50px] left-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="inner-hero-banner-glow top-[-50px] right-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none z-10" />
+        <div className="inner-hero-banner-glow bottom-[-50px] left-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none z-10" />
 
         <div className="relative z-10 max-w-4xl text-center px-6 space-y-8 flex flex-col items-center">
           <FadeUp delay={0.1}>
@@ -43,13 +50,13 @@ export const AboutPage: React.FC = () => {
           </FadeUp>
 
           <div className="space-y-6">
-            <h1 className="text-4xl md:text-6xl font-light text-[#1B1B1B] tracking-tight leading-tight max-w-3xl mx-auto flex flex-wrap justify-center items-center gap-x-3 gap-y-2">
+            <h1 className="text-4xl md:text-6xl font-light text-[#1B1B1B] tracking-tight leading-tight max-w-3xl mx-auto flex flex-col items-center justify-center gap-y-4">
               <span>We build spaces that are</span>
-              <span className="relative inline-block font-semibold text-[#C92C15] min-w-[200px] text-center md:text-left h-[1.2em]">
+              <span className="relative inline-block font-semibold text-[#C92C15] w-full text-center h-[1.2em] overflow-hidden">
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
-                    className="absolute inset-0 flex justify-center md:justify-start items-center whitespace-nowrap"
+                    className="absolute inset-0 flex justify-center items-center whitespace-nowrap"
                     initial={{ opacity: 0, y: 15 }}
                     animate={
                       titleNumber === index
@@ -66,7 +73,7 @@ export const AboutPage: React.FC = () => {
 
             <FadeUp delay={0.3}>
               <p className="text-[#6F6F6F] font-light text-base md:text-lg max-w-2xl mx-auto leading-relaxed pt-2">
-                A heritage of craftsmanship, structural safety, and transparent client communication in every project since 1995.
+                Over 30 years of building strong offices and commercial spaces with good quality, clear pricing and honest communication.
               </p>
             </FadeUp>
           </div>
@@ -79,13 +86,13 @@ export const AboutPage: React.FC = () => {
               <span>Our Philosophy</span>
               <span className="text-lg">↓</span>
             </a>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="px-8 py-3.5 bg-white text-[#2A2A2A] hover:bg-gray-50 border border-black/10 rounded-xl text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.02] active:scale-[0.98] cursor-pointer inline-flex items-center gap-2"
             >
               <span>Contact Us</span>
               <span className="text-lg">→</span>
-            </a>
+            </Link>
           </FadeUp>
         </div>
       </div>
@@ -182,7 +189,7 @@ export const AboutPage: React.FC = () => {
                   <span className="text-xs uppercase tracking-[0.2em] font-semibold">Choose Your Space</span>
                 </div>
                 <p className="text-base md:text-lg text-[#2A2A2A] font-light leading-relaxed">
-                  Every great building starts with solid engineering and a clear design. We combine both to turn raw concrete and steel into <PointerHighlight delay={0.9}>beautiful homes</PointerHighlight> that you will love to live in.
+                  Every great building starts with solid engineering and a clear design. We combine both to turn concrete and steel into great offices and workspaces for your business.
                 </p>
               </FadeUp>
 
