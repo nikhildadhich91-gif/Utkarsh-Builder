@@ -5,9 +5,10 @@ interface AnimatedCounterProps {
   value: number;
   suffix?: string;
   duration?: number;
+  decimals?: number;
 }
 
-const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ value, suffix = '', duration = 1500 }) => {
+const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ value, suffix = '', duration = 1500, decimals = 0 }) => {
   const [count, setCount] = useState(0);
   const elementRef = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
@@ -23,7 +24,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ value, suffix = '', d
           const animate = (timestamp: number) => {
             if (!startTime) startTime = timestamp;
             const progress = Math.min((timestamp - startTime) / duration, 1);
-            setCount(Math.floor(progress * value));
+            setCount(progress * value);
 
             if (progress < 1) {
               requestAnimationFrame(animate);
@@ -43,9 +44,11 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ value, suffix = '', d
     return () => observer.disconnect();
   }, [value, duration]);
 
+  const displayValue = decimals > 0 ? count.toFixed(decimals) : Math.floor(count);
+
   return (
     <span ref={elementRef} className="tabular-nums">
-      {count}
+      {displayValue}
       {suffix}
     </span>
   );
@@ -56,22 +59,26 @@ export const MarketPresence: React.FC = () => {
     {
       targetValue: 30,
       valueSuffix: '+',
-      unit: 'Years'
+      unit: 'Years',
+      decimals: 0
     },
     {
       targetValue: 100,
       valueSuffix: '+',
-      unit: 'Projects'
+      unit: 'Projects',
+      decimals: 0
     },
     {
-      targetValue: 4,
-      valueSuffix: '',
-      unit: 'Key Assets'
+      targetValue: 1.5,
+      valueSuffix: ' Million+',
+      unit: 'Sq. Ft. Delivered',
+      decimals: 1
     },
     {
       targetValue: 100,
       valueSuffix: '%',
-      unit: 'Focus'
+      unit: 'Focus',
+      decimals: 0
     }
   ];
 
@@ -83,14 +90,21 @@ export const MarketPresence: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         
         {/* Header Block */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <FadeUp delay={0.1} className="mb-3 block">
-            <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Market Credibility</span>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-[#1B1B1B]">
-              Market Presence &amp; Impact
-            </h2>
+        <div className="text-center max-w-2xl mx-auto mb-20 space-y-3">
+          <div>
+            <FadeUp delay={0.1} className="mb-3 block">
+              <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Market Credibility</span>
+            </FadeUp>
+            <FadeUp delay={0.2}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-[#1B1B1B]">
+                Market Presence &amp; Impact
+              </h2>
+            </FadeUp>
+          </div>
+          <FadeUp delay={0.3}>
+            <p className="text-[#6F6F6F] font-light text-base md:text-lg">
+              We provide services in Rajasthan
+            </p>
           </FadeUp>
         </div>
 
@@ -105,8 +119,8 @@ export const MarketPresence: React.FC = () => {
                 className="bg-white p-10 rounded-3xl border border-black/5 flex flex-col items-center justify-center text-center group hover:border-[#C92C15]/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative"
               >
                 {/* Vertical Stack: Number & Unit */}
-                <div className="text-5xl md:text-6xl font-semibold text-[#1B1B1B] tracking-tight leading-none group-hover:text-[#C92C15] transition-colors duration-300">
-                  <AnimatedCounter value={stat.targetValue} suffix={stat.valueSuffix} />
+                <div className="text-4xl xl:text-5xl font-semibold text-[#1B1B1B] tracking-tight leading-none group-hover:text-[#C92C15] transition-colors duration-300">
+                  <AnimatedCounter value={stat.targetValue} suffix={stat.valueSuffix} decimals={stat.decimals} />
                 </div>
                 <div className="text-xs md:text-sm uppercase tracking-[0.2em] text-[#6F6F6F] font-bold mt-3">
                   {stat.unit}

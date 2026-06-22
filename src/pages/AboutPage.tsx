@@ -32,13 +32,13 @@ export const AboutPage: React.FC = () => {
 
       {/* 1. Premium Animated Text-Rotating Header Banner */}
       <div className="inner-hero-banner relative overflow-hidden pt-36 pb-24 md:pt-48 md:pb-32 flex flex-col items-center justify-center !h-auto min-h-[520px] md:min-h-[600px]">
-        {/* Hanging Hook Video Component on Top Left */}
+        {/* Hanging Hook Video Component on Top Left - 7 times larger */}
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute top-0 left-0 md:left-8 w-28 md:w-36 h-auto pointer-events-none z-20 mix-blend-multiply"
+          className="absolute top-[72px] md:top-[88px] left-[-50px] w-[500px] md:w-[800px] h-auto pointer-events-none z-20 mix-blend-multiply filter contrast-[1.1] brightness-[1.05]"
           src={HookVideo}
         />
 
