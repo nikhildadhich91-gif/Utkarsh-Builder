@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import LogoImg from '../assets/logo.png';
+import LogoImg from '../assets/logo.webp';
 import { Menu, X } from 'lucide-react';
 
 export const Navbar = () => {

@@ -1,4 +1,4 @@
-import LogoImg from '../assets/logo.png';
+import LogoImg from '../assets/logo.webp';
 import { ArrowUp } from 'lucide-react';
 
 
