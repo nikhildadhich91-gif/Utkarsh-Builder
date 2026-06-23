@@ -3,9 +3,10 @@ import React, { useEffect, useRef, useState } from 'react';
 interface BoomerangVideoBgProps {
   src: string;
   className?: string;
+  poster?: string;
 }
 
-export const BoomerangVideoBg: React.FC<BoomerangVideoBgProps> = ({ src, className = '' }) => {
+export const BoomerangVideoBg: React.FC<BoomerangVideoBgProps> = ({ src, className = '', poster }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   
@@ -243,6 +244,7 @@ export const BoomerangVideoBg: React.FC<BoomerangVideoBgProps> = ({ src, classNa
     return (
       <video
         src={src}
+        poster={poster}
         autoPlay
         loop
         muted
@@ -253,11 +255,12 @@ export const BoomerangVideoBg: React.FC<BoomerangVideoBgProps> = ({ src, classNa
   }
 
   return (
-    <div className={`absolute inset-0 w-full h-full select-none pointer-events-none overflow-hidden ${className}`}>
+    <div className={`absolute inset-0 w-full h-full bg-[#FAF7F5] select-none pointer-events-none overflow-hidden ${className}`}>
       {/* Video is visible while capturing frames */}
       <video
         ref={videoRef}
         src={src}
+        poster={poster}
         muted
         playsInline
         crossOrigin="anonymous"
