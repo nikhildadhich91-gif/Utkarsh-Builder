@@ -2,10 +2,10 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FadeUp } from '../components/ui/FadeUp';
-import { AnimatedText } from '../components/ui/AnimatedText';
+import { ScrollTextRise } from '../components/ui/ScrollTextRise';
 import Founders from '../components/Founders';
 import About from '../components/About';
-import { Compass, Layers, ShieldCheck, Ruler, Landmark, Leaf, Sparkles } from 'lucide-react';
+import { Compass, Layers, ShieldCheck, Landmark, Leaf, Sparkles } from 'lucide-react';
 import { StaggerContainer } from '../components/ui/StaggerContainer';
 import { assets } from '../lib/cloudinary';
 const HookVideo = assets.videos.hookMp4;
@@ -106,56 +106,42 @@ export const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Jack-Style About Section (min-h-screen, corner floating graphics, scroll-reveal paragraph) */}
-      <div id="philosophy" className="relative min-h-[80vh] flex flex-col justify-center items-center py-24 bg-white text-[#2A2A2A] border-t border-black/5 overflow-hidden">
+      {/* 2. Philosophy — Scroll-Driven Text Rise Section */}
+      {/* Static heading intro */}
+      <div id="philosophy" className="relative pt-24 pb-12 md:pt-32 md:pb-16 bg-white text-[#2A2A2A] border-t border-black/5 overflow-hidden">
         {/* Decorative corner absolute graphics */}
         {/* Top-left */}
-        <div className="absolute top-[8%] left-[5%] hidden md:block">
+        <div className="absolute top-[12%] left-[5%] hidden md:block">
           <FadeUp delay={0.1} y={-40} className="bg-white/50 border border-black/5 rounded-full p-6 text-[#C92C15] hover:scale-110 hover:border-[#C92C15]/30 hover:bg-white transition-all duration-300 shadow-md backdrop-blur-md">
             <Compass className="h-8 w-8" />
           </FadeUp>
         </div>
 
-        {/* Bottom-left */}
-        <div className="absolute bottom-[10%] left-[8%] hidden md:block">
-          <FadeUp delay={0.25} y={40} className="bg-white/50 border border-black/5 rounded-full p-6 text-[#C92C15] hover:scale-110 hover:border-[#C92C15]/30 hover:bg-white transition-all duration-300 shadow-md backdrop-blur-md">
-            <Ruler className="h-8 w-8" />
-          </FadeUp>
-        </div>
-
         {/* Top-right */}
-        <div className="absolute top-[8%] right-[5%] hidden md:block">
+        <div className="absolute top-[12%] right-[5%] hidden md:block">
           <FadeUp delay={0.15} y={-40} className="bg-white/50 border border-black/5 rounded-full p-6 text-[#C92C15] hover:scale-110 hover:border-[#C92C15]/30 hover:bg-white transition-all duration-300 shadow-md backdrop-blur-md">
             <Layers className="h-8 w-8" />
           </FadeUp>
         </div>
 
-        {/* Bottom-right */}
-        <div className="absolute bottom-[10%] right-[8%] hidden md:block">
-          <FadeUp delay={0.3} y={40} className="bg-white/50 border border-black/5 rounded-full p-6 text-[#C92C15] hover:scale-110 hover:border-[#C92C15]/30 hover:bg-white transition-all duration-300 shadow-md backdrop-blur-md">
-            <ShieldCheck className="h-8 w-8" />
-          </FadeUp>
-        </div>
-
-        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center space-y-12">
+        {/* Centered header */}
+        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center space-y-4">
           <FadeUp delay={0.1}>
             <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em]">Our Philosophy</span>
           </FadeUp>
-
           <FadeUp delay={0.2}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#1B1B1B] mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#1B1B1B]">
               Precision Meets Passion
             </h2>
           </FadeUp>
-
-          {/* Scroll reveal paragraph */}
-          <div className="text-xl md:text-2xl lg:text-3xl text-[#2A2A2A] font-light leading-relaxed max-w-3xl mx-auto">
-            <AnimatedText
-              text="With over 30 years of experience in construction, we deliver outstanding quality with complete transparency. We manage your entire project from land purchase to keys handover, keeping your needs first."
-            />
-          </div>
         </div>
       </div>
+
+      {/* Scroll-driven text rise — word-by-word bold reveal */}
+      <ScrollTextRise
+        className="h-[150vh] bg-white"
+        text="With over 30 years of experience in construction, we deliver outstanding quality with complete transparency. We manage your entire project from site analysis to keys handover, keeping your needs first."
+      />
 
       {/* 3. Story, Vision, Mission Tabs Component */}
       <About />
