@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Link as LinkIcon, Zap, Map, Layout, Feather, HardHat, Award, TrendingUp } from 'lucide-react';
+import { ArrowRight, Link as LinkIcon, Zap, Layout, Feather, HardHat, Award, TrendingUp, Search } from 'lucide-react';
 import { FadeUp } from './ui/FadeUp';
 import { assets } from '../lib/cloudinary';
 const LogoImg = assets.logo;
@@ -52,21 +52,21 @@ export const ValueCreationTimeline: React.FC = () => {
   const timelineData: TimelineItem[] = [
     {
       id: 1,
-      title: 'Land Acquisition',
+      title: 'Site Analysis & Testing',
       date: 'Phase 01',
-      content: 'Finding high-value plots in Rajasthan and securing all necessary land permits.',
-      category: 'Land',
-      icon: Map,
+      content: 'Conducting soil compression tests, boundary mapping, and local zoning checks.',
+      category: 'SITE ANALYSIS',
+      icon: Search,
       relatedIds: [2],
       status: 'completed',
       energy: 95
     },
     {
       id: 2,
-      title: 'Site Feasibility',
+      title: 'Engineering Layout',
       date: 'Phase 02',
-      content: 'Planning natural sunlight access, spacing, and smart utility connections.',
-      category: 'Planning',
+      content: 'Designing structural spacing, load positioning, and smart utility grid connections.',
+      category: 'PLANNING',
       icon: Layout,
       relatedIds: [1, 3],
       status: 'completed',
