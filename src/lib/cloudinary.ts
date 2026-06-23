@@ -45,7 +45,7 @@ export const assets = {
     hookWebm: `${CLOUDINARY_VIDEO_BASE}/v1782197654/utkarsh%20construction/Hook_going_down_metal_rod_202606221152.webm`,
     
     heroBanner: `${CLOUDINARY_VIDEO_BASE}/v1782198259/utkarsh%20construction/hero-banner.mp4`,
-    homeApproach: `${CLOUDINARY_VIDEO_BASE}/v1782198262/utkarsh%20construction/home-approach.mp4`,
+    homeApproach: `${CLOUDINARY_VIDEO_BASE}/v1782201960/utkarsh%20construction/Building_construction_timelapse___202606231151.mp4`,
     aboutInnovation: `${CLOUDINARY_VIDEO_BASE}/v1782198265/utkarsh%20construction/about-innovation.mp4`,
     servicesResidential: `${CLOUDINARY_VIDEO_BASE}/v1782198267/utkarsh%20construction/services-residential.mp4`,
     servicesCommercial: `${CLOUDINARY_VIDEO_BASE}/v1782198269/utkarsh%20construction/services-commercial.mp4`,

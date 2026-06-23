@@ -14,6 +14,7 @@ import ShuffleHero from '../components/ShuffleHero';
 import Contact from '../components/Contact';
 import { FadeUp } from '../components/ui/FadeUp';
 import { ArrowRight } from 'lucide-react';
+import { assets } from '../lib/cloudinary';
 
 export const Home: React.FC = () => {
   return (
@@ -47,7 +48,7 @@ export const Home: React.FC = () => {
               muted
               playsInline
               className="w-full h-full object-cover select-none pointer-events-none opacity-80"
-              src="https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto/v1782198262/utkarsh%20construction/home-approach.mp4"
+              src={assets.videos.homeApproach}
             />
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
