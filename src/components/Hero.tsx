@@ -1,23 +1,51 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { AnimatedHeading } from './ui/AnimatedHeading';
 import { FadeIn } from './ui/FadeIn';
-import BoomerangVideoBg from './BoomerangVideoBg';
 import { PointerHighlight } from './ui/pointer-highlight';
+import { assets } from '../lib/cloudinary';
 
 export const Hero = () => {
-  const videoUrl = 'https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto:best,w_1920,c_scale/v1782198259/utkarsh%20construction/hero-banner.mp4';
-  const posterUrl = 'https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto:best,w_1920,c_scale,so_0/v1782198259/utkarsh%20construction/hero-banner.jpg';
+  const [mode, setMode] = useState<'before' | 'after'>('before');
+
+  const toggleOptions = [
+    { id: 'before', label: 'Under Construction' },
+    { id: 'after', label: 'Completed' }
+  ] as const;
 
   return (
-    <section id="home" className="hero bg-[#FAF7F5] relative h-screen w-full overflow-hidden">
-      {/* Seamless Boomerang Video Background */}
-      <BoomerangVideoBg src={videoUrl} poster={posterUrl} className="hero-bg" />
+    <section id="home" className="hero">
+      <div className="blur-overlay blur-overlay-top" />
+      
+      {/* Background Video - Under Construction (Before) */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className={`hero-bg w-full h-full object-cover select-none pointer-events-none ${mode === 'before' ? 'bg-front' : 'pull-down'}`}
+      >
+        <source src={assets.videos.heroBannerBeforeWebm} type="video/webm" />
+        <source src={assets.videos.heroBannerBeforeMp4} type="video/mp4" />
+      </video>
+
+      {/* Background Video - Completed (After) */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className={`hero-bg w-full h-full object-cover select-none pointer-events-none ${mode === 'after' ? 'bg-front' : 'pull-down'}`}
+      >
+        <source src={assets.videos.heroBannerAfterWebm} type="video/webm" />
+        <source src={assets.videos.heroBannerAfterMp4} type="video/mp4" />
+      </video>
 
       {/* Dark tint overlay over the video on mobile only */}
       <div className="absolute inset-0 bg-black/40 md:bg-transparent z-10 pointer-events-none" />
-
-      {/* Top Blur Overlay */}
-      <div className="blur-overlay blur-overlay-top" />
 
       {/* Spacer below the navbar (desktop only) */}
       <div className="h-24 w-full relative z-20 hidden md:block" />
@@ -51,6 +79,7 @@ export const Hero = () => {
               </p>
             </FadeIn>
 
+
             <FadeIn delay={1200} duration={1000}>
               <div className="flex flex-wrap gap-4">
                 <Link
@@ -61,7 +90,7 @@ export const Hero = () => {
                 </Link>
                 <Link
                   to="/projects"
-                  className="border border-black/20 text-[#1B1B1B] hover:bg-[#1B1B1B] hover:text-white transition-all px-8 py-3.5 rounded-lg font-medium cursor-pointer shadow-lg hover:scale-105 active:scale-95 inline-block text-center"
+                  className="bg-white border border-black/10 text-[#1B1B1B] hover:bg-[#1B1B1B] hover:text-white transition-all px-8 py-3.5 rounded-lg font-medium cursor-pointer shadow-lg hover:scale-105 active:scale-95 inline-block text-center"
                 >
                   Explore Projects
                 </Link>
@@ -90,6 +119,34 @@ export const Hero = () => {
             </p>
           </FadeIn>
 
+          {/* Slider Toggle (Mobile) */}
+          <FadeIn delay={1000} duration={1000}>
+            <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 p-1.5 rounded-full w-fit shadow-inner mb-8 relative">
+              {toggleOptions.map((opt) => {
+                const isActive = mode === opt.id;
+                return (
+                  <button
+                    key={opt.id}
+                    onClick={() => setMode(opt.id)}
+                    className={`relative px-5 py-2.5 rounded-full text-xxs sm:text-xs font-semibold uppercase tracking-wider transition-colors duration-300 z-10 cursor-pointer ${
+                      isActive ? 'text-[#1B1B1B]' : 'text-white/60 hover:text-white'
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeTabMobile"
+                        className="absolute inset-0 rounded-full -z-10"
+                        style={{ backgroundColor: 'var(--active-toggle)' }}
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    {opt.label}
+                  </button>
+                );
+              })}
+            </div>
+          </FadeIn>
+
           <FadeIn delay={1200} duration={1000}>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -100,13 +157,39 @@ export const Hero = () => {
               </Link>
               <Link
                 to="/projects"
-                className="border border-white/30 text-white hover:bg-white hover:text-black transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
+                className="bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-black transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
               >
                 Explore Projects
               </Link>
             </div>
           </FadeIn>
         </div>
+      </div>
+
+      {/* Floating Slider Toggle (Desktop - Bottom Right) */}
+      <div className="hidden md:flex items-center gap-1 bg-white/15 backdrop-blur-md border border-white/20 p-1.5 rounded-full shadow-2xl absolute bottom-12 right-12 lg:right-16 z-30">
+        {toggleOptions.map((opt) => {
+          const isActive = mode === opt.id;
+          return (
+            <button
+              key={opt.id}
+              onClick={() => setMode(opt.id)}
+              className={`relative px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors duration-300 z-10 cursor-pointer ${
+                isActive ? 'text-[#1B1B1B]' : 'text-white/70 hover:text-white'
+              }`}
+            >
+              {isActive && (
+                <motion.div
+                  layoutId="activeTabDesktop"
+                  className="absolute inset-0 rounded-full -z-10"
+                  style={{ backgroundColor: 'var(--active-toggle)' }}
+                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                />
+              )}
+              {opt.label}
+            </button>
+          );
+        })}
       </div>
     </section>
   );

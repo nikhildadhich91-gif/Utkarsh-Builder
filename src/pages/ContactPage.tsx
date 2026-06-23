@@ -103,7 +103,7 @@ export const ContactPage: React.FC = () => {
                   </button>
                   <Link
                     to="/projects"
-                    className="border border-black/20 text-[#1B1B1B] hover:bg-[#1B1B1B] hover:text-white transition-all px-8 py-3.5 rounded-lg font-medium cursor-pointer shadow-lg hover:scale-105 active:scale-95 inline-block text-center"
+                    className="bg-white border border-black/10 text-[#1B1B1B] hover:bg-[#1B1B1B] hover:text-white transition-all px-8 py-3.5 rounded-lg font-medium cursor-pointer shadow-lg hover:scale-105 active:scale-95 inline-block text-center"
                   >
                     Explore Projects
                   </Link>
@@ -148,7 +148,7 @@ export const ContactPage: React.FC = () => {
                 </button>
                 <Link
                   to="/projects"
-                  className="border border-white/30 text-white hover:bg-white hover:text-black transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
+                  className="bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-black transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
                 >
                   Explore Projects
                 </Link>

@@ -40,3 +40,6 @@ src/assets/temp_check/
 *.raw.png
 *.raw.jpg
 *.raw.jpeg
+*.zip
+temp-videos/
+

@@ -4,6 +4,8 @@ const CLOUDINARY_VIDEO_BASE = 'https://res.cloudinary.com/darmr4g5x/video/upload
 export const assets = {
   logo: `${CLOUDINARY_IMAGE_BASE}/v1782197656/utkarsh%20construction/logo.webp`,
   heroBg: `${CLOUDINARY_IMAGE_BASE}/v1782197644/utkarsh%20construction/hero.png`,
+  heroBannerImage: `${CLOUDINARY_IMAGE_BASE}/v1782216564/utkarsh%20construction/hero-banner-image.jpg`,
+  heroBannerAfterImage: `${CLOUDINARY_IMAGE_BASE}/v1782217497/utkarsh%20construction/hero-banner-after-1.jpg`,
   viteSvg: `${CLOUDINARY_IMAGE_BASE}/v1782197678/utkarsh%20construction/vite.svg`,
   reactSvg: `${CLOUDINARY_IMAGE_BASE}/v1782197677/utkarsh%20construction/react.svg`,
   
@@ -45,6 +47,10 @@ export const assets = {
     hookWebm: `${CLOUDINARY_VIDEO_BASE}/v1782197654/utkarsh%20construction/Hook_going_down_metal_rod_202606221152.webm`,
     
     heroBanner: `${CLOUDINARY_VIDEO_BASE}/v1782198259/utkarsh%20construction/hero-banner.mp4`,
+    heroBannerBeforeMp4: `${CLOUDINARY_VIDEO_BASE}/v1782218740/utkarsh%20construction/hero-banner-before-high-mp4.mp4`,
+    heroBannerBeforeWebm: `${CLOUDINARY_VIDEO_BASE}/v1782218753/utkarsh%20construction/hero-banner-before-high-webm.webm`,
+    heroBannerAfterMp4: `${CLOUDINARY_VIDEO_BASE}/v1782218758/utkarsh%20construction/hero-banner-after-high-mp4.mp4`,
+    heroBannerAfterWebm: `${CLOUDINARY_VIDEO_BASE}/v1782218762/utkarsh%20construction/hero-banner-after-high-webm.webm`,
     homeApproach: `${CLOUDINARY_VIDEO_BASE}/v1782201960/utkarsh%20construction/Building_construction_timelapse___202606231151.mp4`,
     aboutInnovation: `${CLOUDINARY_VIDEO_BASE}/v1782198265/utkarsh%20construction/about-innovation.mp4`,
     servicesResidential: `${CLOUDINARY_VIDEO_BASE}/v1782198267/utkarsh%20construction/services-residential.mp4`,
