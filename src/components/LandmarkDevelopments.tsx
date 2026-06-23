@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { FadeUp } from './ui/FadeUp';
 import { ArrowRight, MapPin, Grid, Layers } from 'lucide-react';
 import { Magnet } from './ui/Magnet';
-import balconyImg from '../assets/generated/balcony.webp';
+import { assets } from '../lib/cloudinary';
+const balconyImg = assets.generated.balcony;
 
 
 export const LandmarkDevelopments: React.FC = () => {

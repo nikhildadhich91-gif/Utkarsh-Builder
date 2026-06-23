@@ -3,9 +3,11 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Building, Home, CheckSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import bedroomImg from '../assets/generated/bedroom.webp';
-import officeImg from '../assets/generated/office.webp';
-import wardrobeImg from '../assets/generated/wardrobe.webp';
+import { assets } from '../lib/cloudinary';
+
+const bedroomImg = assets.generated.bedroom;
+const officeImg = assets.generated.office;
+const wardrobeImg = assets.generated.wardrobe;
 
 interface ShowcaseItem {
   number: string;

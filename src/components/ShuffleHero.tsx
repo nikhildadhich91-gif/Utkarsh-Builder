@@ -64,22 +64,24 @@ const shuffle = (array: any[]) => {
   return array;
 };
 
-import bedroomImg from "../assets/generated/bedroom.webp";
-import receptionImg from "../assets/generated/reception.webp";
-import bathroomImg from "../assets/generated/bathroom.webp";
-import wardrobeImg from "../assets/generated/wardrobe.webp";
-import corridorImg from "../assets/generated/corridor.webp";
-import balconyImg from "../assets/generated/balcony.webp";
-import officeImg from "../assets/generated/office.webp";
+import { assets } from "../lib/cloudinary";
 
-import msCol1_1 from "../assets/projects/ms-jewellers-col1-1.webp";
-import msCol2 from "../assets/projects/ms-jewellers-col2.webp";
-import indieCol1_1 from "../assets/projects/indie-stitch-col1-1.webp";
-import indieCol2 from "../assets/projects/indie-stitch-col2.webp";
-import kitchenCol1_1 from "../assets/projects/modular-kitchen-col1-1.webp";
-import kitchenCol2 from "../assets/projects/modular-kitchen-col2.webp";
-import hotelCol1_1 from "../assets/projects/hotel-reeve-inn-col1-1.webp";
-import hotelCol2 from "../assets/projects/hotel-reeve-inn-col2.webp";
+const bedroomImg = assets.generated.bedroom;
+const receptionImg = assets.generated.reception;
+const bathroomImg = assets.generated.bathroom;
+const wardrobeImg = assets.generated.wardrobe;
+const corridorImg = assets.generated.corridor;
+const balconyImg = assets.generated.balcony;
+const officeImg = assets.generated.office;
+
+const msCol1_1 = assets.projects.msCol1_1;
+const msCol2 = assets.projects.msCol2;
+const indieCol1_1 = assets.projects.indieCol1_1;
+const indieCol2 = assets.projects.indieCol2;
+const kitchenCol1_1 = assets.projects.kitchenCol1_1;
+const kitchenCol2 = assets.projects.kitchenCol2;
+const hotelCol1_1 = assets.projects.hotelCol1_1;
+const hotelCol2 = assets.projects.hotelCol2;
 
 const squareData = [
   { id: 1, src: bedroomImg },

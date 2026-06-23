@@ -7,8 +7,9 @@ import Founders from '../components/Founders';
 import About from '../components/About';
 import { Compass, Layers, ShieldCheck, Ruler, Landmark, Leaf, Sparkles } from 'lucide-react';
 import { StaggerContainer } from '../components/ui/StaggerContainer';
-import HookVideo from '../assets/Hook_going_down_metal_rod_202606221152.mp4';
-import HookWebm from '../assets/Hook_going_down_metal_rod_202606221152.webm';
+import { assets } from '../lib/cloudinary';
+const HookVideo = assets.videos.hookMp4;
+const HookWebm = assets.videos.hookWebm;
 
 export const AboutPage: React.FC = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -183,7 +184,7 @@ export const AboutPage: React.FC = () => {
                 muted
                 playsInline
                 className="w-full h-full object-cover select-none pointer-events-none opacity-90"
-                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4"
+                src="https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto/v1782198265/utkarsh%20construction/about-innovation.mp4"
               />
             </FadeUp>
 

@@ -2,21 +2,23 @@ import React, { useRef } from 'react';
 import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
-import msJewellersCol1_1 from '../assets/projects/ms-jewellers-col1-1.webp';
-import msJewellersCol1_2 from '../assets/projects/ms-jewellers-col1-2.webp';
-import msJewellersCol2 from '../assets/projects/ms-jewellers-col2.webp';
+import { assets } from '../lib/cloudinary';
 
-import indieStitchCol1_1 from '../assets/projects/indie-stitch-col1-1.webp';
-import indieStitchCol1_2 from '../assets/projects/indie-stitch-col1-2.webp';
-import indieStitchCol2 from '../assets/projects/indie-stitch-col2.webp';
+const msJewellersCol1_1 = assets.projects.msCol1_1;
+const msJewellersCol1_2 = assets.projects.msCol1_2;
+const msJewellersCol2 = assets.projects.msCol2;
 
-import modularKitchenCol1_1 from '../assets/projects/modular-kitchen-col1-1.webp';
-import modularKitchenCol1_2 from '../assets/projects/modular-kitchen-col1-2.webp';
-import modularKitchenCol2 from '../assets/projects/modular-kitchen-col2.webp';
+const indieStitchCol1_1 = assets.projects.indieCol1_1;
+const indieStitchCol1_2 = assets.projects.indieCol1_2;
+const indieStitchCol2 = assets.projects.indieCol2;
 
-import hotelReeveInnCol1_1 from '../assets/projects/hotel-reeve-inn-col1-1.webp';
-import hotelReeveInnCol1_2 from '../assets/projects/hotel-reeve-inn-col1-2.webp';
-import hotelReeveInnCol2 from '../assets/projects/hotel-reeve-inn-col2.webp';
+const modularKitchenCol1_1 = assets.projects.kitchenCol1_1;
+const modularKitchenCol1_2 = assets.projects.kitchenCol1_2;
+const modularKitchenCol2 = assets.projects.kitchenCol2;
+
+const hotelReeveInnCol1_1 = assets.projects.hotelCol1_1;
+const hotelReeveInnCol1_2 = assets.projects.hotelCol1_2;
+const hotelReeveInnCol2 = assets.projects.hotelCol2;
 
 interface ProjectData {
   number: string;

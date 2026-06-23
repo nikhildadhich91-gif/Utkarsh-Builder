@@ -213,7 +213,7 @@ export const ServicesPage = () => {
                   muted
                   playsInline
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"
+                  src="https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto/v1782198267/utkarsh%20construction/services-residential.mp4"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent pointer-events-none" />
                 <span className="absolute top-4 left-4 bg-black/10 border border-black/25 px-3 py-1 rounded-full text-xxs uppercase tracking-widest text-[#1B1B1B] backdrop-blur-md">
@@ -239,7 +239,7 @@ export const ServicesPage = () => {
                   muted
                   playsInline
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4"
+                  src="https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto/v1782198269/utkarsh%20construction/services-commercial.mp4"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent pointer-events-none" />
                 <span className="absolute top-4 left-4 bg-black/10 border border-black/25 px-3 py-1 rounded-full text-xxs uppercase tracking-widest text-[#1B1B1B] backdrop-blur-md">

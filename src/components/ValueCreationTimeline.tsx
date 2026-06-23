@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Link as LinkIcon, Zap, Map, Layout, Feather, HardHat, Award, TrendingUp } from 'lucide-react';
 import { FadeUp } from './ui/FadeUp';
-import LogoImg from '../assets/logo.webp';
+import { assets } from '../lib/cloudinary';
+const LogoImg = assets.logo;
 
 // Inline simple UI sub-components to bypass shadcn dependency and guarantee compilation
 const Badge = ({ children, className }: { children: React.ReactNode; className?: string }) => (

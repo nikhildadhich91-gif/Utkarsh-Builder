@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { FadeUp } from './ui/FadeUp';
 import { ArrowUpRight } from 'lucide-react';
 
-import msJewellersImg from '../assets/projects/ms-jewellers-col1-1.webp';
-import hotelReeveInnImg from '../assets/projects/hotel-reeve-inn-col1-1.webp';
-import indieStitchImg from '../assets/projects/indie-stitch-col1-1.webp';
+import { assets } from '../lib/cloudinary';
+
+const msJewellersImg = assets.projects.msCol1_1;
+const hotelReeveInnImg = assets.projects.hotelCol1_1;
+const indieStitchImg = assets.projects.indieCol1_1;
 
 interface DevelopmentCard {
   title: string;

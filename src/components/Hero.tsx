@@ -5,7 +5,7 @@ import BoomerangVideoBg from './BoomerangVideoBg';
 import { PointerHighlight } from './ui/pointer-highlight';
 
 export const Hero = () => {
-  const videoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260503_144509_89e2d612-8af2-45c3-90f4-4831bc60715d.mp4';
+  const videoUrl = 'https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto/v1782198259/utkarsh%20construction/hero-banner.mp4';
 
 
   return (

@@ -1,4 +1,5 @@
-import LogoImg from '../assets/logo.webp';
+import { assets } from '../lib/cloudinary';
+const LogoImg = assets.logo;
 import { ArrowUp } from 'lucide-react';
 
 

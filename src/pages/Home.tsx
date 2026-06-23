@@ -47,7 +47,7 @@ export const Home: React.FC = () => {
               muted
               playsInline
               className="w-full h-full object-cover select-none pointer-events-none opacity-80"
-              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260402_054547_9875cfc5-155a-4229-8ec8-b7ba7125cbf8.mp4"
+              src="https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto/v1782198262/utkarsh%20construction/home-approach.mp4"
             />
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
