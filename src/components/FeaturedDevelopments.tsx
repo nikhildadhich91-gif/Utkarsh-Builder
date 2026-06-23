@@ -23,7 +23,7 @@ export const FeaturedDevelopments: React.FC = () => {
     {
       title: 'Hotel Reeve Inn',
       type: 'Commercial & Hospitality',
-      location: 'Jaipur, Rajasthan',
+      location: 'Rajasthan',
       desc: 'A modern commercial hotel development showcasing structural concrete integrity, customized exterior finishes, and premium room layouts.',
       image: hotelReeveInnImg,
       link: '/projects?filter=development'
@@ -31,7 +31,7 @@ export const FeaturedDevelopments: React.FC = () => {
     {
       title: 'MS Jewellers Showroom',
       type: 'Commercial Showroom',
-      location: 'Jaipur, Rajasthan',
+      location: 'Rajasthan',
       desc: 'A high-concept jewelry showroom combining state-of-the-art security, custom-engineered display counters, and precise task lighting.',
       image: msJewellersImg,
       link: '/projects?filter=commercial'
@@ -39,10 +39,10 @@ export const FeaturedDevelopments: React.FC = () => {
     {
       title: 'Indie Stitch Designer Boutique',
       type: 'Bespoke Boutique & Office',
-      location: 'Jaipur, Rajasthan',
+      location: 'Rajasthan',
       desc: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing, and modern design aesthetics.',
       image: indieStitchImg,
-      link: '/projects?filter=interiors'
+      link: '/projects?filter=commercial'
     }
   ];
 

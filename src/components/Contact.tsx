@@ -110,7 +110,6 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
             <option value="Residential Villas" className="bg-white text-[#1B1B1B]">Residential Villas</option>
             <option value="Commercial Buildings" className="bg-white text-[#1B1B1B]">Commercial Buildings</option>
             <option value="Turnkey Projects" className="bg-white text-[#1B1B1B]">Turnkey Construction</option>
-            <option value="Interior Services" className="bg-white text-[#1B1B1B]">Interior Design</option>
             <option value="Renovation" className="bg-white text-[#1B1B1B]">Renovation &amp; Remodeling</option>
           </select>
           {/* Custom dropdown arrow */}
@@ -137,7 +136,7 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
             htmlFor="propertySize"
             className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
           >
-            Property / Plot Size (e.g., 2500 sq.ft.)
+            Plot Size / Dimensions in Feet (e.g., 50x30 ft)
           </label>
         </div>
 
@@ -246,7 +245,7 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
               </FadeUp>
               <FadeUp delay={0.3} className="mb-12">
                 <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
-                  Have a plot in Jaipur or planning a corporate transformation? Leave us a message and our lead construction manager will reach out within 24 hours.
+                  Have a plot in Rajasthan or planning a commercial construction project? Leave us a message and our lead site engineer will reach out within 24 hours.
                 </p>
               </FadeUp>
             </div>
@@ -256,7 +255,7 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
               {[
                 { icon: Phone, text: '+91 8562034491', sub: 'Call or WhatsApp' },
                 { icon: Mail, text: 'nowalutkarsh@gmail.com', sub: 'Direct Email Support' },
-                { icon: MapPin, text: 'C-3, Opp. Pink Square Mall, Raja Park, Jaipur', sub: 'Corporate Headquarters' }
+                { icon: MapPin, text: 'Johri Bazar, Jaipur', sub: 'Main Corporate Office' }
               ].map((item, idx) => {
                 const Icon = item.icon;
                 return (

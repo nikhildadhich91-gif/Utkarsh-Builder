@@ -18,7 +18,7 @@ const testimonials: TestimonialItem[] = [
     company: "Ametina Enterprises"
   },
   {
-    quote: "Huge thanks to Utkarsh Builders for transforming our old space into something truly special! They delivered on time, stayed true to our vision, and beautifully blended a modern office look with Jaipur’s heritage. We couldn’t be happier with the result!",
+    quote: "Huge thanks to Utkarsh Builders for transforming our old space into something truly special! They delivered on time, stayed true to our vision, and beautifully blended a modern office look with Rajasthan’s traditional architecture. We couldn’t be happier with the result!",
     name: "Manoj Sogani",
     role: "Owner",
     company: "MS Jewellers"

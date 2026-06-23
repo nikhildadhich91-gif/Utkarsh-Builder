@@ -26,7 +26,7 @@ interface ProjectData {
   category: string;
   location: string;
   description: string;
-  tag: 'residential' | 'commercial' | 'development' | 'interiors';
+  tag: 'residential' | 'commercial' | 'development';
   images: {
     col1_1: string;
     col1_2: string;
@@ -39,7 +39,7 @@ const projectsList: ProjectData[] = [
     number: '01',
     name: 'MS Jewellers Showroom',
     category: 'Commercial Showroom',
-    location: 'Jaipur, Rajasthan',
+    location: 'Rajasthan',
     description: 'A high-concept jewelry showroom combining state-of-the-art security, custom-engineered display counters, and precise task lighting.',
     tag: 'commercial',
     images: {
@@ -52,9 +52,9 @@ const projectsList: ProjectData[] = [
     number: '02',
     name: 'Indie Stitch Designer Boutique',
     category: 'Bespoke Boutique & Office',
-    location: 'Jaipur, Rajasthan',
+    location: 'Rajasthan',
     description: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing, and modern design aesthetics.',
-    tag: 'interiors',
+    tag: 'commercial',
     images: {
       col1_1: indieStitchCol1_1,
       col1_2: indieStitchCol1_2,
@@ -64,8 +64,8 @@ const projectsList: ProjectData[] = [
   {
     number: '03',
     name: 'Elegant Modular Kitchen',
-    category: 'Residential Interiors',
-    location: 'Jaipur, Rajasthan',
+    category: 'Residential Kitchen',
+    location: 'Rajasthan',
     description: 'A fully customized modular kitchen showcasing gloss finishes, quartz countertops, high-capacity chimneys, and integrated storage solutions.',
     tag: 'residential',
     images: {
@@ -78,7 +78,7 @@ const projectsList: ProjectData[] = [
     number: '04',
     name: 'Hotel Reeve Inn',
     category: 'Commercial & Hospitality',
-    location: 'Jaipur, Rajasthan',
+    location: 'Rajasthan',
     description: 'A modern commercial hotel development showcasing structural concrete integrity, customized exterior finishes, and premium room layouts.',
     tag: 'development',
     images: {
@@ -183,7 +183,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, progress, tot
 };
 
 interface ProjectsProps {
-  filter?: 'all' | 'residential' | 'commercial' | 'development' | 'interiors';
+  filter?: 'all' | 'residential' | 'commercial' | 'development';
 }
 
 export const Projects: React.FC<ProjectsProps> = ({ filter = 'all' }) => {

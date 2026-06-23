@@ -67,8 +67,7 @@ export const Footer = () => {
             <ul className="space-y-4 text-sm font-light text-[#6F6F6F]">
               <li>Residential &amp; Commercial Construction</li>
               <li>Turnkey Projects</li>
-              <li>Project Management</li>
-              <li>Interior Design Services</li>
+              <li>Site Supervision &amp; Engineering</li>
               <li>Renovation &amp; Remodeling</li>
             </ul>
           </div>

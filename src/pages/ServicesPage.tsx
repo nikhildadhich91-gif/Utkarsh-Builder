@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { FadeUp } from '../components/ui/FadeUp';
 import { StaggerContainer } from '../components/ui/StaggerContainer';
-import { Calculator } from 'lucide-react';
+import { Calculator, Briefcase, ShieldCheck, Award } from 'lucide-react';
 import { HeroSection } from '../components/ui/hero-section-2';
 
 
@@ -24,43 +24,37 @@ const servicesData: ServiceItem[] = [
     number: '02',
     title: 'Complete Start to Finish Construction',
     description: 'We take care of the entire project from start to finish, managing all approvals, designs, and building work.',
-    extendedDetails: 'This service covers everything: testing the soil, creating architectural blueprints, handling structural engineering, buying materials, finishing the interiors, and handing over the keys.'
+    extendedDetails: 'This service covers everything: testing the soil, creating architectural blueprints, handling structural engineering, buying materials, and handing over the keys.'
   },
   {
     number: '03',
-    title: 'Project Management',
+    title: 'Site Supervision and Engineering',
     description: 'We supervise daily construction, check material quality, and handle schedules to keep your project on time and within budget.',
     extendedDetails: 'We oversee daily labor, check the quality of materials delivered to the site, coordinate all builders, handle city inspections, and send you weekly progress updates with photos.'
   },
   {
     number: '04',
-    title: 'Interior Design Services',
-    description: 'We design beautiful, custom interiors that fit your personal style, using premium materials and lighting.',
-    extendedDetails: 'We specialize in modern luxury interior styling, offering premium marble flooring, custom wood cabinets, smart lighting, and styling that matches your lifestyle.'
-  },
-  {
-    number: '05',
     title: 'Renovation and Remodeling',
-    description: 'We transform old properties into modern, functional spaces by updating layouts, reinforcing structures, and refreshing styling.',
+    description: 'We transform old buildings into modern, functional spaces by updating layouts, reinforcing structures, and refreshing styling.',
     extendedDetails: 'We restore older structures, add new rooms, strengthen supporting columns, and completely redesign the interior and exterior to make it feel brand new.'
   },
   {
+    number: '05',
+    title: 'Land Selection and Sourcing',
+    description: 'We help you find and choose the best locations and plots in Rajasthan that will grow in value over time.',
+    extendedDetails: 'With over 30 years of local land and construction experience, we guide you through market trends, municipal plans, and pricing to help you make the best decision for your plot.'
+  },
+  {
     number: '06',
-    title: 'Real Estate Planning and Property Selection',
-    description: 'We help you find and choose the best locations and properties in Jaipur that will grow in value over time.',
-    extendedDetails: 'With over 30 years of local real estate experience, we guide you through local market trends, municipal plans, and pricing to help you make the best decision for your property.'
+    title: 'Land and Plot Site Testing',
+    description: 'We check the soil, sunlight direction, utilities, and layout options before starting construction.',
+    extendedDetails: 'Before we lay a single brick, we carefully check the ground, plan for natural light, and make sure everything perfectly follows all municipal development authority regulations.'
   },
   {
     number: '07',
-    title: 'Land and Property Testing',
-    description: 'We check the soil, sunlight direction, utilities, and layout options before starting construction.',
-    extendedDetails: 'Before we lay a single brick, we carefully check the ground, plan for natural light, and make sure everything perfectly follows all Jaipur Development Authority regulations.'
-  },
-  {
-    number: '08',
-    title: 'Property Development Support',
-    description: 'We handle the entire journey for you, coordinating building approvals, blueprints, structural building, interior styling, and checking in on your property even after move-in.',
-    extendedDetails: 'We act as your reliable development partner, managing blueprints, municipal permits, structural building, internal decor spacing, and post-delivery checkups.'
+    title: 'Plot Development Support',
+    description: 'We handle the entire journey for you, coordinating building approvals, blueprints, structural building, and checking in on your building even after move-in.',
+    extendedDetails: 'We act as your reliable development partner, managing blueprints, municipal permits, structural building, and post-delivery checkups.'
   }
 ];
 
@@ -74,7 +68,7 @@ export const ServicesPage = () => {
 
   // Recalculate cost estimate when parameters change
   useEffect(() => {
-    // Base cost per sq ft in INR (Jaipur standards for premium builders)
+    // Base cost per sq ft in INR (Rajasthan standards for premium builders)
     let baseRate = 1800; // standard
     if (quality === 'premium') baseRate = 2800;
     if (quality === 'royal') baseRate = 4500;
@@ -121,7 +115,7 @@ export const ServicesPage = () => {
               <span className="text-[#C92C15]">Built for Generations</span>
             </>
           }
-          subtitle="From premium custom residential villas to commercial corporate spaces and complete turnkey solutions, we bring structural integrity and luxury interior design to life in Jaipur."
+          subtitle="From premium custom residential villas to commercial corporate spaces and complete turnkey solutions, we bring structural integrity and engineering excellence to life in Rajasthan."
           callToAction={{
             text: "Book A Consultation",
             href: "/contact"
@@ -130,7 +124,7 @@ export const ServicesPage = () => {
           contactInfo={{
             email: "nowalutkarsh@gmail.com",
             phone: "+91 8562034491",
-            address: "Raja Park, Jaipur"
+            address: "Johri Bazar, Jaipur"
           }}
         />
       </div>
@@ -225,7 +219,7 @@ export const ServicesPage = () => {
                   Bespoke Villas &amp; Homes
                 </h3>
                 <p className="text-sm text-[#6F6F6F] font-light leading-relaxed">
-                  We combine Jaipur's rich architectural heritage with modern sustainable building practices to deliver extraordinary residential estates featuring flawless symmetry and structural longevity.
+                  We combine Rajasthan's rich architectural traditions with modern sustainable building practices to deliver extraordinary residential estates featuring flawless symmetry and structural longevity.
                 </p>
               </div>
             </FadeUp>
@@ -274,7 +268,7 @@ export const ServicesPage = () => {
           </FadeUp>
           <FadeUp delay={0.3} className="mt-4">
             <p className="text-[#6F6F6F] font-light">
-              Get an instant cost estimate for your residential, commercial, or turnkey construction project in Jaipur.
+              Get an instant cost estimate for your residential, commercial, or turnkey construction project in Rajasthan.
             </p>
           </FadeUp>
         </div>
@@ -317,7 +311,7 @@ export const ServicesPage = () => {
                 {[
                   { id: 'standard', title: 'Standard Quality', desc: '₹1,800/sq.ft' },
                   { id: 'premium', title: 'Premium Luxury', desc: '₹2,800/sq.ft' },
-                  { id: 'royal', title: 'Royal Heritage', desc: '₹4,500/sq.ft' }
+                  { id: 'royal', title: 'Royal Premium', desc: '₹4,500/sq.ft' }
                 ].map((item) => (
                   <button
                     key={item.id}
@@ -424,7 +418,96 @@ export const ServicesPage = () => {
         </div>
       </div>
 
+      {/* 5. Interactive Client Extra Benefits Section */}
+      <div className="py-24 bg-white rounded-b-[40px] sm:rounded-b-[50px] md:rounded-b-[60px] relative z-10 -mt-10 border-t border-black/5">
+        <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16 text-center">
+          <FadeUp delay={0.1} className="mb-3">
+            <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Value Additions</span>
+          </FadeUp>
+          <FadeUp delay={0.2} className="mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
+              Extra Benefits We Give to Clients
+            </h2>
+          </FadeUp>
+
+          {/* Interactive Benefit Tabs */}
+          <ServicesExtraBenefits />
+        </div>
+      </div>
+
     </div>
   );
 };
+
+// Sub-component for client extra benefits
+const ServicesExtraBenefits: React.FC = () => {
+  const [activeBenefitTab, setActiveBenefitTab] = useState<'engineer' | 'permits' | 'billing' | 'quality'>('engineer');
+
+  const benefitTabs = [
+    {
+      id: 'engineer',
+      label: 'Site Engineer Supervision',
+      title: 'Dedicated Site Engineers on Duty',
+      desc: 'We place a qualified site engineer on every single construction project. They check materials, supervise builders, and ensure the engineering design is followed to the letter.',
+      icon: Briefcase
+    },
+    {
+      id: 'permits',
+      label: 'Municipal Permitting Support',
+      title: 'Liaison & Approval Management',
+      desc: 'We handle the paperwork and approvals for you. From municipal structural blueprints, zoning guidelines, and utility board clearances, we make sure your building is fully compliant.',
+      icon: ShieldCheck
+    },
+    {
+      id: 'billing',
+      label: 'Transparent Milestone Payments',
+      title: 'Cost Control & Open Books',
+      desc: 'We believe in absolute clarity. Payments are structured around clear construction milestones. You only pay for work completed, with fully transparent bill itemizations.',
+      icon: Calculator
+    },
+    {
+      id: 'quality',
+      label: 'Material Auditing',
+      title: 'Rigorous Quality Checks',
+      desc: 'We conduct independent tests for all reinforcement steel bars, cement mixes, and sand grade. We only use high-grade verified components built to stand for generations.',
+      icon: Award
+    }
+  ];
+
+  const activeBenefit = benefitTabs.find(tab => tab.id === activeBenefitTab)!;
+  const BenefitIcon = activeBenefit.icon;
+
+  return (
+    <div className="space-y-10">
+      {/* Tab Selectors */}
+      <div className="flex flex-wrap gap-2 justify-center border-b border-black/5 pb-4">
+        {benefitTabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveBenefitTab(tab.id as any)}
+            className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${
+              activeBenefitTab === tab.id
+                ? 'bg-[#C92C15] text-white shadow-md'
+                : 'text-[#6F6F6F] hover:text-[#C92C15] hover:bg-black/5'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Tab Content Display */}
+      <FadeUp delay={0.2} className="bg-[#FAF7F5] rounded-3xl p-8 md:p-12 border border-black/5 text-left flex flex-col md:flex-row gap-8 items-center min-h-[220px]">
+        <div className="h-16 w-16 bg-[#C92C15]/5 border border-[#C92C15]/10 rounded-2xl flex items-center justify-center text-[#C92C15] shrink-0">
+          <BenefitIcon className="h-8 w-8" />
+        </div>
+        <div className="space-y-3">
+          <h4 className="text-xl md:text-2xl font-semibold text-[#1B1B1B]">{activeBenefit.title}</h4>
+          <p className="text-base text-[#6F6F6F] font-light leading-relaxed">{activeBenefit.desc}</p>
+        </div>
+      </FadeUp>
+    </div>
+  );
+};
+
 export default ServicesPage;

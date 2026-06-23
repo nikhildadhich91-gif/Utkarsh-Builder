@@ -47,7 +47,7 @@ export const Hero = () => {
 
             <FadeIn delay={800} duration={1000}>
               <p className="text-base md:text-lg text-gray-800 mb-6 max-w-2xl font-semibold leading-relaxed">
-                With 30+ years of experience and over 100 completed projects in Jaipur, Utkarsh Builder <PointerHighlight delay={1.8} containerClassName="text-[#C92C15] font-semibold">transforms</PointerHighlight> ideas into premium homes and commercial spaces built to last.
+                With 30+ years of experience and over 100 completed projects in Rajasthan, Utkarsh Builder <PointerHighlight delay={1.8} containerClassName="text-[#C92C15] font-semibold">transforms</PointerHighlight> ideas into premium homes and commercial spaces built to last.
               </p>
             </FadeIn>
 
@@ -86,7 +86,7 @@ export const Hero = () => {
 
           <FadeIn delay={800} duration={1000}>
             <p className="text-base sm:text-lg text-white/95 mb-8 max-w-2xl font-light leading-relaxed">
-              With 30+ years of experience and over 100 completed projects in Jaipur, Utkarsh Builder <PointerHighlight delay={1.8} containerClassName="text-[#C92C15] font-semibold">transforms</PointerHighlight> ideas into premium homes and commercial spaces built to last.
+              With 30+ years of experience and over 100 completed projects in Rajasthan, Utkarsh Builder <PointerHighlight delay={1.8} containerClassName="text-[#C92C15] font-semibold">transforms</PointerHighlight> ideas into premium homes and commercial spaces built to last.
             </p>
           </FadeIn>
 

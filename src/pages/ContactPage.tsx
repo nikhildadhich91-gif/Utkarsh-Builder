@@ -10,21 +10,20 @@ interface FaqItem {
 
 const faqs: FaqItem[] = [
   {
-    question: "What areas of Jaipur do you execute projects in?",
-    answer: "We cover all major zones in Jaipur, with an active footprint in Raja Park, C-Scheme, Malviya Nagar, Vaishali Nagar, Mansarovar, and Jagatpura. We can also consult on plot selection and zoning codes."
+    question: "What areas of Rajasthan do you execute projects in?",
+    answer: "We cover major zones and cities in Rajasthan, with our core footprint in Jaipur (including Johri Bazar, Raja Park, C-Scheme, and other primary areas), and surrounding regions. We consult on plot dimensions, zoning codes, and land checking."
   },
   {
-    title: "Guarantee",
-    question: "What structural warranties do you offer?",
-    answer: "We offer our signature 5-Month Guarantee to Build structural frameworks, and provide a 10-year structural engineering warranty on all reinforced concrete foundations, columns, and slabs."
-  } as any,
+    question: "What structural quality standards do you follow?",
+    answer: "We adhere to strict national and state building codes. Our site engineers supervise all material testing (like concrete compression and steel tensile tests) to ensure structural safety and durability."
+  },
   {
-    question: "Do you handle JDA (Jaipur Development Authority) municipal permits?",
-    answer: "Yes, our turnkey project scope covers the creation of structural blueprints, submission to the Jaipur Development Authority (JDA), zoning code compliance, electrical board approvals, and construction permits."
+    question: "Do you handle municipal development authority permits?",
+    answer: "Yes, our turnkey project scope covers the creation of structural blueprints, submission to local development authorities, zoning compliance, utility board approvals, and final construction permits."
   },
   {
     question: "What is the typical billing and payment structure?",
-    answer: "We divide bills into 5 clear progress-based milestones: Foundation completion, structural frame completion, masonry completion, plaster/finishes, and final keys handover. Zero hidden costs, fully documented."
+    answer: "We divide billing into 5 clear progress-based milestones: Foundation completion, structural frame completion, masonry completion, plaster/finishes, and final keys handover. Zero hidden costs, fully documented."
   }
 ];
 
@@ -103,7 +102,7 @@ export const ContactPage: React.FC = () => {
                   <div className="flex items-start gap-3 pt-2">
                     <MapPin className="h-4 w-4 text-[#6F6F6F] shrink-0 mt-1" />
                     <p className="text-xs text-[#6F6F6F] leading-relaxed font-light">
-                      C-3, Opp. Pink Square Mall,<br />Raja Park, Jaipur, Rajasthan
+                      Johri Bazar,<br />Jaipur, Rajasthan
                     </p>
                   </div>
                 </div>
@@ -121,7 +120,7 @@ export const ContactPage: React.FC = () => {
             <FadeUp delay={0.2} y={30} className="bg-[#FAF7F5] border border-black/5 p-8 rounded-3xl text-left">
               <h4 className="text-xs uppercase tracking-widest text-[#C92C15] font-semibold mb-3">Our Office</h4>
               <p className="text-sm text-[#6F6F6F] font-light leading-relaxed">
-                Our main office is located in Raja Park, Jaipur. You can visit us to discuss your construction plans in person.
+                Our main office is located in Johri Bazar, Jaipur. You can visit us to discuss your construction plans in person.
               </p>
             </FadeUp>
 

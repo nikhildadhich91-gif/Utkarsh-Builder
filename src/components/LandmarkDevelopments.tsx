@@ -32,7 +32,7 @@ export const LandmarkDevelopments: React.FC = () => {
                   {/* Location Tag */}
                   <div className="absolute top-6 left-6 bg-black/60 text-white backdrop-blur-md px-4 py-2 rounded-full text-xs font-medium tracking-wide flex items-center gap-1.5 shadow-md z-10">
                     <MapPin className="h-3.5 w-3.5 text-[#C92C15]" />
-                    <span>Prime Areas in Jaipur</span>
+                    <span>Prime Areas in Rajasthan</span>
                   </div>
                 </div>
               </Magnet>
@@ -54,7 +54,7 @@ export const LandmarkDevelopments: React.FC = () => {
 
             <FadeUp delay={0.3}>
               <p className="text-[#6F6F6F] font-light text-lg md:text-xl leading-relaxed">
-                We do more than just build single properties. We plan entire gated communities, residential areas, and commercial blocks in Jaipur. From finding the perfect plots of land to designing safe roads, green parks, and building spaces that bring neighbors together, we turn land into beautiful communities.
+                We do more than just build single buildings. We plan entire gated communities, residential areas, and commercial blocks in Rajasthan. From finding the perfect plots of land to designing safe roads, green parks, and building spaces that bring neighbors together, we turn land into beautiful communities.
               </p>
             </FadeUp>
 

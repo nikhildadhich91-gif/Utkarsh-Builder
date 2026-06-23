@@ -82,7 +82,7 @@ export const AboutPage: React.FC = () => {
 
             <FadeUp delay={0.3}>
               <p className="text-[#6F6F6F] font-light text-base md:text-lg max-w-2xl mx-auto leading-relaxed pt-2">
-                A heritage of craftsmanship, structural safety, and transparent client communication in every project since 1995.
+                A legacy of craftsmanship, structural safety, and transparent client communication in every project since 1995.
               </p>
             </FadeUp>
           </div>
@@ -151,7 +151,7 @@ export const AboutPage: React.FC = () => {
           {/* Scroll reveal paragraph */}
           <div className="text-xl md:text-2xl lg:text-3xl text-[#2A2A2A] font-light leading-relaxed max-w-3xl mx-auto">
             <AnimatedText
-              text="With over 30 years of experience in construction and real estate, we deliver outstanding quality with complete transparency. We manage your entire project from land purchase to keys handover, keeping your needs first."
+              text="With over 30 years of experience in construction, we deliver outstanding quality with complete transparency. We manage your entire project from land purchase to keys handover, keeping your needs first."
             />
           </div>
         </div>
@@ -301,7 +301,7 @@ export const AboutPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: Landmark, title: 'Jaipur Heritage', desc: 'We build with respect for Rajasthan’s symmetrical architecture while adapting spaces to modern structural requirements.' },
+              { icon: ShieldCheck, title: 'Unwavering Trust', desc: 'Over 30 years of building relationships based on reliable execution, prompt handovers, and structural safety.' },
               { icon: ShieldCheck, title: 'Absolute Transparency', desc: 'Zero hidden fees, precise billing itemizations, and high-integrity materials ensure you get what you contract for.' },
               { icon: Leaf, title: 'Sustainable Engineering', desc: 'Employing double-glazed panel glass, local masonry stones, and energy-efficient designs that minimize eco footprints.' }
             ].map((item, idx) => {

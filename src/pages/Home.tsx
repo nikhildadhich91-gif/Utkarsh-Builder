@@ -9,7 +9,6 @@ import DevelopmentShowcase from '../components/DevelopmentShowcase';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Process from '../components/Process';
 import Testimonials from '../components/Testimonials';
-import Founders from '../components/Founders';
 import ShuffleHero from '../components/ShuffleHero';
 import Contact from '../components/Contact';
 import { FadeUp } from '../components/ui/FadeUp';
@@ -25,7 +24,7 @@ export const Home: React.FC = () => {
       {/* 2. Trust Bar scrolling marquee */}
       <TrustBar />
 
-      {/* 3. About Section (Heritage summary with tab selectors) */}
+      {/* 3. About Section (Legacy summary with tab selectors) */}
       <About />
 
       {/* 6. Market Presence Stats (Animated counters) */}
@@ -89,9 +88,6 @@ export const Home: React.FC = () => {
 
       {/* 17. Client Testimonials Slider */}
       <Testimonials />
-
-      {/* 18. Founders Profiles */}
-      <Founders />
 
       {/* 19. Shuffle Image Gallery Grid */}
       <ShuffleHero />

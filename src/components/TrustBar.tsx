@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Compass, Layers, ShieldCheck, Zap, Briefcase, Paintbrush, Hammer } from 'lucide-react';
+import { Award, Compass, Layers, ShieldCheck, Zap, Briefcase, Hammer } from 'lucide-react';
 
 const trustItems = [
   { text: '30+ Years Experience', icon: Award },
@@ -7,8 +7,8 @@ const trustItems = [
   { text: 'Residential Construction', icon: Compass },
   { text: 'Commercial Construction', icon: Layers },
   { text: 'Turnkey Solutions', icon: Zap },
-  { text: 'Project Management', icon: Briefcase },
-  { text: 'Interior Design', icon: Paintbrush },
+  { text: 'Site Supervision', icon: Briefcase },
+  { text: 'Structural Safety', icon: ShieldCheck },
   { text: 'Renovation Experts', icon: Hammer },
 ];
 

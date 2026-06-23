@@ -21,8 +21,8 @@ const reasonsList: ReasonItem[] = [
     icon: ShieldCheck,
   },
   {
-    title: 'Dedicated Project Manager',
-    description: 'You work with a single person who handles all the builders, materials, and architects for you.',
+    title: 'Dedicated Site Engineer',
+    description: 'You work with a qualified site engineer who oversees daily operations, materials, and strict safety guidelines for you.',
     icon: Briefcase,
   },
   {

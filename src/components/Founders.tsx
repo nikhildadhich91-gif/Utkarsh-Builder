@@ -11,9 +11,9 @@ export const Founders: React.FC = () => {
       role: "Founder",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&h=800&q=80",
       icon: <Award className="h-5 w-5 text-[#C92C15]" />,
-      tag: "30+ Years Construction Heritage",
-      desc: "With over 30 years of experience in the construction and real estate industry, our founder brings a wealth of knowledge, hands-on expertise, and visionary leadership. He is renowned for his uncompromising commitment to structural quality and sustainable brick masonry design.",
-      heritage: "Heritage Builder",
+      tag: "30+ Years Construction Legacy",
+      desc: "With over 30 years of experience in the construction industry, our founder brings a wealth of knowledge, hands-on expertise, and visionary leadership. He is renowned for his uncompromising commitment to structural quality and sustainable brick masonry design.",
+      heritage: "Legacy Builder",
     },
     {
       name: "Utkarsh Nowal",
@@ -21,7 +21,7 @@ export const Founders: React.FC = () => {
       image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&h=800&q=80",
       icon: <GraduationCap className="h-5 w-5 text-[#C92C15]" />,
       tag: "MBA — Marketing & Operations",
-      desc: "An MBA graduate in Marketing and Operations, our co-founder brings a modern perspective. Having honed strategic agility at real estate startups, his data-driven methods complement our construction heritage to scale new growth vectors.",
+      desc: "An MBA graduate in Marketing and Operations, our co-founder brings a modern perspective. Having honed strategic agility at property development startups, his data-driven methods complement our construction legacy to scale new growth vectors.",
       heritage: "Modern Management",
     }
   ];

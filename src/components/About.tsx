@@ -38,7 +38,7 @@ export const About: React.FC = () => {
                   <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md px-6 py-4 rounded-xl border border-black/5 flex items-center gap-3">
                     <Award className="h-8 w-8 text-[#C92C15] shrink-0" />
                     <div>
-                      <h4 className="text-[#1B1B1B] text-xs font-semibold uppercase tracking-wider">Heritage of Trust</h4>
+                      <h4 className="text-[#1B1B1B] text-xs font-semibold uppercase tracking-wider">Legacy of Trust</h4>
                       <p className="text-[#6F6F6F] text-xxs font-light">30+ Years Construction Legacy</p>
                     </div>
                   </div>
@@ -61,7 +61,7 @@ export const About: React.FC = () => {
 
             <FadeUp delay={0.4} className="mb-8">
               <p className="text-lg md:text-xl text-[#6F6F6F] leading-relaxed font-light">
-                Welcome to Utkarsh Builder, where we turn your dream spaces into reality. With over 30 years of experience and more than 100 completed projects in Jaipur, we build premium homes and commercial buildings with outstanding quality, honest pricing, and on-time completion.
+                Welcome to Utkarsh Builder, where we turn your dream spaces into reality. With over 30 years of experience and more than 100 completed projects in Rajasthan, we build premium homes and commercial buildings with outstanding quality, honest pricing, and on-time completion.
               </p>
             </FadeUp>
 
@@ -105,7 +105,7 @@ export const About: React.FC = () => {
                 <div className="text-[#6F6F6F] space-y-2 font-light">
                   <p className="text-base font-medium text-[#1B1B1B]">To Redefine Construction Quality</p>
                   <p>
-                    Our vision is to become the most trusted construction partner in Jaipur, known for outstanding quality and making your dream spaces a reality.
+                    Our vision is to become the most trusted construction partner in Rajasthan, known for outstanding quality and making your dream spaces a reality.
                   </p>
                 </div>
               )}
@@ -119,13 +119,13 @@ export const About: React.FC = () => {
               )}
             </FadeUp>
 
-            {/* Discover Heritage Link */}
+            {/* Discover Legacy Link */}
             <FadeUp delay={0.7} className="mt-8">
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 text-[#C92C15] hover:text-[#D43B13] font-semibold text-sm transition-all group cursor-pointer"
               >
-                <span>Discover Our Heritage</span>
+                <span>Discover Our Legacy</span>
                 <span className="transform transition-transform group-hover:translate-x-1">→</span>
               </Link>
             </FadeUp>

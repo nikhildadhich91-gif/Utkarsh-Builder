@@ -228,28 +228,28 @@ const column1Items: GalleryItem[] = [
     id: "col1-1",
     name: "Hotel Reeve Inn",
     category: "Commercial & Hospitality",
-    location: "Jaipur, Rajasthan",
+    location: "Rajasthan",
     image: hotelCol1_1
   },
   {
     id: "col1-2",
     name: "MS Jewellers Showroom",
     category: "Commercial Showroom",
-    location: "Jaipur, Rajasthan",
+    location: "Rajasthan",
     image: msCol1_2
   },
   {
     id: "col1-3",
     name: "Elegant Modular Kitchen",
-    category: "Residential Interiors",
-    location: "Jaipur, Rajasthan",
+    category: "Residential Kitchen",
+    location: "Rajasthan",
     image: kitchenCol1_1
   },
   {
     id: "col1-4",
     name: "Indie Stitch Boutique",
     category: "Bespoke Boutique & Office",
-    location: "Jaipur, Rajasthan",
+    location: "Rajasthan",
     image: indieCol2
   }
 ]
@@ -259,28 +259,28 @@ const column2Items: GalleryItem[] = [
     id: "col2-1",
     name: "Indie Stitch Boutique",
     category: "Bespoke Boutique & Office",
-    location: "Jaipur, Rajasthan",
+    location: "Rajasthan",
     image: indieCol1_1
   },
   {
     id: "col2-2",
     name: "Elegant Modular Kitchen",
-    category: "Residential Interiors",
-    location: "Jaipur, Rajasthan",
+    category: "Residential Kitchen",
+    location: "Rajasthan",
     image: kitchenCol2
   },
   {
     id: "col2-3",
     name: "MS Jewellers Showroom",
     category: "Commercial Showroom",
-    location: "Jaipur, Rajasthan",
+    location: "Rajasthan",
     image: msCol1_1
   },
   {
     id: "col2-4",
     name: "Hotel Reeve Inn",
     category: "Commercial & Hospitality",
-    location: "Jaipur, Rajasthan",
+    location: "Rajasthan",
     image: hotelCol2
   }
 ]
@@ -290,28 +290,28 @@ const column3Items: GalleryItem[] = [
     id: "col3-1",
     name: "MS Jewellers Showroom",
     category: "Commercial Showroom",
-    location: "Jaipur, Rajasthan",
+    location: "Rajasthan",
     image: msCol2
   },
   {
     id: "col3-2",
     name: "Hotel Reeve Inn",
     category: "Commercial & Hospitality",
-    location: "Jaipur, Rajasthan",
+    location: "Rajasthan",
     image: hotelCol1_2
   },
   {
     id: "col3-3",
     name: "Indie Stitch Boutique",
     category: "Bespoke Boutique & Office",
-    location: "Jaipur, Rajasthan",
+    location: "Rajasthan",
     image: indieCol1_2
   },
   {
     id: "col3-4",
     name: "Elegant Modular Kitchen",
-    category: "Residential Interiors",
-    location: "Jaipur, Rajasthan",
+    category: "Residential Kitchen",
+    location: "Rajasthan",
     image: kitchenCol1_2
   }
 ]
@@ -362,7 +362,7 @@ const BannerHeader: React.FC = () => {
         Crafted With Precision
       </h1>
       <p className="text-[#6F6F6F] font-light text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-        Explore our landmark projects across Jaipur, from modern offices to custom-built luxury villas.
+        Explore our landmark projects across Rajasthan, from modern offices to custom-built luxury villas.
       </p>
     </motion.div>
   )

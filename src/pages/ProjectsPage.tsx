@@ -7,7 +7,7 @@ import ProjectBanner from '../components/ProjectBanner';
 
 export const ProjectsPage: React.FC = () => {
 
-  // Specs lists for Jaipur landmark building materials
+  // Specs lists for landmark building materials in Rajasthan
   const projectSpecifications = [
     {
       title: 'Structural Steel',
@@ -15,7 +15,7 @@ export const ProjectsPage: React.FC = () => {
     },
     {
       title: 'Cement & Concrete',
-      desc: 'High-strength M30 mix designs cured specifically for Jaipur climate criteria.'
+      desc: 'High-strength M30 mix designs cured specifically for regional climate criteria in Rajasthan.'
     },
     {
       title: 'Exterior Facade',
@@ -23,7 +23,7 @@ export const ProjectsPage: React.FC = () => {
     },
     {
       title: 'Waterproof Membrane',
-      desc: 'Multi-layer polyurethane systems with 10-year structural warranty.'
+      desc: 'Multi-layer polyurethane systems for robust structural waterproofing protection.'
     }
   ];
 

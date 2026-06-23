@@ -26,7 +26,7 @@ export const ShuffleHero = () => {
           </FadeUp>
           <FadeUp delay={0.3}>
             <p className="text-base text-[#6F6F6F] font-light leading-relaxed my-2">
-              From custom family homes to modern commercial centers, we build high quality properties across Jaipur. We handle everything for you, making the entire building process simple and stress free.
+              From custom family homes to modern commercial centers, we build high quality buildings across Rajasthan. We handle everything for you, making the entire building process simple and stress free.
             </p>
           </FadeUp>
           <FadeUp delay={0.4} className="pt-2">
