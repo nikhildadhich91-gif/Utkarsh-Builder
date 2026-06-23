@@ -5,8 +5,8 @@ import BoomerangVideoBg from './BoomerangVideoBg';
 import { PointerHighlight } from './ui/pointer-highlight';
 
 export const Hero = () => {
-  const videoUrl = 'https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto,w_1280,c_scale/v1782198259/utkarsh%20construction/hero-banner.mp4';
-  const posterUrl = 'https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto,so_0/v1782198259/utkarsh%20construction/hero-banner.jpg';
+  const videoUrl = 'https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto:best,w_1920,c_scale/v1782198259/utkarsh%20construction/hero-banner.mp4';
+  const posterUrl = 'https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto:best,w_1920,c_scale,so_0/v1782198259/utkarsh%20construction/hero-banner.jpg';
 
   return (
     <section id="home" className="hero bg-[#FAF7F5] relative h-screen w-full overflow-hidden">
