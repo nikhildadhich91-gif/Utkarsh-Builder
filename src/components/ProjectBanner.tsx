@@ -77,12 +77,17 @@ export const ContainerScroll = ({
   style,
   ...props
 }: React.HtmlHTMLAttributes<HTMLDivElement>) => {
-  const { scrollY } = useScroll()
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  })
 
   return (
-    <ContainerScrollContext.Provider value={{ scrollY }}>
+    <ContainerScrollContext.Provider value={{ scrollY: scrollYProgress }}>
       <div
-        className={cn("relative min-h-[150vh]", className)}
+        ref={containerRef}
+        className={cn("relative min-h-[125vh] md:min-h-[160vh]", className)}
         style={{
           perspective: "1200px",
           perspectiveOrigin: "center center",
@@ -129,10 +134,10 @@ export const GalleryContainer = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & HTMLMotionProps<"div">) => {
   const { scrollY } = useContainerScrollContext()
-  const rotateX = useTransform(scrollY, [0, 450], [60, 0])
-  const scale = useTransform(scrollY, [0, 450], [0.92, 1])
-  const filter = useTransform(scrollY, [0, 100], ["blur(3px)", "blur(0px)"])
-  const opacity = useTransform(scrollY, [0, 100], [0.85, 1])
+  const rotateX = useTransform(scrollY, [0, 1], [60, 0])
+  const scale = useTransform(scrollY, [0, 1], [0.92, 1])
+  const filter = useTransform(scrollY, [0, 0.25], ["blur(3px)", "blur(0px)"])
+  const opacity = useTransform(scrollY, [0, 0.25], [0.85, 1])
 
   return (
     <motion.div
@@ -164,7 +169,7 @@ export const GalleryCol = ({
   ...props
 }: HTMLMotionProps<"div"> & { yRange?: string[] }) => {
   const { scrollY } = useContainerScrollContext()
-  const y = useTransform(scrollY, [0, 600], yRange)
+  const y = useTransform(scrollY, [0, 1], yRange)
 
   return (
     <motion.div
@@ -347,9 +352,9 @@ const ProjectCard: React.FC<{ item: GalleryItem }> = ({ item }) => {
 
 const BannerHeader: React.FC = () => {
   const { scrollY } = useContainerScrollContext()
-  const opacity = useTransform(scrollY, [0, 200], [1, 0])
-  const y = useTransform(scrollY, [0, 200], [0, -40])
-  const scale = useTransform(scrollY, [0, 200], [1, 0.96])
+  const opacity = useTransform(scrollY, [0, 0.3], [1, 0])
+  const y = useTransform(scrollY, [0, 0.3], [0, -40])
+  const scale = useTransform(scrollY, [0, 0.3], [1, 0.96])
 
   return (
     <motion.div
@@ -376,7 +381,7 @@ export const ProjectBanner: React.FC = () => {
       <div className="absolute top-[-50px] right-[-100px] w-[500px] h-[300px] bg-radial from-[rgba(201,44,21,0.06)] to-transparent filter blur-[40px] pointer-events-none rounded-full z-0" />
       <div className="absolute bottom-[50px] left-[-100px] w-[500px] h-[300px] bg-radial from-[rgba(201,44,21,0.06)] to-transparent filter blur-[40px] pointer-events-none rounded-full z-0" />
 
-      <ContainerSticky className="h-screen flex flex-col justify-start items-center pt-16 md:pt-32 pb-4 bg-[#FAF7F5] overflow-hidden">
+      <ContainerSticky className="h-screen flex flex-col justify-start items-center pt-28 md:pt-32 pb-4 bg-[#FAF7F5] overflow-hidden">
         {/* Animated header text */}
         <BannerHeader />
 
