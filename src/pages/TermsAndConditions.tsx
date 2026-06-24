@@ -6,22 +6,22 @@ const keyTerms = [
   {
     icon: <Landmark className="h-5 w-5" />,
     title: "Scope of Work",
-    desc: "Construction follows finalized blueprints, structural layouts, and approved material specifications.",
+    desc: "Construction follows agreed blueprints, drawings, layouts, and high-quality specifications.",
   },
   {
     icon: <Clock className="h-5 w-5" />,
-    title: "5-Stage Billing",
-    desc: "Progress-based milestone payments from foundation to final handover — zero hidden costs.",
+    title: "Payment Terms",
+    desc: "Progressive payments via the Onsite app. Minimum balance of ₹2,00,000/- must be maintained.",
   },
   {
     icon: <Wrench className="h-5 w-5" />,
-    title: "2-Year Warranty",
-    desc: "Free repair for structural defects, leakages, electrical, and plumbing for 2 years post-handover.",
+    title: "Defects Liability",
+    desc: "The Builder is liable to repair any structural defects, leakages, or cracks due to workmanship.",
   },
   {
     icon: <Scale className="h-5 w-5" />,
     title: "Dispute Resolution",
-    desc: "Governed by Indian law. Arbitration in Jaipur, Rajasthan for any unresolved disputes.",
+    desc: "Governed by Indian law. Arbitration and legal disputes under Jaipur, Rajasthan jurisdiction.",
   },
 ];
 
@@ -43,7 +43,7 @@ export const TermsAndConditions: React.FC = () => {
         </FadeUp>
         <FadeUp delay={0.25}>
           <p className="text-xs md:text-sm text-[#6F6F6F] font-light">
-            Last Updated: June 24, 2026
+            Last Updated: June 2026
           </p>
         </FadeUp>
       </section>
@@ -76,13 +76,13 @@ export const TermsAndConditions: React.FC = () => {
             <div className="bg-amber-50/60 border border-amber-200/40 rounded-2xl p-5 md:p-6 text-amber-800 text-xs md:text-sm flex gap-3.5 items-start leading-relaxed">
               <ShieldAlert className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
               <div>
-                <strong>Disclaimer:</strong> This is a simplified online version of our standard legal Terms and Conditions. The detailed legal contract agreement document is available upon request through our corporate communication channels.
+                <strong>Disclaimer:</strong> This is a simplified version of our Terms and Conditions. A detailed legal document is available upon request through our communication channels.
               </div>
             </div>
 
             {/* Intro */}
             <p className="text-sm md:text-base text-[#6F6F6F] leading-[1.85] font-light">
-              Welcome to Utkarsh Builder. Please read these Terms and Conditions carefully before requesting our construction or consulting services. By using our services, signing construction milestone schedules, or browsing this site, you agree to be bound by the following Terms and Conditions.
+              Welcome to Utkarsh Builder. Please read these Terms and Conditions carefully before requesting our services. By using our services, you agree to be bound by the following Terms and Conditions.
             </p>
 
             <hr className="border-black/[0.04]" />
@@ -91,79 +91,166 @@ export const TermsAndConditions: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">1. Scope of Work</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                We commit to constructing the residential or commercial building on the specified plot of land as per the finalized blueprints, structural layouts, drawings, and materials specifications approved by the Owner. Construction will follow verified structural design schedules, using premium building materials, and will be carried out in a professional, certified manner.
+                We, the Builders, commit to constructing the building on the specified plot of land as per the agreed plans, drawings, layouts, and specifications. The construction will be done using high-quality materials and in a professional manner.
               </p>
             </div>
 
             {/* Section 2 */}
             <div className="space-y-4">
-              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">2. Billing &amp; Payment Structure</h3>
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">2. Payment Terms</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                The Owner agrees to clear invoices based on the progress-milestone payment schedule. We operate on 5 clear progressive milestone bills:
-              </p>
-              <ul className="list-disc pl-5 text-sm text-[#6F6F6F] space-y-2.5 font-light leading-relaxed">
-                <li><strong className="text-[#1B1B1B] font-medium">Milestone 1:</strong> Foundation completion and testing.</li>
-                <li><strong className="text-[#1B1B1B] font-medium">Milestone 2:</strong> Main RCC structural frame and column casting completion.</li>
-                <li><strong className="text-[#1B1B1B] font-medium">Milestone 3:</strong> Brick masonry and external wall setups.</li>
-                <li><strong className="text-[#1B1B1B] font-medium">Milestone 4:</strong> Internal/external plaster and electrical/plumbing line laying.</li>
-                <li><strong className="text-[#1B1B1B] font-medium">Milestone 5:</strong> Tile laying, finishes, painting, and key handover.</li>
-              </ul>
-              <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                Payments are tracked transparently. Construction starts within 15 days of receiving the primary project advance.
+                The Owner agrees to pay for the construction services as per the terms outlined in the Onsite app. A minimum balance of ₹2,00,000/- must be maintained. The Builder will commence construction within 15 days of receiving the first instalment and will complete the project within ten months from that date.
               </p>
             </div>
 
             {/* Section 3 */}
             <div className="space-y-4">
-              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">3. Site Access &amp; Feasibility</h3>
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">3. Access to the Site</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                The Owner agrees to provide Utkarsh Builder, our site engineers, sub-contractors, and laborers unrestricted, safe access to the building plot. Necessary utility clearances (water, primary electricity connections) must be arranged to facilitate construction work.
+                The Owner will provide the Builder and their personnel, including subcontractors and employees, unrestricted access to the construction site to perform their duties efficiently.
               </p>
             </div>
 
             {/* Section 4 */}
             <div className="space-y-4">
-              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">4. Turnkey Services &amp; Management Fees</h3>
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">4. Services Provided</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                Our turnkey scope includes: architectural planning, structural analysis drawings, municipal permissions assistance, material testing (concrete compression / steel tensile strength), and supervision by senior consultants. A standard management and coordination fee of 15% of the construction cost applies to custom turnkey projects, deducted according to progress bills.
+                We offer comprehensive services including:
               </p>
+              <ul className="list-disc pl-5 text-sm text-[#6F6F6F] space-y-2 font-light leading-relaxed">
+                <li>Architectural consultancy and project planning.</li>
+                <li>Design and development of structural drawings and floor plans.</li>
+                <li>Schematic development for water, drainage, electrical, and AC systems.</li>
+                <li>Elevation design and 3D visualisation.</li>
+                <li>Project budgeting and BOQ development.</li>
+                <li>Site management, including inventory and material procurement.</li>
+                <li>Site supervision and regular audits by engineers.</li>
+                <li>Daily progress reports, 24x7 camera surveillance, and maintenance of site expenses ledger.</li>
+              </ul>
             </div>
 
             {/* Section 5 */}
             <div className="space-y-4">
-              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">5. Inspection Rights</h3>
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">5. General Terms</h3>
+              <ul className="list-disc pl-5 text-sm text-[#6F6F6F] space-y-2 font-light leading-relaxed">
+                <li>A management fee of 15% of the total construction cost will be charged, with applicable taxes.</li>
+                <li>This fee will be automatically deducted monthly.</li>
+                <li>The Builder is not responsible for leftover materials after construction.</li>
+                <li>No approvals are required for petty expenses to ensure smooth operations.</li>
+                <li>Construction will follow standard procedures, with no work on certain holidays.</li>
+                <li>All instructions must be routed through the company; no direct instructions to the contractor or labourers are permitted.</li>
+                <li>Any additional costs due to work halted by the Owner will be payable by the Owner.</li>
+                <li>Security costs, if required, will be shared as per mutual agreement.</li>
+              </ul>
+            </div>
+
+            {/* Section 6 */}
+            <div className="space-y-4">
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">6. Inspection Rights</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
                 The Owner or their representative has the right to inspect the construction work and materials at any time without prior notice. Any requested changes should be communicated, and the Builder will be given reasonable time to implement them.
               </p>
             </div>
 
-            {/* Section 6 */}
-            <div className="space-y-4">
-              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">6. Liability for Defects &amp; Warranty</h3>
-              <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                We stand by our work. Utkarsh Builder provides a 2-year warranty post-handover for core structural defects, structural cracks, and leakages arising from workmanship issues. Free repair services apply to plumbing lines and electrical wiring installed by us during this period.
-              </p>
-            </div>
-
             {/* Section 7 */}
             <div className="space-y-4">
-              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">7. Force Majeure</h3>
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">7. Term and Termination</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                Neither party will be held liable for delays or failure to perform due to unforeseen events beyond their control, including but not limited to natural disasters, government orders, or supply chain disruptions.
+                This Agreement commences on the agreed start date and will continue until the completion of the project or earlier termination as specified in Clause 11.
               </p>
             </div>
 
             {/* Section 8 */}
             <div className="space-y-4">
-              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">8. Dispute Resolution &amp; Termination</h3>
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">8. Indemnification</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                Either party holds the right to terminate the contract in case of material breach or ongoing quality failures, after giving a 30-day written warning notice. In case of a dispute, the parties will attempt to resolve it amicably through negotiation. If unsuccessful, the dispute will be resolved through arbitration in Jaipur, Rajasthan. This Agreement is governed by the laws of India.
+                The Builder is responsible for repairing any damage to the Owner's or neighbours' property caused by negligence. Additionally, the Builder is liable for any accidents or loss of labour at the site.
               </p>
             </div>
 
             {/* Section 9 */}
             <div className="space-y-4">
-              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">9. Acceptance of Terms</h3>
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">9. Force Majeure</h3>
+              <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
+                Neither party will be held liable for delays or failure to perform due to unforeseen events beyond their control (Force Majeure).
+              </p>
+            </div>
+
+            {/* Section 10 */}
+            <div className="space-y-4">
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">10. Applicable Law</h3>
+              <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
+                This Agreement is governed by the laws of India. Any disputes will be subject to the jurisdiction of the courts in Jaipur, Rajasthan.
+              </p>
+            </div>
+
+            {/* Section 11 */}
+            <div className="space-y-4">
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">11. Non-Solicitation</h3>
+              <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
+                The Owner agrees not to solicit or hire any employees of the Builder during the term of this Agreement and for one year thereafter.
+              </p>
+            </div>
+
+            {/* Section 12 */}
+            <div className="space-y-4">
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">12. Expenses</h3>
+              <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
+                Each party will bear its own costs in relation to this Agreement and any associated documentation.
+              </p>
+            </div>
+
+            {/* Section 13 */}
+            <div className="space-y-4">
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">13. Dispute Resolution</h3>
+              <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
+                In case of a dispute, the parties will attempt to resolve it amicably through negotiation. If unsuccessful, the dispute will be resolved through arbitration in Jaipur, Rajasthan.
+              </p>
+            </div>
+
+            {/* Section 14 */}
+            <div className="space-y-4">
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">14. No Joint Venture</h3>
+              <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
+                The Builder remains an independent contractor. This Agreement does not create a partnership, joint venture, or agency relationship between the parties.
+              </p>
+            </div>
+
+            {/* Section 15 */}
+            <div className="space-y-4">
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">15. Notices</h3>
+              <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
+                All notices and communications under this Agreement will be in writing and delivered to the designated addresses.
+              </p>
+            </div>
+
+            {/* Section 16 */}
+            <div className="space-y-4">
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">16. Execution</h3>
+              <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
+                This Agreement will be executed in duplicate, with one copy retained by the Builder and the other by the Owner.
+              </p>
+            </div>
+
+            {/* Section 17 */}
+            <div className="space-y-4">
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">17. Right to Discontinue</h3>
+              <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
+                The Owner has the right to discontinue the work if not satisfied with the quality or workmanship, following prior warnings to the Builder. The builder will be given a warning to make improvements. If the quality does not improve, the contractor will be replaced with a more capable team.
+              </p>
+            </div>
+
+            {/* Section 18 */}
+            <div className="space-y-4">
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">18. Liability for Defects</h3>
+              <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
+                If any structural defects, such as leakages or cracks, occur due to poor design or workmanship, the Builder is liable to repair them.
+              </p>
+            </div>
+
+            {/* Section 19 */}
+            <div className="space-y-4">
+              <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">19. Acceptance of Terms</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
                 By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions.
               </p>
@@ -173,7 +260,7 @@ export const TermsAndConditions: React.FC = () => {
             <div className="bg-[#FAF7F5] border border-black/[0.04] rounded-2xl p-5 md:p-6 text-xs md:text-sm flex gap-3.5 items-start leading-relaxed text-[#6F6F6F]">
               <ShieldCheck className="h-5 w-5 text-[#C92C15] shrink-0 mt-0.5" />
               <div>
-                <strong className="text-[#1B1B1B]">Note:</strong> This is a simplified version of our Terms and Conditions. A detailed legal document is available upon request through our communication channels.
+                <strong className="text-[#1B1B1B]">Disclaimer:</strong> This is a simplified version of our Terms and Conditions. A detailed legal document is available upon request through our communication channels.
               </div>
             </div>
 

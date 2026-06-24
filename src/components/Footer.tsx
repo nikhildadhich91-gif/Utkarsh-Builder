@@ -24,10 +24,9 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative w-full bg-[#1B1B1B] text-white overflow-hidden">
-      {/* Decorative subtle ambient glow */}
-      <div className="absolute -bottom-32 left-1/4 w-[500px] h-[500px] bg-[#C92C15]/[0.04] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[400px] h-[300px] bg-white/[0.01] rounded-full blur-[80px] pointer-events-none" />
+    <footer className="relative w-full bg-[#F5F2EF] text-[#2A2A2A] overflow-hidden border-t border-black/[0.04]">
+      {/* Subtle ambient warm accent */}
+      <div className="absolute -bottom-32 left-1/4 w-[500px] h-[500px] bg-[#C92C15]/[0.02] rounded-full blur-[120px] pointer-events-none" />
 
       {/* Top Divider Accent Line */}
       <div className="w-full h-[3px] bg-gradient-to-r from-transparent via-[#C92C15] to-transparent" />
@@ -44,26 +43,26 @@ export const Footer: React.FC = () => {
 
           {/* Col 1: Logo & Tagline — 5 spans */}
           <motion.div variants={fadeSlideUp} className="col-span-1 md:col-span-5 space-y-6 text-left">
-            <Link to="/" className="inline-block bg-white p-2.5 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+            <Link to="/" className="inline-block hover:scale-105 transition-all duration-300">
               <img
                 src={LogoImg}
                 alt="Utkarsh Builder Logo"
                 className="h-10 md:h-12 w-auto object-contain"
               />
             </Link>
-            <p className="text-white/50 font-light text-sm leading-[1.8] max-w-md">
+            <p className="text-[#6F6F6F] font-light text-sm leading-[1.8] max-w-md">
               We are committed to delivering expert construction services that bring your vision to life. With a focus on quality craftsmanship and attention to detail, we turn your construction projects into stunning realities.
             </p>
             <div className="space-y-3 pt-3">
-              <a href="https://maps.google.com/?q=Johri+Bazar+Jaipur+Rajasthan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/40 hover:text-[#C92C15] transition-colors text-xs group">
+              <a href="https://maps.google.com/?q=Johri+Bazar+Jaipur+Rajasthan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#6F6F6F] hover:text-[#C92C15] transition-colors text-xs group">
                 <MapPin className="h-4 w-4 text-[#C92C15] shrink-0 group-hover:scale-110 transition-transform" />
                 <span>Johri Bazar, Jaipur, Rajasthan</span>
               </a>
-              <a href="tel:+918562034491" className="flex items-center gap-3 text-white/40 hover:text-[#C92C15] transition-colors text-xs group">
+              <a href="tel:+918562034491" className="flex items-center gap-3 text-[#6F6F6F] hover:text-[#C92C15] transition-colors text-xs group">
                 <Phone className="h-4 w-4 text-[#C92C15] shrink-0 group-hover:scale-110 transition-transform" />
                 <span>+91 8562034491</span>
               </a>
-              <a href="mailto:nowalutkarsh@gmail.com" className="flex items-center gap-3 text-white/40 hover:text-[#C92C15] transition-colors text-xs group">
+              <a href="mailto:nowalutkarsh@gmail.com" className="flex items-center gap-3 text-[#6F6F6F] hover:text-[#C92C15] transition-colors text-xs group">
                 <Mail className="h-4 w-4 text-[#C92C15] shrink-0 group-hover:scale-110 transition-transform" />
                 <span>nowalutkarsh@gmail.com</span>
               </a>
@@ -72,7 +71,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Quick Links — 3 spans */}
           <motion.div variants={fadeSlideUp} className="col-span-1 md:col-span-3 text-left">
-            <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-6 md:mb-8 flex items-center gap-2">
+            <h4 className="text-[#1B1B1B] text-xs font-bold uppercase tracking-[0.2em] mb-6 md:mb-8 flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-[#C92C15]" />
               Quick Links
             </h4>
@@ -87,7 +86,7 @@ export const Footer: React.FC = () => {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm text-white/40 font-light hover:text-[#C92C15] hover:pl-1.5 transition-all duration-300 inline-block"
+                    className="text-sm text-[#6F6F6F] font-light hover:text-[#C92C15] hover:pl-1.5 transition-all duration-300 inline-block"
                   >
                     {link.label}
                   </Link>
@@ -98,7 +97,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Services — 4 spans */}
           <motion.div variants={fadeSlideUp} className="col-span-1 md:col-span-4 text-left">
-            <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-6 md:mb-8 flex items-center gap-2">
+            <h4 className="text-[#1B1B1B] text-xs font-bold uppercase tracking-[0.2em] mb-6 md:mb-8 flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-[#C92C15]" />
               Our Services
             </h4>
@@ -112,7 +111,7 @@ export const Footer: React.FC = () => {
                 <li key={index}>
                   <Link
                     to="/services"
-                    className="text-sm text-white/40 font-light hover:text-[#C92C15] hover:pl-1.5 transition-all duration-300 inline-block"
+                    className="text-sm text-[#6F6F6F] font-light hover:text-[#C92C15] hover:pl-1.5 transition-all duration-300 inline-block"
                   >
                     {service}
                   </Link>
@@ -130,17 +129,17 @@ export const Footer: React.FC = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="w-full border-t border-white/[0.06] px-8 md:px-16 lg:px-24 py-6"
+        className="w-full border-t border-black/[0.06] px-8 md:px-16 lg:px-24 py-6"
       >
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           {/* Legal / Copyright */}
           <div className="text-center sm:text-left space-y-2">
-            <p className="text-[11px] text-white/30 font-light">
+            <p className="text-[11px] text-[#6F6F6F] font-light">
               &copy; {new Date().getFullYear()} Utkarsh Builder. All rights reserved.
             </p>
-            <div className="flex flex-wrap justify-center sm:justify-start gap-4 text-[11px] font-light text-white/30">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-4 text-[11px] font-light text-[#6F6F6F]">
               <Link to="/privacy-policy" className="hover:text-[#C92C15] transition-colors">Privacy Policy</Link>
-              <span className="text-white/10">&bull;</span>
+              <span className="text-[#2A2A2A]/20">&bull;</span>
               <Link to="/terms-and-conditions" className="hover:text-[#C92C15] transition-colors">Terms &amp; Conditions</Link>
             </div>
           </div>
@@ -148,7 +147,7 @@ export const Footer: React.FC = () => {
           {/* Scroll to Top */}
           <button
             onClick={scrollToTop}
-            className="h-10 w-10 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/50 hover:bg-[#C92C15] hover:border-[#C92C15] hover:text-white hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center cursor-pointer group"
+            className="h-10 w-10 rounded-full bg-black/[0.03] border border-black/[0.06] text-[#6F6F6F] hover:bg-[#C92C15] hover:border-[#C92C15] hover:text-white hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center cursor-pointer group"
             title="Scroll to Top"
           >
             <ArrowUp className="h-4 w-4 group-hover:-translate-y-0.5 transition-transform" />

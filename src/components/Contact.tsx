@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { FadeUp } from './ui/FadeUp';
 
 interface ContactProps {
@@ -232,7 +232,7 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
           {/* Left Side: Contact Information & Heading (5 cols) */}
-          <div className="lg:col-span-5 text-left flex flex-col justify-between h-full">
+          <div className="lg:col-span-5 text-left flex flex-col justify-center lg:h-full lg:min-h-[450px]">
             <div>
               <FadeUp delay={0.1} className="mb-3">
                 <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Connect</span>
@@ -243,33 +243,11 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
                   <span className="text-[#C92C15] font-normal italic">Exceptional.</span>
                 </h2>
               </FadeUp>
-              <FadeUp delay={0.3} className="mb-12">
+              <FadeUp delay={0.3} className="mb-6">
                 <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
                   Have a plot in Rajasthan or planning a commercial construction project? Leave us a message and our lead site engineer will reach out within 24 hours.
                 </p>
               </FadeUp>
-            </div>
-
-            {/* Quick Contact Info */}
-            <div className="space-y-6 border-t border-black/5 pt-8 mt-6">
-              {[
-                { icon: Phone, text: '+91 8562034491', sub: 'Call or WhatsApp' },
-                { icon: Mail, text: 'nowalutkarsh@gmail.com', sub: 'Direct Email Support' },
-                { icon: MapPin, text: 'Johri Bazar, Jaipur', sub: 'Main Corporate Office' }
-              ].map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <FadeUp key={idx} delay={0.4 + idx * 0.1} className="flex gap-4 items-start">
-                    <div className="p-3 rounded-lg bg-[#C92C15]/5 border border-[#C92C15]/10 text-[#C92C15] shrink-0">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="text-[#1B1B1B] text-sm md:text-base font-semibold">{item.text}</p>
-                      <p className="text-xs text-[#6F6F6F] font-light mt-0.5">{item.sub}</p>
-                    </div>
-                  </FadeUp>
-                );
-              })}
             </div>
           </div>
 
