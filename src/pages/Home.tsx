@@ -15,6 +15,10 @@ import { FadeUp } from '../components/ui/FadeUp';
 import { ArrowRight } from 'lucide-react';
 import { assets } from '../lib/cloudinary';
 
+// New Conversion Sections
+import RecentProjectsGrid from '../components/RecentProjectsGrid';
+import FAQAccordion from '../components/FAQAccordion';
+
 export const Home: React.FC = () => {
   return (
     <main className="bg-[#FAF7F5] w-full min-h-screen">
@@ -32,6 +36,9 @@ export const Home: React.FC = () => {
 
       {/* 7. Value Creation Timeline (Horizontal lifecycle flow) */}
       <ValueCreationTimeline />
+
+      {/* Dynamic Conversion Section: Recent Projects Grid */}
+      <RecentProjectsGrid />
 
       {/* 8. Development Showcase (Sticky card stack core operations) */}
       <DevelopmentShowcase />
@@ -79,7 +86,6 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-
       {/* 13. Why Choose Us Section */}
       <WhyChooseUs />
 
@@ -91,6 +97,9 @@ export const Home: React.FC = () => {
 
       {/* 19. Shuffle Image Gallery Grid */}
       <ShuffleHero />
+
+      {/* Dynamic Conversion Section: FAQ Accordion */}
+      <FAQAccordion />
 
       {/* 20. Contact Form */}
       <Contact />
