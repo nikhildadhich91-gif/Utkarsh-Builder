@@ -43,7 +43,7 @@ interface HeroSectionProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   };
   slogan?: string;
   title: React.ReactNode;
-  subtitle: string;
+  subtitle: React.ReactNode;
   callToAction: {
     text: string;
     href: string;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldAlert, Clock, Phone, Mail, Wrench, Scale, Landmark, ShieldCheck } from 'lucide-react';
 import { FadeUp } from '../components/ui/FadeUp';
+import { PointerHighlight } from '../components/ui/pointer-highlight';
 
 const keyTerms = [
   {
@@ -36,11 +37,9 @@ export const TermsAndConditions: React.FC = () => {
             Legal Agreement
           </span>
         </FadeUp>
-        <FadeUp delay={0.15}>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-light text-[#1B1B1B] tracking-tight leading-tight mb-4">
-            Terms &amp; Conditions
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-light text-[#1B1B1B] tracking-tight leading-tight mb-4 flex items-center gap-x-2">
+            <PointerHighlight delay={0.3} containerClassName="text-[#1B1B1B]">Terms</PointerHighlight> &amp; Conditions
           </h1>
-        </FadeUp>
         <FadeUp delay={0.25}>
           <p className="text-xs md:text-sm text-[#6F6F6F] font-light">
             Last Updated: June 2026

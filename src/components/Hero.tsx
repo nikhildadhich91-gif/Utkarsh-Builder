@@ -113,12 +113,6 @@ export const Hero = () => {
             highlightClassName="text-[#C92C15]"
           />
 
-          <FadeIn delay={800} duration={1000}>
-            <p className="text-base sm:text-lg text-white/95 mb-8 max-w-2xl font-light leading-relaxed">
-              With 30+ years of experience and over 100 completed projects in Rajasthan, we <PointerHighlight delay={1.8} containerClassName="text-[#C92C15] font-semibold">transform</PointerHighlight> ideas into premium homes and commercial spaces built to last.
-            </p>
-          </FadeIn>
-
           {/* Slider Toggle (Mobile) */}
           <FadeIn delay={1000} duration={1000}>
             <div className="flex items-center gap-0.5 bg-white/10 backdrop-blur-md border border-white/20 p-1 rounded-full w-fit shadow-inner mb-6 relative">

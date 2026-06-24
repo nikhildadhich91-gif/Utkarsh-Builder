@@ -4,6 +4,7 @@ import { FadeUp } from '../components/ui/FadeUp';
 import { FadeIn } from '../components/ui/FadeIn';
 import { AnimatedHeading } from '../components/ui/AnimatedHeading';
 import BoomerangVideoBg from '../components/BoomerangVideoBg';
+import { PointerHighlight } from '../components/ui/pointer-highlight';
 import Contact from '../components/Contact';
 import { MapSection } from '../components/MapSection';
 import { ArrowUpRight, ChevronDown, HelpCircle, Phone, Mail, MapPin } from 'lucide-react';
@@ -90,8 +91,8 @@ export const ContactPage: React.FC = () => {
 
               <FadeIn delay={800} duration={1000}>
                 <p className="text-base md:text-lg text-gray-800 mb-6 max-w-2xl font-semibold leading-relaxed">
-                  Ready to start your next building project? Send us a message and we will get back to you shortly.
-                </p>
+                Ready to start your next building <PointerHighlight delay={1.2} containerClassName="text-[#C92C15] font-semibold">project</PointerHighlight>? Send us a message and we will get back to you shortly.
+              </p>
               </FadeIn>
 
               <FadeIn delay={1200} duration={1000}>
@@ -135,8 +136,8 @@ export const ContactPage: React.FC = () => {
 
             <FadeIn delay={800} duration={1000}>
               <p className="text-base sm:text-lg text-white/95 mb-8 max-w-2xl font-light leading-relaxed">
-                Ready to start your next building project? Send us a message and we will get back to you shortly.
-              </p>
+              Ready to start your next building <PointerHighlight delay={1.2} containerClassName="text-[#C92C15] font-semibold">project</PointerHighlight>? Send us a message and we will get back to you shortly.
+            </p>
             </FadeIn>
 
             <FadeIn delay={1200} duration={1000}>

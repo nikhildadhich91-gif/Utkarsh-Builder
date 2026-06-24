@@ -7,6 +7,7 @@ import {
 } from "framer-motion"
 import type { HTMLMotionProps, Variants } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
+import { PointerHighlight } from "./ui/pointer-highlight"
 
 import { assets } from "../lib/cloudinary";
 
@@ -359,7 +360,7 @@ const BannerHeader: React.FC = () => {
         Our Portfolio
       </span>
       <h1 className="text-[#1B1B1B] font-semibold text-3xl md:text-5xl lg:text-6xl tracking-tight mb-3 md:mb-6">
-        Crafted With Precision
+        Crafted With <PointerHighlight delay={0.6} containerClassName="text-[#C92C15] font-semibold">Precision</PointerHighlight>
       </h1>
       <p className="text-[#6F6F6F] font-light text-xs md:text-base max-w-xl mx-auto leading-relaxed">
         Explore our landmark projects across Rajasthan, from modern offices to custom-built luxury villas.

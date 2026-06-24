@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FadeUp } from '../components/ui/FadeUp';
 import { ScrollTextRise } from '../components/ui/ScrollTextRise';
+import { PointerHighlight } from '../components/ui/pointer-highlight';
 import Founders from '../components/Founders';
 import About from '../components/About';
 import { Compass, Layers, ShieldCheck, Landmark, Leaf, Sparkles } from 'lucide-react';
@@ -82,7 +83,7 @@ export const AboutPage: React.FC = () => {
 
             <FadeUp delay={0.3}>
               <p className="text-[#6F6F6F] font-light text-base md:text-lg max-w-2xl mx-auto leading-relaxed pt-2">
-                A legacy of craftsmanship, structural safety, and transparent client communication in every project since 1995.
+                A legacy of <PointerHighlight delay={0.8} containerClassName="text-[#C92C15] font-semibold">craftsmanship</PointerHighlight>, structural safety, and transparent client communication in every project since 1995.
               </p>
             </FadeUp>
           </div>

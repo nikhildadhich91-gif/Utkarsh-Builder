@@ -4,6 +4,7 @@ import { FadeUp } from '../components/ui/FadeUp';
 import { StaggerContainer } from '../components/ui/StaggerContainer';
 import { Calculator, Briefcase, ShieldCheck, Award } from 'lucide-react';
 import { HeroSection } from '../components/ui/hero-section-2';
+import { PointerHighlight } from '../components/ui/pointer-highlight';
 
 
 interface ServiceItem {
@@ -115,7 +116,11 @@ export const ServicesPage = () => {
               <span className="text-[#C92C15]">Built for Generations</span>
             </>
           }
-          subtitle="From premium custom residential villas to commercial corporate spaces and complete turnkey solutions, we bring structural integrity and engineering excellence to life in Rajasthan."
+          subtitle={
+            <>
+              From premium custom residential villas to commercial corporate spaces and complete turnkey solutions, we bring structural integrity and <PointerHighlight delay={0.5} containerClassName="text-[#C92C15] font-semibold">excellence</PointerHighlight> to life in Rajasthan.
+            </>
+          }
           callToAction={{
             text: "Book A Consultation",
             href: "/contact"

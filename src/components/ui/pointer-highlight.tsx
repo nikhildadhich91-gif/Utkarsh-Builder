@@ -84,7 +84,7 @@ export const PointerHighlight: React.FC<PointerHighlightProps> = ({
             }}
           />
           <motion.span
-            className="pointer-events-none absolute"
+            className="pointer-events-none absolute left-0 top-0"
             initial={{ opacity: 0 }}
             whileInView={{
               opacity: 1,
