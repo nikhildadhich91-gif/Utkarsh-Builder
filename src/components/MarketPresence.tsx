@@ -63,7 +63,7 @@ const MarketGridMobile = () => {
           <span className="text-3xl font-extrabold text-[#1B1B1B]">
             <AnimatedCounter value={30} />
           </span>
-          <span className="text-violet-500 text-sm font-bold ml-1">Yrs+</span>
+          <span className="text-[#C92C15] text-sm font-bold ml-1">Yrs+</span>
         </div>
         <div className="text-[10px] uppercase tracking-wider text-[#1B1B1B] font-bold leading-tight mt-2">
           Construction Excellence
@@ -76,7 +76,7 @@ const MarketGridMobile = () => {
           <span className="text-3xl font-extrabold text-[#1B1B1B]">
             <AnimatedCounter value={100} />
           </span>
-          <span className="text-cyan-500 text-sm font-bold ml-0.5">+</span>
+          <span className="text-[#C92C15] text-sm font-bold ml-0.5">+</span>
         </div>
         <div className="text-[10px] uppercase tracking-wider text-[#1B1B1B] font-bold leading-tight mt-2">
           Completed Projects
@@ -86,11 +86,11 @@ const MarketGridMobile = () => {
       {/* Card 3 */}
       <div className="bg-white p-4 rounded-2xl border border-black/5 flex flex-col justify-between min-h-[130px] shadow-sm">
         <div className="flex items-baseline select-none">
-          <span className="text-violet-500 text-sm font-bold mr-0.5">+</span>
+          <span className="text-[#C92C15] text-sm font-bold mr-0.5">+</span>
           <span className="text-3xl font-extrabold text-[#1B1B1B]">
             <AnimatedCounter value={100} />
           </span>
-          <span className="text-violet-500 text-sm font-bold ml-0.5">%</span>
+          <span className="text-[#C92C15] text-sm font-bold ml-0.5">%</span>
         </div>
         <div className="text-[10px] uppercase tracking-wider text-[#1B1B1B] font-bold leading-tight mt-2">
           Client Satisfaction
@@ -103,7 +103,7 @@ const MarketGridMobile = () => {
           <span className="text-3xl font-extrabold text-[#1B1B1B]">
             <AnimatedCounter value={1.5} decimals={1} />
           </span>
-          <span className="text-cyan-500 text-sm font-bold ml-1">M+ Sq. Ft.</span>
+          <span className="text-[#C92C15] text-sm font-bold ml-1">M+ Sq. Ft.</span>
         </div>
         <div className="text-[10px] uppercase tracking-wider text-[#1B1B1B] font-bold leading-tight mt-2">
           Delivered Space
@@ -153,7 +153,7 @@ export const MarketPresence: React.FC = () => {
                 <span className="text-5xl md:text-7xl font-extrabold tracking-tighter text-[#1B1B1B] group-hover:text-[#C92C15] transition-colors duration-300">
                   <AnimatedCounter value={30} />
                 </span>
-                <span className="text-violet-500 text-3xl md:text-4xl font-bold ml-2">Yrs+</span>
+                <span className="text-[#C92C15] text-3xl md:text-4xl font-bold ml-2">Yrs+</span>
               </div>
               <div className="space-y-2">
                 <div className="text-xs uppercase tracking-[0.18em] text-[#1B1B1B] font-bold min-h-[2.5rem] flex items-center">
@@ -178,7 +178,7 @@ export const MarketPresence: React.FC = () => {
                 <span className="text-5xl md:text-7xl font-extrabold tracking-tighter text-[#1B1B1B] group-hover:text-[#C92C15] transition-colors duration-300">
                   <AnimatedCounter value={100} />
                 </span>
-                <span className="text-cyan-500 text-3xl md:text-4xl font-bold ml-1">+</span>
+                <span className="text-[#C92C15] text-3xl md:text-4xl font-bold ml-1">+</span>
               </div>
               <div className="space-y-2">
                 <div className="text-xs uppercase tracking-[0.18em] text-[#1B1B1B] font-bold min-h-[2.5rem] flex items-center">
@@ -200,11 +200,11 @@ export const MarketPresence: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/20 via-transparent to-transparent pointer-events-none" />
             <div className="relative z-10 flex flex-col h-full space-y-6">
               <div className="flex items-baseline select-none">
-                <span className="text-violet-500 text-3xl md:text-4xl font-bold mr-1">+</span>
+                <span className="text-[#C92C15] text-3xl md:text-4xl font-bold mr-1">+</span>
                 <span className="text-5xl md:text-7xl font-extrabold tracking-tighter text-[#1B1B1B] group-hover:text-[#C92C15] transition-colors duration-300">
                   <AnimatedCounter value={100} />
                 </span>
-                <span className="text-violet-500 text-3xl md:text-4xl font-bold ml-1">%</span>
+                <span className="text-[#C92C15] text-3xl md:text-4xl font-bold ml-1">%</span>
               </div>
               <div className="space-y-2">
                 <div className="text-xs uppercase tracking-[0.18em] text-[#1B1B1B] font-bold min-h-[2.5rem] flex items-center">
@@ -229,7 +229,7 @@ export const MarketPresence: React.FC = () => {
                 <span className="text-5xl md:text-7xl font-extrabold tracking-tighter text-[#1B1B1B] group-hover:text-[#C92C15] transition-colors duration-300">
                   <AnimatedCounter value={1.5} decimals={1} />
                 </span>
-                <span className="text-cyan-500 text-3xl md:text-4xl font-bold ml-2">Million+ Sq. Ft.</span>
+                <span className="text-[#C92C15] text-3xl md:text-4xl font-bold ml-2">Million+ Sq. Ft.</span>
               </div>
               <div className="space-y-2">
                 <div className="text-xs uppercase tracking-[0.18em] text-[#1B1B1B] font-bold min-h-[2.5rem] flex items-center">

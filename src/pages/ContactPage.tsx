@@ -5,6 +5,7 @@ import { FadeIn } from '../components/ui/FadeIn';
 import { AnimatedHeading } from '../components/ui/AnimatedHeading';
 import BoomerangVideoBg from '../components/BoomerangVideoBg';
 import Contact from '../components/Contact';
+import { MapSection } from '../components/MapSection';
 import { ArrowUpRight, ChevronDown, HelpCircle, Phone, Mail, MapPin } from 'lucide-react';
 
 interface FaqItem {
@@ -179,7 +180,7 @@ export const ContactPage: React.FC = () => {
 
               <div className="space-y-8">
                 <span className="text-xs uppercase tracking-[0.22em] text-[#C92C15] font-bold block">
-                  Reach Me
+                  Reach Us
                 </span>
 
                 <div className="space-y-4">
@@ -206,11 +207,11 @@ export const ContactPage: React.FC = () => {
               </div>
             </FadeUp>
 
-            {/* Subtle brand credibility card */}
+            {/* Response Time Card */}
             <FadeUp delay={0.2} y={30} className="bg-[#FAF7F5] border border-black/5 p-5 md:p-8 rounded-2xl md:rounded-3xl text-left">
-              <h4 className="text-xs uppercase tracking-widest text-[#C92C15] font-semibold mb-3">Our Office</h4>
+              <h4 className="text-xs uppercase tracking-widest text-[#C92C15] font-semibold mb-3">Response Time</h4>
               <p className="text-sm text-[#6F6F6F] font-light leading-relaxed">
-                Our main office is located in Johri Bazar, Jaipur. You can visit us to discuss your construction plans in person.
+                We review all proposals and project details and schedule feasibility calls within 24 hours.
               </p>
             </FadeUp>
 
@@ -223,6 +224,9 @@ export const ContactPage: React.FC = () => {
 
         </div>
       </div>
+
+      {/* Map Location Section */}
+      <MapSection />
 
       {/* 3. FAQ Section Accordion Grid */}
       <div className="py-12 md:py-24 max-w-4xl mx-auto px-6">
