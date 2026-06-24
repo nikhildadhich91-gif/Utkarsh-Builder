@@ -6,7 +6,6 @@ import {
   useTransform,
 } from "framer-motion"
 import type { HTMLMotionProps, Variants } from "framer-motion"
-import { ArrowUpRight } from "lucide-react"
 import { PointerHighlight } from "./ui/pointer-highlight"
 
 import { assets } from "../lib/cloudinary";
@@ -136,7 +135,6 @@ export const GalleryContainer = ({
   const { scrollY } = useContainerScrollContext()
   const rotateX = useTransform(scrollY, [0, 1], [60, 0])
   const scale = useTransform(scrollY, [0, 1], [0.92, 1])
-  const filter = useTransform(scrollY, [0, 0.25], ["blur(3px)", "blur(0px)"])
   const opacity = useTransform(scrollY, [0, 0.25], [0.85, 1])
 
   return (
@@ -148,7 +146,6 @@ export const GalleryContainer = ({
       style={{
         rotateX,
         scale,
-        filter,
         opacity,
         transformStyle: "preserve-3d",
         perspective: "1200px",
@@ -324,28 +321,13 @@ const column3Items: GalleryItem[] = [
 
 const ProjectCard: React.FC<{ item: GalleryItem }> = ({ item }) => {
   return (
-    <div className="relative group overflow-hidden rounded-[20px] bg-black/5 aspect-[4/3] w-full shadow-md border border-black/5">
+    <div className="relative overflow-hidden rounded-[20px] bg-black/5 aspect-[4/3] w-full shadow-md border border-black/5 select-none pointer-events-none">
       <img
         src={item.image}
         alt={item.name}
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        className="w-full h-full object-cover"
         loading="lazy"
       />
-      {/* Glassmorphic hover overlay */}
-      <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-[4px] flex flex-col justify-end p-4 text-white">
-        <span className="text-[10px] font-bold tracking-widest uppercase bg-[#C92C15] text-white px-2 py-0.5 rounded w-fit mb-1.5 shadow-sm">
-          {item.category.split(" ")[0]}
-        </span>
-        <div className="flex justify-between items-end">
-          <div className="text-left">
-            <h4 className="text-sm font-semibold tracking-tight text-white">{item.name}</h4>
-            <p className="text-[10px] text-white/70 font-light">{item.location}</p>
-          </div>
-          <div className="h-7 w-7 rounded-full bg-white/20 hover:bg-[#C92C15] transition-all flex items-center justify-center text-white cursor-pointer ml-2">
-            <ArrowUpRight className="h-4 w-4" />
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
