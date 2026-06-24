@@ -44,7 +44,7 @@ const reasonsList: ReasonItem[] = [
 
 export const WhyChooseUs: React.FC = () => {
   return (
-    <section className="py-24 md:py-32 bg-white text-[#2A2A2A] relative overflow-hidden border-t border-black/5">
+    <section className="py-12 md:py-32 bg-white text-[#2A2A2A] relative overflow-hidden border-t border-black/5">
       {/* Subtle grid lines background overlay */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div className="w-full h-full bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:50px_50px]" />
@@ -53,7 +53,7 @@ export const WhyChooseUs: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
         {/* Title details */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-24">
           <FadeUp delay={0.1} className="mb-3">
             <span className="text-[#C92C15] text-xs font-extrabold tracking-[0.2em] uppercase">Why Choose Us</span>
           </FadeUp>
@@ -70,7 +70,7 @@ export const WhyChooseUs: React.FC = () => {
         </div>
 
         {/* Grid elements */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
           {reasonsList.map((reason, index) => {
             const Icon = reason.icon;
             return (
@@ -78,20 +78,20 @@ export const WhyChooseUs: React.FC = () => {
                 key={index}
                 delay={index * 0.1}
                 y={30}
-                className="group p-8 rounded-2xl bg-[#FAF7F5] border border-black/5 hover:border-[#C92C15]/30 transition-all duration-300 flex flex-col items-start text-left shadow-md hover:bg-white"
+                className="group p-4 md:p-8 rounded-2xl bg-[#FAF7F5] border border-black/5 hover:border-[#C92C15]/30 transition-all duration-300 flex flex-col items-start text-left shadow-md hover:bg-white"
               >
                 {/* Icon Circle */}
-                <div className="p-3 rounded-xl bg-[#C92C15]/5 text-[#C92C15] border border-[#C92C15]/10 mb-6 transition-all duration-300 group-hover:bg-[#C92C15] group-hover:text-white group-hover:scale-110">
-                  <Icon className="h-6 w-6" />
+                <div className="p-2 md:p-3 rounded-xl bg-[#C92C15]/5 text-[#C92C15] border border-[#C92C15]/10 mb-3 md:mb-6 transition-all duration-300 group-hover:bg-[#C92C15] group-hover:text-white group-hover:scale-110">
+                  <Icon className="h-5 w-5 md:h-6 md:w-6" />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-semibold text-[#1B1B1B] mb-3 group-hover:text-[#C92C15] transition-colors duration-300">
+                <h3 className="text-sm md:text-lg font-semibold text-[#1B1B1B] mb-1.5 md:mb-3 group-hover:text-[#C92C15] transition-colors duration-300 leading-tight">
                   {reason.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-[#6F6F6F] font-light leading-relaxed">
+                <p className="text-xs md:text-sm text-[#6F6F6F] font-light leading-relaxed hidden md:block">
                   {reason.description}
                 </p>
               </FadeUp>

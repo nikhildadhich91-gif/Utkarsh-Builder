@@ -39,40 +39,40 @@ export const ProjectsPage: React.FC = () => {
       </div>
 
       {/* 4. Quality & Material Specifications Grid (Additional luxury detail) */}
-      <div className="py-24 bg-white text-[#1B1B1B] border-t border-black/5">
+      <div className="py-12 md:py-24 bg-white text-[#1B1B1B] border-t border-black/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-8 md:mb-16">
             <FadeUp delay={0.1} className="mb-3">
               <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Engineering Quality</span>
             </FadeUp>
             <FadeUp delay={0.2}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-[#1B1B1B]">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-[#1B1B1B]">
                 Structural Specifications
               </h2>
             </FadeUp>
-            <FadeUp delay={0.3} className="mt-4">
-              <p className="text-[#6F6F6F] font-light text-sm">
+            <FadeUp delay={0.3} className="mt-2 md:mt-4">
+              <p className="text-[#6F6F6F] font-light text-xs md:text-sm">
                 Every building we construct uses certified raw materials that exceed standard strength requirements by at least 18%.
               </p>
             </FadeUp>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {projectSpecifications.map((spec, index) => (
               <FadeUp
                 key={index}
                 delay={index * 0.1}
                 y={30}
-                className="p-8 rounded-2xl bg-[#FAF7F5]/50 border border-black/5 flex flex-col justify-between text-left group hover:border-[#C92C15]/30 hover:bg-white transition-all duration-300 hover:shadow-lg shadow-sm"
+                className="p-4 md:p-8 rounded-2xl bg-[#FAF7F5]/50 border border-black/5 flex flex-col justify-between text-left group hover:border-[#C92C15]/30 hover:bg-white transition-all duration-300 hover:shadow-lg shadow-sm"
               >
                 <div>
-                  <div className="h-10 w-10 bg-[#C92C15]/10 rounded-lg flex items-center justify-center text-[#C92C15] mb-6">
-                    <Shield className="h-5 w-5" />
+                  <div className="h-8 w-8 md:h-10 md:w-10 bg-[#C92C15]/10 rounded-lg flex items-center justify-center text-[#C92C15] mb-4 md:mb-6">
+                    <Shield className="h-4 w-4 md:h-5 md:w-5" />
                   </div>
-                  <h3 className="text-base font-semibold text-[#1B1B1B] mb-3 group-hover:text-[#C92C15] transition-all">
+                  <h3 className="text-xs md:text-base font-semibold text-[#1B1B1B] mb-2 group-hover:text-[#C92C15] transition-all">
                     {spec.title}
                   </h3>
-                  <p className="text-xs text-[#6F6F6F] font-light leading-relaxed">
+                  <p className="text-[10px] md:text-xs text-[#6F6F6F] font-light leading-relaxed">
                     {spec.desc}
                   </p>
                 </div>

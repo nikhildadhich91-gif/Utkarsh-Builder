@@ -159,14 +159,14 @@ export const ContactPage: React.FC = () => {
       </section>
 
       {/* 2. Content Layout: Contact form + Max Reed styled Reach Me card */}
-      <div id="contact-section" className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10 -mt-10 rounded-[40px] sm:rounded-[50px] md:rounded-[60px] bg-white pt-16 pb-16 md:pb-24 border border-black/5 shadow-xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div id="contact-section" className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10 -mt-10 rounded-[24px] md:rounded-[60px] bg-white pt-10 pb-10 md:pb-24 border border-black/5 shadow-xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
 
           {/* Left Column: Reach Me Widget (Max Reed Style) - 4 spans */}
           <div className="lg:col-span-4 text-left space-y-6">
 
             {/* Direct Contact Card */}
-            <FadeUp delay={0.1} y={30} className="bg-white text-[#1B1B1B] p-8 rounded-3xl border border-black/5 shadow-xl relative overflow-hidden group">
+            <FadeUp delay={0.1} y={30} className="bg-white text-[#1B1B1B] p-5 md:p-8 rounded-2xl md:rounded-3xl border border-black/5 shadow-xl relative overflow-hidden group">
               {/* Corner action button */}
               <div className="absolute top-6 right-6">
                 <a
@@ -213,7 +213,7 @@ export const ContactPage: React.FC = () => {
             </FadeUp>
 
             {/* Subtle brand credibility card */}
-            <FadeUp delay={0.2} y={30} className="bg-[#FAF7F5] border border-black/5 p-8 rounded-3xl text-left">
+            <FadeUp delay={0.2} y={30} className="bg-[#FAF7F5] border border-black/5 p-5 md:p-8 rounded-2xl md:rounded-3xl text-left">
               <h4 className="text-xs uppercase tracking-widest text-[#C92C15] font-semibold mb-3">Our Office</h4>
               <p className="text-sm text-[#6F6F6F] font-light leading-relaxed">
                 Our main office is located in Johri Bazar, Jaipur. You can visit us to discuss your construction plans in person.
@@ -231,13 +231,13 @@ export const ContactPage: React.FC = () => {
       </div>
 
       {/* 3. FAQ Section Accordion Grid */}
-      <div className="py-24 max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
+      <div className="py-12 md:py-24 max-w-4xl mx-auto px-6">
+        <div className="text-center mb-10 md:mb-16">
           <FadeUp delay={0.1} className="mb-3">
             <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Faqs</span>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#1B1B1B] tracking-tight">
+            <h2 className="text-2xl md:text-4xl font-semibold text-[#1B1B1B] tracking-tight">
               Frequently Asked Questions
             </h2>
           </FadeUp>
@@ -254,21 +254,21 @@ export const ContactPage: React.FC = () => {
             >
               <button
                 onClick={() => toggleFaq(idx)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left cursor-pointer transition-colors hover:bg-[#FAF7F5]/50"
+                className="w-full px-4 py-4 flex items-center justify-between text-left cursor-pointer transition-colors hover:bg-[#FAF7F5]/50"
               >
                 <div className="flex items-center gap-3 pr-4">
                   <HelpCircle className="h-4 w-4 text-[#C92C15] shrink-0" />
-                  <span className="font-semibold text-sm md:text-base text-[#1B1B1B]">{faq.question}</span>
+                  <span className="font-semibold text-xs md:text-base text-[#1B1B1B]">{faq.question}</span>
                 </div>
                 <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform duration-300 ${openFaq === idx ? 'transform rotate-180 text-[#C92C15]' : ''
                   }`} />
               </button>
 
               <div
-                className={`transition-all duration-300 ease-in-out overflow-hidden ${openFaq === idx ? 'max-h-[200px] border-t border-gray-100' : 'max-h-0'
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${openFaq === idx ? 'max-h-[220px] border-t border-gray-100' : 'max-h-0'
                   }`}
               >
-                <p className="p-6 text-sm text-[#6F6F6F] font-light leading-relaxed text-left bg-gray-50/50">
+                <p className="p-4 md:p-6 text-xs md:text-sm text-[#6F6F6F] font-light leading-relaxed text-left bg-gray-50/50">
                   {faq.answer}
                 </p>
               </div>

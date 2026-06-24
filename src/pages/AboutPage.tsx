@@ -41,7 +41,7 @@ export const AboutPage: React.FC = () => {
           muted
           playsInline
           preload="auto"
-          className="absolute top-[72px] md:top-[88px] right-[-50px] md:right-[-100px] w-[500px] md:w-[800px] h-auto pointer-events-none z-20 mix-blend-multiply filter contrast-[1.1] brightness-[1.05]"
+          className="absolute top-[150px] md:top-[88px] right-[-40px] md:right-[-100px] w-[220px] md:w-[800px] h-auto pointer-events-none z-20 mix-blend-multiply filter contrast-[1.1] brightness-[1.05] opacity-40 md:opacity-100"
         >
           <source src={HookWebm} type="video/webm" />
           <source src={HookVideo} type="video/mp4" />
@@ -108,7 +108,7 @@ export const AboutPage: React.FC = () => {
 
       {/* 2. Philosophy — Scroll-Driven Text Rise Section */}
       {/* Static heading intro */}
-      <div id="philosophy" className="relative pt-24 pb-12 md:pt-32 md:pb-16 bg-white text-[#2A2A2A] border-t border-black/5 overflow-hidden">
+      <div id="philosophy" className="relative pt-12 pb-8 md:pt-32 md:pb-16 bg-white text-[#2A2A2A] border-t border-black/5 overflow-hidden">
         {/* Decorative corner absolute graphics */}
         {/* Top-left */}
         <div className="absolute top-[12%] left-[5%] hidden md:block">
@@ -147,7 +147,7 @@ export const AboutPage: React.FC = () => {
       <About />
 
       {/* 3.5 Innovation x Vision Section */}
-      <section className="py-24 md:py-32 bg-[#FAF7F5] text-[#2A2A2A] border-t border-black/5 relative overflow-hidden">
+      <section className="py-12 md:py-32 bg-[#FAF7F5] text-[#2A2A2A] border-t border-black/5 relative overflow-hidden">
         {/* Subtle grid lines background overlay */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
           <div className="w-full h-full bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:50px_50px]" />
@@ -155,7 +155,7 @@ export const AboutPage: React.FC = () => {
 
         <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
           <FadeUp delay={0.1}>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-[#1B1B1B] mb-16 md:mb-24 text-left">
+            <h2 className="text-3xl md:text-6xl lg:text-7xl font-light tracking-tight text-[#1B1B1B] mb-8 md:mb-24 text-left">
               Innovation <span className="text-[#C92C15] italic">x</span> Vision
             </h2>
           </FadeUp>
@@ -175,15 +175,15 @@ export const AboutPage: React.FC = () => {
             </FadeUp>
 
             {/* Right Column: Narrative Blocks */}
-            <StaggerContainer staggerChildren={0.2} className="space-y-10 text-left">
+            <StaggerContainer staggerChildren={0.2} className="space-y-6 md:space-y-10 text-left">
 
               {/* Block 1 */}
-              <FadeUp delay={0.3} x={40} className="space-y-4">
+              <FadeUp delay={0.3} x={40} className="space-y-3 md:space-y-4">
                 <div className="flex items-center gap-2 text-[#6F6F6F]">
                   <Sparkles className="h-4 w-4 text-[#C92C15]" />
                   <span className="text-xs uppercase tracking-[0.2em] font-semibold">Choose Your Space</span>
                 </div>
-                <p className="text-base md:text-lg text-[#2A2A2A] font-light leading-relaxed">
+                <p className="text-sm md:text-lg text-[#2A2A2A] font-light leading-relaxed">
                   Every great building starts with solid engineering and a clear design. We combine both to turn concrete and steel into great offices and workspaces for your business.
                 </p>
               </FadeUp>
@@ -192,12 +192,12 @@ export const AboutPage: React.FC = () => {
               <div className="w-full h-px bg-black/5" />
 
               {/* Block 2 */}
-              <FadeUp delay={0.4} x={40} className="space-y-4">
+              <FadeUp delay={0.4} x={40} className="space-y-3 md:space-y-4">
                 <div className="flex items-center gap-2 text-[#6F6F6F]">
                   <Sparkles className="h-4 w-4 text-[#C92C15]" />
                   <span className="text-xs uppercase tracking-[0.2em] font-semibold">Shape The Future</span>
                 </div>
-                <p className="text-base md:text-lg text-[#2A2A2A] font-light leading-relaxed">
+                <p className="text-sm md:text-lg text-[#2A2A2A] font-light leading-relaxed">
                   We believe the best buildings are those that are both highly practical and beautiful. Our team is dedicated to bringing your blueprints to life with absolute care and top quality.
                 </p>
               </FadeUp>
@@ -209,7 +209,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* Beyond Construction Section (Developer positioning) */}
-      <section className="py-24 bg-white border-t border-black/5 relative z-10">
+      <section className="py-12 md:py-24 bg-white border-t border-black/5 relative z-10">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
@@ -257,10 +257,10 @@ export const AboutPage: React.FC = () => {
                     key={idx}
                     delay={idx * 0.15}
                     y={30}
-                    className="p-6 rounded-2xl bg-[#FAF7F5] border border-black/5 text-left flex flex-col justify-between hover:shadow-lg transition-all duration-300"
+                    className="p-4 md:p-6 rounded-2xl bg-[#FAF7F5] border border-black/5 text-left flex flex-col justify-between hover:shadow-lg transition-all duration-300"
                   >
                     <div>
-                      <div className="h-10 w-10 bg-[#C92C15]/5 border border-[#C92C15]/10 rounded-lg flex items-center justify-center text-[#C92C15] mb-6">
+                      <div className="h-10 w-10 bg-[#C92C15]/5 border border-[#C92C15]/10 rounded-lg flex items-center justify-center text-[#C92C15] mb-3 md:mb-6">
                         <Icon className="h-5 w-5" />
                       </div>
                       <h4 className="font-semibold text-sm text-[#1B1B1B] mb-2">{item.title}</h4>
@@ -276,16 +276,16 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* 4. Core Values Detail Grid */}
-      <div className="py-24 bg-[#FAF7F5] border-t border-gray-100">
+      <div className="py-12 md:py-24 bg-[#FAF7F5] border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 text-center">
-          <div className="max-w-2xl mx-auto mb-16">
+          <div className="max-w-2xl mx-auto mb-10 md:mb-16">
             <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.2em] block mb-3">Our Principles</span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
               Values We Live By
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             {[
               { icon: ShieldCheck, title: 'Unwavering Trust', desc: 'Over 30 years of building relationships based on reliable execution, prompt handovers, and structural safety.' },
               { icon: ShieldCheck, title: 'Absolute Transparency', desc: 'Zero hidden fees, precise billing itemizations, and high-integrity materials ensure you get what you contract for.' },
@@ -297,10 +297,10 @@ export const AboutPage: React.FC = () => {
                   key={idx}
                   delay={idx * 0.1}
                   y={30}
-                  className="bg-white p-8 rounded-2xl border border-black/5 shadow-md text-left flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  className="bg-white p-5 md:p-8 rounded-2xl border border-black/5 shadow-md text-left flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
                   <div>
-                    <div className="h-10 w-10 bg-[#C92C15]/5 border border-[#C92C15]/10 rounded-lg flex items-center justify-center text-[#C92C15] mb-6">
+                    <div className="h-10 w-10 bg-[#C92C15]/5 border border-[#C92C15]/10 rounded-lg flex items-center justify-center text-[#C92C15] mb-3 md:mb-6">
                       <Icon className="h-5 w-5" />
                     </div>
                     <h3 className="text-lg font-semibold text-[#1B1B1B] mb-3">{item.title}</h3>

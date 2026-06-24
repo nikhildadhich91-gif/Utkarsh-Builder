@@ -54,11 +54,72 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ value, suffix = '', d
   );
 };
 
+const MarketGridMobile = () => {
+  return (
+    <div className="grid grid-cols-2 gap-3 text-left">
+      {/* Card 1 */}
+      <div className="bg-white p-4 rounded-2xl border border-black/5 flex flex-col justify-between min-h-[130px] shadow-sm">
+        <div className="flex items-baseline select-none">
+          <span className="text-3xl font-extrabold text-[#1B1B1B]">
+            <AnimatedCounter value={30} />
+          </span>
+          <span className="text-violet-500 text-sm font-bold ml-1">Yrs+</span>
+        </div>
+        <div className="text-[10px] uppercase tracking-wider text-[#1B1B1B] font-bold leading-tight mt-2">
+          Construction Excellence
+        </div>
+      </div>
+      
+      {/* Card 2 */}
+      <div className="bg-white p-4 rounded-2xl border border-black/5 flex flex-col justify-between min-h-[130px] shadow-sm">
+        <div className="flex items-baseline select-none">
+          <span className="text-3xl font-extrabold text-[#1B1B1B]">
+            <AnimatedCounter value={100} />
+          </span>
+          <span className="text-cyan-500 text-sm font-bold ml-0.5">+</span>
+        </div>
+        <div className="text-[10px] uppercase tracking-wider text-[#1B1B1B] font-bold leading-tight mt-2">
+          Completed Projects
+        </div>
+      </div>
+
+      {/* Card 3 */}
+      <div className="bg-white p-4 rounded-2xl border border-black/5 flex flex-col justify-between min-h-[130px] shadow-sm">
+        <div className="flex items-baseline select-none">
+          <span className="text-violet-500 text-sm font-bold mr-0.5">+</span>
+          <span className="text-3xl font-extrabold text-[#1B1B1B]">
+            <AnimatedCounter value={100} />
+          </span>
+          <span className="text-violet-500 text-sm font-bold ml-0.5">%</span>
+        </div>
+        <div className="text-[10px] uppercase tracking-wider text-[#1B1B1B] font-bold leading-tight mt-2">
+          Client Satisfaction
+        </div>
+      </div>
+
+      {/* Card 4 */}
+      <div className="bg-white p-4 rounded-2xl border border-black/5 flex flex-col justify-between min-h-[130px] shadow-sm">
+        <div className="flex items-baseline select-none">
+          <span className="text-3xl font-extrabold text-[#1B1B1B]">
+            <AnimatedCounter value={1.5} decimals={1} />
+          </span>
+          <span className="text-cyan-500 text-sm font-bold ml-1">M+ Sq. Ft.</span>
+        </div>
+        <div className="text-[10px] uppercase tracking-wider text-[#1B1B1B] font-bold leading-tight mt-2">
+          Delivered Space
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
 export const MarketPresence: React.FC = () => {
+
   return (
     <section 
       id="market-presence" 
-      className="py-24 bg-[#FAF7F5] text-[#2A2A2A] relative overflow-hidden border-t border-black/5"
+      className="py-12 md:py-24 bg-[#FAF7F5] text-[#2A2A2A] relative overflow-hidden border-t border-black/5"
     >
       {/* Background radial gradient decoration */}
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#C92C15]/5 rounded-full blur-3xl pointer-events-none" />
@@ -66,19 +127,19 @@ export const MarketPresence: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         
         {/* Header Block */}
-        <div className="text-left max-w-4xl mb-16">
+        <div className="text-left max-w-4xl mb-10 md:mb-16">
           <FadeUp delay={0.1} className="mb-3 block">
             <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Market Credibility</span>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1B1B1B] leading-none">
+            <h2 className="text-2xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1B1B1B] leading-tight md:leading-none">
               Metrics That<br />Earn Confidence
             </h2>
           </FadeUp>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* DESKTOP ONLY BENTO GRID */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Card 1: Years of Construction Excellence (col-span-2) */}
           <FadeUp 
@@ -181,6 +242,11 @@ export const MarketPresence: React.FC = () => {
             </div>
           </FadeUp>
 
+        </div>
+
+        {/* MOBILE ONLY STATS */}
+        <div className="block md:hidden">
+          <MarketGridMobile />
         </div>
 
       </div>

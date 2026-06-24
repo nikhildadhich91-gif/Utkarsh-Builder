@@ -130,6 +130,7 @@ body {
   z-index: 1;
 }
 
+/* --- Original Toggle Animation (Pull Down) ---
 .bg-front {
   z-index: 2;
   transform: translateY(0) scale(1);
@@ -142,6 +143,22 @@ body {
   transform: translateY(20vh) scale(1.1) !important;
   opacity: 0.8 !important;
   transition: transform 0.3s var(--pull-easing), opacity 0.3s ease !important;
+}
+------------------------------------------------ */
+
+/* --- New Fade Animation --- */
+.bg-front {
+  z-index: 2;
+  transform: none;
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.pull-down {
+  z-index: 1;
+  transform: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.8s ease-in-out !important;
 }
 
 .blur-overlay {
@@ -289,5 +306,16 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-smooth iframe {
   pointer-events: none;
+}
+
+/* ========== MOBILE OPTIMIZATION ========== */
+@media (max-width: 767px) {
+  /* Reduce section heading bottom margins */
+  .inner-hero-banner {
+    min-height: 400px;
+    height: auto;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+  }
 }
 

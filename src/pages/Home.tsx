@@ -37,9 +37,9 @@ export const Home: React.FC = () => {
       <DevelopmentShowcase />
 
       {/* 10. Custom Featured Video Section (Asme Section 3 customized for builder) */}
-      <section className="py-24 bg-white text-[#2A2A2A] border-t border-black/5">
+      <section className="py-12 md:py-24 bg-white text-[#2A2A2A] border-t border-black/5">
         <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
-          <FadeUp delay={0.1} y={50} className="rounded-3xl overflow-hidden aspect-video relative group shadow-2xl border border-black/5 bg-gray-100">
+          <FadeUp delay={0.1} y={50} className="rounded-3xl overflow-hidden h-[340px] md:h-auto md:aspect-video relative group shadow-2xl border border-black/5 bg-gray-100">
             {/* Background looping build video */}
             <video
               autoPlay
@@ -50,14 +50,14 @@ export const Home: React.FC = () => {
               src={assets.videos.homeApproach}
             />
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
 
             {/* Bottom Overlay Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 z-10">
+            <div className="absolute bottom-0 left-0 right-0 p-3 md:p-10 flex flex-col justify-end items-start md:flex-row md:justify-between md:items-end gap-2 md:gap-6 z-10">
 
               {/* Left Approach Card */}
-              <div className="liquid-glass border border-white/20 p-6 md:p-8 rounded-2xl max-w-md text-left">
-                <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.2em] block mb-2">
+              <div className="hidden md:block liquid-glass border border-white/20 p-8 rounded-2xl max-w-md text-left">
+                <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.2em] block mb-0.5 animate-pulse">
                   Our Approach
                 </span>
                 <p className="text-sm text-gray-100 font-light leading-relaxed">
@@ -68,10 +68,10 @@ export const Home: React.FC = () => {
               {/* Right Explore Button */}
               <Link
                 to="/services"
-                className="bg-white text-black hover:bg-gray-100 px-8 py-3.5 rounded-full text-sm font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-lg hover:scale-105 active:scale-95 duration-300"
+                className="bg-white text-black hover:bg-gray-100 px-3.5 py-1.5 md:px-8 md:py-3.5 rounded-full text-[9px] md:text-sm font-semibold uppercase tracking-wider flex items-center gap-1 cursor-pointer shadow-lg hover:scale-105 active:scale-95 duration-300 w-fit shrink-0"
               >
                 <span>Explore Services</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-2.5 w-2.5 md:h-4 md:w-4" />
               </Link>
 
             </div>

@@ -121,19 +121,14 @@ export const ServicesPage = () => {
             href: "/contact"
           }}
           backgroundImage="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
-          contactInfo={{
-            email: "nowalutkarsh@gmail.com",
-            phone: "+91 8562034491",
-            address: "Johri Bazar, Jaipur"
-          }}
         />
       </div>
 
       {/* 2. Jack-Style Services Section (Vertical list, white bg) */}
-      <div className="py-24 bg-white rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] relative z-10 -mt-10">
+      <div className="py-12 md:py-24 bg-white rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] relative z-10 -mt-10">
         <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16">
 
-          <div className="text-center mb-16 md:mb-24">
+          <div className="text-center mb-10 md:mb-24">
             <FadeUp delay={0.1} className="mb-3">
               <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">The Services</span>
             </FadeUp>
@@ -150,26 +145,26 @@ export const ServicesPage = () => {
                 key={service.number}
                 delay={index * 0.1}
                 y={30}
-                className="py-10 md:py-12 border-b border-[#1B1B1B]/15 flex flex-col md:flex-row items-start gap-6 md:gap-12 group hover:bg-[#FAF7F5]/40 transition-all duration-300 px-4 rounded-xl"
+                className="py-6 md:py-12 border-b border-[#1B1B1B]/15 flex flex-col md:flex-row items-start gap-4 md:gap-12 group hover:bg-[#FAF7F5]/40 transition-all duration-300 px-3 md:px-4 rounded-xl"
               >
                 {/* Left side: Huge Index Number */}
-                <div className="w-20 md:w-32 shrink-0">
-                  <span className="text-5xl md:text-6xl lg:text-7xl font-light text-[#C92C15]/35 group-hover:text-[#C92C15] transition-colors duration-300 select-none">
+                <div className="w-16 md:w-32 shrink-0">
+                  <span className="text-3xl md:text-6xl lg:text-7xl font-light text-[#C92C15]/35 group-hover:text-[#C92C15] transition-colors duration-300 select-none">
                     {service.number}
                   </span>
                 </div>
 
                 {/* Right side: Name & Detail stacked */}
-                <div className="flex-1 text-left space-y-4">
-                  <h3 className="text-xl md:text-2xl font-semibold text-[#1B1B1B] tracking-tight group-hover:text-[#C92C15] transition-colors duration-300">
+                <div className="flex-1 text-left space-y-2 md:space-y-4">
+                  <h3 className="text-lg md:text-2xl font-semibold text-[#1B1B1B] tracking-tight group-hover:text-[#C92C15] transition-colors duration-300">
                     {service.title}
                   </h3>
 
-                  <p className="text-base text-[#6F6F6F] font-light leading-relaxed">
+                  <p className="text-sm md:text-base text-[#6F6F6F] font-light leading-relaxed">
                     {service.description}
                   </p>
 
-                  <p className="text-sm text-[#6F6F6F]/80 font-light leading-relaxed border-l-2 border-[#C92C15]/30 pl-4 group-hover:border-[#C92C15] transition-all">
+                  <p className="text-xs md:text-sm text-[#6F6F6F]/80 font-light leading-relaxed border-l-2 border-[#C92C15]/30 pl-4 group-hover:border-[#C92C15] transition-all">
                     {service.extendedDetails}
                   </p>
                 </div>
@@ -181,26 +176,26 @@ export const ServicesPage = () => {
       </div>
 
       {/* 3. Asme-Style Video Bento Grid */}
-      <div className="py-24 bg-[#FAF7F5] text-[#1B1B1B] border-t border-black/5">
+      <div className="py-12 md:py-24 bg-[#FAF7F5] text-[#1B1B1B] border-t border-black/5">
         <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
 
-          <div className="text-left max-w-3xl mb-16 space-y-4">
+          <div className="text-left max-w-3xl mb-10 md:mb-16 space-y-3">
             <div>
               <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase block mb-3">Our Standards</span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-[#1B1B1B]">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-[#1B1B1B]">
                 Execution Divisions
               </h2>
             </div>
-            <p className="text-[#6F6F6F] font-light text-base leading-relaxed">
+            <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
               How we bifurcate our engineering divisions to guarantee specialized, high-end attention.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 
             {/* Card 1: Residential */}
-            <FadeUp delay={0.1} y={40} className="bg-white rounded-3xl overflow-hidden group border border-black/5 shadow-xl flex flex-col justify-between min-h-[420px] hover:shadow-2xl transition-all duration-300">
-              <div className="relative h-60 w-full overflow-hidden">
+            <FadeUp delay={0.1} y={40} className="bg-white rounded-3xl overflow-hidden group border border-black/5 shadow-xl flex flex-col justify-between min-h-[340px] md:min-h-[420px] hover:shadow-2xl transition-all duration-300">
+              <div className="relative h-40 md:h-60 w-full overflow-hidden">
                 <video
                   autoPlay
                   loop
@@ -214,19 +209,19 @@ export const ServicesPage = () => {
                   Residential Division
                 </span>
               </div>
-              <div className="p-8 text-left space-y-3">
-                <h3 className="text-2xl font-semibold text-[#1B1B1B] tracking-tight group-hover:text-[#C92C15] transition-colors">
+              <div className="p-5 md:p-8 text-left space-y-2 md:space-y-3">
+                <h3 className="text-lg md:text-2xl font-semibold text-[#1B1B1B] tracking-tight group-hover:text-[#C92C15] transition-colors">
                   Bespoke Villas &amp; Homes
                 </h3>
-                <p className="text-sm text-[#6F6F6F] font-light leading-relaxed">
+                <p className="text-xs md:text-sm text-[#6F6F6F] font-light leading-relaxed">
                   We combine Rajasthan's rich architectural traditions with modern sustainable building practices to deliver extraordinary residential estates featuring flawless symmetry and structural longevity.
                 </p>
               </div>
             </FadeUp>
 
             {/* Card 2: Commercial */}
-            <FadeUp delay={0.2} y={40} className="bg-white rounded-3xl overflow-hidden group border border-black/5 shadow-xl flex flex-col justify-between min-h-[420px] hover:shadow-2xl transition-all duration-300">
-              <div className="relative h-60 w-full overflow-hidden">
+            <FadeUp delay={0.2} y={40} className="bg-white rounded-3xl overflow-hidden group border border-black/5 shadow-xl flex flex-col justify-between min-h-[340px] md:min-h-[420px] hover:shadow-2xl transition-all duration-300">
+              <div className="relative h-40 md:h-60 w-full overflow-hidden">
                 <video
                   autoPlay
                   loop
@@ -240,11 +235,11 @@ export const ServicesPage = () => {
                   Commercial Division
                 </span>
               </div>
-              <div className="p-8 text-left space-y-3">
-                <h3 className="text-2xl font-semibold text-[#1B1B1B] tracking-tight group-hover:text-[#C92C15] transition-colors">
+              <div className="p-5 md:p-8 text-left space-y-2 md:space-y-3">
+                <h3 className="text-lg md:text-2xl font-semibold text-[#1B1B1B] tracking-tight group-hover:text-[#C92C15] transition-colors">
                   Retail &amp; Corporate Spaces
                 </h3>
-                <p className="text-sm text-[#6F6F6F] font-light leading-relaxed">
+                <p className="text-xs md:text-sm text-[#6F6F6F] font-light leading-relaxed">
                   Expert execution of mixed-use hubs, high-symmetry jewelry showrooms, and office complexes engineered for workflow efficiency, energy savings, and structural integrity.
                 </p>
               </div>
@@ -256,18 +251,18 @@ export const ServicesPage = () => {
       </div>
 
       {/* 4. Interactive Project Estimation Calculator Section */}
-      <div id="calculator-section" className="py-24 max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+      <div id="calculator-section" className="py-12 md:py-24 max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
           <FadeUp delay={0.1} className="mb-3">
             <span className="text-[#C92C15] text-xs font-bold tracking-[0.25em] uppercase">Interactive Tool</span>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
               Cost Estimator Calculator
             </h2>
           </FadeUp>
-          <FadeUp delay={0.3} className="mt-4">
-            <p className="text-[#6F6F6F] font-light">
+          <FadeUp delay={0.3} className="mt-2">
+            <p className="text-sm text-[#6F6F6F] font-light">
               Get an instant cost estimate for your residential, commercial, or turnkey construction project in Rajasthan.
             </p>
           </FadeUp>
@@ -277,17 +272,17 @@ export const ServicesPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden border border-black/5 shadow-2xl bg-white text-[#1B1B1B]">
 
           {/* Left Form Column (7 spans) */}
-          <div className="lg:col-span-7 p-8 md:p-12 space-y-8 bg-[#FAF7F5]/50 border-r border-black/5 text-left">
-            <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-[#1B1B1B]">Configure Your Project</h3>
+          <div className="lg:col-span-7 p-5 md:p-12 space-y-6 md:space-y-8 bg-[#FAF7F5]/50 border-r border-black/5 text-left">
+            <div className="space-y-1">
+              <h3 className="text-lg md:text-xl font-semibold text-[#1B1B1B]">Configure Your Project</h3>
               <p className="text-xs text-[#6F6F6F] font-light">Adjust the fields below to see real-time pricing updates.</p>
             </div>
 
             {/* Slider: Area */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex justify-between items-baseline">
-                <label className="text-sm font-semibold tracking-wider uppercase text-[#6F6F6F]">Plot / Construction Area</label>
-                <span className="text-lg font-bold text-[#C92C15]">{area.toLocaleString()} Sq. Ft.</span>
+                <label className="text-xs font-semibold tracking-wider uppercase text-[#6F6F6F]">Plot / Construction Area</label>
+                <span className="text-base md:text-lg font-bold text-[#C92C15]">{area.toLocaleString()} Sq. Ft.</span>
               </div>
               <input
                 type="range"
@@ -298,16 +293,16 @@ export const ServicesPage = () => {
                 onChange={(e) => setArea(Number(e.target.value))}
                 className="w-full h-1 bg-black/10 rounded-lg appearance-none cursor-pointer accent-[#C92C15]"
               />
-              <div className="flex justify-between text-xxs text-[#6F6F6F]/70">
+              <div className="flex justify-between text-[10px] text-[#6F6F6F]/70">
                 <span>1,000 Sq. Ft.</span>
                 <span>10,000 Sq. Ft.</span>
               </div>
             </div>
 
             {/* Selector: Quality Standard */}
-            <div className="space-y-3">
-              <label className="text-sm font-semibold tracking-wider uppercase text-[#1B1B1B] block">Quality &amp; Material Standard</label>
-              <div className="grid grid-cols-3 gap-3">
+            <div className="space-y-2">
+              <label className="text-xs font-semibold tracking-wider uppercase text-[#1B1B1B] block">Quality &amp; Material Standard</label>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
                 {[
                   { id: 'standard', title: 'Standard Quality', desc: '₹1,800/sq.ft' },
                   { id: 'premium', title: 'Premium Luxury', desc: '₹2,800/sq.ft' },
@@ -317,13 +312,13 @@ export const ServicesPage = () => {
                     key={item.id}
                     type="button"
                     onClick={() => setQuality(item.id as any)}
-                    className={`p-4 rounded-xl border text-left cursor-pointer transition-all duration-300 flex flex-col justify-between min-h-[90px] ${quality === item.id
+                    className={`p-3 md:p-4 rounded-xl border text-left cursor-pointer transition-all duration-300 flex flex-row sm:flex-col justify-between items-center sm:items-start min-h-0 sm:min-h-[90px] ${quality === item.id
                         ? 'border-[#C92C15] bg-[#C92C15]/10 text-[#C92C15]'
                         : 'border-black/10 bg-black/[0.01] hover:border-black/20 text-[#1B1B1B]'
                       }`}
                   >
                     <span className="text-xs font-semibold">{item.title}</span>
-                    <span className={`text-xxs font-light mt-2 ${quality === item.id ? 'text-[#C92C15]' : 'text-[#6F6F6F]'}`}>
+                    <span className={`text-[10px] sm:text-xxs font-light sm:mt-2 ${quality === item.id ? 'text-[#C92C15]' : 'text-[#6F6F6F]'}`}>
                       {item.desc}
                     </span>
                   </button>
@@ -365,7 +360,7 @@ export const ServicesPage = () => {
           </div>
 
           {/* Right Results Column (5 spans) */}
-          <div className="lg:col-span-5 p-8 md:p-12 bg-[#FAF7F5] text-[#1B1B1B] flex flex-col justify-between text-left relative">
+          <div className="lg:col-span-5 p-5 md:p-12 bg-[#FAF7F5] text-[#1B1B1B] flex flex-col justify-between text-left relative border-t lg:border-t-0 border-black/5">
             {/* Elegant architectural background pattern */}
             <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:20px_20px]" />
 
@@ -376,16 +371,16 @@ export const ServicesPage = () => {
 
               <div className="border-b border-[#1B1B1B]/10 pb-6">
                 <h4 className="text-xs text-[#6F6F6F] uppercase tracking-wider font-medium">Estimated Pricing Range</h4>
-                <p className="text-3xl md:text-4xl font-light text-[#C92C15] mt-2 tracking-tight">
+                <p className="text-2xl md:text-4xl font-light text-[#C92C15] mt-2 tracking-tight">
                   {formatLakhsCrores(estimate.min)} - {formatLakhsCrores(estimate.max)}
                 </p>
-                <p className="text-xxs text-[#6F6F6F]/60 font-light mt-1">
+                <p className="text-[10px] text-[#6F6F6F]/60 font-light mt-1">
                   *Approximation based on current Rajasthan brick, cement, and labor indexes.
                 </p>
               </div>
 
               {/* Cost breakdown */}
-              <div className="space-y-4 text-sm font-light text-[#6F6F6F]">
+              <div className="space-y-4 text-xs md:text-sm font-light text-[#6F6F6F]">
                 <div className="flex justify-between">
                   <span>Base Construction Cost:</span>
                   <span className="font-medium text-[#1B1B1B]">
@@ -396,17 +391,17 @@ export const ServicesPage = () => {
                   <span>Project Oversight &amp; PMO (12%):</span>
                   <span className="font-medium text-[#1B1B1B]">{formatLakhsCrores(estimate.pmo)}</span>
                 </div>
-                <div className="flex justify-between border-t border-[#1B1B1B]/10 pt-4 text-base font-medium text-[#1b1b1b]">
+                <div className="flex justify-between border-t border-[#1B1B1B]/10 pt-4 text-sm md:text-base font-medium text-[#1b1b1b]">
                   <span>Total Estimated Price:</span>
                   <span className="text-[#C92C15]">{formatLakhsCrores(estimate.total)}</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-12 relative z-10 w-full">
+            <div className="mt-8 md:mt-12 relative z-10 w-full">
               <a
                 href="/contact"
-                className="w-full bg-[#C92C15] text-white hover:bg-[#D43B13] transition-all duration-300 py-4 px-6 rounded-xl font-medium tracking-wide flex items-center justify-center gap-3 cursor-pointer shadow-lg active:scale-95 text-center text-sm uppercase"
+                className="w-full bg-[#C92C15] text-white hover:bg-[#D43B13] transition-all duration-300 py-3.5 md:py-4 px-6 rounded-xl font-medium tracking-wide flex items-center justify-center gap-3 cursor-pointer shadow-lg active:scale-95 text-center text-xs md:text-sm uppercase"
               >
                 <Calculator className="h-4 w-4" />
                 <span>Lock In This Quote</span>
@@ -419,13 +414,13 @@ export const ServicesPage = () => {
       </div>
 
       {/* 5. Interactive Client Extra Benefits Section */}
-      <div className="py-24 bg-white rounded-b-[40px] sm:rounded-b-[50px] md:rounded-b-[60px] relative z-10 -mt-10 border-t border-black/5">
+      <div className="py-12 md:py-24 bg-white rounded-b-[40px] sm:rounded-b-[50px] md:rounded-b-[60px] relative z-10 -mt-10 border-t border-black/5">
         <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16 text-center">
           <FadeUp delay={0.1} className="mb-3">
             <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Value Additions</span>
           </FadeUp>
-          <FadeUp delay={0.2} className="mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
+          <FadeUp delay={0.2} className="mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
               Extra Benefits We Give to Clients
             </h2>
           </FadeUp>
@@ -478,14 +473,14 @@ const ServicesExtraBenefits: React.FC = () => {
   const BenefitIcon = activeBenefit.icon;
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-6 md:space-y-10">
       {/* Tab Selectors */}
-      <div className="flex flex-wrap gap-2 justify-center border-b border-black/5 pb-4">
+      <div className="flex flex-wrap gap-1.5 justify-center border-b border-black/5 pb-2.5">
         {benefitTabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveBenefitTab(tab.id as any)}
-            className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${
+            className={`px-3 md:px-5 py-1.5 md:py-2.5 rounded-xl text-xs md:text-sm font-semibold transition-all duration-300 cursor-pointer ${
               activeBenefitTab === tab.id
                 ? 'bg-[#C92C15] text-white shadow-md'
                 : 'text-[#6F6F6F] hover:text-[#C92C15] hover:bg-black/5'
@@ -497,13 +492,13 @@ const ServicesExtraBenefits: React.FC = () => {
       </div>
 
       {/* Tab Content Display */}
-      <FadeUp delay={0.2} className="bg-[#FAF7F5] rounded-3xl p-8 md:p-12 border border-black/5 text-left flex flex-col md:flex-row gap-8 items-center min-h-[220px]">
-        <div className="h-16 w-16 bg-[#C92C15]/5 border border-[#C92C15]/10 rounded-2xl flex items-center justify-center text-[#C92C15] shrink-0">
-          <BenefitIcon className="h-8 w-8" />
+      <FadeUp delay={0.2} className="bg-[#FAF7F5] rounded-3xl p-5 md:p-12 border border-black/5 text-left flex flex-col md:flex-row gap-4 md:gap-8 items-center min-h-0 sm:min-h-[220px]">
+        <div className="h-12 w-12 md:h-16 md:w-16 bg-[#C92C15]/5 border border-[#C92C15]/10 rounded-2xl flex items-center justify-center text-[#C92C15] shrink-0">
+          <BenefitIcon className="h-6 w-6 md:h-8 md:w-8" />
         </div>
-        <div className="space-y-3">
-          <h4 className="text-xl md:text-2xl font-semibold text-[#1B1B1B]">{activeBenefit.title}</h4>
-          <p className="text-base text-[#6F6F6F] font-light leading-relaxed">{activeBenefit.desc}</p>
+        <div className="space-y-2 md:space-y-3">
+          <h4 className="text-lg md:text-2xl font-semibold text-[#1B1B1B]">{activeBenefit.title}</h4>
+          <p className="text-sm md:text-base text-[#6F6F6F] font-light leading-relaxed">{activeBenefit.desc}</p>
         </div>
       </FadeUp>
     </div>

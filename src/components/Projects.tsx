@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-
 import { assets } from '../lib/cloudinary';
 
 const msJewellersCol1_1 = assets.projects.msCol1_1;
@@ -182,6 +181,50 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, progress, tot
   );
 };
 
+
+const ProjectsGridMobile: React.FC<{ projects: ProjectData[] }> = ({ projects }) => {
+  return (
+    <div className="grid grid-cols-2 gap-3 text-left">
+      {projects.map((project) => (
+        <div
+          key={project.number}
+          className="bg-white rounded-2xl border border-black/5 p-3 flex flex-col justify-between shadow-sm min-h-[220px]"
+        >
+          <div>
+            {/* Image */}
+            <div className="rounded-xl overflow-hidden bg-black/5 h-[90px] mb-2.5 relative">
+              <img
+                src={project.images.col2}
+                alt={project.name}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <span className="absolute top-1.5 left-1.5 text-xs font-bold text-white bg-[#C92C15] px-1.5 py-0.5 rounded-md leading-none">
+                {project.number}
+              </span>
+            </div>
+
+            <span className="text-[8px] uppercase tracking-wider text-[#6F6F6F] font-bold block leading-none">
+              {project.category.split(' & ')[0].split(' — ')[0]}
+            </span>
+            <h3 className="text-xs font-semibold text-[#1B1B1B] mt-1 line-clamp-2 leading-tight">
+              {project.name}
+            </h3>
+          </div>
+
+          <div className="pt-2 mt-2 border-t border-black/5 flex justify-between items-center">
+            <span className="text-[8px] text-[#6F6F6F] font-medium">{project.location}</span>
+            <button className="text-[#C92C15] p-0.5">
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+
 interface ProjectsProps {
   filter?: 'all' | 'residential' | 'commercial' | 'development';
 }
@@ -189,7 +232,7 @@ interface ProjectsProps {
 export const Projects: React.FC<ProjectsProps> = ({ filter = 'all' }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Track scroll position of the entire projects section
+  // Track scroll position of the entire projects section (only needed for desktop view stack animations)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end']
@@ -203,25 +246,25 @@ export const Projects: React.FC<ProjectsProps> = ({ filter = 'all' }) => {
     <section
       id="projects"
       ref={containerRef}
-      className="relative bg-[#FAF7F5] py-24 md:py-32 overflow-visible"
+      className="relative bg-[#FAF7F5] py-12 md:py-32 overflow-visible"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
 
         {/* Section Heading */}
-        <div className="text-left mb-16 md:mb-24">
+        <div className="text-left mb-10 md:mb-24">
           <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase block mb-3">
             Our Works
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
             Crafted With Precision
           </h2>
-          <p className="text-[#6F6F6F] font-light mt-4 max-w-xl">
+          <p className="text-[#6F6F6F] font-light mt-2 md:mt-4 max-w-xl text-xs md:text-sm">
             A showcase of our landmark developments where precision architecture meets luxury construction.
           </p>
         </div>
 
-        {/* Stacking Card List */}
-        <div className="relative flex flex-col items-center">
+        {/* DESKTOP ONLY STACKING CARD LIST */}
+        <div className="hidden md:flex relative flex-col items-center">
           {filteredProjects.map((project, index) => (
             <ProjectCard
               key={project.number}
@@ -235,6 +278,17 @@ export const Projects: React.FC<ProjectsProps> = ({ filter = 'all' }) => {
             <div className="text-center py-20 text-gray-500 font-light w-full bg-white rounded-3xl border border-black/5">
               No developments in this category at this time.
             </div>
+          )}
+        </div>
+
+        {/* MOBILE ONLY LAYOUT */}
+        <div className="block md:hidden">
+          {filteredProjects.length === 0 ? (
+            <div className="text-center py-12 text-gray-500 font-light w-full bg-white rounded-2xl border border-black/5 text-xs">
+              No developments in this category at this time.
+            </div>
+          ) : (
+            <ProjectsGridMobile projects={filteredProjects} />
           )}
         </div>
 

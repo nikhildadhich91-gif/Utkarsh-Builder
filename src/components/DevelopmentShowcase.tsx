@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Building, Home, CheckSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 import { assets } from '../lib/cloudinary';
 
 const bedroomImg = assets.generated.bedroom;
@@ -53,29 +52,94 @@ const items: ShowcaseItem[] = [
   }
 ];
 
+
+const ShowcaseScrollMobile = ({ items }: any) => {
+  return (
+    <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 scrollbar-none pb-4 px-2 -mx-6 md:-mx-12 text-left">
+      <div className="w-4 shrink-0" />
+      {items.map((item: any, idx: number) => {
+        const Icon = item.icon;
+        return (
+          <div
+            key={idx}
+            className="w-[280px] shrink-0 snap-center bg-white rounded-2xl border border-black/5 shadow-md overflow-hidden flex flex-col justify-between"
+          >
+            {/* Image top */}
+            <div className="relative w-full h-[120px] overflow-hidden shrink-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none" />
+              <div className="absolute top-3 left-3 bg-[#C92C15] text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
+                {item.number}
+              </div>
+            </div>
+            
+            {/* Content */}
+            <div className="p-4 flex flex-col justify-between flex-1">
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[9px] uppercase tracking-wider text-[#6F6F6F] font-bold">{item.subtitle}</span>
+                  <div className="p-1 rounded-md bg-[#FAF7F5] border border-black/5 text-[#C92C15]">
+                    <Icon className="h-3.5 w-3.5" />
+                  </div>
+                </div>
+                <h3 className="text-sm font-semibold text-[#1B1B1B]">{item.title}</h3>
+                <p className="text-[11px] text-[#6F6F6F] leading-normal font-light line-clamp-3">{item.desc}</p>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-black/5 flex items-center justify-between">
+                <div className="flex flex-wrap gap-1">
+                  {item.highlights.slice(0, 2).map((h: string, i: number) => (
+                    <span key={i} className="bg-[#FAF7F5] text-[8px] px-1.5 py-0.5 rounded border border-black/5">
+                      {h}
+                    </span>
+                  ))}
+                </div>
+                <Link
+                  to="/services"
+                  className="h-7 w-7 rounded-full bg-[#FAF7F5] border border-black/5 hover:bg-[#C92C15] hover:text-white flex items-center justify-center transition-colors text-[#1B1B1B]"
+                >
+                  <ArrowRight className="h-3 w-3" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+      <div className="w-4 shrink-0" />
+    </div>
+  );
+};
+
+
 export const DevelopmentShowcase: React.FC = () => {
+
   return (
     <section
       id="developments-showcase"
-      className="relative bg-[#FAF7F5] py-24 md:py-32 overflow-visible border-t border-black/5"
+      className="relative bg-[#FAF7F5] py-12 md:py-32 overflow-visible border-t border-black/5"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
 
         {/* Section Heading */}
-        <div className="text-left mb-16 md:mb-20">
+        <div className="text-left mb-10 md:mb-20">
           <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase block mb-3">
             Core Operations
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
             Our Core Building Services
           </h2>
-          <p className="text-[#6F6F6F] font-light mt-4 max-w-xl">
+          <p className="text-[#6F6F6F] font-light mt-2 md:mt-4 max-w-xl text-xs md:text-sm">
             We specialize in luxury homes, commercial projects, and end-to-end building services in Rajasthan.
           </p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* DESKTOP ONLY BENTO GRID */}
+        <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
 
           {/* Card 1: Residential Development (spans 2 columns on lg) */}
           <motion.div
@@ -285,6 +349,11 @@ export const DevelopmentShowcase: React.FC = () => {
             </div>
           </motion.div>
 
+        </div>
+
+        {/* MOBILE ONLY LAYOUT */}
+        <div className="block md:hidden">
+          <ShowcaseScrollMobile items={items} />
         </div>
 
       </div>

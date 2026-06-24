@@ -355,13 +355,13 @@ const BannerHeader: React.FC = () => {
       style={{ opacity, y, scale }}
       className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-2 md:pt-4"
     >
-      <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] block mb-3 md:mb-4">
+      <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] block mb-2 md:mb-4">
         Our Portfolio
       </span>
-      <h1 className="text-[#1B1B1B] font-semibold text-4xl md:text-5xl lg:text-6xl tracking-tight mb-4 md:mb-6">
+      <h1 className="text-[#1B1B1B] font-semibold text-3xl md:text-5xl lg:text-6xl tracking-tight mb-3 md:mb-6">
         Crafted With Precision
       </h1>
-      <p className="text-[#6F6F6F] font-light text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+      <p className="text-[#6F6F6F] font-light text-xs md:text-base max-w-xl mx-auto leading-relaxed">
         Explore our landmark projects across Rajasthan, from modern offices to custom-built luxury villas.
       </p>
     </motion.div>
@@ -375,7 +375,7 @@ export const ProjectBanner: React.FC = () => {
       <div className="absolute top-[-50px] right-[-100px] w-[500px] h-[300px] bg-radial from-[rgba(201,44,21,0.06)] to-transparent filter blur-[40px] pointer-events-none rounded-full z-0" />
       <div className="absolute bottom-[50px] left-[-100px] w-[500px] h-[300px] bg-radial from-[rgba(201,44,21,0.06)] to-transparent filter blur-[40px] pointer-events-none rounded-full z-0" />
 
-      <ContainerSticky className="h-screen flex flex-col justify-start items-center pt-24 md:pt-32 pb-4 bg-[#FAF7F5] overflow-hidden">
+      <ContainerSticky className="h-screen flex flex-col justify-start items-center pt-16 md:pt-32 pb-4 bg-[#FAF7F5] overflow-hidden">
         {/* Animated header text */}
         <BannerHeader />
 

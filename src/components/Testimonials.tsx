@@ -68,11 +68,11 @@ export const Testimonials = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-[#FAF7F5] relative overflow-hidden border-t border-gray-100">
+    <section className="py-12 md:py-32 bg-[#FAF7F5] relative overflow-hidden border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 md:mb-24">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-24">
           <FadeUp delay={0.1} className="mb-3">
             <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Testimonials</span>
           </FadeUp>
@@ -94,7 +94,7 @@ export const Testimonials = () => {
             <div 
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
-              className="bg-white rounded-3xl p-8 md:p-12 lg:p-16 border border-black/5 shadow-2xl relative transition-all duration-500"
+              className="bg-white rounded-3xl p-5 md:p-12 lg:p-16 border border-black/5 shadow-2xl relative transition-all duration-500"
             >
               {/* Quote Mark Icon */}
               <div className="absolute top-6 right-8 text-[#C92C15]/10 select-none pointer-events-none">
@@ -103,7 +103,7 @@ export const Testimonials = () => {
 
               {/* Quote Content */}
               <div className="relative z-10 min-h-[160px] flex flex-col justify-center text-left">
-                <p className="text-lg md:text-xl lg:text-2xl text-[#1B1B1B] font-light leading-relaxed mb-8 italic">
+                <p className="text-base md:text-xl lg:text-2xl text-[#1B1B1B] font-light leading-relaxed mb-6 md:mb-8 italic">
                   "{testimonials[activeIndex].quote}"
                 </p>
                 

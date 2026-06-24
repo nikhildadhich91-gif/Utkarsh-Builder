@@ -49,11 +49,11 @@ interface HeroSectionProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
     href: string;
   };
   backgroundImage: string;
-  contactInfo: {
+  contactInfo?: {
     website?: string;
     email?: string;
-    phone: string;
-    address: string;
+    phone?: string;
+    address?: string;
   };
 }
 
@@ -128,29 +128,35 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             </div>
 
             {/* Bottom Section: Footer Info */}
-            <motion.footer className="mt-12 w-full pt-6 border-t border-black/5" variants={itemVariants}>
-                <div className="grid grid-cols-1 gap-6 text-[10px] sm:text-xs text-muted-foreground sm:grid-cols-3">
-                    {contactInfo.email ? (
-                        <div className="flex items-center">
-                            <InfoIcon type="email" />
-                            <span>{contactInfo.email}</span>
-                        </div>
-                    ) : contactInfo.website ? (
-                        <div className="flex items-center">
-                            <InfoIcon type="website" />
-                            <span>{contactInfo.website}</span>
-                        </div>
-                    ) : null}
-                    <div className="flex items-center">
-                        <InfoIcon type="phone" />
-                        <span>{contactInfo.phone}</span>
-                    </div>
-                    <div className="flex items-center">
-                        <InfoIcon type="address" />
-                        <span>{contactInfo.address}</span>
-                    </div>
-                </div>
-            </motion.footer>
+            {contactInfo && (contactInfo.email || contactInfo.phone || contactInfo.address || contactInfo.website) && (
+              <motion.footer className="mt-12 w-full pt-6 border-t border-black/5" variants={itemVariants}>
+                  <div className="grid grid-cols-1 gap-6 text-[10px] sm:text-xs text-muted-foreground sm:grid-cols-3">
+                      {contactInfo.email ? (
+                          <div className="flex items-center">
+                              <InfoIcon type="email" />
+                              <span>{contactInfo.email}</span>
+                          </div>
+                      ) : contactInfo.website ? (
+                          <div className="flex items-center">
+                              <InfoIcon type="website" />
+                              <span>{contactInfo.website}</span>
+                          </div>
+                      ) : null}
+                      {contactInfo.phone && (
+                          <div className="flex items-center">
+                              <InfoIcon type="phone" />
+                              <span>{contactInfo.phone}</span>
+                          </div>
+                      )}
+                      {contactInfo.address && (
+                          <div className="flex items-center">
+                              <InfoIcon type="address" />
+                              <span>{contactInfo.address}</span>
+                          </div>
+                      )}
+                  </div>
+              </motion.footer>
+            )}
         </div>
 
         {/* Right Side: Image with Clip Path Animation */}

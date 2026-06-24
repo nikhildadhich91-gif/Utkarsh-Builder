@@ -27,7 +27,7 @@ export const Founders: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-[#FAF7F5] relative overflow-hidden border-t border-black/5">
+    <section className="py-12 md:py-32 bg-[#FAF7F5] relative overflow-hidden border-t border-black/5">
       {/* Background visual detail */}
       <div className="absolute inset-0 opacity-[0.01] pointer-events-none z-0">
         <div className="w-full h-full bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:60px_60px]" />
@@ -35,7 +35,7 @@ export const Founders: React.FC = () => {
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20 md:mb-24">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-24">
           <FadeUp delay={0.1} className="mb-3">
             <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Leadership</span>
           </FadeUp>
@@ -82,7 +82,7 @@ export const Founders: React.FC = () => {
               </div>
 
               {/* Founder Text & Qualifications */}
-              <div className="p-8 flex-1 flex flex-col justify-between space-y-6">
+              <div className="p-5 md:p-8 flex-1 flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 text-gray-700">
                     <div className="p-2 bg-[#C92C15]/5 rounded-lg shrink-0">

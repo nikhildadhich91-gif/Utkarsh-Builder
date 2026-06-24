@@ -12,7 +12,7 @@ export const About: React.FC = () => {
   const imageUrl = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80';
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-[#FAF7F5] relative overflow-hidden">
+    <section id="about" className="py-12 md:py-32 bg-[#FAF7F5] relative overflow-hidden">
       {/* Decorative terracotta background blob */}
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#C92C15]/5 rounded-full blur-3xl" />
       <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#C92C15]/5 rounded-full blur-3xl" />
@@ -28,7 +28,7 @@ export const About: React.FC = () => {
                   <img
                     src={imageUrl}
                     alt="Luxury modern architecture by Utkarsh Builder"
-                    className="w-full h-[480px] object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                    className="w-full h-[320px] md:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                     loading="lazy"
                   />
                   {/* Absolute subtle outline overlay */}
@@ -66,7 +66,7 @@ export const About: React.FC = () => {
             </FadeUp>
 
             {/* Premium Tab Buttons */}
-            <FadeUp delay={0.5} className="flex gap-2 border-b border-[#1B1B1B]/10 pb-2 mb-6">
+            <FadeUp delay={0.5} className="flex flex-wrap gap-1.5 md:gap-2 border-b border-[#1B1B1B]/10 pb-2 mb-6">
               {[
                 { id: 'story', label: 'Our Story', icon: Award },
                 { id: 'vision', label: 'Our Vision', icon: Eye },
@@ -77,12 +77,12 @@ export const About: React.FC = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as any)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-all duration-300 cursor-pointer ${activeTab === tab.id
+                    className={`flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm transition-all duration-300 cursor-pointer ${activeTab === tab.id
                         ? 'bg-[#C92C15] text-white shadow-md'
                         : 'text-[#6F6F6F] hover:text-[#C92C15] hover:bg-black/5'
                       }`}
                   >
-                    <Icon className="h-4 w-4" />
+                    <Icon className="h-3.5 w-3.5 md:h-4 md:w-4" />
                     <span className="font-medium">{tab.label}</span>
                   </button>
                 );

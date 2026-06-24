@@ -6,7 +6,7 @@ import { FadeUp } from "./ui/FadeUp";
 
 export const ShuffleHero = () => {
   return (
-    <section className="w-full px-6 md:px-12 lg:px-16 py-24 bg-white text-[#2A2A2A] border-t border-black/5 relative overflow-hidden">
+    <section className="w-full px-6 md:px-12 lg:px-16 py-12 md:py-24 bg-white text-[#2A2A2A] border-t border-black/5 relative overflow-hidden">
       {/* Background visual detail */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none z-0">
         <div className="w-full h-full bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:50px_50px]" />
@@ -140,7 +140,7 @@ const ShuffleGrid = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-4 grid-rows-4 h-[350px] md:h-[450px] gap-2 lg:gap-3 p-2 bg-[#FAF7F5] rounded-[32px] border border-black/5 shadow-inner">
+    <div className="grid grid-cols-4 grid-rows-4 h-[260px] md:h-[450px] gap-1.5 md:gap-2 lg:gap-3 p-1.5 md:p-2 bg-[#FAF7F5] rounded-[24px] md:rounded-[32px] border border-black/5 shadow-inner">
       {squares.map((sq) => sq)}
     </div>
   );

@@ -75,7 +75,7 @@ export const Hero = () => {
 
             <FadeIn delay={800} duration={1000}>
               <p className="text-base md:text-lg text-gray-800 mb-6 max-w-2xl font-semibold leading-relaxed">
-                With 30+ years of experience and over 100 completed projects in Rajasthan, Utkarsh Builder <PointerHighlight delay={1.8} containerClassName="text-[#C92C15] font-semibold">transforms</PointerHighlight> ideas into premium homes and commercial spaces built to last.
+                With 30+ years of experience and over 100 completed projects in Rajasthan, we <PointerHighlight delay={1.8} containerClassName="text-[#C92C15] font-semibold">transform</PointerHighlight> ideas into premium homes and commercial spaces built to last.
               </p>
             </FadeIn>
 
@@ -115,20 +115,20 @@ export const Hero = () => {
 
           <FadeIn delay={800} duration={1000}>
             <p className="text-base sm:text-lg text-white/95 mb-8 max-w-2xl font-light leading-relaxed">
-              With 30+ years of experience and over 100 completed projects in Rajasthan, Utkarsh Builder <PointerHighlight delay={1.8} containerClassName="text-[#C92C15] font-semibold">transforms</PointerHighlight> ideas into premium homes and commercial spaces built to last.
+              With 30+ years of experience and over 100 completed projects in Rajasthan, we <PointerHighlight delay={1.8} containerClassName="text-[#C92C15] font-semibold">transform</PointerHighlight> ideas into premium homes and commercial spaces built to last.
             </p>
           </FadeIn>
 
           {/* Slider Toggle (Mobile) */}
           <FadeIn delay={1000} duration={1000}>
-            <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 p-1.5 rounded-full w-fit shadow-inner mb-8 relative">
+            <div className="flex items-center gap-0.5 bg-white/10 backdrop-blur-md border border-white/20 p-1 rounded-full w-fit shadow-inner mb-6 relative">
               {toggleOptions.map((opt) => {
                 const isActive = mode === opt.id;
                 return (
                   <button
                     key={opt.id}
                     onClick={() => setMode(opt.id)}
-                    className={`relative px-5 py-2.5 rounded-full text-xxs sm:text-xs font-semibold uppercase tracking-wider transition-colors duration-300 z-10 cursor-pointer ${
+                    className={`relative px-3.5 py-2 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider transition-colors duration-300 z-10 cursor-pointer ${
                       isActive ? 'text-[#1B1B1B]' : 'text-white/60 hover:text-white'
                     }`}
                   >

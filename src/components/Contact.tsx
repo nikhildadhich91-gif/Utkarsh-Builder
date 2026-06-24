@@ -217,7 +217,7 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
 
   if (isEmbedded) {
     return (
-      <div className="w-full text-[#2A2A2A] bg-white p-8 md:p-10 rounded-3xl border border-black/5 shadow-xl text-left">
+      <div className="w-full text-[#2A2A2A] bg-white p-5 md:p-10 rounded-2xl md:rounded-3xl border border-black/5 shadow-xl text-left">
         {formContent}
       </div>
     );
@@ -275,7 +275,7 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
 
           {/* Right Side: Form (7 cols) */}
           <div className="lg:col-span-7">
-            <FadeUp delay={0.3} y={40} className="bg-white border border-black/5 p-8 md:p-10 rounded-3xl shadow-xl">
+            <FadeUp delay={0.3} y={40} className="bg-white border border-black/5 p-5 md:p-10 rounded-2xl md:rounded-3xl shadow-xl">
               {formContent}
             </FadeUp>
           </div>
