@@ -43,3 +43,5 @@ src/assets/temp_check/
 *.zip
 temp-videos/
 
+
+.vercel
