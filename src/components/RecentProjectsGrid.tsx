@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { assets } from '../lib/cloudinary';
-import { MapPin, Expand, CheckCircle2, Clock } from 'lucide-react';
+import { MapPin, Expand, X, CheckCircle2, Clock, Calendar, ShieldCheck, Compass } from 'lucide-react';
 import { FadeUp } from './ui/FadeUp';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface ProjectCardData {
+  id: string;
   title: string;
   category: 'residential' | 'commercial' | 'renovation';
   categoryLabel: string;
@@ -11,10 +13,12 @@ interface ProjectCardData {
   location: string;
   area: string;
   status: 'Completed' | 'In Progress';
+  description: string;
 }
 
 const projectsData: ProjectCardData[] = [
   {
+    id: 'proj-1',
     title: 'MS Jewellers Showroom',
     category: 'commercial',
     categoryLabel: 'Commercial Showroom',
@@ -22,8 +26,10 @@ const projectsData: ProjectCardData[] = [
     location: 'Johri Bazar, Jaipur',
     area: '12,000 Sq. Ft.',
     status: 'Completed',
+    description: 'A high-concept luxury jewelry showroom combining advanced secure vault rooms, customized copper display counters, and precise task lighting. Built with premium materials to ensure high durability and a stunning aesthetic.',
   },
   {
+    id: 'proj-2',
     title: 'Modern Residential Villa',
     category: 'residential',
     categoryLabel: 'Luxury Residential',
@@ -31,8 +37,10 @@ const projectsData: ProjectCardData[] = [
     location: 'Raja Park, Jaipur',
     area: '4,500 Sq. Ft.',
     status: 'Completed',
+    description: 'A custom-designed double-story residential villa. Features high ceiling heights, open-concept living spaces, premium vitrified tile flooring, and integrated smart electrical automation layout throughout.',
   },
   {
+    id: 'proj-3',
     title: 'Indie Stitch Designer Boutique',
     category: 'commercial',
     categoryLabel: 'Commercial Boutique',
@@ -40,8 +48,10 @@ const projectsData: ProjectCardData[] = [
     location: 'C-Scheme, Jaipur',
     area: '3,200 Sq. Ft.',
     status: 'Completed',
+    description: 'A luxury boutique featuring custom walnut wood panels, floor-to-ceiling glass entrance structures, customized display shelves, and warm architectural lighting for an optimized customer experience.',
   },
   {
+    id: 'proj-4',
     title: 'Hotel Reeve Inn',
     category: 'commercial',
     categoryLabel: 'Commercial & Hospitality',
@@ -49,8 +59,10 @@ const projectsData: ProjectCardData[] = [
     location: 'Mansarovar, Jaipur',
     area: '35,000 Sq. Ft.',
     status: 'In Progress',
+    description: 'A premium hospitality project featuring a robust Fe 550D structural steel frame, reinforced concrete pillars, fire-resistant conduit pathways, and customized layout divisions for hotel rooms and amenities.',
   },
   {
+    id: 'proj-5',
     title: 'Vintage Villa Restoration',
     category: 'renovation',
     categoryLabel: 'Heritage Renovation',
@@ -58,8 +70,10 @@ const projectsData: ProjectCardData[] = [
     location: 'Johri Bazar, Jaipur',
     area: '6,000 Sq. Ft.',
     status: 'Completed',
+    description: 'A careful heritage renovation and structural strengthening project. Restored traditional Rajasthani stone columns while modernizing internal waterproofing, electrical layout wiring, and plumbing networks.',
   },
   {
+    id: 'proj-6',
     title: 'Luxury Office Renovation',
     category: 'renovation',
     categoryLabel: 'Office Renovation',
@@ -67,15 +81,12 @@ const projectsData: ProjectCardData[] = [
     location: 'Civil Lines, Jaipur',
     area: '2,800 Sq. Ft.',
     status: 'Completed',
+    description: 'Full layout redesign and remodeling of a commercial corporate office. Included glass partitions, modular server room set-ups, high-efficiency AC ventilation routing, and clean acoustic wall tiles.',
   },
 ];
 
 export const RecentProjectsGrid: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'residential' | 'commercial' | 'renovation'>('all');
-
-  const filteredProjects = activeFilter === 'all'
-    ? projectsData
-    : projectsData.filter((p) => p.category === activeFilter);
+  const [selectedProject, setSelectedProject] = useState<ProjectCardData | null>(null);
 
   return (
     <section className="py-16 md:py-32 bg-white text-[#2A2A2A] relative overflow-hidden border-t border-black/5">
@@ -95,87 +106,166 @@ export const RecentProjectsGrid: React.FC = () => {
               </h2>
             </FadeUp>
           </div>
-
-          {/* Filter Buttons */}
-          <FadeUp delay={0.3} className="flex flex-wrap gap-2">
-            {[
-              { id: 'all', label: 'All Projects' },
-              { id: 'residential', label: 'Residential' },
-              { id: 'commercial', label: 'Commercial' },
-              { id: 'renovation', label: 'Renovation' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveFilter(tab.id as any)}
-                className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border ${
-                  activeFilter === tab.id
-                    ? 'bg-[#1B1B1B] text-white border-[#1B1B1B]'
-                    : 'bg-transparent text-[#6F6F6F] border-black/10 hover:border-black/30 hover:text-black'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </FadeUp>
         </div>
 
         {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {filteredProjects.map((project, idx) => (
+          {projectsData.map((project, idx) => (
             <FadeUp
-              key={idx}
+              key={project.id}
               delay={0.1 + idx * 0.08}
               y={35}
-              className="bg-[#FAF7F5] border border-black/[0.04] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group flex flex-col h-full"
             >
-              {/* Image Container */}
-              <div className="relative aspect-[3/2] overflow-hidden bg-gray-100">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                
-                {/* Category Badge */}
-                <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-md border border-black/5 text-[#C92C15] text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm">
-                  {project.categoryLabel}
-                </span>
+              <div
+                onClick={() => setSelectedProject(project)}
+                className="bg-[#FAF7F5] border border-black/[0.04] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group flex flex-col h-full cursor-pointer"
+              >
+                {/* Image Container */}
+                <div className="relative aspect-[3/2] overflow-hidden bg-gray-100">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  
+                  {/* Category Badge */}
+                  <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-md border border-black/5 text-[#C92C15] text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm">
+                    {project.categoryLabel}
+                  </span>
+                </div>
 
-                {/* Status Badge */}
-                <span className={`absolute top-4 right-4 text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm border flex items-center gap-1.5 ${
-                  project.status === 'Completed'
-                    ? 'bg-emerald-50 text-emerald-700 border-emerald-200/50'
-                    : 'bg-amber-50 text-amber-700 border-amber-200/50'
-                }`}>
-                  {project.status === 'Completed' ? (
-                    <CheckCircle2 className="h-3 w-3 text-emerald-600" />
-                  ) : (
-                    <Clock className="h-3 w-3 text-amber-600" />
-                  )}
-                  {project.status}
-                </span>
-              </div>
-
-              {/* Card Details */}
-              <div className="p-6 md:p-8 flex flex-col justify-between flex-grow text-left">
-                <h3 className="text-lg md:text-xl font-bold text-[#1B1B1B] mb-4 group-hover:text-[#C92C15] transition-colors leading-tight">
-                  {project.title}
-                </h3>
-                
-                <div className="grid grid-cols-2 gap-4 border-t border-black/5 pt-4 text-xs font-light text-[#6F6F6F]">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4 text-[#C92C15] shrink-0" />
-                    <span>{project.location}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Expand className="h-4 w-4 text-[#C92C15] shrink-0" />
-                    <span>{project.area}</span>
+                {/* Card Details */}
+                <div className="p-6 md:p-8 flex flex-col justify-between flex-grow text-left">
+                  <h3 className="text-lg md:text-xl font-bold text-[#1B1B1B] mb-4 group-hover:text-[#C92C15] transition-colors leading-tight">
+                    {project.title}
+                  </h3>
+                  
+                  <div className="grid grid-cols-2 gap-4 border-t border-black/5 pt-4 text-xs font-light text-[#6F6F6F]">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 text-[#C92C15] shrink-0" />
+                      <span>{project.location}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Expand className="h-4 w-4 text-[#C92C15] shrink-0" />
+                      <span>{project.area}</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </FadeUp>
           ))}
         </div>
+
+        {/* Morphing Modal Dialog */}
+        <AnimatePresence>
+          {selectedProject && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6">
+              
+              {/* Overlay Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setSelectedProject(null)}
+                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              />
+
+              {/* Modal Container */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                transition={{ type: 'spring', damping: 25, stiffness: 250 }}
+                className="relative bg-white border border-black/5 rounded-[28px] shadow-2xl max-w-3xl w-full overflow-hidden z-10 flex flex-col max-h-[90vh]"
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 h-9 w-9 rounded-full bg-black/5 hover:bg-[#C92C15] hover:text-white transition-colors duration-300 flex items-center justify-center text-[#1B1B1B] z-20 cursor-pointer"
+                  title="Close Dialog"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+
+                {/* Scrollable Content */}
+                <div className="overflow-y-auto">
+                  {/* Banner Image */}
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100">
+                    <img
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/65 to-transparent pointer-events-none" />
+                    <span className="absolute bottom-6 left-6 text-white bg-[#C92C15] text-[10px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md border border-white/10">
+                      {selectedProject.categoryLabel}
+                    </span>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="p-6 md:p-8 space-y-6 text-left">
+                    <div>
+                      <h3 className="text-2xl md:text-3xl font-extrabold text-[#1B1B1B] tracking-tight">
+                        {selectedProject.title}
+                      </h3>
+                      <div className="flex flex-wrap gap-4 mt-3 text-xs text-[#6F6F6F]">
+                        <div className="flex items-center gap-1.5">
+                          <MapPin className="h-3.5 w-3.5 text-[#C92C15]" />
+                          <span>{selectedProject.location}</span>
+                        </div>
+                        <span className="text-black/10">&bull;</span>
+                        <div className="flex items-center gap-1.5">
+                          <Expand className="h-3.5 w-3.5 text-[#C92C15]" />
+                          <span>{selectedProject.area}</span>
+                        </div>
+                        <span className="text-black/10">&bull;</span>
+                        <div className="flex items-center gap-1.5">
+                          {selectedProject.status === 'Completed' ? (
+                            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                          ) : (
+                            <Clock className="h-3.5 w-3.5 text-amber-600" />
+                          )}
+                          <span className={selectedProject.status === 'Completed' ? 'text-emerald-700 font-medium' : 'text-amber-700 font-medium'}>
+                            {selectedProject.status}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="text-sm md:text-base text-[#6F6F6F] font-light leading-relaxed">
+                      {selectedProject.description}
+                    </p>
+
+                    {/* Generic Trust Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-black/5 pt-6">
+                      <div className="bg-[#FAF7F5] border border-black/[0.04] p-4 rounded-xl flex gap-3 items-start">
+                        <Compass className="h-5 w-5 text-[#C92C15] shrink-0 mt-0.5" />
+                        <div>
+                          <h5 className="text-xs font-bold text-[#1B1B1B] uppercase tracking-wider mb-0.5">Execution</h5>
+                          <p className="text-[10px] text-[#6F6F6F] font-light leading-relaxed">Turnkey engineering &amp; layout planning.</p>
+                        </div>
+                      </div>
+                      <div className="bg-[#FAF7F5] border border-black/[0.04] p-4 rounded-xl flex gap-3 items-start">
+                        <ShieldCheck className="h-5 w-5 text-[#C92C15] shrink-0 mt-0.5" />
+                        <div>
+                          <h5 className="text-xs font-bold text-[#1B1B1B] uppercase tracking-wider mb-0.5">Standards</h5>
+                          <p className="text-[10px] text-[#6F6F6F] font-light leading-relaxed">Fe 550D TMT steel &amp; 53 grade concrete.</p>
+                        </div>
+                      </div>
+                      <div className="bg-[#FAF7F5] border border-black/[0.04] p-4 rounded-xl flex gap-3 items-start">
+                        <Calendar className="h-5 w-5 text-[#C92C15] shrink-0 mt-0.5" />
+                        <div>
+                          <h5 className="text-xs font-bold text-[#1B1B1B] uppercase tracking-wider mb-0.5">Timeline</h5>
+                          <p className="text-[10px] text-[#6F6F6F] font-light leading-relaxed">Completed within promised milestone days.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
 
       </div>
     </section>

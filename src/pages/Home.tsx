@@ -4,7 +4,6 @@ import Hero from '../components/Hero';
 import TrustBar from '../components/TrustBar';
 import About from '../components/About';
 import MarketPresence from '../components/MarketPresence';
-import ValueCreationTimeline from '../components/ValueCreationTimeline';
 import DevelopmentShowcase from '../components/DevelopmentShowcase';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Process from '../components/Process';
@@ -33,9 +32,6 @@ export const Home: React.FC = () => {
 
       {/* 6. Market Presence Stats (Animated counters) */}
       <MarketPresence />
-
-      {/* 7. Value Creation Timeline (Horizontal lifecycle flow) */}
-      <ValueCreationTimeline />
 
       {/* Dynamic Conversion Section: Recent Projects Grid */}
       <RecentProjectsGrid />
