@@ -133,7 +133,7 @@ export const MarketPresence: React.FC = () => {
           </FadeUp>
           <FadeUp delay={0.2}>
             <h2 className="text-2xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1B1B1B] leading-tight md:leading-none">
-              Metrics That<br />Earn Confidence
+              Our Record<br />of Excellence
             </h2>
           </FadeUp>
         </div>
