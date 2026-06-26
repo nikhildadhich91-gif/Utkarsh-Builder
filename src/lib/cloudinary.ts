@@ -20,21 +20,29 @@ export const assets = {
   },
   
   projects: {
-    hotelCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782197660/utkarsh%20construction/projects/hotel-reeve-inn-col1-1.webp`,
-    hotelCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782197661/utkarsh%20construction/projects/hotel-reeve-inn-col1-2.webp`,
-    hotelCol2: `${CLOUDINARY_IMAGE_BASE}/v1782197663/utkarsh%20construction/projects/hotel-reeve-inn-col2.webp`,
+    hotelCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782391244/utkarsh%20construction/projects/hotel-reeve-inn-col1-1.webp`,
+    hotelCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782391246/utkarsh%20construction/projects/hotel-reeve-inn-col1-2.webp`,
+    hotelCol2: `${CLOUDINARY_IMAGE_BASE}/v1782391249/utkarsh%20construction/projects/hotel-reeve-inn-col2.webp`,
     
-    indieCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782197665/utkarsh%20construction/projects/indie-stitch-col1-1.webp`,
-    indieCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782197667/utkarsh%20construction/projects/indie-stitch-col1-2.webp`,
-    indieCol2: `${CLOUDINARY_IMAGE_BASE}/v1782197668/utkarsh%20construction/projects/indie-stitch-col2.webp`,
+    indieCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782391235/utkarsh%20construction/projects/indie-stitch-col1-1.webp`,
+    indieCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782391237/utkarsh%20construction/projects/indie-stitch-col1-2.webp`,
+    indieCol2: `${CLOUDINARY_IMAGE_BASE}/v1782391238/utkarsh%20construction/projects/indie-stitch-col2.webp`,
     
     kitchenCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782197669/utkarsh%20construction/projects/modular-kitchen-col1-1.webp`,
     kitchenCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782197670/utkarsh%20construction/projects/modular-kitchen-col1-2.webp`,
     kitchenCol2: `${CLOUDINARY_IMAGE_BASE}/v1782197672/utkarsh%20construction/projects/modular-kitchen-col2.webp`,
     
-    msCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782197673/utkarsh%20construction/projects/ms-jewellers-col1-1.webp`,
-    msCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782197675/utkarsh%20construction/projects/ms-jewellers-col1-2.webp`,
-    msCol2: `${CLOUDINARY_IMAGE_BASE}/v1782197676/utkarsh%20construction/projects/ms-jewellers-col2.webp`,
+    msCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782391224/utkarsh%20construction/projects/ms-jewellers-col1-1.webp`,
+    msCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782391228/utkarsh%20construction/projects/ms-jewellers-col1-2.webp`,
+    msCol2: `${CLOUDINARY_IMAGE_BASE}/v1782391230/utkarsh%20construction/projects/ms-jewellers-col2.webp`,
+
+    barfiwalaCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782391231/utkarsh%20construction/projects/barfiwala-sweets-col1-1.webp`,
+    barfiwalaCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782391233/utkarsh%20construction/projects/barfiwala-sweets-col1-2.webp`,
+    barfiwalaCol2: `${CLOUDINARY_IMAGE_BASE}/v1782391234/utkarsh%20construction/projects/barfiwala-sweets-col2.webp`,
+
+    paliwalCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782391239/utkarsh%20construction/projects/paliwal-textile-col1-1.webp`,
+    paliwalCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782391240/utkarsh%20construction/projects/paliwal-textile-col1-2.webp`,
+    paliwalCol2: `${CLOUDINARY_IMAGE_BASE}/v1782391241/utkarsh%20construction/projects/paliwal-textile-col2.webp`,
     
     backup: {
       hotelCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782197657/utkarsh%20construction/projects/backup/hotel-reeve-inn-col1-2.webp`,

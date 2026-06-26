@@ -82,7 +82,13 @@ export const Navbar = () => {
             {/* Right: CTA Button & Mobile Toggle */}
             <div className="flex items-center gap-4">
               <Link
-                to="/contact"
+                to="/contact#contact-section"
+                onClick={(e) => {
+                  if (window.location.pathname === '/contact') {
+                    e.preventDefault();
+                    document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className="bg-white text-black hover:bg-gray-100 transition-all px-5 py-2 rounded-lg text-sm md:text-base font-semibold cursor-pointer shadow-md hover:scale-[1.02] active:scale-[0.98] inline-block"
               >
                 Book Consultation
@@ -123,8 +129,14 @@ export const Navbar = () => {
             </NavLink>
           ))}
           <Link
-            to="/contact"
-            onClick={() => setIsMenuOpen(false)}
+            to="/contact#contact-section"
+            onClick={(e) => {
+              setIsMenuOpen(false);
+              if (window.location.pathname === '/contact') {
+                e.preventDefault();
+                document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
             className="bg-[#C92C15] text-white hover:bg-[#D43B13] transition-all py-3.5 px-8 rounded-xl text-base font-semibold cursor-pointer shadow-lg mt-6 w-full text-center uppercase tracking-wider"
           >
             Book Consultation

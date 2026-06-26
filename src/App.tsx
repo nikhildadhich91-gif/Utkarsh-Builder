@@ -10,6 +10,7 @@ import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
+import FloatingCTA from './components/FloatingCTA';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
 
           {/* Global Footer */}
           <Footer />
+
+          {/* Floating Consultation Widget */}
+          <FloatingCTA />
         </div>
       </Router>
     </ReactLenis>

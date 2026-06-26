@@ -14,9 +14,17 @@ const msCol1_1 = assets.projects.msCol1_1;
 const msCol1_2 = assets.projects.msCol1_2;
 const msCol2 = assets.projects.msCol2;
 
+const barfiwalaCol1_1 = assets.projects.barfiwalaCol1_1;
+const barfiwalaCol1_2 = assets.projects.barfiwalaCol1_2;
+const barfiwalaCol2 = assets.projects.barfiwalaCol2;
+
 const indieCol1_1 = assets.projects.indieCol1_1;
 const indieCol1_2 = assets.projects.indieCol1_2;
 const indieCol2 = assets.projects.indieCol2;
+
+const paliwalCol1_1 = assets.projects.paliwalCol1_1;
+const paliwalCol1_2 = assets.projects.paliwalCol1_2;
+const paliwalCol2 = assets.projects.paliwalCol2;
 
 const kitchenCol1_1 = assets.projects.kitchenCol1_1;
 const kitchenCol1_2 = assets.projects.kitchenCol1_2;
@@ -254,6 +262,20 @@ const column1Items: GalleryItem[] = [
     category: "Bespoke Boutique & Office",
     location: "Rajasthan",
     image: indieCol2
+  },
+  {
+    id: "col1-5",
+    name: "Barfiwala Sweets Showroom",
+    category: "Premium Retail Showroom",
+    location: "Rajasthan",
+    image: barfiwalaCol1_1
+  },
+  {
+    id: "col1-6",
+    name: "Paliwal Textile Hub",
+    category: "Textile Center & Office",
+    location: "Rajasthan",
+    image: paliwalCol1_2
   }
 ]
 
@@ -285,6 +307,20 @@ const column2Items: GalleryItem[] = [
     category: "Commercial & Hospitality",
     location: "Rajasthan",
     image: hotelCol2
+  },
+  {
+    id: "col2-5",
+    name: "Paliwal Textile Hub",
+    category: "Textile Center & Office",
+    location: "Rajasthan",
+    image: paliwalCol1_1
+  },
+  {
+    id: "col2-6",
+    name: "Barfiwala Sweets Showroom",
+    category: "Premium Retail Showroom",
+    location: "Rajasthan",
+    image: barfiwalaCol2
   }
 ]
 
@@ -316,6 +352,20 @@ const column3Items: GalleryItem[] = [
     category: "Residential Kitchen",
     location: "Rajasthan",
     image: kitchenCol1_2
+  },
+  {
+    id: "col3-5",
+    name: "Barfiwala Sweets Showroom",
+    category: "Premium Retail Showroom",
+    location: "Rajasthan",
+    image: barfiwalaCol1_2
+  },
+  {
+    id: "col3-6",
+    name: "Paliwal Textile Hub",
+    category: "Textile Center & Office",
+    location: "Rajasthan",
+    image: paliwalCol2
   }
 ]
 

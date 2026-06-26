@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { assets } from '../lib/cloudinary';
 
@@ -7,9 +8,17 @@ const msJewellersCol1_1 = assets.projects.msCol1_1;
 const msJewellersCol1_2 = assets.projects.msCol1_2;
 const msJewellersCol2 = assets.projects.msCol2;
 
+const barfiwalaSweetsCol1_1 = assets.projects.barfiwalaCol1_1;
+const barfiwalaSweetsCol1_2 = assets.projects.barfiwalaCol1_2;
+const barfiwalaSweetsCol2 = assets.projects.barfiwalaCol2;
+
 const indieStitchCol1_1 = assets.projects.indieCol1_1;
 const indieStitchCol1_2 = assets.projects.indieCol1_2;
 const indieStitchCol2 = assets.projects.indieCol2;
+
+const paliwalTextileCol1_1 = assets.projects.paliwalCol1_1;
+const paliwalTextileCol1_2 = assets.projects.paliwalCol1_2;
+const paliwalTextileCol2 = assets.projects.paliwalCol2;
 
 const modularKitchenCol1_1 = assets.projects.kitchenCol1_1;
 const modularKitchenCol1_2 = assets.projects.kitchenCol1_2;
@@ -49,6 +58,19 @@ const projectsList: ProjectData[] = [
   },
   {
     number: '02',
+    name: 'Barfiwala Sweets Showroom',
+    category: 'Premium Retail Showroom',
+    location: 'Rajasthan',
+    description: 'A modern retail sweets showroom blending heritage Rajasthani elements with clean contemporary display cases, hygiene-first packaging areas, and warm inviting lighting.',
+    tag: 'commercial',
+    images: {
+      col1_1: barfiwalaSweetsCol1_1,
+      col1_2: barfiwalaSweetsCol1_2,
+      col2: barfiwalaSweetsCol2
+    }
+  },
+  {
+    number: '03',
     name: 'Indie Stitch Designer Boutique',
     category: 'Bespoke Boutique & Office',
     location: 'Rajasthan',
@@ -61,7 +83,20 @@ const projectsList: ProjectData[] = [
     }
   },
   {
-    number: '03',
+    number: '04',
+    name: 'Paliwal Textile Hub',
+    category: 'Textile Center & Office',
+    location: 'Rajasthan',
+    description: 'A state-of-the-art textile showroom and administrative office, featuring high-capacity fabric display racks, custom client discussion tables, and a premium exterior glass facade.',
+    tag: 'commercial',
+    images: {
+      col1_1: paliwalTextileCol1_1,
+      col1_2: paliwalTextileCol1_2,
+      col2: paliwalTextileCol2
+    }
+  },
+  {
+    number: '05',
     name: 'Elegant Modular Kitchen',
     category: 'Residential Kitchen',
     location: 'Rajasthan',
@@ -74,7 +109,7 @@ const projectsList: ProjectData[] = [
     }
   },
   {
-    number: '04',
+    number: '06',
     name: 'Hotel Reeve Inn',
     category: 'Commercial & Hospitality',
     location: 'Rajasthan',
@@ -92,92 +127,161 @@ const projectsList: ProjectData[] = [
 interface ProjectCardProps {
   project: ProjectData;
   index: number;
-  progress: MotionValue<number>;
-  total: number;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, progress, total }) => {
-  const targetScale = 1 - (total - 1 - index) * 0.03;
-
-  // Custom scroll transform to scale down each card slightly as we scroll past it
-  const scale = useTransform(
-    progress,
-    [index / total, (index + 1) / total],
-    [1, targetScale]
-  );
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const isEven = index % 2 === 0;
 
   return (
-    <div className="sticky top-28 md:top-36 flex items-center justify-center pb-24">
-      <motion.div
-        style={{ scale }}
-        className="w-full rounded-[30px] md:rounded-[40px] border border-black/5 bg-white p-6 md:p-8 lg:p-10 shadow-xl flex flex-col gap-6 md:gap-8"
-      >
-        {/* Top Row: Details & Actions */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-black/5 pb-6">
-          <div className="text-left flex items-start gap-4">
-            <span className="text-4xl md:text-5xl font-light text-[#C92C15] leading-none select-none">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="w-full rounded-[30px] md:rounded-[40px] border border-black/5 bg-white p-6 md:p-8 lg:p-10 shadow-lg hover:shadow-xl transition-all duration-500 flex flex-col md:flex-row gap-8 lg:gap-12 items-center mb-12 md:mb-16"
+    >
+      {isEven ? (
+        <>
+          {/* Text block (Left 42%) */}
+          <div className="w-full md:w-[42%] flex flex-col text-left justify-center space-y-4 lg:space-y-6">
+            <span className="text-4xl md:text-5xl lg:text-6xl font-light text-[#C92C15] leading-none select-none">
               {project.number}
             </span>
             <div>
-              <span className="text-xs uppercase tracking-widest text-[#6F6F6F] font-medium">
-                {project.category} — {project.location}
+              <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block">
+                {project.category} &bull; {project.location}
               </span>
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-1">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-2 leading-tight">
                 {project.name}
               </h3>
             </div>
-          </div>
-
-          <button
-            className="flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
-          >
-            <span>View Project</span>
-            <ArrowUpRight className="h-4 w-4" />
-          </button>
-        </div>
-
-        {/* Mid Row: Description */}
-        <div className="text-left text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed max-w-3xl">
-          <p>{project.description}</p>
-        </div>
-
-        {/* Bottom Row: Image Grid (Left 40% two stacked, Right 60% one tall) */}
-        <div className="grid grid-cols-1 md:grid-cols-10 gap-4 md:gap-6">
-
-          {/* Left Column (40% width = 4 grid spans) */}
-          <div className="md:col-span-4 flex flex-col gap-4 md:gap-6">
-            <div className="rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[140px] md:h-[180px] lg:h-[220px]">
-              <img
-                src={project.images.col1_1}
-                alt={`${project.name} detail`}
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                loading="lazy"
-              />
-            </div>
-            <div className="rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[160px] md:h-[220px] lg:h-[280px]">
-              <img
-                src={project.images.col1_2}
-                alt={`${project.name} detail view`}
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                loading="lazy"
-              />
+            <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
+              {project.description}
+            </p>
+            <div className="pt-2">
+              <Link
+                to="/contact#contact-section"
+                onClick={(e) => {
+                  if (window.location.pathname === '/contact') {
+                    e.preventDefault();
+                    document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
+              >
+                <span>Enquire Project</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
 
-          {/* Right Column (60% width = 6 grid spans) */}
-          <div className="md:col-span-6 rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[316px] md:h-[416px] lg:h-[526px]">
-            <img
-              src={project.images.col2}
-              alt={`${project.name} facade view`}
-              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-              loading="lazy"
-            />
+          {/* Image block (Right 58%) */}
+          <div className="w-full md:w-[58%]">
+            <div className="grid grid-cols-10 gap-4 lg:gap-6">
+              {/* Left tall image (Col 2) */}
+              <div className="col-span-6 rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[320px] lg:h-[420px]">
+                <img
+                  src={project.images.col2}
+                  alt={`${project.name} main view`}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Right stacked images (Col 1_1 and 1_2) */}
+              <div className="col-span-4 flex flex-col gap-4 lg:gap-6 justify-between h-[320px] lg:h-[420px]">
+                <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
+                  <img
+                    src={project.images.col1_1}
+                    alt={`${project.name} detail view 1`}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
+                  <img
+                    src={project.images.col1_2}
+                    alt={`${project.name} detail view 2`}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          {/* Image block (Left 58%) */}
+          <div className="w-full md:w-[58%] order-2 md:order-1">
+            <div className="grid grid-cols-10 gap-4 lg:gap-6">
+              {/* Left stacked images (Col 1_1 and 1_2) */}
+              <div className="col-span-4 flex flex-col gap-4 lg:gap-6 justify-between h-[320px] lg:h-[420px]">
+                <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
+                  <img
+                    src={project.images.col1_1}
+                    alt={`${project.name} detail view 1`}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
+                  <img
+                    src={project.images.col1_2}
+                    alt={`${project.name} detail view 2`}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Right tall image (Col 2) */}
+              <div className="col-span-6 rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[320px] lg:h-[420px]">
+                <img
+                  src={project.images.col2}
+                  alt={`${project.name} main view`}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
 
-        </div>
-
-      </motion.div>
-    </div>
+          {/* Text block (Right 42%) */}
+          <div className="w-full md:w-[42%] flex flex-col text-left justify-center space-y-4 lg:space-y-6 order-1 md:order-2">
+            <span className="text-4xl md:text-5xl lg:text-6xl font-light text-[#C92C15] leading-none select-none">
+              {project.number}
+            </span>
+            <div>
+              <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block">
+                {project.category} &bull; {project.location}
+              </span>
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-2 leading-tight">
+                {project.name}
+              </h3>
+            </div>
+            <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
+              {project.description}
+            </p>
+            <div className="pt-2">
+              <Link
+                to="/contact#contact-section"
+                onClick={(e) => {
+                  if (window.location.pathname === '/contact') {
+                    e.preventDefault();
+                    document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
+              >
+                <span>Enquire Project</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </>
+      )}
+    </motion.div>
   );
 };
 
@@ -232,12 +336,6 @@ interface ProjectsProps {
 export const Projects: React.FC<ProjectsProps> = ({ filter = 'all' }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Track scroll position of the entire projects section (only needed for desktop view stack animations)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end']
-  });
-
   const filteredProjects = filter === 'all'
     ? projectsList
     : projectsList.filter(p => p.tag === filter);
@@ -246,12 +344,12 @@ export const Projects: React.FC<ProjectsProps> = ({ filter = 'all' }) => {
     <section
       id="projects"
       ref={containerRef}
-      className="relative bg-[#FAF7F5] py-12 md:py-32 overflow-visible"
+      className="relative bg-[#FAF7F5] py-12 md:py-24 overflow-visible"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
 
         {/* Section Heading */}
-        <div className="text-left mb-10 md:mb-24">
+        <div className="text-left mb-12 md:mb-20">
           <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase block mb-3">
             Our Works
           </span>
@@ -263,15 +361,13 @@ export const Projects: React.FC<ProjectsProps> = ({ filter = 'all' }) => {
           </p>
         </div>
 
-        {/* DESKTOP ONLY STACKING CARD LIST */}
+        {/* DESKTOP ONLY ALTERNATING CARD LIST */}
         <div className="hidden md:flex relative flex-col items-center">
           {filteredProjects.map((project, index) => (
             <ProjectCard
               key={project.number}
               project={project}
               index={index}
-              progress={scrollYProgress}
-              total={filteredProjects.length}
             />
           ))}
           {filteredProjects.length === 0 && (

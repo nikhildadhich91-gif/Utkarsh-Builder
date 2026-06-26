@@ -83,7 +83,7 @@ export const Hero = () => {
             <FadeIn delay={1200} duration={1000}>
               <div className="flex flex-wrap gap-4">
                 <Link
-                  to="/contact"
+                  to="/contact#contact-section"
                   className="bg-[#C92C15] text-white hover:bg-[#D43B13] transition-all px-8 py-3.5 rounded-lg font-medium cursor-pointer shadow-lg hover:scale-105 active:scale-95 inline-block text-center"
                 >
                   Book Consultation
@@ -144,7 +144,7 @@ export const Hero = () => {
           <FadeIn delay={1200} duration={1000}>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                to="/contact"
+                to="/contact#contact-section"
                 className="bg-[#C92C15] text-white hover:bg-[#D43B13] transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
               >
                 Book Consultation

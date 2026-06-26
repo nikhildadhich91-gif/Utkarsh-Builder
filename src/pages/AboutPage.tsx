@@ -97,7 +97,7 @@ export const AboutPage: React.FC = () => {
               <span className="text-lg">↓</span>
             </a>
             <Link
-              to="/contact"
+              to="/contact#contact-section"
               className="px-8 py-3.5 bg-white text-[#2A2A2A] hover:bg-gray-50 border border-black/10 rounded-xl text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.02] active:scale-[0.98] cursor-pointer inline-flex items-center gap-2"
             >
               <span>Contact Us</span>

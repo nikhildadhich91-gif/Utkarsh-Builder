@@ -82,24 +82,28 @@ const kitchenCol1_1 = assets.projects.kitchenCol1_1;
 const kitchenCol2 = assets.projects.kitchenCol2;
 const hotelCol1_1 = assets.projects.hotelCol1_1;
 const hotelCol2 = assets.projects.hotelCol2;
+const barfiwalaCol1_1 = assets.projects.barfiwalaCol1_1;
+const barfiwalaCol2 = assets.projects.barfiwalaCol2;
+const paliwalCol1_1 = assets.projects.paliwalCol1_1;
+const paliwalCol2 = assets.projects.paliwalCol2;
 
 const squareData = [
   { id: 1, src: bedroomImg },
   { id: 2, src: receptionImg },
-  { id: 3, src: bathroomImg },
-  { id: 4, src: wardrobeImg },
-  { id: 5, src: corridorImg },
-  { id: 6, src: balconyImg },
-  { id: 7, src: officeImg },
-  { id: 8, src: msCol1_1 },
-  { id: 9, src: msCol2 },
-  { id: 10, src: indieCol1_1 },
-  { id: 11, src: indieCol2 },
-  { id: 12, src: kitchenCol1_1 },
-  { id: 13, src: kitchenCol2 },
-  { id: 14, src: hotelCol1_1 },
-  { id: 15, src: hotelCol2 },
-  { id: 16, src: bedroomImg }
+  { id: 3, src: officeImg },
+  { id: 4, src: balconyImg },
+  { id: 5, src: msCol1_1 },
+  { id: 6, src: msCol2 },
+  { id: 7, src: indieCol1_1 },
+  { id: 8, src: indieCol2 },
+  { id: 9, src: kitchenCol1_1 },
+  { id: 10, src: kitchenCol2 },
+  { id: 11, src: hotelCol1_1 },
+  { id: 12, src: hotelCol2 },
+  { id: 13, src: barfiwalaCol1_1 },
+  { id: 14, src: barfiwalaCol2 },
+  { id: 15, src: paliwalCol1_1 },
+  { id: 16, src: paliwalCol2 }
 ];
 
 const generateSquares = () => {
