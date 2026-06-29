@@ -88,9 +88,10 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
           muted
           playsInline
           crossOrigin="anonymous"
-          className="w-full h-full object-cover pointer-events-none"
+          className="w-full h-full object-cover object-[40%_center] md:object-center scale-[1.05] md:scale-100 pointer-events-none transition-all duration-300"
         />
-        <div className="overlay absolute inset-0 bg-black/25 pointer-events-none" />
+        {/* Overlay is shown on laptop/desktop (md:block) and hidden on mobile so video is 100% clear */}
+        <div className="overlay absolute inset-0 hidden md:block bg-black/25 pointer-events-none" />
       </div>
     </>
   );

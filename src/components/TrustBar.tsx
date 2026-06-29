@@ -18,10 +18,6 @@ export const TrustBar: React.FC = () => {
 
   return (
     <div className="relative w-full bg-white/30 backdrop-blur-xl py-6 overflow-hidden border-y border-white/60 z-10 shadow-md">
-      {/* Decorative side fades */}
-      <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-white/80 to-transparent z-10 pointer-events-none" />
-      <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-white/80 to-transparent z-10 pointer-events-none" />
-
       {/* Marquee Row */}
       <div className="flex w-max items-center animate-marquee">
         {marqueeItems.map((item, index) => {

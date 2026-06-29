@@ -34,15 +34,15 @@ export const AboutPage: React.FC = () => {
     <div className="bg-[#FAF7F5] w-full min-h-screen text-[#2A2A2A] pb-24">
 
       {/* 1. Premium Animated Text-Rotating Header Banner */}
-      <div className="inner-hero-banner relative overflow-hidden pt-36 pb-24 md:pt-48 md:pb-32 flex flex-col items-center justify-center !h-auto min-h-[520px] md:min-h-[600px]">
-        {/* Hanging Hook Video Component on Top Left - 7 times larger */}
+      <div className="inner-hero-banner relative overflow-hidden pt-28 pb-16 md:pt-48 md:pb-32 flex flex-col items-center justify-center !h-auto min-h-[460px] md:min-h-[600px]">
+        {/* Hanging Hook Video Component on Top Left - Flush to Navbar on Mobile */}
         <video
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className="absolute top-[150px] md:top-[88px] right-[-40px] md:right-[-100px] w-[220px] md:w-[800px] h-auto pointer-events-none z-20 mix-blend-multiply filter contrast-[1.1] brightness-[1.05] opacity-40 md:opacity-100"
+          className="absolute top-[65px] md:top-[88px] right-[-30px] sm:right-[-40px] md:right-[-100px] w-[340px] sm:w-[480px] md:w-[800px] h-auto pointer-events-none z-20 mix-blend-multiply filter contrast-[1.1] brightness-[1.05] opacity-60 md:opacity-100"
         >
           <source src={HookWebm} type="video/webm" />
           <source src={HookVideo} type="video/mp4" />
@@ -52,15 +52,15 @@ export const AboutPage: React.FC = () => {
         <div className="inner-hero-banner-glow top-[-50px] right-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="inner-hero-banner-glow bottom-[-50px] left-[-100px] absolute w-[300px] h-[300px] bg-[#C92C15]/5 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="relative z-10 max-w-4xl text-center px-6 space-y-8 flex flex-col items-center">
+        <div className="relative z-10 max-w-4xl text-center px-6 space-y-6 md:space-y-8 flex flex-col items-center">
           <FadeUp delay={0.1}>
             <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] bg-[#C92C15]/5 px-4 py-1.5 rounded-full inline-block">
               Our Legacy
             </span>
           </FadeUp>
 
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-6xl font-light text-[#1B1B1B] tracking-tight leading-tight max-w-3xl mx-auto flex flex-col items-center justify-center gap-y-4">
+          <div className="space-y-4 md:space-y-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-light text-[#1B1B1B] tracking-tight leading-tight max-w-3xl mx-auto flex flex-col items-center justify-center gap-y-2 md:gap-y-4">
               <span>We build spaces that are</span>
               <span className="relative inline-block font-semibold text-[#C92C15] w-full text-center h-[1.2em] overflow-hidden">
                 {titles.map((title, index) => (
@@ -82,23 +82,23 @@ export const AboutPage: React.FC = () => {
             </h1>
 
             <FadeUp delay={0.3}>
-              <p className="text-[#6F6F6F] font-light text-base md:text-lg max-w-2xl mx-auto leading-relaxed pt-2">
+              <p className="text-[#6F6F6F] font-light text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed pt-1 md:pt-2">
                 A legacy of <PointerHighlight delay={0.8} containerClassName="text-[#C92C15] font-semibold">craftsmanship</PointerHighlight>, structural safety, and transparent client communication in every project since 1995.
               </p>
             </FadeUp>
           </div>
 
-          <FadeUp delay={0.4} className="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <FadeUp delay={0.4} className="pt-2 md:pt-4 flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center w-full sm:w-auto">
             <a
               href="#philosophy"
-              className="px-8 py-3.5 bg-[#C92C15] text-white hover:bg-[#D43B13] rounded-xl text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] cursor-pointer inline-flex items-center gap-2"
+              className="w-full sm:w-auto px-8 py-3.5 bg-[#C92C15] text-white hover:bg-[#D43B13] rounded-xl text-xs sm:text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2"
             >
               <span>Our Philosophy</span>
               <span className="text-lg">↓</span>
             </a>
             <Link
               to="/contact#contact-section"
-              className="px-8 py-3.5 bg-white text-[#2A2A2A] hover:bg-gray-50 border border-black/10 rounded-xl text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.02] active:scale-[0.98] cursor-pointer inline-flex items-center gap-2"
+              className="w-full sm:w-auto px-8 py-3.5 bg-white text-[#2A2A2A] hover:bg-gray-50 border border-black/10 rounded-xl text-xs sm:text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.02] active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2"
             >
               <span>Contact Us</span>
               <span className="text-lg">→</span>

@@ -85,44 +85,39 @@ export const Home: React.FC = () => {
 
           {/* ── MOBILE HERO TEXT ── */}
           <div className="md:hidden absolute inset-0 z-20 flex items-center justify-start px-6">
-            <div className="w-full text-left">
-              {/* Mobile dark tint for readability */}
-              <div className="absolute inset-0 bg-black/45 pointer-events-none" />
+            <div className="w-full text-left relative z-10">
+              <AnimatedHeading
+                text={"Building Spaces\nThat Define Generations."}
+                className="text-4xl sm:text-5xl font-semibold tracking-tight text-white mb-6 leading-[1.15] drop-shadow-lg"
+                initialDelay={200}
+                charDelay={30}
+                charDuration={500}
+                highlightText="Define Generations."
+                highlightClassName="text-[#C92C15]"
+              />
 
-              <div className="relative z-10">
-                <AnimatedHeading
-                  text={"Building Spaces\nThat Define Generations."}
-                  className="text-4xl sm:text-5xl font-semibold tracking-tight text-white mb-6 leading-[1.15]"
-                  initialDelay={200}
-                  charDelay={30}
-                  charDuration={500}
-                  highlightText="Define Generations."
-                  highlightClassName="text-[#C92C15]"
-                />
+              <FadeIn delay={1000} duration={1000}>
+                <p className="text-sm text-white mb-6 leading-relaxed font-medium drop-shadow">
+                  30+ years · 100+ projects · Rajasthan's trusted builder.
+                </p>
+              </FadeIn>
 
-                <FadeIn delay={1000} duration={1000}>
-                  <p className="text-sm text-white/80 mb-6 leading-relaxed">
-                    30+ years · 100+ projects · Rajasthan's trusted builder.
-                  </p>
-                </FadeIn>
-
-                <FadeIn delay={1200} duration={1000}>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Link
-                      to="/contact#contact-section"
-                      className="bg-[#C92C15] text-white hover:bg-[#D43B13] transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
-                    >
-                      Book Consultation
-                    </Link>
-                    <Link
-                      to="/projects"
-                      className="bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-black transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
-                    >
-                      Explore Projects
-                    </Link>
-                  </div>
-                </FadeIn>
-              </div>
+              <FadeIn delay={1200} duration={1000}>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    to="/contact#contact-section"
+                    className="bg-[#C92C15] text-white hover:bg-[#D43B13] transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
+                  >
+                    Book Consultation
+                  </Link>
+                  <Link
+                    to="/projects"
+                    className="bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-black transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
+                  >
+                    Explore Projects
+                  </Link>
+                </div>
+              </FadeIn>
             </div>
           </div>
 
