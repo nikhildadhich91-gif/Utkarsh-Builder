@@ -371,11 +371,11 @@ const column3Items: GalleryItem[] = [
 
 const ProjectCard: React.FC<{ item: GalleryItem }> = ({ item }) => {
   return (
-    <div className="relative overflow-hidden rounded-[20px] bg-black/5 aspect-[4/3] w-full shadow-md border border-black/5 select-none pointer-events-none">
+    <div className="relative overflow-hidden rounded-[20px] bg-black/40 border border-white/10 aspect-[4/3] w-full shadow-lg select-none pointer-events-none">
       <img
         src={item.image}
         alt={item.name}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover opacity-90"
         loading="lazy"
       />
     </div>
@@ -391,29 +391,31 @@ const BannerHeader: React.FC = () => {
   return (
     <motion.div
       style={{ opacity, y, scale }}
-      className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-2 md:pt-4"
+      className="relative z-10 max-w-3xl mx-auto text-center px-6 pt-2 md:pt-4"
     >
-      <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] block mb-2 md:mb-4">
-        Our Portfolio
-      </span>
-      <h1 className="text-[#1B1B1B] font-semibold text-3xl md:text-5xl lg:text-6xl tracking-tight mb-3 md:mb-6">
-        Crafted With <PointerHighlight delay={0.6} containerClassName="text-[#C92C15] font-semibold">Precision</PointerHighlight>
-      </h1>
-      <p className="text-[#6F6F6F] font-light text-xs md:text-base max-w-xl mx-auto leading-relaxed">
-        Explore our landmark projects across Rajasthan, from modern offices to custom-built luxury villas.
-      </p>
+      <div className="bg-black/50 backdrop-blur-lg border border-white/10 rounded-[28px] p-6 md:p-8 shadow-2xl">
+        <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.25em] block mb-2 md:mb-4">
+          Our Portfolio
+        </span>
+        <h1 className="text-white font-semibold text-3xl md:text-5xl lg:text-6xl tracking-tight mb-3 md:mb-4">
+          Crafted With <PointerHighlight delay={0.6} containerClassName="text-[#C92C15] font-semibold">Precision</PointerHighlight>
+        </h1>
+        <p className="text-white/80 font-light text-xs md:text-base max-w-xl mx-auto leading-relaxed">
+          Explore our landmark projects across Rajasthan, from modern offices to custom-built luxury villas.
+        </p>
+      </div>
     </motion.div>
   )
 }
 
 export const ProjectBanner: React.FC = () => {
   return (
-    <ContainerScroll className="bg-[#FAF7F5] w-full overflow-visible">
+    <ContainerScroll className="w-full overflow-visible">
       {/* Decorative radial glows */}
-      <div className="absolute top-[-50px] right-[-100px] w-[500px] h-[300px] bg-radial from-[rgba(201,44,21,0.06)] to-transparent filter blur-[40px] pointer-events-none rounded-full z-0" />
-      <div className="absolute bottom-[50px] left-[-100px] w-[500px] h-[300px] bg-radial from-[rgba(201,44,21,0.06)] to-transparent filter blur-[40px] pointer-events-none rounded-full z-0" />
+      <div className="absolute top-[-50px] right-[-100px] w-[500px] h-[300px] bg-radial from-[rgba(201,44,21,0.1)] to-transparent filter blur-[40px] pointer-events-none rounded-full z-0" />
+      <div className="absolute bottom-[50px] left-[-100px] w-[500px] h-[300px] bg-radial from-[rgba(201,44,21,0.1)] to-transparent filter blur-[40px] pointer-events-none rounded-full z-0" />
 
-      <ContainerSticky className="h-screen flex flex-col justify-start items-center pt-28 md:pt-32 pb-4 bg-[#FAF7F5] overflow-hidden">
+      <ContainerSticky className="h-screen flex flex-col justify-start items-center pt-24 md:pt-28 pb-4 overflow-hidden">
         {/* Animated header text */}
         <BannerHeader />
 

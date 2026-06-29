@@ -54,7 +54,48 @@
   }
 }
 
-/* Global Page Resets */
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLL VIDEO BANNER — Fixed full-screen background
+   ═══════════════════════════════════════════════════════════════════════════ */
+#scroll-video-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: #0a0a0a;
+}
+
+#scroll-video-container canvas,
+#scroll-video-container video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#scroll-video-container .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.30);
+  pointer-events: none;
+}
+
+/* The home page content layer sits above the fixed video */
+.home-content-layer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Make solid section backgrounds transparent so the fixed wireframe video shows through */
+.home-content-layer section,
+.home-content-layer > div {
+  background-color: transparent !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Global Page Resets
+   ═══════════════════════════════════════════════════════════════════════════ */
 body {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;

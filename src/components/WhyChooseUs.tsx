@@ -44,26 +44,21 @@ const reasonsList: ReasonItem[] = [
 
 export const WhyChooseUs: React.FC = () => {
   return (
-    <section className="py-12 md:py-32 bg-white text-[#2A2A2A] relative overflow-hidden border-t border-black/5">
-      {/* Subtle grid lines background overlay */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-        <div className="w-full h-full bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:50px_50px]" />
-      </div>
-
+    <section className="py-12 md:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
-        {/* Title details */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-24">
+        {/* Title details inside Frosted Glass Panel */}
+        <div className="bg-white/30 backdrop-blur-xl border border-white/60 rounded-[28px] p-6 md:p-10 mb-10 md:mb-16 max-w-3xl mx-auto text-center shadow-2xl">
           <FadeUp delay={0.1} className="mb-3">
             <span className="text-[#C92C15] text-xs font-extrabold tracking-[0.2em] uppercase">Why Choose Us</span>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#111111] tracking-tight">
               Why People Trust Us to Build
             </h2>
           </FadeUp>
           <FadeUp delay={0.3} className="mt-4">
-            <p className="text-lg md:text-xl text-[#6F6F6F] font-light max-w-xl mx-auto">
+            <p className="text-lg md:text-xl text-[#333333] font-medium max-w-xl mx-auto">
               Our work is based on trust, high quality building, and meeting our promises. Here is why clients choose us.
             </p>
           </FadeUp>
@@ -78,20 +73,20 @@ export const WhyChooseUs: React.FC = () => {
                 key={index}
                 delay={index * 0.1}
                 y={30}
-                className="group p-4 md:p-8 rounded-2xl bg-[#FAF7F5] border border-black/5 hover:border-[#C92C15]/30 transition-all duration-300 flex flex-col items-start text-left shadow-md hover:bg-white"
+                className="group p-4 md:p-8 rounded-2xl bg-white/30 backdrop-blur-xl border border-white/60 hover:border-[#C92C15]/60 transition-all duration-300 flex flex-col items-start text-left shadow-xl hover:shadow-2xl"
               >
                 {/* Icon Circle */}
-                <div className="p-2 md:p-3 rounded-xl bg-[#C92C15]/5 text-[#C92C15] border border-[#C92C15]/10 mb-3 md:mb-6 transition-all duration-300 group-hover:bg-[#C92C15] group-hover:text-white group-hover:scale-110">
+                <div className="p-2 md:p-3 rounded-xl bg-[#C92C15]/10 text-[#C92C15] border border-[#C92C15]/20 mb-3 md:mb-6 transition-all duration-300 group-hover:bg-[#C92C15] group-hover:text-white group-hover:scale-110">
                   <Icon className="h-5 w-5 md:h-6 md:w-6" />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-sm md:text-lg font-semibold text-[#1B1B1B] mb-1.5 md:mb-3 group-hover:text-[#C92C15] transition-colors duration-300 leading-tight">
+                <h3 className="text-sm md:text-lg font-extrabold text-[#111111] mb-1.5 md:mb-3 group-hover:text-[#C92C15] transition-colors duration-300 leading-tight">
                   {reason.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs md:text-sm text-[#6F6F6F] font-light leading-relaxed hidden md:block">
+                <p className="text-xs md:text-sm text-[#333333] font-medium leading-relaxed hidden md:block">
                   {reason.description}
                 </p>
               </FadeUp>
@@ -104,5 +99,4 @@ export const WhyChooseUs: React.FC = () => {
   );
 };
 export default WhyChooseUs;
-// Use capital letters correctly for our components
 export const WhyChooseUsSection = WhyChooseUs;

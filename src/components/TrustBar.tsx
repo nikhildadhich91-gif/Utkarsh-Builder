@@ -17,10 +17,10 @@ export const TrustBar: React.FC = () => {
   const marqueeItems = [...trustItems, ...trustItems, ...trustItems];
 
   return (
-    <div className="relative w-full bg-white py-6 overflow-hidden border-y border-black/5 z-10 shadow-sm">
+    <div className="relative w-full bg-white/30 backdrop-blur-xl py-6 overflow-hidden border-y border-white/60 z-10 shadow-md">
       {/* Decorative side fades */}
-      <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-      <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-white/80 to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-white/80 to-transparent z-10 pointer-events-none" />
 
       {/* Marquee Row */}
       <div className="flex w-max items-center animate-marquee">
@@ -29,11 +29,11 @@ export const TrustBar: React.FC = () => {
           return (
             <div
               key={index}
-              className="flex items-center gap-3 px-8 text-[#2A2A2A] uppercase tracking-wider text-xs md:text-sm font-semibold select-none whitespace-nowrap"
+              className="flex items-center gap-3 px-8 text-[#111111] uppercase tracking-wider text-xs md:text-sm font-extrabold select-none whitespace-nowrap"
             >
               <Icon className="h-4 w-4 text-[#C92C15]" />
               <span>{item.text}</span>
-              <span className="ml-8 text-black/10 font-light">•</span>
+              <span className="ml-8 text-black/30 font-light">•</span>
             </div>
           );
         })}

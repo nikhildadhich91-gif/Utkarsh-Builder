@@ -3,29 +3,26 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { FadeUp } from "./ui/FadeUp";
+import { assets } from "../lib/cloudinary";
 
 export const ShuffleHero = () => {
   return (
-    <section className="w-full px-6 md:px-12 lg:px-16 py-12 md:py-24 bg-white text-[#2A2A2A] border-t border-black/5 relative overflow-hidden">
-      {/* Background visual detail */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none z-0">
-        <div className="w-full h-full bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:50px_50px]" />
-      </div>
-
+    <section className="w-full px-6 md:px-12 lg:px-16 py-12 md:py-24 relative overflow-hidden">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 lg:gap-16 relative z-10">
-        <div className="text-left space-y-6">
+        {/* Left Narrative Column in Frosted Glass Panel */}
+        <div className="bg-white/30 backdrop-blur-xl border border-white/60 rounded-[32px] p-6 md:p-10 text-left space-y-6 shadow-2xl">
           <FadeUp delay={0.1}>
-            <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.2em] block">
+            <span className="text-[#C92C15] text-xs font-extrabold uppercase tracking-[0.2em] block">
               Building With Trust
             </span>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#1B1B1B] tracking-tight leading-tight">
+            <h3 className="text-3xl md:text-5xl font-extrabold text-[#111111] tracking-tight leading-tight">
               Beautiful Spaces, Built to Last.
             </h3>
           </FadeUp>
           <FadeUp delay={0.3}>
-            <p className="text-base text-[#6F6F6F] font-light leading-relaxed my-2">
+            <p className="text-sm md:text-base text-[#333333] font-medium leading-relaxed my-2">
               From custom family homes to modern commercial centers, we build high quality buildings across Rajasthan. We handle everything for you, making the entire building process simple and stress free.
             </p>
           </FadeUp>
@@ -39,6 +36,8 @@ export const ShuffleHero = () => {
             </Link>
           </FadeUp>
         </div>
+
+        {/* Right Shuffle Grid Column */}
         <div className="w-full relative">
           <ShuffleGrid />
         </div>
@@ -63,8 +62,6 @@ const shuffle = (array: any[]) => {
 
   return array;
 };
-
-import { assets } from "../lib/cloudinary";
 
 const bedroomImg = assets.generated.bedroom;
 const receptionImg = assets.generated.reception;
@@ -112,7 +109,7 @@ const generateSquares = () => {
       key={sq.id}
       layout
       transition={{ duration: 1.5, type: "spring" }}
-      className="w-full h-full rounded-2xl overflow-hidden border border-black/5 bg-gray-100 shadow-sm"
+      className="w-full h-full rounded-2xl overflow-hidden border border-black/10 bg-gray-100 shadow-sm"
       style={{
         backgroundImage: `url(${sq.src})`,
         backgroundSize: "cover",
@@ -144,7 +141,7 @@ const ShuffleGrid = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-4 grid-rows-4 h-[260px] md:h-[450px] gap-1.5 md:gap-2 lg:gap-3 p-1.5 md:p-2 bg-[#FAF7F5] rounded-[24px] md:rounded-[32px] border border-black/5 shadow-inner">
+    <div className="grid grid-cols-4 grid-rows-4 h-[260px] md:h-[450px] gap-1.5 md:gap-2 lg:gap-3 p-1.5 md:p-2 bg-white/30 backdrop-blur-xl rounded-[24px] md:rounded-[32px] border border-white/60 shadow-2xl">
       {squares.map((sq) => sq)}
     </div>
   );

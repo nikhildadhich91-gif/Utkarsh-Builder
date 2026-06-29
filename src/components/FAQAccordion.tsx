@@ -42,18 +42,18 @@ export const FAQAccordion: React.FC = () => {
   };
 
   return (
-    <section className="py-16 md:py-32 bg-[#FAF7F5] text-[#2A2A2A] relative overflow-hidden border-t border-black/5">
+    <section className="py-16 md:py-32 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16">
 
-        {/* Header */}
-        <div className="text-center mb-12 md:mb-20">
+        {/* Header Block in Frosted Glass Panel */}
+        <div className="bg-white/30 backdrop-blur-xl border border-white/60 rounded-[28px] p-6 md:p-10 mb-12 md:mb-20 text-center shadow-2xl">
           <FadeUp delay={0.1}>
-            <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.2em] block mb-3">
+            <span className="text-[#C92C15] text-xs font-extrabold uppercase tracking-[0.2em] block mb-3">
               FAQ
             </span>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <h2 className="text-3xl md:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
               Frequently Asked Questions
             </h2>
           </FadeUp>
@@ -68,17 +68,17 @@ export const FAQAccordion: React.FC = () => {
                 key={idx}
                 delay={idx * 0.06}
                 y={15}
-                className="bg-white border border-black/5 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
+                className="bg-white/30 backdrop-blur-xl border border-white/60 rounded-2xl overflow-hidden shadow-xl transition-all duration-300 text-[#111111]"
               >
                 <button
                   onClick={() => toggleItem(idx)}
                   className="w-full px-6 py-5 md:px-8 md:py-6 flex justify-between items-center text-left focus:outline-none cursor-pointer"
                 >
-                  <span className="text-sm md:text-base font-bold text-[#1B1B1B] hover:text-[#C92C15] transition-colors duration-200 pr-4">
+                  <span className="text-sm md:text-base font-extrabold text-[#111111] hover:text-[#C92C15] transition-colors duration-200 pr-4">
                     {item.question}
                   </span>
-                  <div className={`h-8 w-8 rounded-full bg-[#FAF7F5] flex items-center justify-center text-[#C92C15] shrink-0 transition-transform duration-300 ${
-                    isOpen ? 'rotate-180 bg-[#C92C15] text-white' : ''
+                  <div className={`h-8 w-8 rounded-full bg-black/5 border border-black/10 flex items-center justify-center text-[#C92C15] shrink-0 transition-transform duration-300 ${
+                    isOpen ? 'rotate-180 bg-[#C92C15] text-white border-[#C92C15]' : ''
                   }`}>
                     <ChevronDown className="h-4 w-4" />
                   </div>
@@ -87,10 +87,10 @@ export const FAQAccordion: React.FC = () => {
                 {/* Animated Accordion body */}
                 <div
                   className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                    isOpen ? 'max-h-[300px] border-t border-black/[0.03]' : 'max-h-0'
+                    isOpen ? 'max-h-[300px] border-t border-black/10' : 'max-h-0'
                   }`}
                 >
-                  <div className="px-6 py-5 md:px-8 md:py-6 text-xs md:text-sm text-[#6F6F6F] leading-relaxed font-light bg-[#FAF7F5]/50">
+                  <div className="px-6 py-5 md:px-8 md:py-6 text-xs md:text-sm text-[#333333] leading-relaxed font-medium bg-black/5">
                     {item.answer}
                   </div>
                 </div>

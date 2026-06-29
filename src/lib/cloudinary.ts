@@ -59,6 +59,7 @@ export const assets = {
     heroBannerBeforeWebm: `${CLOUDINARY_VIDEO_BASE}/v1782218753/utkarsh%20construction/hero-banner-before-high-webm.webm`,
     heroBannerAfterMp4: `${CLOUDINARY_VIDEO_BASE}/v1782218758/utkarsh%20construction/hero-banner-after-high-mp4.mp4`,
     heroBannerAfterWebm: `${CLOUDINARY_VIDEO_BASE}/v1782218762/utkarsh%20construction/hero-banner-after-high-webm.webm`,
+    scrollBanner: `${CLOUDINARY_VIDEO_BASE}/v1782716984/utkarsh%20construction/scroll-banner.mp4`,
     homeApproach: `${CLOUDINARY_VIDEO_BASE}/v1782201960/utkarsh%20construction/Building_construction_timelapse___202606231151.mp4`,
     aboutInnovation: `${CLOUDINARY_VIDEO_BASE}/v1782198265/utkarsh%20construction/about-innovation.mp4`,
     servicesResidential: `${CLOUDINARY_VIDEO_BASE}/v1782198267/utkarsh%20construction/services-residential.mp4`,

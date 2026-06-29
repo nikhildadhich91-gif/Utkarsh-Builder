@@ -55,25 +55,25 @@ const ProcessSwipeMobile = ({ steps }: any) => {
         return (
           <div
             key={idx}
-            className="w-[260px] shrink-0 snap-center bg-white p-5 rounded-2xl border border-black/5 shadow-md flex flex-col justify-between"
+            className="w-[260px] shrink-0 snap-center bg-white/30 backdrop-blur-xl p-5 rounded-2xl border border-white/60 shadow-lg flex flex-col justify-between text-[#111111]"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#FAF7F5] text-[#C92C15] flex items-center justify-center border border-black/5">
+                <div className="w-10 h-10 rounded-full bg-black/5 text-[#C92C15] flex items-center justify-center border border-black/10">
                   <Icon className="h-5 w-5" />
                 </div>
-                <span className="text-sm font-bold text-gray-300 font-mono">
+                <span className="text-sm font-bold text-[#333333] font-mono">
                   Step {step.number}
                 </span>
               </div>
-              <h3 className="text-sm font-semibold text-[#1B1B1B] mb-2">{step.title}</h3>
-              <p className="text-xs text-[#6F6F6F] font-light leading-relaxed">
+              <h3 className="text-sm font-extrabold text-[#111111] mb-2">{step.title}</h3>
+              <p className="text-xs text-[#333333] font-medium leading-relaxed">
                 {step.description}
               </p>
             </div>
             
             {/* Custom bottom line indicator */}
-            <div className="w-full h-1 bg-[#C92C15]/10 rounded-full overflow-hidden mt-4">
+            <div className="w-full h-1 bg-black/10 rounded-full overflow-hidden mt-4">
               <div 
                 className="h-full bg-[#C92C15]" 
                 style={{ width: `${((idx + 1) / steps.length) * 100}%` }}
@@ -92,16 +92,16 @@ export const Process: React.FC = () => {
   const [activeStep, setActiveStep] = React.useState<number | null>(null);
 
   return (
-    <section className="py-12 md:py-32 bg-[#FAF7F5] relative overflow-hidden border-t border-gray-100">
+    <section className="py-12 md:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         
-        {/* Title */}
-        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-28">
+        {/* Title inside Frosted Glass Panel */}
+        <div className="bg-white/30 backdrop-blur-xl border border-white/60 rounded-[28px] p-6 md:p-10 mb-10 md:mb-20 max-w-2xl mx-auto text-center shadow-2xl">
           <FadeUp delay={0.1} className="mb-3">
-            <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">How We Build</span>
+            <span className="text-[#C92C15] text-xs font-extrabold tracking-[0.2em] uppercase">How We Build</span>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B] tracking-tight">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-[#111111] tracking-tight">
               Our Construction Journey
             </h2>
           </FadeUp>
@@ -111,7 +111,7 @@ export const Process: React.FC = () => {
         <div className="hidden md:block">
           <div className="relative">
             {/* Connecting Line (Desktop) */}
-            <div className="hidden lg:block absolute top-[44px] left-[10%] right-[10%] h-[2px] bg-gray-200 z-0">
+            <div className="hidden lg:block absolute top-[44px] left-[10%] right-[10%] h-[2px] bg-black/10 z-0">
               <motion.div 
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
@@ -141,7 +141,7 @@ export const Process: React.FC = () => {
                       className={`h-20 w-20 rounded-full border flex items-center justify-center mb-6 shadow-md transition-all duration-300 relative z-10 ${
                         activeStep === idx 
                           ? 'bg-[#C92C15] text-white border-[#C92C15]' 
-                          : 'bg-white border-[#1B1B1B]/10 text-[#C92C15] group-hover:bg-[#C92C15] group-hover:text-white group-hover:border-[#C92C15]'
+                          : 'bg-white/50 backdrop-blur-md border-white/80 text-[#C92C15] group-hover:bg-[#C92C15] group-hover:text-white group-hover:border-[#C92C15]'
                       }`}
                     >
                       <Icon className="h-7 w-7" />
@@ -153,7 +153,7 @@ export const Process: React.FC = () => {
                     </motion.div>
 
                     {/* Title */}
-                    <h3 className="text-lg font-semibold text-[#1B1B1B] mb-3 group-hover:text-[#C92C15] transition-colors duration-300 min-h-[56px] flex items-start justify-start">
+                    <h3 className="text-lg font-extrabold text-[#111111] mb-3 group-hover:text-[#C92C15] transition-colors duration-300 min-h-[56px] flex items-start justify-start">
                       {step.title}
                     </h3>
                   </div>
@@ -167,12 +167,12 @@ export const Process: React.FC = () => {
             <motion.div 
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-12 p-8 bg-white border border-black/5 rounded-3xl max-w-2xl mx-auto shadow-xl text-center"
+              className="mt-12 p-8 bg-white/60 backdrop-blur-2xl border border-white/80 rounded-3xl max-w-2xl mx-auto shadow-2xl text-center text-[#111111]"
             >
-              <span className="text-[#C92C15] text-xs font-bold uppercase tracking-widest block mb-2">
+              <span className="text-[#C92C15] text-xs font-extrabold uppercase tracking-widest block mb-2">
                 Step {steps[activeStep].number}: {steps[activeStep].title}
               </span>
-              <p className="text-sm text-[#6F6F6F] font-light leading-relaxed">
+              <p className="text-sm text-[#333333] font-medium leading-relaxed">
                 {steps[activeStep].description}
               </p>
             </motion.div>

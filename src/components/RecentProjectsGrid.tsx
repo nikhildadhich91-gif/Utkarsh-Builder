@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { assets } from '../lib/cloudinary';
-import { MapPin, Expand, X, CheckCircle2, Clock, Calendar, ShieldCheck, Compass } from 'lucide-react';
+import { MapPin, Expand, X, Calendar, ShieldCheck, Compass } from 'lucide-react';
 import { FadeUp } from './ui/FadeUp';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -88,24 +89,114 @@ const projectsData: ProjectCardData[] = [
 export const RecentProjectsGrid: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectCardData | null>(null);
 
+  const modalElement = (
+    <AnimatePresence>
+      {selectedProject && (
+        <div className="fixed inset-0 z-[999999] flex items-center justify-center p-4 md:p-6 pt-24 md:pt-28">
+          
+          {/* Overlay Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+            className="absolute inset-0 bg-black/70 backdrop-blur-md"
+          />
+
+          {/* Modal Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 250 }}
+            className="relative bg-white/95 backdrop-blur-2xl border border-white/80 rounded-[32px] shadow-2xl max-w-3xl w-full overflow-hidden z-20 flex flex-col max-h-[85vh] text-[#111111]"
+          >
+            {/* Fixed High Contrast Close Button */}
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-4 right-4 h-10 w-10 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-white hover:bg-[#C92C15] transition-colors duration-300 flex items-center justify-center z-30 cursor-pointer shadow-xl"
+              title="Close Dialog"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            {/* Scrollable Content with hidden scrollbar */}
+            <div className="overflow-y-auto pb-12 scrollbar-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              {/* Banner Image */}
+              <div className="relative aspect-[16/8] w-full overflow-hidden bg-gray-100">
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none" />
+              </div>
+
+              {/* Body Content */}
+              <div className="p-6 md:p-8 space-y-6 text-left">
+                <div>
+                  <span className="text-[#C92C15] text-[11px] font-extrabold uppercase tracking-wider block mb-2">
+                    {selectedProject.categoryLabel}
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-[#111111] tracking-tight">
+                    {selectedProject.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-4 mt-3 text-xs text-[#333333] font-bold">
+                    <div className="flex items-center gap-1.5">
+                      <MapPin className="h-3.5 w-3.5 text-[#C92C15]" />
+                      <span>{selectedProject.location}</span>
+                    </div>
+                    <span className="text-black/20">&bull;</span>
+                    <div className="flex items-center gap-1.5">
+                      <Expand className="h-3.5 w-3.5 text-[#C92C15]" />
+                      <span>{selectedProject.area}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-sm md:text-base text-[#333333] font-medium leading-relaxed">
+                  {selectedProject.description}
+                </p>
+
+                {/* Sleek Feature Pill Badges */}
+                <div className="flex flex-wrap gap-2.5 border-t border-black/10 pt-6">
+                  <div className="flex items-center gap-2 bg-black/5 border border-black/10 px-4 py-2 rounded-full text-xs text-[#111111] font-bold shadow-sm">
+                    <Compass className="h-4 w-4 text-[#C92C15]" />
+                    <span>Turnkey Engineering</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-black/5 border border-black/10 px-4 py-2 rounded-full text-xs text-[#111111] font-bold shadow-sm">
+                    <ShieldCheck className="h-4 w-4 text-[#C92C15]" />
+                    <span>Fe 550D Steel &amp; 53 Grade Concrete</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-black/5 border border-black/10 px-4 py-2 rounded-full text-xs text-[#111111] font-bold shadow-sm">
+                    <Calendar className="h-4 w-4 text-[#C92C15]" />
+                    <span>Milestone Guaranteed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
+
   return (
-    <section className="py-16 md:py-32 bg-white text-[#2A2A2A] relative overflow-hidden border-t border-black/5">
+    <section className="py-16 md:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
 
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-12 md:mb-20 text-left">
-          <div>
-            <FadeUp delay={0.1}>
-              <span className="text-[#C92C15] text-xs font-bold uppercase tracking-[0.2em] block mb-3">
-                Portfolio
-              </span>
-            </FadeUp>
-            <FadeUp delay={0.2}>
-              <h2 className="text-3xl md:text-5xl font-semibold text-[#1B1B1B] tracking-tight leading-tight">
-                Recent Projects Grid
-              </h2>
-            </FadeUp>
-          </div>
+        {/* Header Block in White Liquid Glass Panel */}
+        <div className="bg-white/30 backdrop-blur-xl border border-white/60 rounded-[28px] p-6 md:p-10 mb-12 md:mb-20 text-left shadow-2xl">
+          <FadeUp delay={0.1}>
+            <span className="text-[#C92C15] text-xs font-extrabold uppercase tracking-[0.2em] block mb-3">
+              Portfolio
+            </span>
+          </FadeUp>
+          <FadeUp delay={0.2}>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-[#111111] tracking-tight leading-tight">
+              Recent Projects Grid
+            </h2>
+          </FadeUp>
         </div>
 
         {/* Grid Layout */}
@@ -118,7 +209,7 @@ export const RecentProjectsGrid: React.FC = () => {
             >
               <div
                 onClick={() => setSelectedProject(project)}
-                className="bg-[#FAF7F5] border border-black/[0.04] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group flex flex-col h-full cursor-pointer"
+                className="bg-white/30 backdrop-blur-xl border border-white/60 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group flex flex-col h-full cursor-pointer"
               >
                 {/* Image Container */}
                 <div className="relative aspect-[3/2] overflow-hidden bg-gray-100">
@@ -129,24 +220,24 @@ export const RecentProjectsGrid: React.FC = () => {
                   />
                   
                   {/* Category Badge */}
-                  <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-md border border-black/5 text-[#C92C15] text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm">
+                  <span className="absolute top-4 left-4 bg-white text-[#111111] text-[10px] font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-lg border border-black/10">
                     {project.categoryLabel}
                   </span>
                 </div>
 
                 {/* Card Details */}
                 <div className="p-6 md:p-8 flex flex-col justify-between flex-grow text-left">
-                  <h3 className="text-lg md:text-xl font-bold text-[#1B1B1B] mb-4 group-hover:text-[#C92C15] transition-colors leading-tight">
+                  <h3 className="text-lg md:text-xl font-extrabold text-[#111111] mb-4 group-hover:text-[#C92C15] transition-colors leading-tight">
                     {project.title}
                   </h3>
                   
-                  <div className="grid grid-cols-2 gap-4 border-t border-black/5 pt-4 text-xs font-light text-[#6F6F6F]">
+                  <div className="grid grid-cols-2 gap-4 border-t border-black/10 pt-4 text-xs font-extrabold text-[#333333]">
                     <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-[#C92C15] shrink-0" />
+                      <MapPin className="h-4 w-4 text-[#C92C15]" />
                       <span>{project.location}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Expand className="h-4 w-4 text-[#C92C15] shrink-0" />
+                      <Expand className="h-4 w-4 text-[#C92C15]" />
                       <span>{project.area}</span>
                     </div>
                   </div>
@@ -156,116 +247,8 @@ export const RecentProjectsGrid: React.FC = () => {
           ))}
         </div>
 
-        {/* Morphing Modal Dialog */}
-        <AnimatePresence>
-          {selectedProject && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6">
-              
-              {/* Overlay Backdrop */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setSelectedProject(null)}
-                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-              />
-
-              {/* Modal Container */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-                className="relative bg-white border border-black/5 rounded-[28px] shadow-2xl max-w-3xl w-full overflow-hidden z-10 flex flex-col max-h-[90vh]"
-              >
-                {/* Close Button */}
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 h-9 w-9 rounded-full bg-black/5 hover:bg-[#C92C15] hover:text-white transition-colors duration-300 flex items-center justify-center text-[#1B1B1B] z-20 cursor-pointer"
-                  title="Close Dialog"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-
-                {/* Scrollable Content */}
-                <div className="overflow-y-auto">
-                  {/* Banner Image */}
-                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100">
-                    <img
-                      src={selectedProject.image}
-                      alt={selectedProject.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/65 to-transparent pointer-events-none" />
-                    <span className="absolute bottom-6 left-6 text-white bg-[#C92C15] text-[10px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md border border-white/10">
-                      {selectedProject.categoryLabel}
-                    </span>
-                  </div>
-
-                  {/* Body Content */}
-                  <div className="p-6 md:p-8 space-y-6 text-left">
-                    <div>
-                      <h3 className="text-2xl md:text-3xl font-extrabold text-[#1B1B1B] tracking-tight">
-                        {selectedProject.title}
-                      </h3>
-                      <div className="flex flex-wrap gap-4 mt-3 text-xs text-[#6F6F6F]">
-                        <div className="flex items-center gap-1.5">
-                          <MapPin className="h-3.5 w-3.5 text-[#C92C15]" />
-                          <span>{selectedProject.location}</span>
-                        </div>
-                        <span className="text-black/10">&bull;</span>
-                        <div className="flex items-center gap-1.5">
-                          <Expand className="h-3.5 w-3.5 text-[#C92C15]" />
-                          <span>{selectedProject.area}</span>
-                        </div>
-                        <span className="text-black/10">&bull;</span>
-                        <div className="flex items-center gap-1.5">
-                          {selectedProject.status === 'Completed' ? (
-                            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
-                          ) : (
-                            <Clock className="h-3.5 w-3.5 text-amber-600" />
-                          )}
-                          <span className={selectedProject.status === 'Completed' ? 'text-emerald-700 font-medium' : 'text-amber-700 font-medium'}>
-                            {selectedProject.status}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <p className="text-sm md:text-base text-[#6F6F6F] font-light leading-relaxed">
-                      {selectedProject.description}
-                    </p>
-
-                    {/* Generic Trust Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-black/5 pt-6">
-                      <div className="bg-[#FAF7F5] border border-black/[0.04] p-4 rounded-xl flex gap-3 items-start">
-                        <Compass className="h-5 w-5 text-[#C92C15] shrink-0 mt-0.5" />
-                        <div>
-                          <h5 className="text-xs font-bold text-[#1B1B1B] uppercase tracking-wider mb-0.5">Execution</h5>
-                          <p className="text-[10px] text-[#6F6F6F] font-light leading-relaxed">Turnkey engineering &amp; layout planning.</p>
-                        </div>
-                      </div>
-                      <div className="bg-[#FAF7F5] border border-black/[0.04] p-4 rounded-xl flex gap-3 items-start">
-                        <ShieldCheck className="h-5 w-5 text-[#C92C15] shrink-0 mt-0.5" />
-                        <div>
-                          <h5 className="text-xs font-bold text-[#1B1B1B] uppercase tracking-wider mb-0.5">Standards</h5>
-                          <p className="text-[10px] text-[#6F6F6F] font-light leading-relaxed">Fe 550D TMT steel &amp; 53 grade concrete.</p>
-                        </div>
-                      </div>
-                      <div className="bg-[#FAF7F5] border border-black/[0.04] p-4 rounded-xl flex gap-3 items-start">
-                        <Calendar className="h-5 w-5 text-[#C92C15] shrink-0 mt-0.5" />
-                        <div>
-                          <h5 className="text-xs font-bold text-[#1B1B1B] uppercase tracking-wider mb-0.5">Timeline</h5>
-                          <p className="text-[10px] text-[#6F6F6F] font-light leading-relaxed">Completed within promised milestone days.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
+        {/* Render Modal directly to document.body via Portal */}
+        {typeof document !== 'undefined' && createPortal(modalElement, document.body)}
 
       </div>
     </section>

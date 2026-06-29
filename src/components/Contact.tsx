@@ -43,11 +43,11 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
             onChange={handleInputChange}
             required
             placeholder=" "
-            className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors"
+            className="peer block w-full px-0 py-3 text-base text-[#111111] bg-transparent border-b border-black/20 focus:outline-none focus:border-[#C92C15] transition-colors font-bold"
           />
           <label
             htmlFor="name"
-            className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
+            className="absolute left-0 top-3 text-[#333333] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6 font-extrabold"
           >
             Full Name *
           </label>
@@ -63,11 +63,11 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
             onChange={handleInputChange}
             required
             placeholder=" "
-            className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors"
+            className="peer block w-full px-0 py-3 text-base text-[#111111] bg-transparent border-b border-black/20 focus:outline-none focus:border-[#C92C15] transition-colors font-bold"
           />
           <label
             htmlFor="phone"
-            className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
+            className="absolute left-0 top-3 text-[#333333] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6 font-extrabold"
           >
             Phone Number *
           </label>
@@ -86,11 +86,11 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
             onChange={handleInputChange}
             required
             placeholder=" "
-            className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors"
+            className="peer block w-full px-0 py-3 text-base text-[#111111] bg-transparent border-b border-black/20 focus:outline-none focus:border-[#C92C15] transition-colors font-bold"
           />
           <label
             htmlFor="email"
-            className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
+            className="absolute left-0 top-3 text-[#333333] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6 font-extrabold"
           >
             Email Address *
           </label>
@@ -104,16 +104,15 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
             value={formData.projectType}
             onChange={handleInputChange}
             required
-            className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors appearance-none cursor-pointer"
+            className="peer block w-full px-0 py-3 text-base text-[#111111] bg-transparent border-b border-black/20 focus:outline-none focus:border-[#C92C15] transition-colors appearance-none cursor-pointer font-bold"
           >
-            <option value="" disabled className="bg-white text-[#6F6F6F]">Select Project Type *</option>
-            <option value="Residential Villas" className="bg-white text-[#1B1B1B]">Residential Villas</option>
-            <option value="Commercial Buildings" className="bg-white text-[#1B1B1B]">Commercial Buildings</option>
-            <option value="Turnkey Projects" className="bg-white text-[#1B1B1B]">Turnkey Construction</option>
-            <option value="Renovation" className="bg-white text-[#1B1B1B]">Renovation &amp; Remodeling</option>
+            <option value="" disabled className="bg-white text-[#333333]">Select Project Type *</option>
+            <option value="Residential Villas" className="bg-white text-[#111111]">Residential Villas</option>
+            <option value="Commercial Buildings" className="bg-white text-[#111111]">Commercial Buildings</option>
+            <option value="Turnkey Projects" className="bg-white text-[#111111]">Turnkey Construction</option>
+            <option value="Renovation" className="bg-white text-[#111111]">Renovation &amp; Remodeling</option>
           </select>
-          {/* Custom dropdown arrow */}
-          <div className="absolute right-0 top-4 pointer-events-none text-[#6F6F6F]">
+          <div className="absolute right-0 top-4 pointer-events-none text-[#333333]">
             ▼
           </div>
         </div>
@@ -130,11 +129,11 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
             value={formData.propertySize}
             onChange={handleInputChange}
             placeholder=" "
-            className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors"
+            className="peer block w-full px-0 py-3 text-base text-[#111111] bg-transparent border-b border-black/20 focus:outline-none focus:border-[#C92C15] transition-colors font-bold"
           />
           <label
             htmlFor="propertySize"
-            className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
+            className="absolute left-0 top-3 text-[#333333] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6 font-extrabold"
           >
             Plot Size / Dimensions in Feet (e.g., 50x30 ft)
           </label>
@@ -148,15 +147,15 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
             value={formData.timeline}
             onChange={handleInputChange}
             required
-            className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors appearance-none cursor-pointer"
+            className="peer block w-full px-0 py-3 text-base text-[#111111] bg-transparent border-b border-black/20 focus:outline-none focus:border-[#C92C15] transition-colors appearance-none cursor-pointer font-bold"
           >
-            <option value="" disabled className="bg-white text-[#6F6F6F]">Timeline to Start *</option>
-            <option value="Immediate" className="bg-white text-[#1B1B1B]">Immediate</option>
-            <option value="1-3 Months" className="bg-white text-[#1B1B1B]">1 to 3 Months</option>
-            <option value="3-6 Months" className="bg-white text-[#1B1B1B]">3 to 6 Months</option>
-            <option value="Planning Phase" className="bg-white text-[#1B1B1B]">Planning Phase Only</option>
+            <option value="" disabled className="bg-white text-[#333333]">Timeline to Start *</option>
+            <option value="Immediate" className="bg-white text-[#111111]">Immediate</option>
+            <option value="1-3 Months" className="bg-white text-[#111111]">1 to 3 Months</option>
+            <option value="3-6 Months" className="bg-white text-[#111111]">3 to 6 Months</option>
+            <option value="Planning Phase" className="bg-white text-[#111111]">Planning Phase Only</option>
           </select>
-          <div className="absolute right-0 top-4 pointer-events-none text-[#6F6F6F]">
+          <div className="absolute right-0 top-4 pointer-events-none text-[#333333]">
             ▼
           </div>
         </div>
@@ -172,11 +171,11 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
           onChange={handleInputChange}
           required
           placeholder=" "
-          className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors"
+          className="peer block w-full px-0 py-3 text-base text-[#111111] bg-transparent border-b border-black/20 focus:outline-none focus:border-[#C92C15] transition-colors font-bold"
         />
         <label
           htmlFor="address"
-          className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
+          className="absolute left-0 top-3 text-[#333333] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6 font-extrabold"
         >
           Plot Address / Location *
         </label>
@@ -191,11 +190,11 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
           onChange={handleInputChange}
           rows={3}
           placeholder=" "
-          className="peer block w-full px-0 py-3 text-base text-[#1B1B1B] bg-transparent border-b border-black/10 focus:outline-none focus:border-[#C92C15] transition-colors resize-none"
+          className="peer block w-full px-0 py-3 text-base text-[#111111] bg-transparent border-b border-black/20 focus:outline-none focus:border-[#C92C15] transition-colors resize-none font-bold"
         />
         <label
           htmlFor="message"
-          className="absolute left-0 top-3 text-[#6F6F6F] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6"
+          className="absolute left-0 top-3 text-[#333333] text-sm transition-all duration-300 pointer-events-none origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6 peer-focus:text-[#C92C15] peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:-translate-y-6 font-extrabold"
         >
           Tell us more about your vision...
         </label>
@@ -217,34 +216,31 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
 
   if (isEmbedded) {
     return (
-      <div className="w-full text-[#2A2A2A] bg-white p-5 md:p-10 rounded-2xl md:rounded-3xl border border-black/5 shadow-xl text-left">
+      <div className="w-full text-[#111111] bg-white/30 backdrop-blur-xl p-5 md:p-10 rounded-2xl md:rounded-3xl border border-white/60 shadow-2xl text-left">
         {formContent}
       </div>
     );
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-[#FAF7F5] text-[#2A2A2A] relative overflow-hidden border-t border-black/5">
-      {/* Background architectural details */}
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#C92C15]/5 rounded-full blur-3xl pointer-events-none" />
-
+    <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
           {/* Left Side: Contact Information & Heading (5 cols) */}
           <div className="lg:col-span-5 text-left flex flex-col justify-center lg:h-full lg:min-h-[450px]">
-            <div>
+            <div className="bg-white/30 backdrop-blur-xl border border-white/60 rounded-[28px] p-6 md:p-10 shadow-2xl">
               <FadeUp delay={0.1} className="mb-3">
-                <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Connect</span>
+                <span className="text-[#C92C15] text-xs font-extrabold tracking-[0.2em] uppercase">Connect</span>
               </FadeUp>
               <FadeUp delay={0.2} className="mb-8">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#1B1B1B] leading-none">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#111111] leading-none">
                   Let's Build<br />Something<br />
                   <span className="text-[#C92C15] font-normal italic">Exceptional.</span>
                 </h2>
               </FadeUp>
-              <FadeUp delay={0.3} className="mb-6">
-                <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
+              <FadeUp delay={0.3}>
+                <p className="text-[#333333] font-medium text-sm md:text-base leading-relaxed">
                   Have a plot in Rajasthan or planning a commercial construction project? Leave us a message and our lead site engineer will reach out within 24 hours.
                 </p>
               </FadeUp>
@@ -253,7 +249,7 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
 
           {/* Right Side: Form (7 cols) */}
           <div className="lg:col-span-7">
-            <FadeUp delay={0.3} y={40} className="bg-white border border-black/5 p-5 md:p-10 rounded-2xl md:rounded-3xl shadow-xl">
+            <FadeUp delay={0.3} y={40} className="bg-white/30 backdrop-blur-xl border border-white/60 p-5 md:p-10 rounded-2xl md:rounded-3xl shadow-2xl text-[#111111]">
               {formContent}
             </FadeUp>
           </div>
