@@ -65,9 +65,6 @@ const shuffle = (array: any[]) => {
 
 const bedroomImg = assets.generated.bedroom;
 const receptionImg = assets.generated.reception;
-const bathroomImg = assets.generated.bathroom;
-const wardrobeImg = assets.generated.wardrobe;
-const corridorImg = assets.generated.corridor;
 const balconyImg = assets.generated.balcony;
 const officeImg = assets.generated.office;
 
