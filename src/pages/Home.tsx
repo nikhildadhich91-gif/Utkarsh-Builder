@@ -201,7 +201,7 @@ export const Home: React.FC = () => {
         <Contact />
 
         {/* Smooth Background Blend Gradient Overlay at the bottom of homepage */}
-        <div className="relative w-full h-48 -mt-48 pointer-events-none bg-gradient-to-b from-transparent via-black/10 to-[#F5F2EF] z-20" />
+        <div className="relative w-full h-48 -mt-48 pointer-events-none bg-gradient-to-b from-transparent via-black/10 to-[#0a0a0a]/40 z-20" />
       </main>
     </>
   );
