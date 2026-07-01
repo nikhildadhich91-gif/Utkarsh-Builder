@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { motion, useMotionValue, useTransform, useSpring, useScroll } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FadeUp } from '../components/ui/FadeUp';
 import { PointerHighlight } from '../components/ui/pointer-highlight';
