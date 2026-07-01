@@ -27,6 +27,7 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
     let currentTarget = 0;
     let seekPending = false;
     let scrollTriggerInstance: ScrollTrigger | null = null;
+    let footerScrollTriggerInstance: ScrollTrigger | null = null;
 
     const doSeek = (time: number) => {
       if (!video || !isFinite(time) || isNaN(time)) return;
@@ -58,6 +59,10 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
       if (scrollTriggerInstance) {
         scrollTriggerInstance.kill();
         scrollTriggerInstance = null;
+      }
+      if (footerScrollTriggerInstance) {
+        footerScrollTriggerInstance.kill();
+        footerScrollTriggerInstance = null;
       }
 
       // ── GSAP ScrollTrigger Video scrubbing & UI Fades ───────────────────────────
@@ -128,19 +133,23 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
           }
 
           // 4. White transparent overlay after the video finishes playing (progress 0.68 to 0.90, max opacity 0.75)
-          // Then fade it back out near the bottom (progress 0.94 to 1.0) so the footer sits on a premium dark background
           const maxWhiteOpacity = 0.75;
-          let overlayOpacity = 0;
-          if (self.progress >= 0.68 && self.progress < 0.90) {
-            overlayOpacity = ((self.progress - 0.68) / (0.90 - 0.68)) * maxWhiteOpacity;
-          } else if (self.progress >= 0.90 && self.progress < 0.94) {
-            overlayOpacity = maxWhiteOpacity;
-          } else if (self.progress >= 0.94) {
-            overlayOpacity = maxWhiteOpacity * (1 - (self.progress - 0.94) / (1.0 - 0.94));
-          }
-          overlayOpacity = Math.max(0, Math.min(maxWhiteOpacity, overlayOpacity));
+          const overlayOpacity = Math.max(0, Math.min(maxWhiteOpacity, ((self.progress - 0.68) / (0.90 - 0.68)) * maxWhiteOpacity));
           gsap.set('.video-white-overlay', { opacity: overlayOpacity });
         },
+      });
+
+      // 5. Fade out the white overlay only when footer is entering the viewport
+      footerScrollTriggerInstance = ScrollTrigger.create({
+        trigger: 'footer',
+        start: 'top bottom',
+        end: 'bottom bottom',
+        scrub: true,
+        onUpdate: (self) => {
+          const maxWhiteOpacity = 0.75;
+          const footerOpacity = maxWhiteOpacity * (1 - self.progress);
+          gsap.set('.video-white-overlay', { opacity: footerOpacity });
+        }
       });
 
       return true;
@@ -164,6 +173,9 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
       video.removeEventListener('seeked', handleSeeked);
       if (scrollTriggerInstance) {
         scrollTriggerInstance.kill();
+      }
+      if (footerScrollTriggerInstance) {
+        footerScrollTriggerInstance.kill();
       }
       resizeObserver.disconnect();
       gsap.set('nav, .floating-cta-container, .video-white-overlay', { clearProps: 'all' });
