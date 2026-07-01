@@ -64,11 +64,21 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
       },
     });
 
+    // Refresh ScrollTrigger when layout changes (e.g. when lazy pages finish rendering)
+    const resizeObserver = new ResizeObserver(() => {
+      ScrollTrigger.refresh();
+    });
+
+    if (document.body) {
+      resizeObserver.observe(document.body);
+    }
+
     return () => {
       video.removeEventListener('seeked', handleSeeked);
       if (scrollTriggerInstance) {
         scrollTriggerInstance.kill();
       }
+      resizeObserver.disconnect();
     };
   }, [src]);
 
