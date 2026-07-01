@@ -1,17 +1,28 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ReactLenis } from 'lenis/react';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import ServicesPage from './pages/ServicesPage';
-import ProjectsPage from './pages/ProjectsPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsAndConditions from './pages/TermsAndConditions';
 import FloatingCTA from './components/FloatingCTA';
 import ScrollVideoBanner from './components/ScrollVideoBanner';
+
+// Lazy load page components
+const Home = lazy(() => import('./pages/Home'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
+
+// Modern brand-colored loader for page transitions
+const PageLoader = () => (
+  <div className="min-h-[60vh] w-full flex flex-col items-center justify-center gap-4 bg-transparent select-none pointer-events-none">
+    <div className="w-10 h-10 border-4 border-[#C92C15]/20 border-t-[#C92C15] rounded-full animate-spin" />
+    <span className="text-xs font-semibold text-white/50 tracking-widest uppercase animate-pulse">Loading</span>
+  </div>
+);
 
 // Inner component so we can use useLocation inside Router
 function AppInner() {
@@ -26,16 +37,18 @@ function AppInner() {
       {/* Navigation — z-50 always on top */}
       <Navbar />
 
-      {/* Dynamic Route Pages */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-      </Routes>
+      {/* Dynamic Route Pages with Suspense boundary */}
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        </Routes>
+      </Suspense>
 
       {/* Global Footer */}
       <Footer />
