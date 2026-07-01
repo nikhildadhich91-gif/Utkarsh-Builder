@@ -50,23 +50,101 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
     video.src = src;
     video.load();
 
-    // ── GSAP ScrollTrigger Scroll-to-seek ──────────────────────────────────────
-    scrollTriggerInstance = ScrollTrigger.create({
-      trigger: document.documentElement,
-      start: 'top top',
-      end: 'bottom bottom',
-      scrub: 0.1,
-      onUpdate: (self) => {
-        if (video.duration && isFinite(video.duration)) {
-          currentTarget = self.progress * video.duration;
-          doSeek(currentTarget);
-        }
-      },
-    });
+    const initScrollAnimations = () => {
+      const homeEl = document.getElementById('home');
+      if (!homeEl) return false;
 
-    // Refresh ScrollTrigger when layout changes (e.g. when lazy pages finish rendering)
+      // Clean up previous instances to prevent duplicates
+      if (scrollTriggerInstance) {
+        scrollTriggerInstance.kill();
+        scrollTriggerInstance = null;
+      }
+
+      // ── GSAP ScrollTrigger Video scrubbing & UI Fades ───────────────────────────
+      scrollTriggerInstance = ScrollTrigger.create({
+        trigger: '#home',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 0.1,
+        onUpdate: (self) => {
+          // 1. Scrub video progress (finishes early at 68% scroll, leaving 32% as a hold phase)
+          if (video.duration && isFinite(video.duration)) {
+            const videoProgress = Math.min(1.0, self.progress / 0.68);
+            currentTarget = videoProgress * video.duration;
+            doSeek(currentTarget);
+          }
+
+          // 2. Scrub Hero Text opacity (fades out in first 15% of scroll, fades back in on scroll up)
+          const heroOpacity = Math.max(0, 1 - (self.progress / 0.15));
+          gsap.set('.hero-text-container', {
+            opacity: heroOpacity,
+            pointerEvents: heroOpacity > 0 ? 'auto' : 'none',
+          });
+
+          // 3. Control global Navbar & Floating CTA visibility based on scroll direction & position
+          if (self.progress === 0) {
+            // At the absolute top, ensure UI is visible
+            gsap.to('nav, .floating-cta-container', {
+              opacity: 1,
+              pointerEvents: 'auto',
+              duration: 0.2,
+              overwrite: 'auto',
+            });
+          } else if (self.direction === -1) {
+            // Scrolling UP: immediately bring back UI elements for navigation
+            gsap.to('nav, .floating-cta-container', {
+              opacity: 1,
+              pointerEvents: 'auto',
+              duration: 0.3,
+              overwrite: 'auto',
+            });
+          } else {
+            // Scrolling DOWN:
+            if (self.progress > 0 && self.progress < 0.2) {
+              // Fade out UI
+              gsap.to('nav, .floating-cta-container', {
+                opacity: 0,
+                pointerEvents: 'none',
+                duration: 0.3,
+                overwrite: 'auto',
+              });
+            } else if (self.progress >= 0.2 && self.progress < 0.8) {
+              // Keep UI hidden during cinematic phase and early hold phase
+              gsap.to('nav, .floating-cta-container', {
+                opacity: 0,
+                pointerEvents: 'none',
+                duration: 0.1,
+                overwrite: 'auto',
+              });
+            } else if (self.progress >= 0.8) {
+              // Fade UI back in near the end of hold phase to transition to content sections
+              gsap.to('nav, .floating-cta-container', {
+                opacity: 1,
+                pointerEvents: 'auto',
+                duration: 0.3,
+                overwrite: 'auto',
+              });
+            }
+          }
+
+          // 4. White transparent overlay after the video finishes playing (progress 0.68 to 0.90, max opacity 0.75)
+          const maxWhiteOpacity = 0.75;
+          const overlayOpacity = Math.max(0, Math.min(maxWhiteOpacity, ((self.progress - 0.68) / (0.90 - 0.68)) * maxWhiteOpacity));
+          gsap.set('.video-white-overlay', { opacity: overlayOpacity });
+        },
+      });
+
+      return true;
+    };
+
+    // Initial attempt
+    initScrollAnimations();
+
+    // Refresh and reinitialize when layout changes (e.g. dynamic pages mount)
     const resizeObserver = new ResizeObserver(() => {
-      ScrollTrigger.refresh();
+      if (initScrollAnimations()) {
+        ScrollTrigger.refresh();
+      }
     });
 
     if (document.body) {
@@ -79,6 +157,7 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
         scrollTriggerInstance.kill();
       }
       resizeObserver.disconnect();
+      gsap.set('nav, .floating-cta-container, .video-white-overlay', { clearProps: 'all' });
     };
   }, [src]);
 
@@ -102,6 +181,8 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
         />
         {/* Overlay is shown on laptop/desktop (md:block) and hidden on mobile so video is 100% clear */}
         <div className="overlay absolute inset-0 hidden md:block bg-black/25 pointer-events-none" />
+        {/* White transparent overlay that fades in after the video finishes playing */}
+        <div className="video-white-overlay absolute inset-0 bg-white opacity-0 pointer-events-none" />
       </div>
     </>
   );

@@ -28,98 +28,102 @@ export const Home: React.FC = () => {
       <main className="home-content-layer w-full min-h-screen relative">
 
         {/* ════════════════════════════════════════════════════════════════════
-            HERO SECTION — full viewport, text floats over the video
+            HERO SECTION — scroll-scrub pinned viewport container
             ════════════════════════════════════════════════════════════════════ */}
-        <section id="home" className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden">
+        <section id="home" className="relative w-full h-[320vh]">
+          {/* Sticky wrapper to pin the contents while scrolling */}
+          <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-center">
+            {/* Top blur edge */}
+            <div className="blur-overlay blur-overlay-top" />
 
-          {/* Top blur edge */}
-          <div className="blur-overlay blur-overlay-top" />
+            {/* Targetable container for fading out all hero text/buttons */}
+            <div className="hero-text-container absolute inset-0 z-20 w-full h-full">
+              {/* ── DESKTOP HERO TEXT ── */}
+              <div
+                className="hidden md:block absolute left-0 right-0 px-12 lg:px-16"
+                style={{ top: '42%', transform: 'translateY(-42%)' }}
+              >
+                <div className="relative -ml-12 lg:-ml-16 pl-12 lg:pl-16 pr-24 py-10 md:py-14 w-full max-w-4xl flex flex-col justify-center text-left">
+                  <div className="relative z-10 w-full flex flex-col justify-center">
+                    <AnimatedHeading
+                      text={"Building Spaces\nThat Define Generations."}
+                      className="text-5xl lg:text-6xl xl:text-7xl font-normal tracking-tight text-white mb-4 leading-[1.1] drop-shadow-md"
+                      initialDelay={200}
+                      charDelay={30}
+                      charDuration={500}
+                      highlightText="Define Generations."
+                      highlightClassName="text-[#C92C15]"
+                    />
 
-          {/* ── DESKTOP HERO TEXT ── */}
-          <div
-            className="hidden md:block absolute left-0 right-0 z-20 px-12 lg:px-16"
-            style={{ top: '42%', transform: 'translateY(-42%)' }}
-          >
-            <div className="relative -ml-12 lg:-ml-16 pl-12 lg:pl-16 pr-24 py-10 md:py-14 w-full max-w-4xl flex flex-col justify-center text-left">
-              <div className="relative z-10 w-full flex flex-col justify-center">
-                <AnimatedHeading
-                  text={"Building Spaces\nThat Define Generations."}
-                  className="text-5xl lg:text-6xl xl:text-7xl font-normal tracking-tight text-white mb-4 leading-[1.1] drop-shadow-md"
-                  initialDelay={200}
-                  charDelay={30}
-                  charDuration={500}
-                  highlightText="Define Generations."
-                  highlightClassName="text-[#C92C15]"
-                />
+                    <FadeIn delay={800} duration={1000}>
+                      <p className="text-base md:text-lg text-white/90 mb-6 max-w-2xl font-medium leading-relaxed drop-shadow-sm">
+                        With 30+ years of experience and over 100 completed projects in Rajasthan, we{' '}
+                        <PointerHighlight delay={1.8} containerClassName="text-[#C92C15] font-bold">
+                          transform
+                        </PointerHighlight>{' '}
+                        ideas into premium homes and commercial spaces built to last.
+                      </p>
+                    </FadeIn>
 
-                <FadeIn delay={800} duration={1000}>
-                  <p className="text-base md:text-lg text-white/90 mb-6 max-w-2xl font-medium leading-relaxed drop-shadow-sm">
-                    With 30+ years of experience and over 100 completed projects in Rajasthan, we{' '}
-                    <PointerHighlight delay={1.8} containerClassName="text-[#C92C15] font-bold">
-                      transform
-                    </PointerHighlight>{' '}
-                    ideas into premium homes and commercial spaces built to last.
-                  </p>
-                </FadeIn>
-
-                <FadeIn delay={1200} duration={1000}>
-                  <div className="flex flex-wrap gap-4">
-                    <Link
-                      to="/contact#contact-section"
-                      className="bg-[#C92C15] text-white hover:bg-[#D43B13] transition-all px-8 py-3.5 rounded-lg font-medium cursor-pointer shadow-lg hover:scale-105 active:scale-95 inline-block text-center"
-                    >
-                      Book Consultation
-                    </Link>
-                    <Link
-                      to="/projects"
-                      className="bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-black transition-all px-8 py-3.5 rounded-lg font-medium cursor-pointer shadow-lg hover:scale-105 active:scale-95 inline-block text-center"
-                    >
-                      Explore Projects
-                    </Link>
+                    <FadeIn delay={1200} duration={1000}>
+                      <div className="flex flex-wrap gap-4">
+                        <Link
+                          to="/contact#contact-section"
+                          className="bg-[#C92C15] text-white hover:bg-[#D43B13] transition-all px-8 py-3.5 rounded-lg font-medium cursor-pointer shadow-lg hover:scale-105 active:scale-95 inline-block text-center"
+                        >
+                          Book Consultation
+                        </Link>
+                        <Link
+                          to="/projects"
+                          className="bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-black transition-all px-8 py-3.5 rounded-lg font-medium cursor-pointer shadow-lg hover:scale-105 active:scale-95 inline-block text-center"
+                        >
+                          Explore Projects
+                        </Link>
+                      </div>
+                    </FadeIn>
                   </div>
-                </FadeIn>
+                </div>
+              </div>
+
+              {/* ── MOBILE HERO TEXT ── */}
+              <div className="md:hidden absolute inset-0 flex items-center justify-start px-6">
+                <div className="w-full text-left relative z-10">
+                  <AnimatedHeading
+                    text={"Building Spaces\nThat Define Generations."}
+                    className="text-4xl sm:text-5xl font-semibold tracking-tight text-white mb-6 leading-[1.15] drop-shadow-lg"
+                    initialDelay={200}
+                    charDelay={30}
+                    charDuration={500}
+                    highlightText="Define Generations."
+                    highlightClassName="text-[#C92C15]"
+                  />
+
+                  <FadeIn delay={1000} duration={1000}>
+                    <p className="text-sm text-white mb-6 leading-relaxed font-medium drop-shadow">
+                      30+ years · 100+ projects · Rajasthan's trusted builder.
+                    </p>
+                  </FadeIn>
+
+                  <FadeIn delay={1200} duration={1000}>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <Link
+                        to="/contact#contact-section"
+                        className="bg-[#C92C15] text-white hover:bg-[#D43B13] transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
+                      >
+                        Book Consultation
+                      </Link>
+                      <Link
+                        to="/projects"
+                        className="bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-black transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
+                      >
+                        Explore Projects
+                      </Link>
+                    </div>
+                  </FadeIn>
+                </div>
               </div>
             </div>
           </div>
-
-          {/* ── MOBILE HERO TEXT ── */}
-          <div className="md:hidden absolute inset-0 z-20 flex items-center justify-start px-6">
-            <div className="w-full text-left relative z-10">
-              <AnimatedHeading
-                text={"Building Spaces\nThat Define Generations."}
-                className="text-4xl sm:text-5xl font-semibold tracking-tight text-white mb-6 leading-[1.15] drop-shadow-lg"
-                initialDelay={200}
-                charDelay={30}
-                charDuration={500}
-                highlightText="Define Generations."
-                highlightClassName="text-[#C92C15]"
-              />
-
-              <FadeIn delay={1000} duration={1000}>
-                <p className="text-sm text-white mb-6 leading-relaxed font-medium drop-shadow">
-                  30+ years · 100+ projects · Rajasthan's trusted builder.
-                </p>
-              </FadeIn>
-
-              <FadeIn delay={1200} duration={1000}>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    to="/contact#contact-section"
-                    className="bg-[#C92C15] text-white hover:bg-[#D43B13] transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
-                  >
-                    Book Consultation
-                  </Link>
-                  <Link
-                    to="/projects"
-                    className="bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-black transition-all px-8 py-4 rounded-xl font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95 text-center text-sm uppercase tracking-wider"
-                  >
-                    Explore Projects
-                  </Link>
-                </div>
-              </FadeIn>
-            </div>
-          </div>
-
         </section>
 
         {/* ════════════════════════════════════════════════════════════════════

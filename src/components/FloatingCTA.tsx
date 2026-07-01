@@ -36,7 +36,7 @@ export const FloatingCTA = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 font-sans">
+    <div className="floating-cta-container fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 font-sans">
       <AnimatePresence mode="wait">
         {isOpen ? (
           <motion.div

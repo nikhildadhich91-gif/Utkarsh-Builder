@@ -1,10 +1,23 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FadeUp } from './ui/FadeUp';
 import { StaggerContainer } from './ui/StaggerContainer';
-import { Award, GraduationCap, ArrowUpRight } from 'lucide-react';
+import { Award, GraduationCap, ArrowUpRight, X } from 'lucide-react';
 
 export const Founders: React.FC = () => {
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (selectedIdx !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedIdx]);
+
   const founders = [
     {
       name: "Ghanshyam Das Maheshwari",
@@ -12,16 +25,16 @@ export const Founders: React.FC = () => {
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&h=800&q=80",
       icon: <Award className="h-5 w-5 text-[#C92C15]" />,
       tag: "30+ Years Construction Legacy",
-      desc: "With over 30 years of experience in the construction industry, our founder brings a wealth of knowledge, hands-on expertise, and visionary leadership. He is renowned for his uncompromising commitment to structural quality and sustainable brick masonry design.",
+      desc: "Ghanshyam Das Maheshwari is the visionary founder and driving force behind Utkarsh Builder, bringing over 30 years of rich experience in the construction and real estate industry. Renowned for his unwavering commitment to quality, integrity, and customer satisfaction, he has successfully led numerous residential and commercial projects across Jaipur. His expertise spans project planning, execution, and delivering developments that stand the test of time.",
       heritage: "Legacy Builder",
     },
     {
       name: "Utkarsh Nowal",
-      role: "Co-Founder",
+      role: "Director",
       image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&h=800&q=80",
       icon: <GraduationCap className="h-5 w-5 text-[#C92C15]" />,
       tag: "MBA — Marketing & Operations",
-      desc: "An MBA graduate in Marketing and Operations, our co-founder brings a modern perspective. Having honed strategic agility at property development startups, his data-driven methods complement our construction legacy to scale new growth vectors.",
+      desc: "Utkarsh Nowal is a dynamic entrepreneur and the next-generation leader at Utkarsh Builder. An MBA graduate specializing in Marketing and Operations, he brings a fresh, strategic, and customer-centric approach to the business, honed through prior experience at a real estate startup in market analysis and operational management. His vision is to expand Utkarsh Builder's legacy while upholding its core values of quality, trust, and timely delivery.",
       heritage: "Modern Management",
     }
   ];
@@ -51,16 +64,19 @@ export const Founders: React.FC = () => {
           {founders.map((founder, idx) => (
             <motion.div
               key={idx}
+              layoutId={`card-container-${idx}`}
+              onClick={() => setSelectedIdx(idx)}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               whileHover={{ y: -12, scale: 1.03 }}
-              className="group flex flex-col bg-white rounded-[32px] overflow-hidden border border-black/5 shadow-md hover:shadow-2xl transition-shadow duration-500 bg-gradient-to-b from-white to-[#FAF7F5]"
+              className="group flex flex-col bg-white rounded-[32px] overflow-hidden border border-black/5 shadow-md hover:shadow-2xl transition-shadow duration-500 bg-gradient-to-b from-white to-[#FAF7F5] cursor-pointer"
             >
               {/* Arch Image Container */}
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
-                <img
+                <motion.img
+                  layoutId={`card-image-${idx}`}
                   src={founder.image}
                   alt={founder.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -93,7 +109,8 @@ export const Founders: React.FC = () => {
                     </span>
                   </div>
 
-                  <p className="text-sm text-[#6F6F6F] font-light leading-relaxed text-left">
+                  {/* Short text snippet (line-clamp-2) to keep card text visible but not overwhelming */}
+                  <p className="text-sm text-[#6F6F6F] font-light leading-relaxed text-left line-clamp-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
                     {founder.desc}
                   </p>
                 </div>
@@ -111,6 +128,89 @@ export const Founders: React.FC = () => {
           ))}
         </StaggerContainer>
       </div>
+
+      {/* Morphing Modal Overlay */}
+      <AnimatePresence>
+        {selectedIdx !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedIdx(null)}
+            className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4 md:p-6 cursor-pointer"
+          >
+            {/* Modal Card */}
+            <motion.div
+              layoutId={`card-container-${selectedIdx}`}
+              onClick={(e) => e.stopPropagation()}
+              className="relative bg-white rounded-[32px] overflow-hidden border border-black/5 shadow-2xl max-w-2xl w-full flex flex-col items-center p-8 md:p-12 cursor-default"
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedIdx(null)}
+                className="absolute top-6 right-6 p-2 rounded-full bg-black/5 hover:bg-black/10 text-gray-600 hover:text-gray-900 transition-colors z-20 cursor-pointer"
+                aria-label="Close modal"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              {/* Centered Image */}
+              <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-[#C92C15]/10 shadow-lg bg-gray-100 shrink-0 z-10">
+                <motion.img
+                  layoutId={`card-image-${selectedIdx}`}
+                  src={founders[selectedIdx].image}
+                  alt={founders[selectedIdx].name}
+                  className="w-full h-full object-cover"
+                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                />
+              </div>
+
+              {/* Centered Info & Full Bio Description */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15, duration: 0.5 }}
+                className="text-center mt-6 flex flex-col items-center w-full"
+              >
+                <span className="text-[10px] uppercase tracking-widest text-white font-bold bg-[#C92C15] px-3.5 py-1 rounded-full">
+                  {founders[selectedIdx].role}
+                </span>
+
+                <h3 className="text-2xl md:text-3xl font-extrabold mt-3 text-[#1B1B1B] tracking-tight">
+                  {founders[selectedIdx].name}
+                </h3>
+
+                <div className="flex items-center gap-2 mt-3 text-gray-700 bg-[#C92C15]/5 px-4 py-2 rounded-xl border border-[#C92C15]/10">
+                  <div className="text-[#C92C15] shrink-0">
+                    {founders[selectedIdx].icon}
+                  </div>
+                  <span className="text-xs font-semibold tracking-wide text-gray-800">
+                    {founders[selectedIdx].tag}
+                  </span>
+                </div>
+
+                <div className="w-full border-t border-black/5 my-6" />
+
+                {/* The Full Readable Text */}
+                <p className="text-sm md:text-base text-[#6F6F6F] font-light leading-relaxed max-h-[220px] overflow-y-auto px-2 md:px-6 text-center select-text scrollbar-thin">
+                  {founders[selectedIdx].desc}
+                </p>
+
+                <div className="mt-8 flex items-center justify-between w-full border-t border-black/5 pt-4 text-xs font-bold text-[#C92C15] uppercase tracking-wider">
+                  <span>{founders[selectedIdx].heritage}</span>
+                  <button
+                    onClick={() => setSelectedIdx(null)}
+                    className="px-5 py-2 bg-[#C92C15]/5 hover:bg-[#C92C15] text-[#C92C15] hover:text-white rounded-xl transition-all duration-300 cursor-pointer font-bold uppercase tracking-wider text-[10px]"
+                  >
+                    Close Profile
+                  </button>
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
