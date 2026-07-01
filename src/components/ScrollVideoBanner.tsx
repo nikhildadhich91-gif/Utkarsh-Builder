@@ -128,8 +128,17 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
           }
 
           // 4. White transparent overlay after the video finishes playing (progress 0.68 to 0.90, max opacity 0.75)
+          // Then fade it back out near the bottom (progress 0.94 to 1.0) so the footer sits on a premium dark background
           const maxWhiteOpacity = 0.75;
-          const overlayOpacity = Math.max(0, Math.min(maxWhiteOpacity, ((self.progress - 0.68) / (0.90 - 0.68)) * maxWhiteOpacity));
+          let overlayOpacity = 0;
+          if (self.progress >= 0.68 && self.progress < 0.90) {
+            overlayOpacity = ((self.progress - 0.68) / (0.90 - 0.68)) * maxWhiteOpacity;
+          } else if (self.progress >= 0.90 && self.progress < 0.94) {
+            overlayOpacity = maxWhiteOpacity;
+          } else if (self.progress >= 0.94) {
+            overlayOpacity = maxWhiteOpacity * (1 - (self.progress - 0.94) / (1.0 - 0.94));
+          }
+          overlayOpacity = Math.max(0, Math.min(maxWhiteOpacity, overlayOpacity));
           gsap.set('.video-white-overlay', { opacity: overlayOpacity });
         },
       });

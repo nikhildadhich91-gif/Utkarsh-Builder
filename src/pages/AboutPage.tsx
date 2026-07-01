@@ -279,7 +279,7 @@ export const AboutPage: React.FC = () => {
 
             <FadeUp delay={0.3}>
               <p className="text-[#6F6F6F] font-light text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed pt-1 md:pt-2">
-                A legacy of <PointerHighlight delay={0.8} containerClassName="text-[#C92C15] font-semibold">craftsmanship</PointerHighlight>, structural safety, and transparent client communication in every project since 1995.
+                A legacy of <PointerHighlight delay={0.8} containerClassName="text-[#C92C15] font-semibold">craftsmanship</PointerHighlight>, structural safety and transparent client communication in every project since 1995.
               </p>
             </FadeUp>
           </div>
@@ -330,7 +330,7 @@ export const AboutPage: React.FC = () => {
                 </FadeUp>
                 <FadeUp delay={0.3}>
                   <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
-                    We act as your long term property partner. Our work does not start or stop with laying bricks. We help you plan, build, and maintain your properties so they remain valuable and safe for years to come.
+                    We act as your long term property partner. Our work does not start or stop with laying bricks. We help you plan, build and maintain your properties so they remain valuable and safe for years to come.
                   </p>
                 </FadeUp>
 
@@ -364,7 +364,7 @@ export const AboutPage: React.FC = () => {
                   {
                     icon: Layers,
                     title: 'Smart Design Planning',
-                    desc: 'We design rooms for great natural sunlight, maximum space utility, and flexible layouts.',
+                    desc: 'We design rooms for great natural sunlight, maximum space utility and flexible layouts.',
                     y: getCard1Y(progress),
                     scale: getCard1Scale(progress),
                     opacity: getCard1Opacity(progress),
@@ -448,9 +448,9 @@ export const AboutPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {[
-              { icon: Award, title: 'Unwavering Trust', desc: 'Over 30 years of building relationships based on reliable execution, prompt handovers, and structural safety.' },
-              { icon: Eye, title: 'Absolute Transparency', desc: 'Zero hidden fees, precise billing itemizations, and high-integrity materials ensure you get what you contract for.' },
-              { icon: Leaf, title: 'Sustainable Engineering', desc: 'Employing double-glazed panel glass, local masonry stones, and energy-efficient designs that minimize eco footprints.' }
+              { icon: Award, title: 'Unwavering Trust', desc: 'Over 30 years of building relationships based on reliable execution, prompt handovers and structural safety.' },
+              { icon: Eye, title: 'Absolute Transparency', desc: 'Zero hidden fees, precise billing itemizations and high integrity materials ensure you get what you contract for.' },
+              { icon: Leaf, title: 'Sustainable Engineering', desc: 'Employing double glazed panel glass, local masonry stones and energy efficient designs that minimize eco footprints.' }
             ].map((item, idx) => {
               const Icon = item.icon;
               return (

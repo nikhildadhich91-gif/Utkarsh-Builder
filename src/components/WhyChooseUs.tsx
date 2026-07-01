@@ -12,7 +12,7 @@ interface ReasonItem {
 const reasonsList: ReasonItem[] = [
   {
     title: '30+ Years Experience',
-    description: 'Over 30 years of building safe, reliable, and premium properties across Rajasthan.',
+    description: 'Over 30 years of building safe, reliable and premium properties across Rajasthan.',
     icon: Award,
   },
   {
@@ -22,17 +22,17 @@ const reasonsList: ReasonItem[] = [
   },
   {
     title: 'Dedicated Site Engineer',
-    description: 'You work with a qualified site engineer who oversees daily operations, materials, and strict safety guidelines for you.',
+    description: 'You work with a qualified site engineer who oversees daily operations, materials and strict safety guidelines for you.',
     icon: Briefcase,
   },
   {
     title: 'Transparent Communication',
-    description: 'We offer clear cost estimates, honest contracts, and absolutely no hidden fees.',
+    description: 'We offer clear cost estimates, honest contracts and absolutely no hidden fees.',
     icon: MessageSquare,
   },
   {
     title: 'Quality Construction',
-    description: 'We use top grade cement and steel, and run regular quality checks at every step.',
+    description: 'We use top grade cement and steel and run regular quality checks at every step.',
     icon: CheckCircle2,
   },
   {
@@ -59,7 +59,7 @@ export const WhyChooseUs: React.FC = () => {
           </FadeUp>
           <FadeUp delay={0.3} className="mt-4">
             <p className="text-lg md:text-xl text-[#333333] font-medium max-w-xl mx-auto">
-              Our work is based on trust, high quality building, and meeting our promises. Here is why clients choose us.
+              Our work is based on trust, high quality building and meeting our promises. Here is why clients choose us.
             </p>
           </FadeUp>
         </div>

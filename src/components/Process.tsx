@@ -15,31 +15,31 @@ const steps: ProcessStep[] = [
   {
     number: '01',
     title: 'Consultation',
-    description: 'Deep dive into your requirements, location analysis, and budget planning.',
+    description: 'Deep dive into your requirements, location analysis and budget planning.',
     icon: Users,
   },
   {
     number: '02',
     title: 'Planning & Design',
-    description: 'Symmetry drawing, engineering calculations, and municipal approvals management.',
+    description: 'Symmetry drawing, engineering calculations and municipal approvals management.',
     icon: FileText,
   },
   {
     number: '03',
     title: 'Execution',
-    description: 'Disciplined site construction, cement mixing, concrete laying, and structural framing.',
+    description: 'Disciplined site construction, cement mixing, concrete laying and structural framing.',
     icon: Activity,
   },
   {
     number: '04',
     title: 'Quality Inspection',
-    description: 'Multi-stage quality checks verifying plumbing, electrical, and concrete strength.',
+    description: 'Multi stage quality checks verifying plumbing, electrical and concrete strength.',
     icon: ShieldAlert,
   },
   {
     number: '05',
     title: 'Handover',
-    description: 'Finishing touches, cleanups, and delivering key lock sets to your ready-to-move space.',
+    description: 'Finishing touches, cleanups and delivering key lock sets to your ready to move space.',
     icon: Key,
   },
 ];

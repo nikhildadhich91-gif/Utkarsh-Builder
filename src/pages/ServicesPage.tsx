@@ -16,43 +16,43 @@ const servicesData: ServiceItem[] = [
     number: '01',
     title: 'Residential and Commercial Construction',
     description: 'We design and build strong, beautiful houses and commercial offices tailored to exactly what you need.',
-    extendedDetails: 'We use high quality steel and strong concrete mixes to make sure every building is completely safe, durable, and built to the highest local safety standards.'
+    extendedDetails: 'We use high quality steel and strong concrete mixes to make sure every building is completely safe, durable and built to the highest local safety standards.'
   },
   {
     number: '02',
     title: 'Complete Start to Finish Construction',
-    description: 'We take care of the entire project from start to finish, managing all approvals, designs, and building work.',
-    extendedDetails: 'This service covers everything: testing the soil, creating architectural blueprints, handling structural engineering, buying materials, and handing over the keys.'
+    description: 'We take care of the entire project from start to finish, managing all approvals, designs and building work.',
+    extendedDetails: 'This service covers everything: testing the soil, creating architectural blueprints, handling structural engineering, buying materials and handing over the keys.'
   },
   {
     number: '03',
     title: 'Site Supervision and Engineering',
-    description: 'We supervise daily construction, check material quality, and handle schedules to keep your project on time and within budget.',
-    extendedDetails: 'We oversee daily labor, check the quality of materials delivered to the site, coordinate all builders, handle city inspections, and send you weekly progress updates with photos.'
+    description: 'We supervise daily construction, check material quality and handle schedules to keep your project on time and within budget.',
+    extendedDetails: 'We oversee daily labor, check the quality of materials delivered to the site, coordinate all builders, handle city inspections and send you weekly progress updates with photos.'
   },
   {
     number: '04',
     title: 'Renovation and Remodeling',
-    description: 'We transform old buildings into modern, functional spaces by updating layouts, reinforcing structures, and refreshing styling.',
-    extendedDetails: 'We restore older structures, add new rooms, strengthen supporting columns, and completely redesign the interior and exterior to make it feel brand new.'
+    description: 'We transform old buildings into modern, functional spaces by updating layouts, reinforcing structures and refreshing styling.',
+    extendedDetails: 'We restore older structures, add new rooms, strengthen supporting columns and completely redesign the interior and exterior to make it feel brand new.'
   },
   {
     number: '05',
     title: 'Land Selection and Sourcing',
     description: 'We help you find and choose the best locations and plots in Rajasthan that will grow in value over time.',
-    extendedDetails: 'With over 30 years of local land and construction experience, we guide you through market trends, municipal plans, and pricing to help you make the best decision for your plot.'
+    extendedDetails: 'With over 30 years of local land and construction experience, we guide you through market trends, municipal plans and pricing to help you make the best decision for your plot.'
   },
   {
     number: '06',
     title: 'Land and Plot Site Testing',
-    description: 'We check the soil, sunlight direction, utilities, and layout options before starting construction.',
-    extendedDetails: 'Before we lay a single brick, we carefully check the ground, plan for natural light, and make sure everything perfectly follows all municipal development authority regulations.'
+    description: 'We check the soil, sunlight direction, utilities and layout options before starting construction.',
+    extendedDetails: 'Before we lay a single brick, we carefully check the ground, plan for natural light and make sure everything perfectly follows all municipal development authority regulations.'
   },
   {
     number: '07',
     title: 'Plot Development Support',
-    description: 'We handle the entire journey for you, coordinating building approvals, blueprints, structural building, and checking in on your building even after move-in.',
-    extendedDetails: 'We act as your reliable development partner, managing blueprints, municipal permits, structural building, and post-delivery checkups.'
+    description: 'We handle the entire journey for you, coordinating building approvals, blueprints, structural building and checking in on your building even after move-in.',
+    extendedDetails: 'We act as your reliable development partner, managing blueprints, municipal permits, structural building and post-delivery checkups.'
   }
 ];
 
@@ -199,7 +199,7 @@ export const ServicesPage = () => {
                   Retail &amp; Corporate Spaces
                 </h3>
                 <p className="text-xs md:text-sm text-[#6F6F6F] font-light leading-relaxed">
-                  Expert execution of mixed-use hubs, high-symmetry jewelry showrooms, and office complexes engineered for workflow efficiency, energy savings, and structural integrity.
+                  Expert execution of mixed use hubs, high symmetry jewelry showrooms and office complexes engineered for workflow efficiency, energy savings and structural integrity.
                 </p>
               </div>
             </FadeUp>

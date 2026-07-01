@@ -10,27 +10,27 @@ interface FaqItemData {
 const faqList: FaqItemData[] = [
   {
     question: 'How long does construction take?',
-    answer: 'Standard residential construction of villas (approx. 3,000–5,000 sq. ft.) takes about 8 to 10 months from structural layout approval to key handover. Commercial structures or larger projects take 12 to 14 months, depending on the design complexity.',
+    answer: 'Standard residential construction of villas (approx. 3,000 to 5,000 sq. ft.) takes about 8 to 10 months from structural layout approval to key handover. Commercial structures or larger projects take 12 to 14 months, depending on the design complexity.',
   },
   {
     question: 'How are payments structured?',
-    answer: 'Our payments are progress-based and structured across 5 key construction milestones: 1) Foundation completion, 2) Column and roof slab structure frame completion, 3) Masonry brickwork completion, 4) Electrical, plumbing, and wall finishes, and 5) Tile laying, final painting, and keys handover.',
+    answer: 'Our payments are progress based and structured across 5 key construction milestones: 1) Foundation completion, 2) Column and roof slab structure frame completion, 3) Masonry brickwork completion, 4) Electrical, plumbing and wall finishes and 5) Tile laying, final painting and keys handover.',
   },
   {
     question: 'Is material included?',
-    answer: 'Yes, we provide fully-inclusive turnkey building services. All building materials (TMT Steel, cement, electrical wires, pipes, bathroom fittings, tiles, waterproofing compounds) are sourced and supplied directly by our corporate brand partners.',
+    answer: 'Yes, we provide fully inclusive turnkey building services. All building materials (TMT Steel, cement, electrical wires, pipes, bathroom fittings, tiles, waterproofing compounds) are sourced and supplied directly by our corporate brand partners.',
   },
   {
     question: 'Do you provide architectural design and consultancy?',
-    answer: 'Absolutely. We offer complete architectural plans, structural engineering drawings, elevation styles, 3D floor plan visualizations, municipal approval assistance, and site supervision by qualified civil engineers.',
+    answer: 'Absolutely. We offer complete architectural plans, structural engineering drawings, elevation styles, 3D floor plan visualizations, municipal approval assistance and site supervision by qualified civil engineers.',
   },
   {
     question: 'Can clients track their construction progress?',
-    answer: 'Yes, we provide a complete client portal tracker via the Onsite app. You get weekly material updates, daily progress log sheets, a live camera surveillance feed at your project site, and a transparent expense ledger.',
+    answer: 'Yes, we provide a complete client portal tracker via the Onsite app. You get weekly material updates, daily progress log sheets, a live camera surveillance feed at your project site and a transparent expense ledger.',
   },
   {
     question: 'Do you offer building warranties?',
-    answer: 'We provide a 2-year warranty post-handover covering all core structural defects, wall cracks, and plumbing/electrical installation leaks arising from quality defects or poor workmanship.',
+    answer: 'We provide a 2 year warranty post handover covering all core structural defects, wall cracks and plumbing/electrical installation leaks arising from quality defects or poor workmanship.',
   },
 ];
 

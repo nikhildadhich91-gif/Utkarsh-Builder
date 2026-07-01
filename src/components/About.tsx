@@ -62,7 +62,7 @@ export const About: React.FC = () => {
 
               <FadeUp delay={0.4} className="mb-8">
                 <p className="text-lg md:text-xl text-[#333333] leading-relaxed font-medium">
-                  Welcome to Utkarsh Builder, where we turn your dream spaces into reality. With over 30 years of experience and more than 100 completed projects in Rajasthan, we build premium homes and commercial buildings with outstanding quality, honest pricing, and on-time completion.
+                  Welcome to Utkarsh Builder, where we turn your dream spaces into reality. With over 30 years of experience and more than 100 completed projects in Rajasthan, we build premium homes and commercial buildings with outstanding quality, honest pricing and on time completion.
                 </p>
               </FadeUp>
 
@@ -96,7 +96,7 @@ export const About: React.FC = () => {
                 {activeTab === 'story' && (
                   <div className="text-[#333333] space-y-3 font-medium">
                     <p>
-                      We started with a simple promise: to build strong, beautiful, and lasting structures. We guide you every step of the way, from the first sketch to the day you move in.
+                      We started with a simple promise: to build strong, beautiful and lasting structures. We guide you every step of the way, from the first sketch to the day you move in.
                     </p>
                     <p className="text-sm border-l-2 border-[#C92C15] pl-4 italic text-[#111111] font-bold">
                       "Every space we design is built to stand as a <PointerHighlight delay={1.2}>legacy</PointerHighlight> for the next generation."
@@ -115,7 +115,7 @@ export const About: React.FC = () => {
                   <div className="text-[#333333] space-y-2 font-medium">
                     <p className="text-base font-extrabold text-[#111111]">Honest Pricing and Timely Delivery</p>
                     <p>
-                      Our mission is to make construction stress-free for our clients. We do this by delivering high-quality builds, transparent pricing, and completing projects on schedule.
+                      Our mission is to make construction stress-free for our clients. We do this by delivering high quality builds, transparent pricing and completing projects on schedule.
                     </p>
                   </div>
                 )}

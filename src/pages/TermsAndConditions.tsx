@@ -7,7 +7,7 @@ const keyTerms = [
   {
     icon: <Landmark className="h-5 w-5" />,
     title: "Scope of Work",
-    desc: "Construction follows agreed blueprints, drawings, layouts, and high-quality specifications.",
+    desc: "Construction follows agreed blueprints, drawings, layouts and high quality specifications.",
   },
   {
     icon: <Clock className="h-5 w-5" />,
@@ -90,7 +90,7 @@ export const TermsAndConditions: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">1. Scope of Work</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                We, the Builders, commit to constructing the building on the specified plot of land as per the agreed plans, drawings, layouts, and specifications. The construction will be done using high-quality materials and in a professional manner.
+                We, the Builders, commit to constructing the building on the specified plot of land as per the agreed plans, drawings, layouts and specifications. The construction will be done using high quality materials and in a professional manner.
               </p>
             </div>
 
@@ -119,12 +119,12 @@ export const TermsAndConditions: React.FC = () => {
               <ul className="list-disc pl-5 text-sm text-[#6F6F6F] space-y-2 font-light leading-relaxed">
                 <li>Architectural consultancy and project planning.</li>
                 <li>Design and development of structural drawings and floor plans.</li>
-                <li>Schematic development for water, drainage, electrical, and AC systems.</li>
+                <li>Schematic development for water, drainage, electrical and AC systems.</li>
                 <li>Elevation design and 3D visualisation.</li>
                 <li>Project budgeting and BOQ development.</li>
                 <li>Site management, including inventory and material procurement.</li>
                 <li>Site supervision and regular audits by engineers.</li>
-                <li>Daily progress reports, 24x7 camera surveillance, and maintenance of site expenses ledger.</li>
+                <li>Daily progress reports, 24x7 camera surveillance and maintenance of site expenses ledger.</li>
               </ul>
             </div>
 
@@ -147,7 +147,7 @@ export const TermsAndConditions: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">6. Inspection Rights</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                The Owner or their representative has the right to inspect the construction work and materials at any time without prior notice. Any requested changes should be communicated, and the Builder will be given reasonable time to implement them.
+                The Owner or their representative has the right to inspect the construction work and materials at any time without prior notice. Any requested changes should be communicated and the Builder will be given reasonable time to implement them.
               </p>
             </div>
 
@@ -251,7 +251,7 @@ export const TermsAndConditions: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">19. Acceptance of Terms</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions.
+                By using our services, you acknowledge that you have read, understood and agree to be bound by these Terms and Conditions.
               </p>
             </div>
 

@@ -117,7 +117,7 @@ export const Testimonials = () => {
                       {testimonials[activeIndex].name}
                     </h4>
                     <p className="text-xs text-[#333333] mt-1 font-bold uppercase tracking-wider">
-                      {testimonials[activeIndex].role} — <span className="text-[#C92C15] font-extrabold">{testimonials[activeIndex].company}</span>
+                      {testimonials[activeIndex].role}, <span className="text-[#C92C15] font-extrabold">{testimonials[activeIndex].company}</span>
                     </p>
                   </div>
                 </div>

@@ -25,8 +25,8 @@ const items: ShowcaseItem[] = [
     title: 'Residential Development',
     subtitle: 'Custom Luxury Homes & Communities',
     icon: Home,
-    desc: 'We design and build custom private homes and gated neighborhoods in Rajasthan. Our focus is on spacious layouts, plenty of natural light, and premium quality styling to create perfect family homes.',
-    highlights: ['Vastu Compliant', 'Strong Concrete Structures', 'Energy-Efficient Glass'],
+    desc: 'We design and build custom private homes and gated neighborhoods in Rajasthan. Our focus is on spacious layouts, plenty of natural light and premium quality styling to create perfect family homes.',
+    highlights: ['Vastu Compliant', 'Strong Concrete Structures', 'Energy Efficient Glass'],
     image: bedroomImg,
     color: '#C92C15'
   },
@@ -35,7 +35,7 @@ const items: ShowcaseItem[] = [
     title: 'Commercial Development',
     subtitle: 'Premium Offices & Retail Spaces',
     icon: Building,
-    desc: "We build modern, energy-efficient offices and shopping spaces. Located in Rajasthan's primary business hubs, these spaces are designed to support your business growth.",
+    desc: "We build modern, energy efficient offices and shopping spaces. Located in Rajasthan's primary business hubs, these spaces are designed to support your business growth.",
     highlights: ['Prime Locations', 'Soundproof Windows', 'Flexible Office Layouts'],
     image: officeImg,
     color: '#1B1B1B'
@@ -45,8 +45,8 @@ const items: ShowcaseItem[] = [
     title: 'Turnkey Construction',
     subtitle: 'Complete Construction from Start to Finish',
     icon: CheckSquare,
-    desc: 'We take care of everything—from soil testing and municipal approvals to architectural design, building, and final styling. You get a ready-to-move-in building with complete structural support.',
-    highlights: ['One Point of Contact', 'Clear Stage-Wise Billing', 'Guaranteed Timelines'],
+    desc: 'We take care of everything, from soil testing and municipal approvals to architectural design, building and final styling. You get a ready to move in building with complete structural support.',
+    highlights: ['One Point of Contact', 'Clear Stage Wise Billing', 'Guaranteed Timelines'],
     image: wardrobeImg,
     color: '#C92C15'
   }

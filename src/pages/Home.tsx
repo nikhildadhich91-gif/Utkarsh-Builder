@@ -169,7 +169,7 @@ export const Home: React.FC = () => {
                     Our Approach
                   </span>
                   <p className="text-sm text-gray-100 font-light leading-relaxed">
-                    We believe in careful planning and solid building quality. Every drawing is designed to make the best use of space, and every construction step is made to ensure your property is comfortable and built to last.
+                    We believe in careful planning and solid building quality. Every drawing is designed to make the best use of space and every construction step is made to ensure your property is comfortable and built to last.
                   </p>
                 </div>
 

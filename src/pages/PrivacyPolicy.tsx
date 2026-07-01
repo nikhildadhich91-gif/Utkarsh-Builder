@@ -7,7 +7,7 @@ const highlights = [
   {
     icon: <Eye className="h-5 w-5" />,
     title: "Transparent Collection",
-    desc: "We only gather data you provide during consultations and project registrations — nothing hidden.",
+    desc: "We only gather data you provide during consultations and project registrations, with nothing hidden.",
   },
   {
     icon: <Shield className="h-5 w-5" />,
@@ -16,8 +16,8 @@ const highlights = [
   },
   {
     icon: <Lock className="h-5 w-5" />,
-    title: "Industry-Grade Security",
-    desc: "Encrypted servers, restricted staff access, and regular compliance audits keep your data safe.",
+    title: "Industry Grade Security",
+    desc: "Encrypted servers, restricted staff access and regular compliance audits keep your data safe.",
   },
   {
     icon: <FileText className="h-5 w-5" />,
@@ -73,7 +73,7 @@ export const PrivacyPolicy: React.FC = () => {
 
             {/* Intro */}
             <p className="text-sm md:text-base text-[#6F6F6F] leading-[1.85] font-light">
-              Utkarsh Builder ("we," "our," or "us") values your trust and is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your personal information when you interact with our website and construction consultancy services. By using our website or availing of our services, you agree to the terms outlined below.
+              Utkarsh Builder ("we," "our" or "us") values your trust and is committed to protecting your privacy. This Privacy Policy outlines how we collect, use and safeguard your personal information when you interact with our website and construction consultancy services. By using our website or availing of our services, you agree to the terms outlined below.
             </p>
 
             <hr className="border-black/[0.04]" />
@@ -82,10 +82,10 @@ export const PrivacyPolicy: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">1. Information We Collect</h3>
               <ul className="list-disc pl-5 text-sm text-[#6F6F6F] space-y-2.5 font-light leading-relaxed">
-                <li><strong className="text-[#1B1B1B] font-medium">Personal Information:</strong> Name, email address, phone number, and address provided during inquiries, project registrations, or consultations.</li>
+                <li><strong className="text-[#1B1B1B] font-medium">Personal Information:</strong> Name, email address, phone number and address provided during inquiries, project registrations or consultations.</li>
                 <li><strong className="text-[#1B1B1B] font-medium">Financial Information:</strong> Payment details and billing accounts when processing milestone invoices.</li>
-                <li><strong className="text-[#1B1B1B] font-medium">Non-Personal Information:</strong> Browser type, IP address, and browsing behavior gathered through secure cookies.</li>
-                <li><strong className="text-[#1B1B1B] font-medium">Project-Specific Information:</strong> Construction project details, including plot location, blueprint layouts, soil test reports, and materials preferences.</li>
+                <li><strong className="text-[#1B1B1B] font-medium">Non-Personal Information:</strong> Browser type, IP address and browsing behavior gathered through secure cookies.</li>
+                <li><strong className="text-[#1B1B1B] font-medium">Project Specific Information:</strong> Construction project details, including plot location, blueprint layouts, soil test reports and materials preferences.</li>
               </ul>
             </div>
 
@@ -93,8 +93,8 @@ export const PrivacyPolicy: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">2. How We Use Your Information</h3>
               <ul className="list-disc pl-5 text-sm text-[#6F6F6F] space-y-2.5 font-light leading-relaxed">
-                <li>To provide, manage, and scale our structural design, construction, and turnkey engineering services.</li>
-                <li>To communicate with you regarding design revisions, material status, project timelines, and invoices.</li>
+                <li>To provide, manage and scale our structural design, construction and turnkey engineering services.</li>
+                <li>To communicate with you regarding design revisions, material status, project timelines and invoices.</li>
                 <li>To obtain necessary municipal approvals and comply with local construction regulations in Rajasthan.</li>
                 <li>To audit site safety and implement digital surveillance features at your project site.</li>
               </ul>
@@ -107,7 +107,7 @@ export const PrivacyPolicy: React.FC = () => {
                 We do not sell or rent your personal information to third parties. However, we may share your information with:
               </p>
               <ul className="list-disc pl-5 text-sm text-[#6F6F6F] space-y-2.5 font-light leading-relaxed">
-                <li>Trusted service providers, sub-contractors, structural engineers, and architects involved directly in your project.</li>
+                <li>Trusted service providers, subcontractors, structural engineers and architects involved directly in your project.</li>
                 <li>Regulatory bodies and local municipal development authorities as required by Indian law.</li>
                 <li>Authorized software vendors handling project tracking and payment processing.</li>
               </ul>
@@ -117,7 +117,7 @@ export const PrivacyPolicy: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">4. Data Storage and Security</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                We implement industry-standard physical and technical measures to protect your data from unauthorized access, loss, or disclosure. This includes strict role-based data access restrictions for internal staff, data encryption during transit, and secure server hosts.
+                We implement industry standard physical and technical measures to protect your data from unauthorized access, loss or disclosure. This includes strict role based data access restrictions for internal staff, data encryption during transit and secure server hosts.
               </p>
             </div>
 
@@ -125,7 +125,7 @@ export const PrivacyPolicy: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-base md:text-lg font-bold text-[#1B1B1B]">5. Your Rights</h3>
               <p className="text-sm text-[#6F6F6F] leading-relaxed font-light">
-                As a user, you have the right to request access to and update your personal information, request deletion of your data (subject to active building contracts or legal parameters), and opt-out of marketing notifications. Please contact us at <a href="mailto:nowalutkarsh@gmail.com" className="text-[#C92C15] hover:underline font-medium">nowalutkarsh@gmail.com</a> to exercise these rights.
+                As a user, you have the right to request access to and update your personal information, request deletion of your data (subject to active building contracts or legal parameters) and opt out of marketing notifications. Please contact us at <a href="mailto:nowalutkarsh@gmail.com" className="text-[#C92C15] hover:underline font-medium">nowalutkarsh@gmail.com</a> to exercise these rights.
               </p>
             </div>
 

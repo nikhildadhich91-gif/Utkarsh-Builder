@@ -56,8 +56,8 @@ export const MapSection: React.FC = () => {
 
                 <div className="border-t border-black/5 pt-6 space-y-3">
                   <div className="flex justify-between text-xs">
-                    <span className="text-[#6F6F6F] font-medium">Monday – Saturday</span>
-                    <span className="text-[#1B1B1B] font-semibold">10:00 AM – 7:00 PM</span>
+                    <span className="text-[#6F6F6F] font-medium">Monday to Saturday</span>
+                    <span className="text-[#1B1B1B] font-semibold">10:00 AM to 7:00 PM</span>
                   </div>
                   <div className="flex justify-between text-xs">
                     <span className="text-[#6F6F6F] font-medium">Sunday</span>

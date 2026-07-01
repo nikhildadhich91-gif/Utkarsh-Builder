@@ -17,7 +17,7 @@ interface FaqItem {
 const faqs: FaqItem[] = [
   {
     question: "What areas of Rajasthan do you execute projects in?",
-    answer: "We cover major zones and cities in Rajasthan, with our core footprint in Jaipur (including Johri Bazar, Raja Park, C-Scheme, and other primary areas), and surrounding regions. We consult on plot dimensions, zoning codes, and land checking."
+    answer: "We cover major zones and cities in Rajasthan, with our core footprint in Jaipur (including Johri Bazar, Raja Park, C-Scheme and other primary areas) and surrounding regions. We consult on plot dimensions, zoning codes and land checking."
   },
   {
     question: "What structural quality standards do you follow?",
@@ -25,11 +25,11 @@ const faqs: FaqItem[] = [
   },
   {
     question: "Do you handle municipal development authority permits?",
-    answer: "Yes, our turnkey project scope covers the creation of structural blueprints, submission to local development authorities, zoning compliance, utility board approvals, and final construction permits."
+    answer: "Yes, our turnkey project scope covers the creation of structural blueprints, submission to local development authorities, zoning compliance, utility board approvals and final construction permits."
   },
   {
     question: "What is the typical billing and payment structure?",
-    answer: "We divide billing into 5 clear progress-based milestones: Foundation completion, structural frame completion, masonry completion, plaster/finishes, and final keys handover. Zero hidden costs, fully documented."
+    answer: "We divide billing into 5 clear progress based milestones: Foundation completion, structural frame completion, masonry completion, plaster/finishes and final keys handover. Zero hidden costs, fully documented."
   }
 ];
 
