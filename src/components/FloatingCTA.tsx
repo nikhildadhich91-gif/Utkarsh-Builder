@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Calendar } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { assets } from '../lib/cloudinary';
 
 export const FloatingCTA = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -61,7 +62,7 @@ export const FloatingCTA = () => {
               <div className="absolute inset-0 opacity-10 pointer-events-none rounded-t-2xl bg-[radial-gradient(#fff_1px,transparent_1px)] bg-[size:10px_10px]" />
               
               <img
-                src="/characters.png"
+                src={assets.characters}
                 alt="Utkarsh Builder Experts"
                 className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[160px] sm:w-[220px] h-[90px] sm:h-[120px] object-contain pointer-events-none z-10 select-none drop-shadow-[0_-5px_8px_rgba(0,0,0,0.25)]"
               />

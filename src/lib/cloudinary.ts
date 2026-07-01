@@ -8,6 +8,7 @@ export const assets = {
   heroBannerAfterImage: `${CLOUDINARY_IMAGE_BASE}/v1782217497/utkarsh%20construction/hero-banner-after-1.jpg`,
   viteSvg: `${CLOUDINARY_IMAGE_BASE}/v1782197678/utkarsh%20construction/vite.svg`,
   reactSvg: `${CLOUDINARY_IMAGE_BASE}/v1782197677/utkarsh%20construction/react.svg`,
+  characters: `${CLOUDINARY_IMAGE_BASE}/v1782888454/utkarsh%20construction/characters.png`,
   
   generated: {
     balcony: `${CLOUDINARY_IMAGE_BASE}/v1782197634/utkarsh%20construction/generated/balcony.webp`,
