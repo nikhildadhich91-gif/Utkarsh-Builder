@@ -188,12 +188,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   {project.number}
                 </span>
                 <div className="mt-2">
-                  <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block group-hover/title:text-[#C92C15] transition-colors">
-                    {project.category} &bull; {project.location}
-                  </span>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-1 leading-tight group-hover/title:text-[#C92C15] transition-colors">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight leading-tight group-hover/title:text-[#C92C15] transition-colors">
                     {project.name}
                   </h3>
+                  <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block mt-2 group-hover/title:text-[#C92C15] transition-colors">
+                    {project.category} &bull; {project.location}
+                  </span>
                 </div>
               </div>
 
@@ -358,12 +358,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   {project.number}
                 </span>
                 <div className="mt-2">
-                  <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block group-hover/title:text-[#C92C15] transition-colors">
-                    {project.category} &bull; {project.location}
-                  </span>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-1 leading-tight group-hover/title:text-[#C92C15] transition-colors">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight leading-tight group-hover/title:text-[#C92C15] transition-colors">
                     {project.name}
                   </h3>
+                  <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block mt-2 group-hover/title:text-[#C92C15] transition-colors">
+                    {project.category} &bull; {project.location}
+                  </span>
                 </div>
               </div>
 
