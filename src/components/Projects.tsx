@@ -20,9 +20,9 @@ const paliwalTextileCol1_1 = assets.projects.paliwalCol1_1;
 const paliwalTextileCol1_2 = assets.projects.paliwalCol1_2;
 const paliwalTextileCol2 = assets.projects.paliwalCol2;
 
-const modularKitchenCol1_1 = assets.projects.kitchenCol1_1;
-const modularKitchenCol1_2 = assets.projects.kitchenCol1_2;
-const modularKitchenCol2 = assets.projects.kitchenCol2;
+const bhangadiyaHouseCol1_1 = assets.projects.bhangadiyaCol1_1;
+const bhangadiyaHouseCol1_2 = assets.projects.bhangadiyaCol1_2;
+const bhangadiyaHouseCol2 = assets.projects.bhangadiyaCol2;
 
 const hotelReeveInnCol1_1 = assets.projects.hotelCol1_1;
 const hotelReeveInnCol1_2 = assets.projects.hotelCol1_2;
@@ -45,9 +45,9 @@ interface ProjectData {
 const projectsList: ProjectData[] = [
   {
     number: '01',
-    name: 'MS Jewellers Showroom',
+    name: 'MS Jewellers',
     category: 'Commercial Showroom',
-    location: 'Rajasthan',
+    location: 'Johari Bazaar',
     description: 'A high-concept jewelry showroom combining state-of-the-art security, custom-engineered display counters, and precise task lighting.',
     tag: 'commercial',
     images: {
@@ -58,9 +58,9 @@ const projectsList: ProjectData[] = [
   },
   {
     number: '02',
-    name: 'Barfiwala Sweets Showroom',
+    name: 'Barfiwala Sweets',
     category: 'Premium Retail Showroom',
-    location: 'Rajasthan',
+    location: 'Johari Bazaar',
     description: 'A modern retail sweets showroom blending heritage Rajasthani elements with clean contemporary display cases, hygiene-first packaging areas, and warm inviting lighting.',
     tag: 'commercial',
     images: {
@@ -71,22 +71,22 @@ const projectsList: ProjectData[] = [
   },
   {
     number: '03',
-    name: 'Indie Stitch Designer Boutique',
-    category: 'Bespoke Boutique & Office',
-    location: 'Rajasthan',
-    description: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing, and modern design aesthetics.',
-    tag: 'commercial',
+    name: 'Reeve Inn Hotel',
+    category: 'Commercial & Hospitality',
+    location: 'Bani Park',
+    description: 'A modern commercial hotel development showcasing structural concrete integrity, customized exterior finishes, and premium room layouts.',
+    tag: 'development',
     images: {
-      col1_1: indieStitchCol1_1,
-      col1_2: indieStitchCol1_2,
-      col2: indieStitchCol2
+      col1_1: hotelReeveInnCol1_1,
+      col1_2: hotelReeveInnCol1_2,
+      col2: hotelReeveInnCol2
     }
   },
   {
     number: '04',
-    name: 'Paliwal Textile Hub',
+    name: 'Paliwal Textile',
     category: 'Textile Center & Office',
-    location: 'Rajasthan',
+    location: 'MI Road',
     description: 'A state-of-the-art textile showroom and administrative office, featuring high-capacity fabric display racks, custom client discussion tables, and a premium exterior glass facade.',
     tag: 'commercial',
     images: {
@@ -97,28 +97,41 @@ const projectsList: ProjectData[] = [
   },
   {
     number: '05',
-    name: 'Elegant Modular Kitchen',
-    category: 'Residential Kitchen',
-    location: 'Rajasthan',
-    description: 'A fully customized modular kitchen showcasing gloss finishes, quartz countertops, high-capacity chimneys, and integrated storage solutions.',
+    name: 'Bhangadiya House',
+    category: 'Luxury Residence',
+    location: 'Johari Bazaar',
+    description: 'A premium luxury residence featuring customized structural designs, high-end marble materials, and a traditional facade integrated with modern space planning.',
     tag: 'residential',
     images: {
-      col1_1: modularKitchenCol1_1,
-      col1_2: modularKitchenCol1_2,
-      col2: modularKitchenCol2
+      col1_1: bhangadiyaHouseCol1_1,
+      col1_2: bhangadiyaHouseCol1_2,
+      col2: bhangadiyaHouseCol2
     }
   },
   {
     number: '06',
-    name: 'Hotel Reeve Inn',
-    category: 'Commercial & Hospitality',
-    location: 'Rajasthan',
-    description: 'A modern commercial hotel development showcasing structural concrete integrity, customized exterior finishes, and premium room layouts.',
-    tag: 'development',
+    name: 'Shri Narayan Sales',
+    category: 'Commercial Office & Hub',
+    location: 'Johari Bazaar',
+    description: 'A contemporary commercial office space and sales hub designed with open planning, premium finishes, and integrated smart facilities.',
+    tag: 'commercial',
     images: {
-      col1_1: hotelReeveInnCol1_1,
-      col1_2: hotelReeveInnCol1_2,
-      col2: hotelReeveInnCol2
+      col1_1: assets.generated.office,
+      col1_2: assets.generated.reception,
+      col2: assets.generated.corridor
+    }
+  },
+  {
+    number: '07',
+    name: 'Indie Stitch',
+    category: 'Bespoke Boutique & Office',
+    location: 'Mansarovar',
+    description: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing, and modern design aesthetics.',
+    tag: 'commercial',
+    images: {
+      col1_1: indieStitchCol1_1,
+      col1_2: indieStitchCol1_2,
+      col2: indieStitchCol2
     }
   }
 ];

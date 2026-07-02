@@ -1,11 +1,34 @@
 import React from 'react';
 import { FadeUp } from '../components/ui/FadeUp';
 import Projects from '../components/Projects';
+import HeroSection from '../components/ui/hero-section-9';
 import { Shield } from 'lucide-react';
-import ProjectBanner from '../components/ProjectBanner';
-
+import { assets } from '../lib/cloudinary';
 
 export const ProjectsPage: React.FC = () => {
+
+  const heroData = {
+    title: (
+      <>
+        Crafted With <span className="font-semibold text-[#C92C15]">Precision</span>
+      </>
+    ),
+    subtitle: 'Explore our landmark projects across Rajasthan, from modern offices to custom built luxury villas.',
+    actions: [
+      {
+        text: 'Book Consultation',
+        onClick: () => { window.location.href = '/contact#contact-section' }
+      }
+    ],
+    images: [
+      assets.projects.hotelCol1_1,
+      assets.projects.msCol1_2,
+      assets.projects.bhangadiyaCol1_1,
+      assets.projects.indieCol2,
+      assets.projects.barfiwalaCol1_1,
+      assets.projects.paliwalCol1_2,
+    ],
+  };
 
   // Specs lists for landmark building materials in Rajasthan
   const projectSpecifications = [
@@ -30,11 +53,16 @@ export const ProjectsPage: React.FC = () => {
   return (
     <div className="bg-[#FAF7F5] w-full min-h-screen text-[#2A2A2A] pb-24 overflow-x-hidden">
       
-      {/* 1. Scroll-Animated Header Banner */}
-      <ProjectBanner />
+      {/* 1. Portfolio Hero Section */}
+      <HeroSection
+        title={heroData.title}
+        subtitle={heroData.subtitle}
+        actions={heroData.actions}
+        images={heroData.images}
+      />
 
       {/* 2. Stacking Card Showcase Component */}
-      <div className="relative z-10 -mt-[45vh] md:-mt-[50vh]">
+      <div className="relative z-10">
         <Projects filter="all" />
       </div>
 

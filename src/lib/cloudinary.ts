@@ -21,9 +21,10 @@ export const assets = {
   },
   
   projects: {
-    hotelCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782391244/utkarsh%20construction/projects/hotel-reeve-inn-col1-1.webp`,
-    hotelCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782391246/utkarsh%20construction/projects/hotel-reeve-inn-col1-2.webp`,
-    hotelCol2: `${CLOUDINARY_IMAGE_BASE}/v1782391249/utkarsh%20construction/projects/hotel-reeve-inn-col2.webp`,
+    hotelCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782978336/utkarsh%20construction/projects/hotel-reeve-inn-col1-1.webp`,
+    hotelCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782978338/utkarsh%20construction/projects/hotel-reeve-inn-col1-2.webp`,
+    hotelCol2: `${CLOUDINARY_IMAGE_BASE}/v1782978339/utkarsh%20construction/projects/hotel-reeve-inn-col2.webp`,
+    hotelCol2Extra: `${CLOUDINARY_IMAGE_BASE}/v1782978341/utkarsh%20construction/projects/hotel-reeve-inn-col2-extra.webp`,
     
     indieCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782391235/utkarsh%20construction/projects/indie-stitch-col1-1.webp`,
     indieCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782391237/utkarsh%20construction/projects/indie-stitch-col1-2.webp`,
@@ -44,6 +45,10 @@ export const assets = {
     paliwalCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782391239/utkarsh%20construction/projects/paliwal-textile-col1-1.webp`,
     paliwalCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782391240/utkarsh%20construction/projects/paliwal-textile-col1-2.webp`,
     paliwalCol2: `${CLOUDINARY_IMAGE_BASE}/v1782391241/utkarsh%20construction/projects/paliwal-textile-col2.webp`,
+    
+    bhangadiyaCol1_1: `${CLOUDINARY_IMAGE_BASE}/v1782977510/utkarsh%20construction/projects/bhangadiya-house-col1-1.webp`,
+    bhangadiyaCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782977514/utkarsh%20construction/projects/bhangadiya-house-col1-2.webp`,
+    bhangadiyaCol2: `${CLOUDINARY_IMAGE_BASE}/v1782977517/utkarsh%20construction/projects/bhangadiya-house-col2.webp`,
     
     backup: {
       hotelCol1_2: `${CLOUDINARY_IMAGE_BASE}/v1782197657/utkarsh%20construction/projects/backup/hotel-reeve-inn-col1-2.webp`,

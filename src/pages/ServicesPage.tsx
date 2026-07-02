@@ -1,7 +1,15 @@
+import { useState, useEffect, useRef } from 'react';
 import { FadeUp } from '../components/ui/FadeUp';
 import { StaggerContainer } from '../components/ui/StaggerContainer';
 import { HeroSection } from '../components/ui/hero-section-2';
 import { PointerHighlight } from '../components/ui/pointer-highlight';
+import { HelpCircle, ChevronDown } from 'lucide-react';
+import { EdgeBlur } from '../components/ui/edge-blur';
+import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 interface ServiceItem {
@@ -56,7 +64,94 @@ const servicesData: ServiceItem[] = [
   }
 ];
 
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const faqData: FAQItem[] = [
+  {
+    question: "What types of construction services do you offer?",
+    answer: "We provide a wide range of construction and development services, including residential building, commercial offices, complete turnkey project management, site supervision, renovations, and site analysis support."
+  },
+  {
+    question: "Do you manage projects from planning through completion?",
+    answer: "Yes, our turnkey services cover all aspects of the construction journey, including site evaluation, architectural and structural coordination, material procurement, on-site supervision, and final project handover."
+  },
+  {
+    question: "How is structural quality and safety maintained?",
+    answer: "We adhere strictly to local building standards and engineering guidelines. By using certified, high-strength materials and performing regular on-site quality checks, we ensure that every structure is durable, safe, and built to last."
+  },
+  {
+    question: "Which areas or regions do you operate in?",
+    answer: "We primarily execute residential and commercial projects across various locations in Rajasthan, adapting our building methods to suit local climate conditions and regional authority guidelines."
+  },
+  {
+    question: "How can I schedule a consultation or get a project estimate?",
+    answer: "You can book a consultation with our engineering team by visiting our Contact page and completing the enquiry form. We will review your requirements and get in touch to discuss details."
+  }
+];
+
+
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0 }
+};
+
 export const ServicesPage = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const scrollWindowRef = useRef<HTMLDivElement>(null);
+  const listWrapperRef = useRef<HTMLDivElement>(null);
+  const pinnedContentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!triggerRef.current || !scrollWindowRef.current || !listWrapperRef.current || !pinnedContentRef.current) return;
+
+    let ctx = gsap.context(() => {
+      // Calculate scroll distance
+      const calculateScroll = () => {
+        const windowHeight = scrollWindowRef.current!.clientHeight;
+        const listHeight = listWrapperRef.current!.scrollHeight;
+        return Math.max(0, listHeight - windowHeight);
+      };
+
+      let scrollDistance = calculateScroll();
+
+      // Create scroll animation
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+          pin: pinnedContentRef.current,
+          pinSpacing: true,
+          invalidateOnRefresh: true,
+        }
+      });
+
+      if (scrollDistance > 0) {
+        tl.to(listWrapperRef.current, {
+          y: -scrollDistance,
+          ease: 'none',
+        });
+      }
+
+      const handleResize = () => {
+        scrollDistance = calculateScroll();
+        ScrollTrigger.refresh();
+      };
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div className="bg-[#FAF7F5] w-full min-h-screen text-[#2A2A2A] pb-24">
 
@@ -84,54 +179,73 @@ export const ServicesPage = () => {
       </div>
 
       {/* 2. Jack-Style Services Section (Vertical list, white bg) */}
-      <div className="py-12 md:py-24 bg-white rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] relative z-10 -mt-10">
-        <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16">
-
-          <div className="text-center mb-10 md:mb-24">
-            <FadeUp delay={0.1} className="mb-3">
-              <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">The Services</span>
-            </FadeUp>
-            <FadeUp delay={0.2}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B]">
-                Core Competencies
-              </h2>
-            </FadeUp>
+      <div 
+        ref={triggerRef} 
+        style={{ height: '240vh' }}
+        className="relative w-full bg-white rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] relative z-10 -mt-10"
+      >
+        {/* Pinned container which captures full screen height */}
+        <div 
+          ref={pinnedContentRef} 
+          className="h-screen w-full overflow-hidden bg-white flex flex-col justify-start py-8 md:py-16 relative"
+        >
+          {/* Header container */}
+          <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16 w-full shrink-0">
+            <div className="text-center mb-6 md:mb-12">
+              <FadeUp delay={0.1} className="mb-2">
+                <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">The Services</span>
+              </FadeUp>
+              <FadeUp delay={0.2}>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1B1B1B]">
+                  Core Competencies
+                </h2>
+              </FadeUp>
+            </div>
           </div>
 
-          <StaggerContainer staggerChildren={0.15} className="flex flex-col border-t border-[#1B1B1B]/15">
-            {servicesData.map((service, index) => (
-              <FadeUp
-                key={service.number}
-                delay={index * 0.1}
-                y={30}
-                className="py-6 md:py-12 border-b border-[#1B1B1B]/15 flex flex-col md:flex-row items-start gap-4 md:gap-12 group hover:bg-[#FAF7F5]/40 transition-all duration-300 px-3 md:px-4 rounded-xl"
-              >
-                {/* Left side: Huge Index Number */}
-                <div className="w-16 md:w-32 shrink-0">
-                  <span className="text-3xl md:text-6xl lg:text-7xl font-light text-[#C92C15]/35 group-hover:text-[#C92C15] transition-colors duration-300 select-none">
-                    {service.number}
-                  </span>
-                </div>
+          {/* Scroll Window (Full Screen Width) */}
+          <div ref={scrollWindowRef} className="relative overflow-hidden w-full flex-1 bg-[#FAF7F5]/30 border-t border-b border-black/5 shadow-inner">
+            
+            {/* Translated Wrapper */}
+            <div ref={listWrapperRef} className="relative z-0 max-w-5xl mx-auto px-6 md:px-12 lg:px-16 py-6 pb-20 pt-8">
+              <StaggerContainer staggerChildren={0.15} className="flex flex-col border-t border-[#1B1B1B]/15">
+                {servicesData.map((service) => (
+                  <motion.div
+                    key={service.number}
+                    variants={itemVariants}
+                    transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="py-6 md:py-12 border-b border-[#1B1B1B]/15 flex flex-col md:flex-row items-start gap-4 md:gap-12 group hover:bg-[#FAF7F5]/40 transition-all duration-300 px-3 md:px-4 rounded-xl text-left"
+                  >
+                    {/* Left side: Huge Index Number */}
+                    <div className="w-16 md:w-32 shrink-0">
+                      <span className="text-3xl md:text-6xl lg:text-7xl font-light text-[#C92C15]/35 group-hover:text-[#C92C15] transition-colors duration-300 select-none">
+                        {service.number}
+                      </span>
+                    </div>
 
-                {/* Right side: Name & Detail stacked */}
-                <div className="flex-1 text-left space-y-2 md:space-y-4">
-                  <h3 className="text-lg md:text-2xl font-semibold text-[#1B1B1B] tracking-tight group-hover:text-[#C92C15] transition-colors duration-300">
-                    {service.title}
-                  </h3>
+                    {/* Right side: Name & Detail stacked */}
+                    <div className="flex-1 text-left space-y-2 md:space-y-4">
+                      <h3 className="text-lg md:text-2xl font-semibold text-[#1B1B1B] tracking-tight group-hover:text-[#C92C15] transition-colors duration-300">
+                        {service.title}
+                      </h3>
 
-                  <p className="text-sm md:text-base text-[#6F6F6F] font-light leading-relaxed">
-                    {service.description}
-                  </p>
+                      <p className="text-sm md:text-base text-[#6F6F6F] font-light leading-relaxed">
+                        {service.description}
+                      </p>
 
-                  <p className="text-xs md:text-sm text-[#6F6F6F]/80 font-light leading-relaxed border-l-2 border-[#C92C15]/30 pl-4 group-hover:border-[#C92C15] transition-all">
-                    {service.extendedDetails}
-                  </p>
-                </div>
-              </FadeUp>
-            ))}
-          </StaggerContainer>
-
+                      <p className="text-xs md:text-sm text-[#6F6F6F]/80 font-light leading-relaxed border-l-2 border-[#C92C15]/30 pl-4 group-hover:border-[#C92C15] transition-all">
+                        {service.extendedDetails}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </StaggerContainer>
+            </div>
+          </div>
+          <EdgeBlur position="top" height={60} />
+          <EdgeBlur position="bottom" height={80} />
         </div>
+
       </div>
 
       {/* 3. Asme-Style Video Bento Grid */}
@@ -206,6 +320,53 @@ export const ServicesPage = () => {
 
           </div>
 
+        </div>
+      </div>
+
+      {/* 4. FAQ Section Accordion Grid (Stolen from Contact Us page) */}
+      <div className="py-12 md:py-24 max-w-4xl mx-auto px-6">
+        <div className="text-center mb-10 md:mb-16">
+          <FadeUp delay={0.1} className="mb-3">
+            <span className="text-[#C92C15] text-xs font-bold tracking-[0.2em] uppercase">Faqs</span>
+          </FadeUp>
+          <FadeUp delay={0.2}>
+            <h2 className="text-2xl md:text-4xl font-semibold text-[#1B1B1B] tracking-tight">
+              Frequently Asked Questions
+            </h2>
+          </FadeUp>
+        </div>
+
+        <div className="space-y-4">
+          {faqData.map((faq, idx) => (
+            <FadeUp
+              key={idx}
+              delay={idx * 0.08}
+              y={20}
+              className="bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden"
+              once={true}
+            >
+              <button
+                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                className="w-full px-4 py-4 flex items-center justify-between text-left cursor-pointer transition-colors hover:bg-[#FAF7F5]/50"
+              >
+                <div className="flex items-center gap-3 pr-4">
+                  <HelpCircle className="h-4 w-4 text-[#C92C15] shrink-0" />
+                  <span className="font-semibold text-xs md:text-base text-[#1B1B1B]">{faq.question}</span>
+                </div>
+                <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform duration-300 ${openIndex === idx ? 'transform rotate-180 text-[#C92C15]' : ''
+                  }`} />
+              </button>
+
+              <div
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${openIndex === idx ? 'max-h-[220px] border-t border-gray-100' : 'max-h-0'
+                  }`}
+              >
+                <p className="p-4 md:p-6 text-xs md:text-sm text-[#6F6F6F] font-light leading-relaxed text-left bg-gray-50/50">
+                  {faq.answer}
+                </p>
+              </div>
+            </FadeUp>
+          ))}
         </div>
       </div>
 

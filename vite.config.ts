@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     watch: {
-      ignored: ['**/banner video.zip', '**/temp-videos/**']
+      ignored: ['**/*.zip', '**/temp-videos/**', '**/BhangadiyaTemp/**', '**/*Temp/**']
     }
   }
 })

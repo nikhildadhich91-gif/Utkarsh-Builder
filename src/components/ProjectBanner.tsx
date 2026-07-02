@@ -26,9 +26,9 @@ const paliwalCol1_1 = assets.projects.paliwalCol1_1;
 const paliwalCol1_2 = assets.projects.paliwalCol1_2;
 const paliwalCol2 = assets.projects.paliwalCol2;
 
-const kitchenCol1_1 = assets.projects.kitchenCol1_1;
-const kitchenCol1_2 = assets.projects.kitchenCol1_2;
-const kitchenCol2 = assets.projects.kitchenCol2;
+const bhangadiyaCol1_1 = assets.projects.bhangadiyaCol1_1;
+const bhangadiyaCol1_2 = assets.projects.bhangadiyaCol1_2;
+const bhangadiyaCol2 = assets.projects.bhangadiyaCol2;
 
 const hotelCol1_1 = assets.projects.hotelCol1_1;
 const hotelCol1_2 = assets.projects.hotelCol1_2;
@@ -237,135 +237,156 @@ interface GalleryItem {
 const column1Items: GalleryItem[] = [
   {
     id: "col1-1",
-    name: "Hotel Reeve Inn",
+    name: "Reeve Inn Hotel",
     category: "Commercial & Hospitality",
-    location: "Rajasthan",
+    location: "Bani Park",
     image: hotelCol1_1
   },
   {
     id: "col1-2",
-    name: "MS Jewellers Showroom",
+    name: "MS Jewellers",
     category: "Commercial Showroom",
-    location: "Rajasthan",
+    location: "Johari Bazaar",
     image: msCol1_2
   },
   {
     id: "col1-3",
-    name: "Elegant Modular Kitchen",
-    category: "Residential Kitchen",
-    location: "Rajasthan",
-    image: kitchenCol1_1
+    name: "Bhangadiya House",
+    category: "Luxury Residence",
+    location: "Johari Bazaar",
+    image: bhangadiyaCol1_1
   },
   {
     id: "col1-4",
-    name: "Indie Stitch Boutique",
+    name: "Indie Stitch",
     category: "Bespoke Boutique & Office",
-    location: "Rajasthan",
+    location: "Mansarovar",
     image: indieCol2
   },
   {
     id: "col1-5",
-    name: "Barfiwala Sweets Showroom",
+    name: "Barfiwala Sweets",
     category: "Premium Retail Showroom",
-    location: "Rajasthan",
+    location: "Johari Bazaar",
     image: barfiwalaCol1_1
   },
   {
     id: "col1-6",
-    name: "Paliwal Textile Hub",
+    name: "Paliwal Textile",
     category: "Textile Center & Office",
-    location: "Rajasthan",
+    location: "MI Road",
     image: paliwalCol1_2
+  },
+  {
+    id: "col1-7",
+    name: "Shri Narayan Sales",
+    category: "Commercial Office & Hub",
+    location: "Johari Bazaar",
+    image: assets.generated.office
   }
 ]
 
 const column2Items: GalleryItem[] = [
   {
     id: "col2-1",
-    name: "Indie Stitch Boutique",
+    name: "Indie Stitch",
     category: "Bespoke Boutique & Office",
-    location: "Rajasthan",
+    location: "Mansarovar",
     image: indieCol1_1
   },
   {
     id: "col2-2",
-    name: "Elegant Modular Kitchen",
-    category: "Residential Kitchen",
-    location: "Rajasthan",
-    image: kitchenCol2
+    name: "Bhangadiya House",
+    category: "Luxury Residence",
+    location: "Johari Bazaar",
+    image: bhangadiyaCol2
   },
   {
     id: "col2-3",
-    name: "MS Jewellers Showroom",
+    name: "MS Jewellers",
     category: "Commercial Showroom",
-    location: "Rajasthan",
+    location: "Johari Bazaar",
     image: msCol1_1
   },
   {
     id: "col2-4",
-    name: "Hotel Reeve Inn",
+    name: "Reeve Inn Hotel",
     category: "Commercial & Hospitality",
-    location: "Rajasthan",
+    location: "Bani Park",
     image: hotelCol2
   },
   {
     id: "col2-5",
-    name: "Paliwal Textile Hub",
+    name: "Paliwal Textile",
     category: "Textile Center & Office",
-    location: "Rajasthan",
+    location: "MI Road",
     image: paliwalCol1_1
   },
   {
     id: "col2-6",
-    name: "Barfiwala Sweets Showroom",
+    name: "Barfiwala Sweets",
     category: "Premium Retail Showroom",
-    location: "Rajasthan",
+    location: "Johari Bazaar",
     image: barfiwalaCol2
+  },
+  {
+    id: "col2-7",
+    name: "Shri Narayan Sales",
+    category: "Commercial Office & Hub",
+    location: "Johari Bazaar",
+    image: assets.generated.reception
   }
 ]
 
 const column3Items: GalleryItem[] = [
   {
     id: "col3-1",
-    name: "MS Jewellers Showroom",
+    name: "MS Jewellers",
     category: "Commercial Showroom",
-    location: "Rajasthan",
+    location: "Johari Bazaar",
     image: msCol2
   },
   {
     id: "col3-2",
-    name: "Hotel Reeve Inn",
+    name: "Reeve Inn Hotel",
     category: "Commercial & Hospitality",
-    location: "Rajasthan",
+    location: "Bani Park",
     image: hotelCol1_2
   },
   {
     id: "col3-3",
-    name: "Indie Stitch Boutique",
+    name: "Indie Stitch",
     category: "Bespoke Boutique & Office",
-    location: "Rajasthan",
+    location: "Mansarovar",
     image: indieCol1_2
   },
   {
     id: "col3-4",
-    name: "Elegant Modular Kitchen",
-    category: "Residential Kitchen",
-    location: "Rajasthan",
-    image: kitchenCol1_2
+    name: "Bhangadiya House",
+    category: "Luxury Residence",
+    location: "Johari Bazaar",
+    image: bhangadiyaCol1_2
   },
   {
     id: "col3-5",
-    name: "Barfiwala Sweets Showroom",
+    name: "Barfiwala Sweets",
     category: "Premium Retail Showroom",
-    location: "Rajasthan",
+    location: "Johari Bazaar",
     image: barfiwalaCol1_2
   },
   {
     id: "col3-6",
-    name: "Paliwal Textile Hub",
+    name: "Paliwal Textile",
     category: "Textile Center & Office",
-    location: "Rajasthan",
+    location: "MI Road",
     image: paliwalCol2
+  },
+  {
+    id: "col3-7",
+    name: "Shri Narayan Sales",
+    category: "Commercial Office & Hub",
+    location: "Johari Bazaar",
+    image: assets.generated.corridor
   }
 ]
 

@@ -21,25 +21,25 @@ interface DevelopmentCard {
 export const FeaturedDevelopments: React.FC = () => {
   const developments: DevelopmentCard[] = [
     {
-      title: 'Hotel Reeve Inn',
+      title: 'Reeve Inn Hotel',
       type: 'Commercial & Hospitality',
-      location: 'Rajasthan',
+      location: 'Bani Park',
       desc: 'A modern commercial hotel development showcasing structural concrete integrity, customized exterior finishes and premium room layouts.',
       image: hotelReeveInnImg,
       link: '/projects?filter=development'
     },
     {
-      title: 'MS Jewellers Showroom',
+      title: 'MS Jewellers',
       type: 'Commercial Showroom',
-      location: 'Rajasthan',
+      location: 'Johari Bazaar',
       desc: 'A high concept jewelry showroom combining state of the art security, custom engineered display counters and precise task lighting.',
       image: msJewellersImg,
       link: '/projects?filter=commercial'
     },
     {
-      title: 'Indie Stitch Designer Boutique',
+      title: 'Indie Stitch',
       type: 'Bespoke Boutique & Office',
-      location: 'Rajasthan',
+      location: 'Mansarovar',
       desc: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing and modern design aesthetics.',
       image: indieStitchImg,
       link: '/projects?filter=commercial'

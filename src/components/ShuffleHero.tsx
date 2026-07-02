@@ -72,8 +72,8 @@ const msCol1_1 = assets.projects.msCol1_1;
 const msCol2 = assets.projects.msCol2;
 const indieCol1_1 = assets.projects.indieCol1_1;
 const indieCol2 = assets.projects.indieCol2;
-const kitchenCol1_1 = assets.projects.kitchenCol1_1;
-const kitchenCol2 = assets.projects.kitchenCol2;
+const bhangadiyaCol1_1 = assets.projects.bhangadiyaCol1_1;
+const bhangadiyaCol2 = assets.projects.bhangadiyaCol2;
 const hotelCol1_1 = assets.projects.hotelCol1_1;
 const hotelCol2 = assets.projects.hotelCol2;
 const barfiwalaCol1_1 = assets.projects.barfiwalaCol1_1;
@@ -90,8 +90,8 @@ const squareData = [
   { id: 6, src: msCol2 },
   { id: 7, src: indieCol1_1 },
   { id: 8, src: indieCol2 },
-  { id: 9, src: kitchenCol1_1 },
-  { id: 10, src: kitchenCol2 },
+  { id: 9, src: bhangadiyaCol1_1 },
+  { id: 10, src: bhangadiyaCol2 },
   { id: 11, src: hotelCol1_1 },
   { id: 12, src: hotelCol2 },
   { id: 13, src: barfiwalaCol1_1 },
