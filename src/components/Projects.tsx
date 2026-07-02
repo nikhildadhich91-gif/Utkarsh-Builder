@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { assets } from '../lib/cloudinary';
@@ -144,157 +144,180 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const isEven = index % 2 === 0;
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Map progress to scale: big (1.15) at start/end, stable normal size (1.0) in the middle 50%
+  const scale = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [1.15, 1.0, 1.0, 1.15]);
+  
+  // Map progress to 3D rotation: tilts back when entering, flat in middle 50%, tilts forward when exiting
+  const rotateX = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [15, 0, 0, -15]);
+  
+  // Map progress to opacity for a smooth fade-in/fade-out at borders
+  const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.6, 1.0, 1.0, 0.6]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="w-full rounded-[30px] md:rounded-[40px] border border-black/5 bg-white p-6 md:p-8 lg:p-10 shadow-lg hover:shadow-xl transition-all duration-500 flex flex-col md:flex-row gap-8 lg:gap-12 items-center mb-12 md:mb-16"
+    <div 
+      ref={cardRef} 
+      className="w-full mb-12 md:mb-16 flex justify-center"
+      style={{ perspective: "1500px" }}
     >
-      {isEven ? (
-        <>
-          {/* Text block (Left 42%) */}
-          <div className="w-full md:w-[42%] flex flex-col text-left justify-center space-y-4 lg:space-y-6">
-            <span className="text-4xl md:text-5xl lg:text-6xl font-light text-[#C92C15] leading-none select-none">
-              {project.number}
-            </span>
-            <div>
-              <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block">
-                {project.category} &bull; {project.location}
+      <motion.div
+        style={{
+          scale,
+          rotateX,
+          opacity,
+          transformStyle: "preserve-3d"
+        }}
+        className="w-full rounded-[30px] md:rounded-[40px] border border-black/5 bg-white p-6 md:p-8 lg:p-10 shadow-lg hover:shadow-xl transition-shadow duration-500 flex flex-col md:flex-row gap-8 lg:gap-12 items-center"
+      >
+        {isEven ? (
+          <>
+            {/* Text block (Left 42%) */}
+            <div className="w-full md:w-[42%] flex flex-col text-left justify-center space-y-4 lg:space-y-6">
+              <span className="text-4xl md:text-5xl lg:text-6xl font-light text-[#C92C15] leading-none select-none">
+                {project.number}
               </span>
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-2 leading-tight">
-                {project.name}
-              </h3>
-            </div>
-            <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
-              {project.description}
-            </p>
-            <div className="pt-2">
-              <Link
-                to="/contact#contact-section"
-                onClick={(e) => {
-                  if (window.location.pathname === '/contact') {
-                    e.preventDefault();
-                    document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
-              >
-                <span>Enquire Project</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Image block (Right 58%) */}
-          <div className="w-full md:w-[58%]">
-            <div className="grid grid-cols-10 gap-4 lg:gap-6">
-              {/* Left tall image (Col 2) */}
-              <div className="col-span-6 rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[320px] lg:h-[420px]">
-                <img
-                  src={project.images.col2}
-                  alt={`${project.name} main view`}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  loading="lazy"
-                />
+              <div>
+                <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block">
+                  {project.category} &bull; {project.location}
+                </span>
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-2 leading-tight">
+                  {project.name}
+                </h3>
               </div>
+              <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
+                {project.description}
+              </p>
+              <div className="pt-2">
+                <Link
+                  to="/contact#contact-section"
+                  onClick={(e) => {
+                    if (window.location.pathname === '/contact') {
+                      e.preventDefault();
+                      document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
+                >
+                  <span>Enquire Project</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
 
-              {/* Right stacked images (Col 1_1 and 1_2) */}
-              <div className="col-span-4 flex flex-col gap-4 lg:gap-6 justify-between h-[320px] lg:h-[420px]">
-                <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
+            {/* Image block (Right 58%) */}
+            <div className="w-full md:w-[58%]">
+              <div className="grid grid-cols-10 gap-4 lg:gap-6">
+                {/* Left tall image (Col 2) */}
+                <div className="col-span-6 rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[320px] lg:h-[420px]">
                   <img
-                    src={project.images.col1_1}
-                    alt={`${project.name} detail view 1`}
+                    src={project.images.col2}
+                    alt={`${project.name} main view`}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                     loading="lazy"
                   />
                 </div>
-                <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
+
+                {/* Right stacked images (Col 1_1 and 1_2) */}
+                <div className="col-span-4 flex flex-col gap-4 lg:gap-6 justify-between h-[320px] lg:h-[420px]">
+                  <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
+                    <img
+                      src={project.images.col1_1}
+                      alt={`${project.name} detail view 1`}
+                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
+                    <img
+                      src={project.images.col1_2}
+                      alt={`${project.name} detail view 2`}
+                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            {/* Image block (Left 58%) */}
+            <div className="w-full md:w-[58%] order-2 md:order-1">
+              <div className="grid grid-cols-10 gap-4 lg:gap-6">
+                {/* Left stacked images (Col 1_1 and 1_2) */}
+                <div className="col-span-4 flex flex-col gap-4 lg:gap-6 justify-between h-[320px] lg:h-[420px]">
+                  <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
+                    <img
+                      src={project.images.col1_1}
+                      alt={`${project.name} detail view 1`}
+                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
+                    <img
+                      src={project.images.col1_2}
+                      alt={`${project.name} detail view 2`}
+                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+
+                {/* Right tall image (Col 2) */}
+                <div className="col-span-6 rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[320px] lg:h-[420px]">
                   <img
-                    src={project.images.col1_2}
-                    alt={`${project.name} detail view 2`}
+                    src={project.images.col2}
+                    alt={`${project.name} main view`}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                     loading="lazy"
                   />
                 </div>
               </div>
             </div>
-          </div>
-        </>
-      ) : (
-        <>
-          {/* Image block (Left 58%) */}
-          <div className="w-full md:w-[58%] order-2 md:order-1">
-            <div className="grid grid-cols-10 gap-4 lg:gap-6">
-              {/* Left stacked images (Col 1_1 and 1_2) */}
-              <div className="col-span-4 flex flex-col gap-4 lg:gap-6 justify-between h-[320px] lg:h-[420px]">
-                <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
-                  <img
-                    src={project.images.col1_1}
-                    alt={`${project.name} detail view 1`}
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
-                  <img
-                    src={project.images.col1_2}
-                    alt={`${project.name} detail view 2`}
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
 
-              {/* Right tall image (Col 2) */}
-              <div className="col-span-6 rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[320px] lg:h-[420px]">
-                <img
-                  src={project.images.col2}
-                  alt={`${project.name} main view`}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Text block (Right 42%) */}
-          <div className="w-full md:w-[42%] flex flex-col text-left justify-center space-y-4 lg:space-y-6 order-1 md:order-2">
-            <span className="text-4xl md:text-5xl lg:text-6xl font-light text-[#C92C15] leading-none select-none">
-              {project.number}
-            </span>
-            <div>
-              <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block">
-                {project.category} &bull; {project.location}
+            {/* Text block (Right 42%) */}
+            <div className="w-full md:w-[42%] flex flex-col text-left justify-center space-y-4 lg:space-y-6 order-1 md:order-2">
+              <span className="text-4xl md:text-5xl lg:text-6xl font-light text-[#C92C15] leading-none select-none">
+                {project.number}
               </span>
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-2 leading-tight">
-                {project.name}
-              </h3>
+              <div>
+                <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block">
+                  {project.category} &bull; {project.location}
+                </span>
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-2 leading-tight">
+                  {project.name}
+                </h3>
+              </div>
+              <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
+                {project.description}
+              </p>
+              <div className="pt-2">
+                <Link
+                  to="/contact#contact-section"
+                  onClick={(e) => {
+                    if (window.location.pathname === '/contact') {
+                      e.preventDefault();
+                      document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
+                >
+                  <span>Enquire Project</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
-            <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
-              {project.description}
-            </p>
-            <div className="pt-2">
-              <Link
-                to="/contact#contact-section"
-                onClick={(e) => {
-                  if (window.location.pathname === '/contact') {
-                    e.preventDefault();
-                    document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
-              >
-                <span>Enquire Project</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </>
-      )}
-    </motion.div>
+          </>
+        )}
+      </motion.div>
+    </div>
   );
 };
 
