@@ -25,7 +25,33 @@ export const Contact: React.FC<ContactProps> = ({ isEmbedded = false }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for your enquiry. Our team will contact you shortly.');
+    
+    const text = `*New Enquiry - Utkarsh Builder*
+
+*Name:* ${formData.name}
+*Phone:* ${formData.phone}
+*Email:* ${formData.email}
+*Project Type:* ${formData.projectType}
+*Plot Size:* ${formData.propertySize || 'N/A'}
+*Timeline to Start:* ${formData.timeline}
+*Address:* ${formData.address}
+
+*Question:*
+${formData.message || 'None'}`;
+
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=918562034491&text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      projectType: '',
+      propertySize: '',
+      timeline: '',
+      address: '',
+      message: '',
+    });
   };
 
   const formContent = (
