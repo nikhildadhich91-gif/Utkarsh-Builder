@@ -1,33 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ChevronDown } from 'lucide-react';
-import { assets, getOptimizedImageUrl } from '../lib/cloudinary';
-
-const msJewellersCol1_1 = assets.projects.msCol1_1;
-const msJewellersCol1_2 = assets.projects.msCol1_2;
-const msJewellersCol2 = assets.projects.msCol2;
-
-const barfiwalaSweetsCol1_1 = assets.projects.barfiwalaCol1_1;
-const barfiwalaSweetsCol1_2 = assets.projects.barfiwalaCol1_2;
-const barfiwalaSweetsCol2 = assets.projects.barfiwalaCol2;
-
-const indieStitchCol1_1 = assets.projects.indieCol1_1;
-const indieStitchCol1_2 = assets.projects.indieCol1_2;
-const indieStitchCol2 = assets.projects.indieCol2;
-
-const paliwalTextileCol1_1 = assets.projects.paliwalCol1_1;
-const paliwalTextileCol1_2 = assets.projects.paliwalCol1_2;
-const paliwalTextileCol2 = assets.projects.paliwalCol2;
-
-const bhangadiyaHouseCol1_1 = assets.projects.bhangadiyaCol1_1;
-const bhangadiyaHouseCol1_2 = assets.projects.bhangadiyaCol1_2;
-const bhangadiyaHouseCol2 = assets.projects.bhangadiyaCol2;
-
-const hotelReeveInnCol1_1 = assets.projects.hotelCol1_1;
-const hotelReeveInnCol1_2 = assets.projects.hotelCol1_2;
-const hotelReeveInnCol2 = assets.projects.hotelCol2;
-
+import { getOptimizedImageUrl } from '../lib/cloudinary';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { db } from '../lib/firebase';
 interface ProjectData {
   number: string;
   name: string;
@@ -41,101 +18,6 @@ interface ProjectData {
     col2: string;
   };
 }
-
-const projectsList: ProjectData[] = [
-  {
-    number: '01',
-    name: 'MS Jewellers',
-    category: 'Commercial Showroom',
-    location: 'Johari Bazaar',
-    description: 'A high-concept jewelry showroom combining state-of-the-art security, custom-engineered display counters, and precise task lighting.',
-    tag: 'commercial',
-    images: {
-      col1_1: msJewellersCol1_1,
-      col1_2: msJewellersCol1_2,
-      col2: msJewellersCol2
-    }
-  },
-  {
-    number: '02',
-    name: 'Barfiwala Sweets',
-    category: 'Premium Retail Showroom',
-    location: 'Johari Bazaar',
-    description: 'A modern retail sweets showroom blending heritage Rajasthani elements with clean contemporary display cases, hygiene-first packaging areas, and warm inviting lighting.',
-    tag: 'commercial',
-    images: {
-      col1_1: barfiwalaSweetsCol1_1,
-      col1_2: barfiwalaSweetsCol1_2,
-      col2: barfiwalaSweetsCol2
-    }
-  },
-  {
-    number: '03',
-    name: 'Reeve Inn Hotel',
-    category: 'Commercial & Hospitality',
-    location: 'Bani Park',
-    description: 'A modern commercial hotel development showcasing structural concrete integrity, customized exterior finishes, and premium room layouts.',
-    tag: 'development',
-    images: {
-      col1_1: hotelReeveInnCol1_1,
-      col1_2: hotelReeveInnCol1_2,
-      col2: hotelReeveInnCol2
-    }
-  },
-  {
-    number: '04',
-    name: 'Paliwal Textile',
-    category: 'Textile Center & Office',
-    location: 'MI Road',
-    description: 'A state-of-the-art textile showroom and administrative office, featuring high-capacity fabric display racks, custom client discussion tables, and a premium exterior glass facade.',
-    tag: 'commercial',
-    images: {
-      col1_1: paliwalTextileCol1_1,
-      col1_2: paliwalTextileCol1_2,
-      col2: paliwalTextileCol2
-    }
-  },
-  {
-    number: '05',
-    name: 'Bhangadiya House',
-    category: 'Luxury Residence',
-    location: 'Johari Bazaar',
-    description: 'A premium luxury residence featuring customized structural designs, high-end marble materials, and a traditional facade integrated with modern space planning.',
-    tag: 'residential',
-    images: {
-      col1_1: bhangadiyaHouseCol1_1,
-      col1_2: bhangadiyaHouseCol1_2,
-      col2: bhangadiyaHouseCol2
-    }
-  },
-  {
-    number: '06',
-    name: 'Shri Narayan Sales',
-    category: 'Commercial Office & Hub',
-    location: 'Johari Bazaar',
-    description: 'A contemporary commercial office space and sales hub designed with open planning, premium finishes, and integrated smart facilities.',
-    tag: 'commercial',
-    images: {
-      col1_1: assets.generated.office,
-      col1_2: assets.generated.reception,
-      col2: assets.generated.corridor
-    }
-  },
-  {
-    number: '07',
-    name: 'Indie Stitch',
-    category: 'Bespoke Boutique & Office',
-    location: 'Mansarovar',
-    description: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing, and modern design aesthetics.',
-    tag: 'commercial',
-    images: {
-      col1_1: indieStitchCol1_1,
-      col1_2: indieStitchCol1_2,
-      col2: indieStitchCol2
-    }
-  }
-];
-
 
 interface ProjectCardProps {
   project: ProjectData;
@@ -457,12 +339,66 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   );
 };
 
+
+const SkeletonCard: React.FC = () => {
+  return (
+    <div className="w-full mb-8 md:mb-16 flex justify-center">
+      <div className="w-full rounded-[24px] md:rounded-[40px] border border-black/5 bg-white p-5 md:p-8 lg:p-10 shadow-md flex flex-col md:flex-row gap-5 md:gap-8 lg:gap-12 items-center animate-pulse">
+        {/* Left block (Text skeleton) */}
+        <div className="w-full md:w-[42%] flex flex-col text-left justify-center space-y-4">
+          <div className="w-16 h-8 bg-black/5 rounded" />
+          <div className="space-y-2">
+            <div className="w-24 h-3 bg-black/5 rounded" />
+            <div className="w-48 h-6 bg-black/5 rounded" />
+          </div>
+          <div className="space-y-2">
+            <div className="w-full h-4 bg-black/5 rounded" />
+            <div className="w-5/6 h-4 bg-black/5 rounded" />
+          </div>
+          <div className="w-32 h-10 bg-black/5 rounded-full" />
+        </div>
+        {/* Right block (Image skeleton) */}
+        <div className="w-full md:w-[58%]">
+          <div className="grid grid-cols-10 gap-4">
+            <div className="col-span-6 rounded-[20px] bg-black/5 h-[240px] md:h-[320px]" />
+            <div className="col-span-4 flex flex-col gap-4 justify-between h-[240px] md:h-[320px]">
+              <div className="rounded-[15px] bg-black/5 h-[calc(50%-8px)]" />
+              <div className="rounded-[15px] bg-black/5 h-[calc(50%-8px)]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 interface ProjectsProps {
   filter?: 'all' | 'residential' | 'commercial' | 'development';
 }
 
 export const Projects: React.FC<ProjectsProps> = ({ filter = 'all' }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [projectsList, setProjectsList] = useState<ProjectData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+        const q = query(collection(db, 'projects'), orderBy('number', 'asc'));
+        const querySnapshot = await getDocs(q);
+        const list: ProjectData[] = [];
+        querySnapshot.forEach((docSnap) => {
+          list.push(docSnap.data() as ProjectData);
+        });
+        setProjectsList(list);
+      } catch (err) {
+        console.error("Firestore projects fetch error: ", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadProjects();
+  }, []);
 
   const filteredProjects = filter === 'all'
     ? projectsList
@@ -491,17 +427,26 @@ export const Projects: React.FC<ProjectsProps> = ({ filter = 'all' }) => {
 
         {/* UNIFIED ALTERNATING CARD LIST (1-BY-1 FOR BOTH MOBILE & PC) */}
         <div className="flex relative flex-col items-center w-full">
-          {filteredProjects.map((project, index) => (
-            <ProjectCard
-              key={project.number}
-              project={project}
-              index={index}
-            />
-          ))}
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-12 md:py-20 text-gray-500 font-light w-full bg-white rounded-2xl md:rounded-3xl border border-black/5 text-xs md:text-sm">
-              No developments in this category at this time.
-            </div>
+          {loading ? (
+            <>
+              <SkeletonCard />
+              <SkeletonCard />
+            </>
+          ) : (
+            <>
+              {filteredProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.number}
+                  project={project}
+                  index={index}
+                />
+              ))}
+              {filteredProjects.length === 0 && (
+                <div className="text-center py-12 md:py-20 text-gray-500 font-light w-full bg-white rounded-2xl md:rounded-3xl border border-black/5 text-xs md:text-sm">
+                  No developments in this category at this time.
+                </div>
+              )}
+            </>
           )}
         </div>
 
@@ -509,4 +454,6 @@ export const Projects: React.FC<ProjectsProps> = ({ filter = 'all' }) => {
     </section>
   );
 };
+
+
 export default Projects;
