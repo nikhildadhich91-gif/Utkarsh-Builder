@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { assets } from '../lib/cloudinary';
 import { ArrowUp, Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -7,8 +7,6 @@ import { motion } from 'framer-motion';
 const LogoImg = assets.logo;
 
 export const Footer: React.FC = () => {
-  const location = useLocation();
-  const isHome = location.pathname === '/';
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

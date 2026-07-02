@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import { assets } from '../lib/cloudinary';
 
 const msJewellersCol1_1 = assets.projects.msCol1_1;
@@ -145,6 +145,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const isEven = index % 2 === 0;
   const cardRef = useRef<HTMLDivElement>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: cardRef,
@@ -179,34 +180,99 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <>
             {/* Text block (Left 42%) */}
             <div className="w-full md:w-[42%] flex flex-col text-left justify-center space-y-4 lg:space-y-6">
-              <span className="text-4xl md:text-5xl lg:text-6xl font-light text-[#C92C15] leading-none select-none">
-                {project.number}
-              </span>
-              <div>
-                <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block">
-                  {project.category} &bull; {project.location}
+              <div 
+                className="cursor-pointer group/title select-none"
+                onClick={() => setIsExpanded(!isExpanded)}
+              >
+                <span className="text-4xl md:text-5xl lg:text-6xl font-light text-[#C92C15] leading-none select-none">
+                  {project.number}
                 </span>
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-2 leading-tight">
-                  {project.name}
-                </h3>
+                <div className="mt-2">
+                  <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block group-hover/title:text-[#C92C15] transition-colors">
+                    {project.category} &bull; {project.location}
+                  </span>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-1 leading-tight group-hover/title:text-[#C92C15] transition-colors">
+                    {project.name}
+                  </h3>
+                </div>
               </div>
-              <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
-                {project.description}
-              </p>
-              <div className="pt-2">
-                <Link
-                  to="/contact#contact-section"
-                  onClick={(e) => {
-                    if (window.location.pathname === '/contact') {
-                      e.preventDefault();
-                      document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                  className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
+
+              {/* Collapsible description */}
+              <motion.div
+                initial={false}
+                animate={{ height: isExpanded ? 'auto' : 0, opacity: isExpanded ? 1 : 0 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="overflow-hidden"
+              >
+                <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed py-1">
+                  {project.description}
+                </p>
+                {/* Mobile only Enquire Project button when expanded */}
+                <div className="block md:hidden pt-4 pb-2">
+                  <Link
+                    to="/contact#contact-section"
+                    onClick={(e) => {
+                      if (window.location.pathname === '/contact') {
+                        e.preventDefault();
+                        document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
+                  >
+                    <span>Enquire Project</span>
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Actions Footer */}
+              <div className="pt-2 flex items-center gap-4">
+                {/* PC: Always show Enquire Project */}
+                <div className="hidden md:block">
+                  <Link
+                    to="/contact#contact-section"
+                    onClick={(e) => {
+                      if (window.location.pathname === '/contact') {
+                        e.preventDefault();
+                        document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
+                  >
+                    <span>Enquire Project</span>
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </div>
+
+                {/* Mobile: Show Learn More/Learn Less (Toggles Expand) */}
+                <div className="block md:hidden">
+                  <button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
+                  >
+                    <span>{isExpanded ? 'Learn Less' : 'Learn More'}</span>
+                    <motion.span
+                      animate={{ rotate: isExpanded ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="h-4 w-4" />
+                    </motion.span>
+                  </button>
+                </div>
+
+                {/* PC: View details text link toggler */}
+                <button
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="hidden md:inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#C92C15] hover:opacity-80 transition-opacity cursor-pointer"
                 >
-                  <span>Enquire Project</span>
-                  <ArrowUpRight className="h-4 w-4" />
-                </Link>
+                  <span>{isExpanded ? 'Hide Details' : 'View Details'}</span>
+                  <motion.span
+                    animate={{ rotate: isExpanded ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ChevronDown className="h-3 w-3" />
+                  </motion.span>
+                </button>
               </div>
             </div>
 
@@ -284,34 +350,99 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
             {/* Text block (Right 42%) */}
             <div className="w-full md:w-[42%] flex flex-col text-left justify-center space-y-4 lg:space-y-6 order-1 md:order-2">
-              <span className="text-4xl md:text-5xl lg:text-6xl font-light text-[#C92C15] leading-none select-none">
-                {project.number}
-              </span>
-              <div>
-                <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block">
-                  {project.category} &bull; {project.location}
+              <div 
+                className="cursor-pointer group/title select-none"
+                onClick={() => setIsExpanded(!isExpanded)}
+              >
+                <span className="text-4xl md:text-5xl lg:text-6xl font-light text-[#C92C15] leading-none select-none">
+                  {project.number}
                 </span>
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-2 leading-tight">
-                  {project.name}
-                </h3>
+                <div className="mt-2">
+                  <span className="text-xxs md:text-xs uppercase tracking-widest text-[#6F6F6F] font-bold block group-hover/title:text-[#C92C15] transition-colors">
+                    {project.category} &bull; {project.location}
+                  </span>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#1B1B1B] tracking-tight mt-1 leading-tight group-hover/title:text-[#C92C15] transition-colors">
+                    {project.name}
+                  </h3>
+                </div>
               </div>
-              <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
-                {project.description}
-              </p>
-              <div className="pt-2">
-                <Link
-                  to="/contact#contact-section"
-                  onClick={(e) => {
-                    if (window.location.pathname === '/contact') {
-                      e.preventDefault();
-                      document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                  className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
+
+              {/* Collapsible description */}
+              <motion.div
+                initial={false}
+                animate={{ height: isExpanded ? 'auto' : 0, opacity: isExpanded ? 1 : 0 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="overflow-hidden"
+              >
+                <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed py-1">
+                  {project.description}
+                </p>
+                {/* Mobile only Enquire Project button when expanded */}
+                <div className="block md:hidden pt-4 pb-2">
+                  <Link
+                    to="/contact#contact-section"
+                    onClick={(e) => {
+                      if (window.location.pathname === '/contact') {
+                        e.preventDefault();
+                        document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
+                  >
+                    <span>Enquire Project</span>
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Actions Footer */}
+              <div className="pt-2 flex items-center gap-4">
+                {/* PC: Always show Enquire Project */}
+                <div className="hidden md:block">
+                  <Link
+                    to="/contact#contact-section"
+                    onClick={(e) => {
+                      if (window.location.pathname === '/contact') {
+                        e.preventDefault();
+                        document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
+                  >
+                    <span>Enquire Project</span>
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </div>
+
+                {/* Mobile: Show Learn More/Learn Less (Toggles Expand) */}
+                <div className="block md:hidden">
+                  <button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="inline-flex items-center gap-2 border border-black/10 hover:border-[#C92C15] hover:text-[#C92C15] hover:bg-[#C92C15]/5 transition-all px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-[#1B1B1B] cursor-pointer"
+                  >
+                    <span>{isExpanded ? 'Learn Less' : 'Learn More'}</span>
+                    <motion.span
+                      animate={{ rotate: isExpanded ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="h-4 w-4" />
+                    </motion.span>
+                  </button>
+                </div>
+
+                {/* PC: View details text link toggler */}
+                <button
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="hidden md:inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#C92C15] hover:opacity-80 transition-opacity cursor-pointer"
                 >
-                  <span>Enquire Project</span>
-                  <ArrowUpRight className="h-4 w-4" />
-                </Link>
+                  <span>{isExpanded ? 'Hide Details' : 'View Details'}</span>
+                  <motion.span
+                    animate={{ rotate: isExpanded ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ChevronDown className="h-3 w-3" />
+                  </motion.span>
+                </button>
               </div>
             </div>
           </>
@@ -320,7 +451,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
     </div>
   );
 };
-
 
 interface ProjectsProps {
   filter?: 'all' | 'residential' | 'commercial' | 'development';
