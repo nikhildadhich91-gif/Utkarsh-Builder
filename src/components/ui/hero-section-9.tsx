@@ -112,7 +112,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="max-w-6xl mx-auto mt-16 md:mt-24 px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 relative z-10"
+          className="hidden sm:grid max-w-6xl mx-auto mt-16 md:mt-24 px-6 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 relative z-10"
         >
           {/* Column 1: Skewed Left */}
           <div className="space-y-6 md:space-y-8 transform md:rotate-[-4deg] md:-translate-y-4">
