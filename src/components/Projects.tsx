@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ChevronDown } from 'lucide-react';
-import { assets } from '../lib/cloudinary';
+import { assets, getOptimizedImageUrl } from '../lib/cloudinary';
 
 const msJewellersCol1_1 = assets.projects.msCol1_1;
 const msJewellersCol1_2 = assets.projects.msCol1_2;
@@ -172,7 +172,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           scale,
           rotateX,
           opacity,
-          transformStyle: "preserve-3d"
+          transformStyle: "preserve-3d",
+          willChange: "transform, opacity"
         }}
         className="w-full rounded-[24px] md:rounded-[40px] border border-black/5 bg-white p-5 md:p-8 lg:p-10 shadow-lg hover:shadow-xl transition-shadow duration-500 flex flex-col md:flex-row gap-5 md:gap-8 lg:gap-12 items-center"
       >
@@ -281,10 +282,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 {/* Left tall image (Col 2) */}
                 <div className="col-span-6 rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[320px] lg:h-[420px]">
                   <img
-                    src={project.images.col2}
+                    src={getOptimizedImageUrl(project.images.col2, 800)}
                     alt={`${project.name} main view`}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -292,18 +294,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 <div className="col-span-4 flex flex-col gap-4 lg:gap-6 justify-between h-[320px] lg:h-[420px]">
                   <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
                     <img
-                      src={project.images.col1_1}
+                      src={getOptimizedImageUrl(project.images.col1_1, 500)}
                       alt={`${project.name} detail view 1`}
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
                     <img
-                      src={project.images.col1_2}
+                      src={getOptimizedImageUrl(project.images.col1_2, 500)}
                       alt={`${project.name} detail view 2`}
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>
@@ -319,18 +323,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 <div className="col-span-4 flex flex-col gap-4 lg:gap-6 justify-between h-[320px] lg:h-[420px]">
                   <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
                     <img
-                      src={project.images.col1_1}
+                      src={getOptimizedImageUrl(project.images.col1_1, 500)}
                       alt={`${project.name} detail view 1`}
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="rounded-[15px] md:rounded-[22px] overflow-hidden bg-black/5 h-[calc(50%-8px)] lg:h-[calc(50%-12px)]">
                     <img
-                      src={project.images.col1_2}
+                      src={getOptimizedImageUrl(project.images.col1_2, 500)}
                       alt={`${project.name} detail view 2`}
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>
@@ -338,10 +344,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 {/* Right tall image (Col 2) */}
                 <div className="col-span-6 rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/5 h-[320px] lg:h-[420px]">
                   <img
-                    src={project.images.col2}
+                    src={getOptimizedImageUrl(project.images.col2, 800)}
                     alt={`${project.name} main view`}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

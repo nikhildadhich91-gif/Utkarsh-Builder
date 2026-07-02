@@ -74,3 +74,8 @@ export const assets = {
 };
 
 export default assets;
+
+export const getOptimizedImageUrl = (url: string, width: number) => {
+  if (!url) return '';
+  return url.replace('/image/upload/f_auto,q_auto', `/image/upload/f_auto,q_auto,w_${width}`);
+};
