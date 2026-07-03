@@ -36,7 +36,7 @@ interface ProjectData {
 export const AdminPage: React.FC = () => {
   
   const [user, setUser] = useState<User | null>(null);
-  const [authLoading, setAuthLoading] = useState(true);
+  const [authLoading, setAuthLoading] = useState(() => !!auth);
   
   // Auth Form State
   const [email, setEmail] = useState('');
@@ -81,9 +81,10 @@ export const AdminPage: React.FC = () => {
   });
 
   const fetchProjects = async () => {
+    if (!db) return;
     setProjectsLoading(true);
     try {
-      const q = query(collection(db, 'projects'), orderBy('number', 'asc'));
+      const q = query(collection(db!, 'projects'), orderBy('number', 'asc'));
       const querySnapshot = await getDocs(q);
       const list: ProjectData[] = [];
       querySnapshot.forEach((doc) => {
@@ -98,6 +99,9 @@ export const AdminPage: React.FC = () => {
   };
 
   useEffect(() => {
+    if (!auth) {
+      return;
+    }
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setAuthLoading(false);
@@ -112,8 +116,13 @@ export const AdminPage: React.FC = () => {
     e.preventDefault();
     setLoginLoading(true);
     setAuthError('');
+    if (!auth) {
+      setAuthError('Authentication service is not available. Please verify Vercel environment variables.');
+      setLoginLoading(false);
+      return;
+    }
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth!, email, password);
     } catch (err) {
       const error = err as Error;
       setAuthError(error.message || 'Invalid email or password.');
@@ -124,7 +133,9 @@ export const AdminPage: React.FC = () => {
 
   const handleLogout = async () => {
     try {
-      await signOut(auth);
+      if (auth) {
+        await signOut(auth);
+      }
       setProjects([]);
     } catch (err) {
       console.error("Logout error: ", err);
@@ -197,7 +208,11 @@ export const AdminPage: React.FC = () => {
         }
       };
 
-      await setDoc(doc(db, 'projects', formData.number), projectDoc);
+      if (!db) {
+        alert("Database connection is not available.");
+        return;
+      }
+      await setDoc(doc(db!, 'projects', formData.number), projectDoc);
       alert(`Project ${formData.name} uploaded successfully!`);
       
       // Reset Form State
@@ -225,9 +240,13 @@ export const AdminPage: React.FC = () => {
     if (!window.confirm(`Are you sure you want to delete project ${projectNumber}?`)) {
       return;
     }
+    if (!db) {
+      alert("Database connection is not available.");
+      return;
+    }
     setActionLoading(true);
     try {
-      await deleteDoc(doc(db, 'projects', projectNumber));
+      await deleteDoc(doc(db!, 'projects', projectNumber));
       fetchProjects();
     } catch (err) {
       console.error(err);
@@ -240,6 +259,10 @@ export const AdminPage: React.FC = () => {
   // Seed default 7 core projects to database
   const handleSeedDatabase = async () => {
     if (!window.confirm("This will overwrite or add the default 7 landmark projects to Firestore. Continue?")) {
+      return;
+    }
+    if (!db) {
+      alert("Database connection is not available. Please check environment variables.");
       return;
     }
     setActionLoading(true);
@@ -339,7 +362,7 @@ export const AdminPage: React.FC = () => {
       ];
 
       for (const proj of defaultProjects) {
-        await setDoc(doc(db, 'projects', proj.number), proj);
+        await setDoc(doc(db!, 'projects', proj.number), proj);
       }
       alert("Successfully seeded 7 default projects!");
       fetchProjects();
