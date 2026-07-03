@@ -8,7 +8,7 @@ interface ProcessStep {
   number: string;
   title: string;
   description: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 const steps: ProcessStep[] = [
@@ -45,12 +45,12 @@ const steps: ProcessStep[] = [
 ];
 
 
-const ProcessSwipeMobile = ({ steps }: any) => {
+const ProcessSwipeMobile = ({ steps }: { steps: ProcessStep[] }) => {
   return (
     <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 scrollbar-none pb-4 px-2 -mx-6 md:-mx-12 text-left">
       {/* Spacer for padding */}
       <div className="w-4 shrink-0" />
-      {steps.map((step: any, idx: number) => {
+      {steps.map((step, idx) => {
         const Icon = step.icon;
         return (
           <div

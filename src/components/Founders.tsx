@@ -4,6 +4,7 @@ import { FadeUp } from './ui/FadeUp';
 import { StaggerContainer } from './ui/StaggerContainer';
 import { Award, GraduationCap, ArrowUpRight, X } from 'lucide-react';
 import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
+import { assets } from '../lib/cloudinary';
 
 export const Founders: React.FC = () => {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
@@ -15,7 +16,7 @@ export const Founders: React.FC = () => {
     {
       name: "Ghanshyam Das Maheshwari",
       role: "Founder",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&h=800&q=80",
+      image: assets.founders.ghanshyam,
       icon: <Award className="h-5 w-5 text-[#C92C15]" />,
       tag: "30+ Years Construction Legacy",
       desc: "Ghanshyam Das Maheshwari is the visionary founder and driving force behind Utkarsh Builder, bringing over 30 years of rich experience in the construction and real estate industry. Renowned for his unwavering commitment to quality, integrity and customer satisfaction, he has successfully led numerous residential and commercial projects across Jaipur. His expertise spans project planning, execution and delivering developments that stand the test of time.",
@@ -24,7 +25,7 @@ export const Founders: React.FC = () => {
     {
       name: "Utkarsh Nowal",
       role: "Director",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&h=800&q=80",
+      image: assets.founders.utkarsh,
       icon: <GraduationCap className="h-5 w-5 text-[#C92C15]" />,
       tag: "MBA in Marketing and Operations",
       desc: "Utkarsh Nowal is a dynamic entrepreneur and the next generation leader at Utkarsh Builder. An MBA graduate specializing in Marketing and Operations, he brings a fresh, strategic and customer centric approach to the business, honed through prior experience at a real estate startup in market analysis and operational management. His vision is to expand Utkarsh Builder's legacy while upholding its core values of quality, trust and timely delivery.",

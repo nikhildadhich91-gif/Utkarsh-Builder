@@ -6,7 +6,7 @@ import { Award, Briefcase, Calendar, ShieldCheck, CheckCircle2, MessageSquare } 
 interface ReasonItem {
   title: string;
   description: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 const reasonsList: ReasonItem[] = [

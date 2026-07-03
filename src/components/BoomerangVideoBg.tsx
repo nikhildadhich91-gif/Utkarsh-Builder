@@ -6,12 +6,21 @@ interface BoomerangVideoBgProps {
   poster?: string;
 }
 
+// Target framerate for boomerang (30fps)
+const fpsInterval = 1000 / 30;
+
 export const BoomerangVideoBg: React.FC<BoomerangVideoBgProps> = ({ src, className = '', poster }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   
   const [framesReady, setFramesReady] = useState(false);
-  const [fallback, setFallback] = useState(false);
+  const [fallback, setFallback] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+      return isMobile;
+    }
+    return false;
+  });
 
   // Buffer references
   const framesRef = useRef<HTMLCanvasElement[]>([]);
@@ -19,18 +28,8 @@ export const BoomerangVideoBg: React.FC<BoomerangVideoBgProps> = ({ src, classNa
   const directionRef = useRef<'forward' | 'backward'>('forward');
   const animationFrameIdRef = useRef<number | null>(null);
   const lastTickTimeRef = useRef(0);
-  
-  // Target framerate for boomerang (30fps)
-  const fpsInterval = 1000 / 30;
 
   useEffect(() => {
-    // Detect mobile device or narrow screen width to bypass canvas loop
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
-    if (isMobile) {
-      setFallback(true);
-      return;
-    }
-
     const video = videoRef.current;
     const canvas = canvasRef.current;
     if (!video || !canvas || fallback) return;
@@ -121,7 +120,7 @@ export const BoomerangVideoBg: React.FC<BoomerangVideoBgProps> = ({ src, classNa
       captureFrame();
       if (video && !video.ended && !video.paused) {
         if ('requestVideoFrameCallback' in video) {
-          rVFCId = (video as any).requestVideoFrameCallback(updateFrameCallback);
+          rVFCId = (video as HTMLVideoElement & { requestVideoFrameCallback?: (callback: () => void) => number }).requestVideoFrameCallback!(updateFrameCallback);
         } else {
           animationFrameIdRef.current = requestAnimationFrame(updateFrameCallback);
         }
@@ -152,7 +151,7 @@ export const BoomerangVideoBg: React.FC<BoomerangVideoBgProps> = ({ src, classNa
         const frames = framesRef.current;
         if (frames.length === 0) return;
 
-        let index = currentFrameRef.current;
+        const index = currentFrameRef.current;
         const dir = directionRef.current;
 
         // Draw current frame using object-cover style
@@ -203,7 +202,7 @@ export const BoomerangVideoBg: React.FC<BoomerangVideoBgProps> = ({ src, classNa
         video.play().then(() => {
           // Start capture loop
           if ('requestVideoFrameCallback' in video) {
-            rVFCId = (video as any).requestVideoFrameCallback(updateFrameCallback);
+            rVFCId = (video as HTMLVideoElement & { requestVideoFrameCallback?: (callback: () => void) => number }).requestVideoFrameCallback!(updateFrameCallback);
           } else {
             animationFrameIdRef.current = requestAnimationFrame(fallbackFrameLoop);
           }
@@ -230,7 +229,7 @@ export const BoomerangVideoBg: React.FC<BoomerangVideoBgProps> = ({ src, classNa
         video.removeEventListener('ended', handleEnded);
         video.pause();
         if (rVFCId !== null && 'cancelVideoFrameCallback' in video) {
-          (video as any).cancelVideoFrameCallback(rVFCId);
+          (video as HTMLVideoElement & { cancelVideoFrameCallback?: (id: number) => void }).cancelVideoFrameCallback!(rVFCId);
         }
       }
       if (animationFrameIdRef.current) {

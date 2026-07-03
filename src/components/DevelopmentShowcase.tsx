@@ -12,7 +12,7 @@ interface ShowcaseItem {
   number: string;
   title: string;
   subtitle: string;
-  icon: any;
+  icon: React.ElementType;
   desc: string;
   highlights: string[];
   image: string;
@@ -53,11 +53,11 @@ const items: ShowcaseItem[] = [
 ];
 
 
-const ShowcaseScrollMobile = ({ items }: any) => {
+const ShowcaseScrollMobile = ({ items }: { items: ShowcaseItem[] }) => {
   return (
     <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 scrollbar-none pb-4 px-2 -mx-6 md:-mx-12 text-left">
       <div className="w-4 shrink-0" />
-      {items.map((item: any, idx: number) => {
+      {items.map((item, idx) => {
         const Icon = item.icon;
         return (
           <div
@@ -173,6 +173,18 @@ export const DevelopmentShowcase: React.FC = () => {
                 <p className="text-xs md:text-sm text-[#333333] font-medium leading-relaxed">
                   {items[0].desc}
                 </p>
+              </div>
+
+              {/* Stats Badge */}
+              <div className="flex gap-2.5 text-left py-0.5 my-2">
+                <div className="bg-black/5 border border-black/10 rounded-xl p-2 flex-1 flex flex-col justify-center items-center">
+                  <span className="text-xs md:text-sm font-extrabold text-[#C92C15]">100%</span>
+                  <span className="text-[8px] md:text-[9px] uppercase tracking-wider text-[#6F6F6F] font-bold text-center mt-0.5">Vastu Compliant</span>
+                </div>
+                <div className="bg-black/5 border border-black/10 rounded-xl p-2 flex-1 flex flex-col justify-center items-center">
+                  <span className="text-xs md:text-sm font-extrabold text-[#C92C15]">30-Yr</span>
+                  <span className="text-[8px] md:text-[9px] uppercase tracking-wider text-[#6F6F6F] font-bold text-center mt-0.5">Guarantee</span>
+                </div>
               </div>
 
               <div className="space-y-3 pt-4 border-t border-black/10">

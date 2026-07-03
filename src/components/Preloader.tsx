@@ -25,7 +25,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
     };
   }, [onComplete]);
 
-  const expoOut: any = [0.16, 1, 0.3, 1];
+  const expoOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
     <AnimatePresence>

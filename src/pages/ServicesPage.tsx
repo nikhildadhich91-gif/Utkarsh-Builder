@@ -3,6 +3,7 @@ import { FadeUp } from '../components/ui/FadeUp';
 import { StaggerContainer } from '../components/ui/StaggerContainer';
 import { HeroSection } from '../components/ui/hero-section-2';
 import { PointerHighlight } from '../components/ui/pointer-highlight';
+import { assets } from '../lib/cloudinary';
 import { HelpCircle, ChevronDown } from 'lucide-react';
 import { EdgeBlur } from '../components/ui/edge-blur';
 import { motion } from 'framer-motion';
@@ -110,7 +111,7 @@ export const ServicesPage = () => {
   useEffect(() => {
     if (!triggerRef.current || !scrollWindowRef.current || !listWrapperRef.current || !pinnedContentRef.current) return;
 
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       // Calculate scroll distance
       const calculateScroll = () => {
         const windowHeight = scrollWindowRef.current!.clientHeight;
@@ -119,6 +120,33 @@ export const ServicesPage = () => {
       };
 
       let scrollDistance = calculateScroll();
+
+      const update3DEffects = () => {
+        if (!scrollWindowRef.current || !listWrapperRef.current) return;
+        const containerRect = scrollWindowRef.current.getBoundingClientRect();
+        const containerCenter = containerRect.top + containerRect.height / 2;
+        const containerHeight = containerRect.height;
+        const items = listWrapperRef.current.querySelectorAll('.service-item-card');
+        
+        items.forEach((item) => {
+          const rect = item.getBoundingClientRect();
+          const itemCenter = rect.top + rect.height / 2;
+          
+          // distance from center relative to half of container height
+          const dist = (itemCenter - containerCenter) / (containerHeight / 2);
+          const clampedDist = Math.min(1.2, Math.max(-1.2, dist));
+          const absDist = Math.abs(clampedDist);
+          
+          const scale = 1 - absDist * 0.08;
+          const rotateX = -clampedDist * 12;
+          const opacity = 1 - absDist * 0.55;
+          
+          const htmlItem = item as HTMLElement;
+          htmlItem.style.transform = `perspective(1200px) rotateX(${rotateX}deg) scale(${scale})`;
+          htmlItem.style.transformStyle = 'preserve-3d';
+          htmlItem.style.opacity = `${Math.max(0.2, opacity)}`;
+        });
+      };
 
       // Create scroll animation
       const tl = gsap.timeline({
@@ -130,6 +158,8 @@ export const ServicesPage = () => {
           pin: pinnedContentRef.current,
           pinSpacing: true,
           invalidateOnRefresh: true,
+          onUpdate: update3DEffects,
+          onRefresh: update3DEffects,
         }
       });
 
@@ -137,8 +167,12 @@ export const ServicesPage = () => {
         tl.to(listWrapperRef.current, {
           y: -scrollDistance,
           ease: 'none',
+          onUpdate: update3DEffects
         });
       }
+
+      // Initial execution
+      setTimeout(update3DEffects, 100);
 
       const handleResize = () => {
         scrollDistance = calculateScroll();
@@ -214,7 +248,7 @@ export const ServicesPage = () => {
                     key={service.number}
                     variants={itemVariants}
                     transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-                    className="py-6 md:py-12 border-b border-[#1B1B1B]/15 flex flex-col md:flex-row items-start gap-4 md:gap-12 group hover:bg-[#FAF7F5]/40 transition-all duration-300 px-3 md:px-4 rounded-xl text-left"
+                    className="service-item-card py-6 md:py-12 border-b border-[#1B1B1B]/15 flex flex-col md:flex-row items-start gap-4 md:gap-12 group hover:bg-[#FAF7F5]/40 transition-all duration-300 px-3 md:px-4 rounded-xl text-left"
                   >
                     {/* Left side: Huge Index Number */}
                     <div className="w-16 md:w-32 shrink-0">
@@ -275,10 +309,10 @@ export const ServicesPage = () => {
                   muted
                   playsInline
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  src="https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto/v1782198267/utkarsh%20construction/services-residential.mp4"
+                  src={assets.videos.servicesResidential}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent pointer-events-none" />
-                <span className="absolute top-4 left-4 bg-black/10 border border-black/25 px-3 py-1 rounded-full text-xxs uppercase tracking-widest text-[#1B1B1B] backdrop-blur-md">
+                 <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-white/5 to-transparent pointer-events-none" />
+                <span className="absolute top-4 left-4 bg-[#C92C15] border border-[#C92C15]/40 px-3.5 py-1.5 rounded-full text-xxs uppercase tracking-wider font-bold text-white shadow-md">
                   Residential Division
                 </span>
               </div>
@@ -301,10 +335,10 @@ export const ServicesPage = () => {
                   muted
                   playsInline
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  src="https://res.cloudinary.com/darmr4g5x/video/upload/f_auto,q_auto/v1782198269/utkarsh%20construction/services-commercial.mp4"
+                  src={assets.videos.servicesCommercial}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent pointer-events-none" />
-                <span className="absolute top-4 left-4 bg-black/10 border border-black/25 px-3 py-1 rounded-full text-xxs uppercase tracking-widest text-[#1B1B1B] backdrop-blur-md">
+                 <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-white/5 to-transparent pointer-events-none" />
+                <span className="absolute top-4 left-4 bg-[#1B1B1B] border border-black/40 px-3.5 py-1.5 rounded-full text-xxs uppercase tracking-wider font-bold text-white shadow-md">
                   Commercial Division
                 </span>
               </div>

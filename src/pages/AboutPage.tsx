@@ -106,21 +106,17 @@ export const AboutPage: React.FC = () => {
       if (totalRange <= 0) return;
       const currentProgress = Math.min(1, Math.max(0, scrolled / totalRange));
       setProgress(currentProgress);
+
+      let currentIdx = 0;
+      if (currentProgress >= 0.5) currentIdx = 1;
+      if (currentProgress >= 0.85) currentIdx = 2;
+      setActivePillar(currentIdx);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    let currentIdx = 0;
-    if (progress >= 0.5) currentIdx = 1;
-    if (progress >= 0.85) currentIdx = 2;
-    if (currentIdx !== activePillar) {
-      setActivePillar(currentIdx);
-    }
-  }, [progress, activePillar]);
 
   // Card 0 style helper interpolations
   const getCard0Scale = (p: number) => {
@@ -183,7 +179,7 @@ export const AboutPage: React.FC = () => {
     const images = [
       'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fm=webp&q=80',
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fm=webp&q=80'
+      assets.aboutBuilding
     ];
     
     const titles = [
@@ -201,7 +197,7 @@ export const AboutPage: React.FC = () => {
           initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover ${index === 2 ? 'object-[70%_center]' : 'object-center'}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
         <div className="absolute bottom-6 left-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2 text-white font-semibold text-xs tracking-wide uppercase">

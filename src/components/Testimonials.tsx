@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 
 import { FadeUp } from './ui/FadeUp';
 import { Quote, ChevronLeft, ChevronRight, User } from 'lucide-react';
@@ -34,21 +34,20 @@ const testimonials: TestimonialItem[] = [
 export const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const timerRef = useRef<any>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  const stopTimer = useCallback(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+  }, []);
 
-  const startTimer = () => {
+  const startTimer = useCallback(() => {
     stopTimer();
     timerRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
     }, 3500);
-  };
-
-  const stopTimer = () => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-  };
+  }, [stopTimer]);
 
   useEffect(() => {
     if (!isPaused) {
@@ -57,7 +56,7 @@ export const Testimonials = () => {
       stopTimer();
     }
     return () => stopTimer();
-  }, [isPaused, activeIndex]);
+  }, [isPaused, startTimer, stopTimer]);
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);

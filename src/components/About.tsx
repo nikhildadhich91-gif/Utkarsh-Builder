@@ -5,10 +5,12 @@ import { FadeUp } from './ui/FadeUp';
 import { Eye, Target, Award } from 'lucide-react';
 import { PointerHighlight } from './ui/pointer-highlight';
 
+import { assets } from '../lib/cloudinary';
+
 export const About: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'story' | 'vision' | 'mission'>('story');
 
-  const imageUrl = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80';
+  const imageUrl = assets.aboutBuilding;
 
   return (
     <section id="about" className="py-12 md:py-32 relative overflow-hidden">
@@ -25,11 +27,11 @@ export const About: React.FC = () => {
             <div className="lg:col-span-5 flex justify-center">
               <FadeUp delay={0.1} y={40} className="w-full flex justify-center">
                 <Magnet strength={15} padding={120} className="w-full max-w-[450px]">
-                  <div className="relative group rounded-2xl overflow-hidden shadow-2xl border border-white/60 bg-gray-100">
+                  <div className="relative group rounded-2xl overflow-hidden shadow-2xl border border-white/60 bg-gray-100 aspect-[4/3] md:aspect-[1/1] w-full">
                     <img
                       src={imageUrl}
                       alt="Luxury modern architecture by Utkarsh Builder"
-                      className="w-full h-[320px] md:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover object-[55%_center] transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                     {/* Absolute subtle outline overlay */}
@@ -77,7 +79,7 @@ export const About: React.FC = () => {
                   return (
                     <button
                       key={tab.id}
-                      onClick={() => setActiveTab(tab.id as any)}
+                      onClick={() => setActiveTab(tab.id as 'story' | 'vision' | 'mission')}
                       className={`flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm transition-all duration-300 cursor-pointer ${
                         activeTab === tab.id
                           ? 'bg-[#C92C15] text-white shadow-md font-bold'

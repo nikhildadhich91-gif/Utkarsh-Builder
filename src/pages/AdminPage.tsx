@@ -80,17 +80,6 @@ export const AdminPage: React.FC = () => {
     col1_2: '',
   });
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setAuthLoading(false);
-      if (currentUser) {
-        fetchProjects();
-      }
-    });
-    return () => unsubscribe();
-  }, []);
-
   const fetchProjects = async () => {
     setProjectsLoading(true);
     try {
@@ -108,14 +97,26 @@ export const AdminPage: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setAuthLoading(false);
+      if (currentUser) {
+        fetchProjects();
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoginLoading(true);
     setAuthError('');
     try {
       await signInWithEmailAndPassword(auth, email, password);
-    } catch (err: any) {
-      setAuthError(err.message || 'Invalid email or password.');
+    } catch (err) {
+      const error = err as Error;
+      setAuthError(error.message || 'Invalid email or password.');
     } finally {
       setLoginLoading(false);
     }
@@ -211,9 +212,10 @@ export const AdminPage: React.FC = () => {
       setFiles({ col2: null, col1_1: null, col1_2: null });
       setUploadProgress({ col2: '', col1_1: '', col1_2: '' });
       fetchProjects();
-    } catch (err: any) {
-      console.error(err);
-      alert(`Submission failed: ${err.message || err}`);
+    } catch (err) {
+      const error = err as Error;
+      console.error(error);
+      alert(`Submission failed: ${error.message || error}`);
     } finally {
       setActionLoading(false);
     }
@@ -545,7 +547,7 @@ export const AdminPage: React.FC = () => {
               <div className="relative">
                 <select
                   value={formData.tag}
-                  onChange={(e) => setFormData(prev => ({ ...prev, tag: e.target.value as any }))}
+                  onChange={(e) => setFormData(prev => ({ ...prev, tag: e.target.value as 'residential' | 'commercial' | 'development' }))}
                   required
                   className="peer block w-full px-0 py-2.5 text-base text-[#111111] bg-transparent border-b border-black/20 focus:outline-none focus:border-[#C92C15] transition-colors appearance-none cursor-pointer font-bold"
                 >

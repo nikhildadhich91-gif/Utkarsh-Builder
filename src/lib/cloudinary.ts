@@ -9,6 +9,7 @@ export const assets = {
   viteSvg: `${CLOUDINARY_IMAGE_BASE}/v1782197678/utkarsh%20construction/vite.svg`,
   reactSvg: `${CLOUDINARY_IMAGE_BASE}/v1782197677/utkarsh%20construction/react.svg`,
   characters: `${CLOUDINARY_IMAGE_BASE}/v1782888454/utkarsh%20construction/characters.png`,
+  aboutBuilding: `${CLOUDINARY_IMAGE_BASE}/v1783060573/utkarsh%20construction/about-building.jpg`,
   
   generated: {
     balcony: `${CLOUDINARY_IMAGE_BASE}/v1782197634/utkarsh%20construction/generated/balcony.webp`,
@@ -56,6 +57,11 @@ export const assets = {
     }
   },
   
+  founders: {
+    ghanshyam: `${CLOUDINARY_IMAGE_BASE}/v1783059419/utkarsh%20construction/founder-ghanshyam.png`,
+    utkarsh: `${CLOUDINARY_IMAGE_BASE}/v1783059420/utkarsh%20construction/director-utkarsh.png`
+  },
+  
   videos: {
     hookMp4: `${CLOUDINARY_VIDEO_BASE}/v1782197648/utkarsh%20construction/Hook_going_down_metal_rod_202606221152.mp4`,
     hookWebm: `${CLOUDINARY_VIDEO_BASE}/v1782197654/utkarsh%20construction/Hook_going_down_metal_rod_202606221152.webm`,
@@ -68,8 +74,8 @@ export const assets = {
     scrollBanner: `${CLOUDINARY_VIDEO_BASE}/v1782716984/utkarsh%20construction/scroll-banner.mp4`,
     homeApproach: `${CLOUDINARY_VIDEO_BASE}/v1782201960/utkarsh%20construction/Building_construction_timelapse___202606231151.mp4`,
     aboutInnovation: `${CLOUDINARY_VIDEO_BASE}/v1782198265/utkarsh%20construction/about-innovation.mp4`,
-    servicesResidential: `${CLOUDINARY_VIDEO_BASE}/v1782198267/utkarsh%20construction/services-residential.mp4`,
-    servicesCommercial: `${CLOUDINARY_VIDEO_BASE}/v1782198269/utkarsh%20construction/services-commercial.mp4`,
+    servicesResidential: `${CLOUDINARY_VIDEO_BASE}/v1783061000/utkarsh%20construction/services-residential.mp4`,
+    servicesCommercial: `${CLOUDINARY_VIDEO_BASE}/v1783061004/utkarsh%20construction/services-commercial.mp4`,
   }
 };
 

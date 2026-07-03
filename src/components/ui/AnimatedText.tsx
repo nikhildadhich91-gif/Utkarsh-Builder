@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useEffect, useMemo } from 'react';
+import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 
 interface AnimatedTextProps {
   text: string;
@@ -9,7 +9,7 @@ interface AnimatedTextProps {
 // Crisp, high-end tick sound generated programmatically via Web Audio API
 const playTickSound = () => {
   try {
-    const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+    const AudioContextClass = window.AudioContext || (window as Window & typeof globalThis & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
     if (!AudioContextClass) return;
     const audioCtx = new AudioContextClass();
     const osc = audioCtx.createOscillator();
@@ -27,7 +27,7 @@ const playTickSound = () => {
     
     osc.start();
     osc.stop(audioCtx.currentTime + 0.03);
-  } catch (e) {
+  } catch {
     // Fail silently to prevent console pollution
   }
 };
@@ -55,7 +55,7 @@ const triggerIOSHaptic = () => {
       input.style.overflow = 'hidden';
       document.body.appendChild(input);
       iosHapticInput = input;
-    } catch (e) {
+    } catch {
       return;
     }
   }
@@ -63,7 +63,7 @@ const triggerIOSHaptic = () => {
   if (iosHapticInput) {
     try {
       iosHapticInput.click();
-    } catch (e) {
+    } catch {
       iosHapticInput.checked = !iosHapticInput.checked;
     }
   }
@@ -75,7 +75,7 @@ const vibrateDevice = () => {
     if (navigator.vibrate) {
       try {
         navigator.vibrate(12);
-      } catch (e) {
+      } catch {
         // Fail silently
       }
     } else {
@@ -83,6 +83,29 @@ const vibrateDevice = () => {
       triggerIOSHaptic();
     }
   }
+};
+
+interface AnimatedCharProps {
+  char: string;
+  scrollYProgress: MotionValue<number>;
+  start: number;
+  end: number;
+}
+
+const AnimatedChar: React.FC<AnimatedCharProps> = ({ char, scrollYProgress, start, end }) => {
+  const opacity = useTransform(scrollYProgress, [start, end], [0.2, 1]);
+
+  return (
+    <span className="relative inline-block">
+      <span className="opacity-20 text-[#FAF7F5]/30">{char}</span>
+      <motion.span
+        style={{ opacity }}
+        className="absolute top-0 left-0 text-current select-none"
+      >
+        {char}
+      </motion.span>
+    </span>
+  );
 };
 
 export const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = '' }) => {
@@ -97,24 +120,23 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = ''
   let charCounter = 0;
 
   // Track thresholds for each word to trigger ticks and vibrations
-  const wordStartThresholds = useRef<number[]>([]);
   const lastHighlightedWordIdx = useRef<number>(-1);
 
-  if (wordStartThresholds.current.length === 0) {
+  const wordStartThresholds = useMemo(() => {
     let charAcc = 0;
-    const thresholds = words.map((word) => {
-      const start = charAcc / totalChars;
-      charAcc += word.length + 1; // includes trailing space
-      return start;
-    });
-    wordStartThresholds.current = thresholds;
-  }
+    const thresholds: number[] = [];
+    for (let i = 0; i < words.length; i++) {
+      thresholds.push(charAcc / totalChars);
+      charAcc += words[i].length + 1;
+    }
+    return thresholds;
+  }, [words, totalChars]);
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (value) => {
       let activeIdx = -1;
-      for (let i = 0; i < wordStartThresholds.current.length; i++) {
-        if (value >= wordStartThresholds.current[i]) {
+      for (let i = 0; i < wordStartThresholds.length; i++) {
+        if (value >= wordStartThresholds[i]) {
           activeIdx = i;
         } else {
           break;
@@ -131,7 +153,7 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = ''
     });
 
     return () => unsubscribe();
-  }, [scrollYProgress]);
+  }, [scrollYProgress, wordStartThresholds]);
 
   return (
     <p ref={containerRef} className={`${className} flex flex-wrap justify-center`}>
@@ -148,18 +170,14 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = ''
               const start = currentIdx / totalChars;
               const end = Math.min((currentIdx + 5) / totalChars, 1);
 
-              const opacity = useTransform(scrollYProgress, [start, end], [0.2, 1]);
-
               return (
-                <span key={index} className="relative inline-block">
-                  <span className="opacity-20 text-[#FAF7F5]/30">{char}</span>
-                  <motion.span
-                    style={{ opacity }}
-                    className="absolute top-0 left-0 text-current select-none"
-                  >
-                    {char}
-                  </motion.span>
-                </span>
+                <AnimatedChar
+                  key={index}
+                  char={char}
+                  scrollYProgress={scrollYProgress}
+                  start={start}
+                  end={end}
+                />
               );
             })}
           </span>

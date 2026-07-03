@@ -15,7 +15,7 @@ export const OurJourney: React.FC = () => {
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (latest) => {
-      let step = 0;
+      let step: number;
       if (latest < 0.28) {
         step = 0;
       } else if (latest < 0.55) {

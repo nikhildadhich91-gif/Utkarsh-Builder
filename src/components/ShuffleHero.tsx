@@ -46,7 +46,7 @@ export const ShuffleHero = () => {
   );
 };
 
-const shuffle = (array: any[]) => {
+const shuffle = <T,>(array: T[]): T[] => {
   let currentIndex = array.length,
     randomIndex;
 
@@ -117,12 +117,10 @@ const generateSquares = () => {
 };
 
 const ShuffleGrid = () => {
-  const timeoutRef = useRef<any>(null);
-  const [squares, setSquares] = useState<any[]>([]);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [squares, setSquares] = useState<React.JSX.Element[]>(() => generateSquares());
 
   useEffect(() => {
-    setSquares(generateSquares());
-    
     const triggerShuffle = () => {
       setSquares(generateSquares());
       timeoutRef.current = setTimeout(triggerShuffle, 3000);

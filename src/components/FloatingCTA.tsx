@@ -4,16 +4,15 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { assets } from '../lib/cloudinary';
 
 export const FloatingCTA = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return !sessionStorage.getItem('floating_cta_closed');
+    }
+    return true;
+  });
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Check if user has closed it in this session
-    const isClosed = sessionStorage.getItem('floating_cta_closed');
-    if (isClosed) {
-      setIsOpen(false);
-    }
-    
     // Show with a slight delay for better UX
     const timer = setTimeout(() => {
       setIsVisible(true);

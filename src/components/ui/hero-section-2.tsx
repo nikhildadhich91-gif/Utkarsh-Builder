@@ -1,6 +1,7 @@
 import React from 'react';
 import { cn } from "../../lib/utils";
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 
 // Icon component for contact details
 const InfoIcon = ({ type }: { type: 'website' | 'email' | 'phone' | 'address' }) => {
@@ -35,7 +36,7 @@ const InfoIcon = ({ type }: { type: 'website' | 'email' | 'phone' | 'address' })
 
 
 // Prop types for the HeroSection component
-interface HeroSectionProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
+interface HeroSectionProps extends Omit<React.ComponentPropsWithoutRef<typeof motion.section>, 'title'> {
   logo?: {
     url: string;
     alt: string;
@@ -57,11 +58,11 @@ interface HeroSectionProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   };
 }
 
-const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
+const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
   ({ className, logo, slogan, title, subtitle, callToAction, backgroundImage, contactInfo, ...props }, ref) => {
     
     // Animation variants for the container to orchestrate children animations
-    const containerVariants: any = {
+    const containerVariants: Variants = {
       hidden: { opacity: 0 },
       visible: {
         opacity: 1,
@@ -73,7 +74,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
     };
 
     // Animation variants for individual text/UI elements
-    const itemVariants: any = {
+    const itemVariants: Variants = {
       hidden: { y: 20, opacity: 0 },
       visible: {
         y: 0,
@@ -87,7 +88,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
     
     return (
       <motion.section
-        ref={ref as any}
+        ref={ref}
         className={cn(
           "relative flex w-full flex-col overflow-hidden bg-white text-foreground md:flex-row rounded-3xl border border-black/5 shadow-2xl min-h-[480px]",
           className
@@ -95,7 +96,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        {...(props as any)}
+        {...props}
       >
         {/* Left Side: Content */}
         <div className="flex w-full flex-col justify-between p-8 md:w-1/2 md:p-12 lg:w-3/5 lg:p-16 bg-white">
@@ -161,9 +162,10 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
 
         {/* Right Side: Image with Clip Path Animation */}
         <motion.div 
-          className="w-full min-h-[300px] bg-cover bg-center md:w-1/2 md:min-h-full lg:w-2/5"
+          className="w-full min-h-[300px] bg-cover md:w-1/2 md:min-h-full lg:w-2/5"
           style={{ 
             backgroundImage: `url(${backgroundImage})`,
+            backgroundPosition: '70% center',
             filter: 'drop-shadow(-12px 0px 16px rgba(0, 0, 0, 0.12))'
           }}
           initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
