@@ -38,7 +38,7 @@ export const ProjectsPage: React.FC = () => {
     },
     {
       title: 'Cement & Concrete',
-      desc: 'High-strength M30 mix designs cured specifically for regional climate criteria in Rajasthan.'
+      desc: 'High-strength M25 mix designs cured specifically for regional climate criteria in Rajasthan.'
     },
     {
       title: 'Exterior Facade',
@@ -77,11 +77,6 @@ export const ProjectsPage: React.FC = () => {
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-[#1B1B1B]">
                 Structural Specifications
               </h2>
-            </FadeUp>
-            <FadeUp delay={0.3} className="mt-2 md:mt-4">
-              <p className="text-[#6F6F6F] font-light text-xs md:text-sm">
-                Every building we construct uses certified raw materials that exceed standard strength requirements by at least 18%.
-              </p>
             </FadeUp>
           </div>
 

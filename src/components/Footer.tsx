@@ -106,7 +106,7 @@ export const Footer: React.FC = () => {
               {[
                 "Residential & Commercial Construction",
                 "Turnkey Projects",
-                "Site Supervision & Engineering",
+                "Project Management Consultancy (PMC)",
                 "Renovation & Remodeling"
               ].map((service, index) => (
                 <li key={index}>

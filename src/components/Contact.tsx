@@ -267,7 +267,7 @@ ${formData.message || 'None'}`;
               </FadeUp>
               <FadeUp delay={0.3}>
                 <p className="text-[#333333] font-medium text-sm md:text-base leading-relaxed">
-                  Have a plot in Rajasthan or planning a commercial construction project? Leave us a message and our lead site engineer will reach out within 24 hours.
+                  Have a plot in Rajasthan or planning to construct a project? Leave us a message and our lead site engineer will reach out within 24 hours.
                 </p>
               </FadeUp>
             </div>

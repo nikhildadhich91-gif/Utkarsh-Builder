@@ -175,17 +175,7 @@ export const DevelopmentShowcase: React.FC = () => {
                 </p>
               </div>
 
-              {/* Stats Badge */}
-              <div className="flex gap-2.5 text-left py-0.5 my-2">
-                <div className="bg-black/5 border border-black/10 rounded-xl p-2 flex-1 flex flex-col justify-center items-center">
-                  <span className="text-xs md:text-sm font-extrabold text-[#C92C15]">100%</span>
-                  <span className="text-[8px] md:text-[9px] uppercase tracking-wider text-[#6F6F6F] font-bold text-center mt-0.5">Vastu Compliant</span>
-                </div>
-                <div className="bg-black/5 border border-black/10 rounded-xl p-2 flex-1 flex flex-col justify-center items-center">
-                  <span className="text-xs md:text-sm font-extrabold text-[#C92C15]">30-Yr</span>
-                  <span className="text-[8px] md:text-[9px] uppercase tracking-wider text-[#6F6F6F] font-bold text-center mt-0.5">Guarantee</span>
-                </div>
-              </div>
+
 
               <div className="space-y-3 pt-4 border-t border-black/10">
                 <h4 className="text-[10px] uppercase tracking-wider text-[#C92C15] font-extrabold">Key Value Inclusions</h4>

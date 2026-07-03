@@ -204,7 +204,6 @@ export const MarketPresence: React.FC = () => {
           >
             <div className="relative z-10 flex flex-col h-full space-y-6">
               <div className="flex items-baseline select-none">
-                <span className="text-[#C92C15] text-3xl md:text-4xl font-bold mr-1">+</span>
                 <span className="text-5xl md:text-7xl font-extrabold tracking-tighter text-[#111111] group-hover:text-[#C92C15] transition-colors duration-300">
                   <AnimatedCounter value={100} />
                 </span>

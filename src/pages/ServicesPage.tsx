@@ -35,7 +35,7 @@ const servicesData: ServiceItem[] = [
   },
   {
     number: '03',
-    title: 'Site Supervision and Engineering',
+    title: 'Project Management Consultancy (PMC)',
     description: 'We supervise daily construction, check material quality and handle schedules to keep your project on time and within budget.',
     extendedDetails: 'We oversee daily labor, check the quality of materials delivered to the site, coordinate all builders, handle city inspections and send you weekly progress updates with photos.'
   },
