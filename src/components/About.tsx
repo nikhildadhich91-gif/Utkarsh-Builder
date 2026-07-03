@@ -115,7 +115,7 @@ export const About: React.FC = () => {
                   <div className="text-[#333333] space-y-2 font-medium">
                     <p className="text-base font-extrabold text-[#111111]">Honest Pricing and Timely Delivery</p>
                     <p>
-                      Our mission is to make construction stress-free for our clients. We do this by delivering high quality builds, transparent pricing and completing projects on schedule.
+                      Our mission is to make construction stress-free for our clients. We do this by delivering high quality projects, transparent pricing and completing projects on schedule.
                     </p>
                   </div>
                 )}

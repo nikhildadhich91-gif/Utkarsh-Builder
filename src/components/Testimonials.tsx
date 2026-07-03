@@ -12,13 +12,13 @@ interface TestimonialItem {
 
 const testimonials: TestimonialItem[] = [
   {
-    quote: "We are delighted to choose Utkarsh Builders for our 25,000 sq. ft. project. From demolition to completion, they managed every aspect of the building with professionalism and expertise. Their commitment to finishing the project within the agreed timeline was impressive, and we are extremely satisfied with the results.",
+    quote: "We are delighted to choose Utkarsh Builders for our 25,000 sq. ft. project. From demolition to completion, they managed every aspect of the building with professionalism and expertise. Their commitment to finishing the project within the agreed timeline was impressive and we are extremely satisfied with the results.",
     name: "Karamchand Vadhrani",
     role: "Founder",
     company: "Ametina Enterprises"
   },
   {
-    quote: "Huge thanks to Utkarsh Builders for transforming our old space into something truly special! They delivered on time, stayed true to our vision, and beautifully blended a modern office look with Rajasthan’s traditional architecture. We couldn’t be happier with the result!",
+    quote: "Huge thanks to Utkarsh Builders for transforming our old space into something truly special! They delivered on time, stayed true to our vision and beautifully blended a modern office look with Rajasthan’s traditional architecture. We are extremely pleased with the final result.",
     name: "Manoj Sogani",
     role: "Owner",
     company: "MS Jewellers"

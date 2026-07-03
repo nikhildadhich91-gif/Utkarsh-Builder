@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { assets } from '../lib/cloudinary';
 const LogoImg = assets.logo;
 import { Menu, X } from 'lucide-react';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,16 +23,8 @@ export const Navbar = () => {
   }, []);
 
   // Prevent background scrolling when mobile menu is open
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMenuOpen]);
+  useBodyScrollLock(isMenuOpen);
+
 
   const navLinks = [
     { path: '/', label: 'Home' },

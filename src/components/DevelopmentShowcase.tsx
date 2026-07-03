@@ -134,7 +134,7 @@ export const DevelopmentShowcase: React.FC = () => {
             Our Core Building Services
           </h2>
           <p className="text-[#333333] font-medium mt-2 md:mt-4 max-w-xl text-xs md:text-sm">
-            We specialize in luxury homes, commercial projects, and end-to-end building services in Rajasthan.
+            We specialize in luxury homes, commercial projects and end-to-end building services in Rajasthan.
           </p>
         </div>
 

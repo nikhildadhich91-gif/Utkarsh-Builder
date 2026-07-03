@@ -166,7 +166,7 @@ export const MarketPresence: React.FC = () => {
                   Years of Construction Excellence
                 </div>
                 <p className="text-sm font-medium text-[#333333] max-w-xl leading-relaxed">
-                  Over three decades of architectural precision, solid engineering, and reliable construction across Rajasthan.
+                  Over three decades of architectural precision, solid engineering and reliable construction across Rajasthan.
                 </p>
               </div>
             </div>
@@ -190,7 +190,7 @@ export const MarketPresence: React.FC = () => {
                   Completed Projects
                 </div>
                 <p className="text-sm font-medium text-[#333333] leading-relaxed">
-                  Premium residential villas, commercial structures, and custom buildings completed to highest engineering standards.
+                  Premium residential villas, commercial structures and custom buildings completed to highest engineering standards.
                 </p>
               </div>
             </div>
@@ -215,7 +215,7 @@ export const MarketPresence: React.FC = () => {
                   Client Satisfaction
                 </div>
                 <p className="text-sm font-medium text-[#333333] leading-relaxed">
-                  Committed to transparency, timely milestone delivery, and zero hidden costs for every single project.
+                  Committed to transparency, timely milestone delivery and zero hidden costs for every single project.
                 </p>
               </div>
             </div>
@@ -239,7 +239,7 @@ export const MarketPresence: React.FC = () => {
                   Delivered Space
                 </div>
                 <p className="text-sm font-medium text-[#333333] max-w-xl leading-relaxed">
-                  Crafting expansive premium spaces including luxury homes, commercial towers, and state-of-the-art structural developments.
+                  Crafting expansive premium spaces including luxury homes, commercial towers and state-of-the-art structural developments.
                 </p>
               </div>
             </div>

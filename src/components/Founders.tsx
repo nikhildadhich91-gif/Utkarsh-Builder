@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FadeUp } from './ui/FadeUp';
 import { StaggerContainer } from './ui/StaggerContainer';
 import { Award, GraduationCap, ArrowUpRight, X } from 'lucide-react';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 
 export const Founders: React.FC = () => {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
 
-  useEffect(() => {
-    if (selectedIdx !== null) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [selectedIdx]);
+  useBodyScrollLock(selectedIdx !== null);
+
 
   const founders = [
     {

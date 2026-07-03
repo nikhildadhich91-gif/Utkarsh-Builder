@@ -54,7 +54,7 @@ export const LandmarkDevelopments: React.FC = () => {
 
             <FadeUp delay={0.3}>
               <p className="text-[#6F6F6F] font-light text-lg md:text-xl leading-relaxed">
-                We do more than just build single buildings. We plan entire gated communities, residential areas, and commercial blocks in Rajasthan. From finding the perfect plots of land to designing safe roads, green parks, and building spaces that bring neighbors together, we turn land into beautiful communities.
+                We do more than just build single buildings. We plan entire gated communities, residential areas and commercial blocks in Rajasthan. From finding the perfect plots of land to designing safe roads, green parks and building spaces that bring neighbors together, we turn land into beautiful communities.
               </p>
             </FadeUp>
 
@@ -66,7 +66,7 @@ export const LandmarkDevelopments: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-sm text-[#1B1B1B]">Neighborhood Design</h4>
-                  <p className="text-xs text-[#6F6F6F] font-light mt-1">We blend homes, shopping, and green parks together.</p>
+                  <p className="text-xs text-[#6F6F6F] font-light mt-1">We blend homes, shopping and green parks together.</p>
                 </div>
               </FadeUp>
 
@@ -76,7 +76,7 @@ export const LandmarkDevelopments: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-sm text-[#1B1B1B]">Smart Use of Land</h4>
-                  <p className="text-xs text-[#6F6F6F] font-light mt-1">We plan layouts for roads, spaces, and light.</p>
+                  <p className="text-xs text-[#6F6F6F] font-light mt-1">We plan layouts for roads, spaces and light.</p>
                 </div>
               </FadeUp>
             </div>

@@ -72,15 +72,15 @@ interface FAQItem {
 const faqData: FAQItem[] = [
   {
     question: "What types of construction services do you offer?",
-    answer: "We provide a wide range of construction and development services, including residential building, commercial offices, complete turnkey project management, site supervision, renovations, and site analysis support."
+    answer: "We provide a wide range of construction and development services, including residential building, commercial offices, complete turnkey project management, site supervision, renovations and site analysis support."
   },
   {
     question: "Do you manage projects from planning through completion?",
-    answer: "Yes, our turnkey services cover all aspects of the construction journey, including site evaluation, architectural and structural coordination, material procurement, on-site supervision, and final project handover."
+    answer: "Yes, our turnkey services cover all aspects of the construction journey, including site evaluation, architectural and structural coordination, material procurement, on-site supervision and final project handover."
   },
   {
     question: "How is structural quality and safety maintained?",
-    answer: "We adhere strictly to local building standards and engineering guidelines. By using certified, high-strength materials and performing regular on-site quality checks, we ensure that every structure is durable, safe, and built to last."
+    answer: "We adhere strictly to local building standards and engineering guidelines. By using certified, high-strength materials and performing regular on-site quality checks, we ensure that every structure is durable, safe and built to last."
   },
   {
     question: "Which areas or regions do you operate in?",
@@ -260,7 +260,7 @@ export const ServicesPage = () => {
               </h2>
             </div>
             <p className="text-[#6F6F6F] font-light text-sm md:text-base leading-relaxed">
-              How we bifurcate our engineering divisions to guarantee specialized, high-end attention.
+              How we divide our engineering teams to deliver focused, high-quality attention.
             </p>
           </div>
 

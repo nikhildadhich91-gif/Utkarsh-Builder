@@ -248,7 +248,7 @@ export const AdminPage: React.FC = () => {
           name: 'MS Jewellers',
           category: 'Commercial Showroom',
           location: 'Johari Bazaar',
-          description: 'A high-concept jewelry showroom combining state-of-the-art security, custom-engineered display counters, and precise task lighting.',
+          description: 'A high-concept jewelry showroom combining state-of-the-art security, custom-engineered display counters and precise task lighting.',
           tag: 'commercial',
           images: {
             col1_1: assets.projects.msCol1_1,
@@ -261,7 +261,7 @@ export const AdminPage: React.FC = () => {
           name: 'Barfiwala Sweets',
           category: 'Premium Retail Showroom',
           location: 'Johari Bazaar',
-          description: 'A modern retail sweets showroom blending heritage Rajasthani elements with clean contemporary display cases, hygiene-first packaging areas, and warm inviting lighting.',
+          description: 'A modern retail sweets showroom blending heritage Rajasthani elements with clean contemporary display cases, hygiene-first packaging areas and warm inviting lighting.',
           tag: 'commercial',
           images: {
             col1_1: assets.projects.barfiwalaCol1_1,
@@ -274,7 +274,7 @@ export const AdminPage: React.FC = () => {
           name: 'Reeve Inn Hotel',
           category: 'Commercial & Hospitality',
           location: 'Bani Park',
-          description: 'A modern commercial hotel development showcasing structural concrete integrity, customized exterior finishes, and premium room layouts.',
+          description: 'A modern commercial hotel development showcasing structural concrete integrity, customized exterior finishes and premium room layouts.',
           tag: 'development',
           images: {
             col1_1: assets.projects.hotelCol1_1,
@@ -287,7 +287,7 @@ export const AdminPage: React.FC = () => {
           name: 'Paliwal Textile',
           category: 'Textile Center & Office',
           location: 'MI Road',
-          description: 'A state-of-the-art textile showroom and administrative office, featuring high-capacity fabric display racks, custom client discussion tables, and a premium exterior glass facade.',
+          description: 'A state-of-the-art textile showroom and administrative office, featuring high-capacity fabric display racks, custom client discussion tables and a premium exterior glass facade.',
           tag: 'commercial',
           images: {
             col1_1: assets.projects.paliwalCol1_1,
@@ -313,7 +313,7 @@ export const AdminPage: React.FC = () => {
           name: 'Shri Narayan Sales',
           category: 'Commercial Office & Hub',
           location: 'Johari Bazaar',
-          description: 'A contemporary commercial office space and sales hub designed with open planning, premium finishes, and integrated smart facilities.',
+          description: 'A contemporary commercial office space and sales hub designed with open planning, premium finishes and integrated smart facilities.',
           tag: 'commercial',
           images: {
             col1_1: assets.generated.office,
@@ -326,7 +326,7 @@ export const AdminPage: React.FC = () => {
           name: 'Indie Stitch',
           category: 'Bespoke Boutique & Office',
           location: 'Mansarovar',
-          description: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing, and modern design aesthetics.',
+          description: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing and modern design aesthetics.',
           tag: 'commercial',
           images: {
             col1_1: assets.projects.indieCol1_1,

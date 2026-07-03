@@ -172,7 +172,9 @@ export const ContactPage: React.FC = () => {
               {/* Corner action button */}
               <div className="absolute top-6 right-6">
                 <a
-                  href="mailto:nowalutkarsh@gmail.com"
+                  href="https://www.google.com/maps/dir//Utkarsh+Builder,+2137,+Nowal+Bhavan,+Dara+Market,+Haldion+Ka+Rasta,+Johri+Bazar,+Jaipur,+Rajasthan+302003/@26.9048432,75.7720324,15z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x396db7f1e9799d71:0x53ed154c97761b62!2m2!1d75.8275485!2d26.9207124?entry=ttu&g_ep=EgoyMDI2MDYyMS4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="h-11 w-11 rounded-full bg-black/5 hover:bg-[#C92C15] hover:text-white transition-all duration-300 flex items-center justify-center text-[#1B1B1B] cursor-pointer shadow-md"
                 >
                   <ArrowUpRight className="h-5 w-5" />

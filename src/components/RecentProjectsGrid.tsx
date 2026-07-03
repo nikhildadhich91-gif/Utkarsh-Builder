@@ -4,6 +4,7 @@ import { assets } from '../lib/cloudinary';
 import { MapPin, Expand, X, Calendar, ShieldCheck, Compass } from 'lucide-react';
 import { FadeUp } from './ui/FadeUp';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 
 interface ProjectCardData {
   id: string;
@@ -27,7 +28,7 @@ const projectsData: ProjectCardData[] = [
     location: 'Johari Bazaar',
     area: '12,000 Sq. Ft.',
     status: 'Completed',
-    description: 'A high-concept luxury jewelry showroom combining advanced secure vault rooms, customized copper display counters, and precise task lighting. Built with premium materials to ensure high durability and a stunning aesthetic.',
+    description: 'A high-concept luxury jewelry showroom combining advanced secure vault rooms, customized copper display counters and precise task lighting. Built with premium materials to ensure high durability and a stunning aesthetic.',
   },
   {
     id: 'proj-2',
@@ -38,7 +39,7 @@ const projectsData: ProjectCardData[] = [
     location: 'Johari Bazaar',
     area: '8,500 Sq. Ft.',
     status: 'Completed',
-    description: 'A modern retail sweets showroom blending heritage Rajasthani elements with clean contemporary display cases, hygiene-first packaging areas, and warm inviting lighting.',
+    description: 'A modern retail sweets showroom blending heritage Rajasthani elements with clean contemporary display cases, hygiene-first packaging areas and warm inviting lighting.',
   },
   {
     id: 'proj-3',
@@ -49,7 +50,7 @@ const projectsData: ProjectCardData[] = [
     location: 'Bani Park',
     area: '35,000 Sq. Ft.',
     status: 'In Progress',
-    description: 'A premium hospitality project featuring a robust Fe 550D structural steel frame, reinforced concrete pillars, fire-resistant conduit pathways, and customized layout divisions for hotel rooms and amenities.',
+    description: 'A premium hospitality project featuring a robust Fe 550D structural steel frame, reinforced concrete pillars, fire-resistant conduit pathways and customized layout divisions for hotel rooms and amenities.',
   },
   {
     id: 'proj-4',
@@ -60,7 +61,7 @@ const projectsData: ProjectCardData[] = [
     location: 'MI Road',
     area: '15,000 Sq. Ft.',
     status: 'Completed',
-    description: 'A state-of-the-art textile showroom and administrative office, featuring high-capacity fabric display racks, custom client discussion tables, and a premium exterior glass facade.',
+    description: 'A state-of-the-art textile showroom and administrative office, featuring high-capacity fabric display racks, custom client discussion tables and a premium exterior glass facade.',
   },
   {
     id: 'proj-5',
@@ -82,12 +83,15 @@ const projectsData: ProjectCardData[] = [
     location: 'Mansarovar',
     area: '3,200 Sq. Ft.',
     status: 'Completed',
-    description: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing, and modern design aesthetics.',
+    description: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing and modern design aesthetics.',
   },
 ];
 
 export const RecentProjectsGrid: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectCardData | null>(null);
+
+  useBodyScrollLock(selectedProject !== null);
+
 
   const modalElement = (
     <AnimatePresence>
