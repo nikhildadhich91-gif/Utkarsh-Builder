@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ChevronDown } from 'lucide-react';
-import { getOptimizedImageUrl } from '../lib/cloudinary';
+import { getOptimizedImageUrl, assets } from '../lib/cloudinary';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 interface ProjectData {
@@ -381,9 +381,9 @@ const fallbackProjects: ProjectData[] = [
     description: 'A high-concept jewelry showroom combining state-of-the-art security, custom-engineered display counters and precise task lighting.',
     tag: 'commercial',
     images: {
-      col1_1: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216557/utkarsh%20construction/projects/ms-col1-1.webp',
-      col1_2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216559/utkarsh%20construction/projects/ms-col1-2.webp',
-      col2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216560/utkarsh%20construction/projects/ms-col2.webp'
+      col1_1: assets.projects.msCol1_1,
+      col1_2: assets.projects.msCol1_2,
+      col2: assets.projects.msCol2
     }
   },
   {
@@ -394,9 +394,9 @@ const fallbackProjects: ProjectData[] = [
     description: 'A modern retail sweets showroom blending heritage Rajasthani elements with clean contemporary display cases, hygiene-first packaging areas and warm inviting lighting.',
     tag: 'commercial',
     images: {
-      col1_1: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216548/utkarsh%20construction/projects/barfiwala-col1-1.webp',
-      col1_2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216549/utkarsh%20construction/projects/barfiwala-col1-2.webp',
-      col2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216551/utkarsh%20construction/projects/barfiwala-col2.webp'
+      col1_1: assets.projects.barfiwalaCol1_1,
+      col1_2: assets.projects.barfiwalaCol1_2,
+      col2: assets.projects.barfiwalaCol2
     }
   },
   {
@@ -407,9 +407,9 @@ const fallbackProjects: ProjectData[] = [
     description: 'A modern commercial hotel development showcasing structural concrete integrity, customized exterior finishes and premium room layouts.',
     tag: 'development',
     images: {
-      col1_1: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216552/utkarsh%20construction/projects/hotel-col1-1.webp',
-      col1_2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216553/utkarsh%20construction/projects/hotel-col1-2.webp',
-      col2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216555/utkarsh%20construction/projects/hotel-col2.webp'
+      col1_1: assets.projects.hotelCol1_1,
+      col1_2: assets.projects.hotelCol1_2,
+      col2: assets.projects.hotelCol2
     }
   },
   {
@@ -420,9 +420,9 @@ const fallbackProjects: ProjectData[] = [
     description: 'A state-of-the-art textile showroom and administrative office, featuring high-capacity fabric display racks, custom client discussion tables and a premium exterior glass facade.',
     tag: 'commercial',
     images: {
-      col1_1: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216560/utkarsh%20construction/projects/paliwal-col1-1.webp',
-      col1_2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216562/utkarsh%20construction/projects/paliwal-col1-2.webp',
-      col2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216563/utkarsh%20construction/projects/paliwal-col2.webp'
+      col1_1: assets.projects.paliwalCol1_1,
+      col1_2: assets.projects.paliwalCol1_2,
+      col2: assets.projects.paliwalCol2
     }
   },
   {
@@ -433,9 +433,9 @@ const fallbackProjects: ProjectData[] = [
     description: 'A premium luxury residence featuring customized structural designs, high-end marble materials, and a traditional facade integrated with modern space planning.',
     tag: 'residential',
     images: {
-      col1_1: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216543/utkarsh%20construction/projects/bhangadiya-col1-1.webp',
-      col1_2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216545/utkarsh%20construction/projects/bhangadiya-col1-2.webp',
-      col2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216546/utkarsh%20construction/projects/bhangadiya-col2.webp'
+      col1_1: assets.projects.bhangadiyaCol1_1,
+      col1_2: assets.projects.bhangadiyaCol1_2,
+      col2: assets.projects.bhangadiyaCol2
     }
   },
   {
@@ -446,9 +446,9 @@ const fallbackProjects: ProjectData[] = [
     description: 'A contemporary commercial office space and sales hub designed with open planning, premium finishes and integrated smart facilities.',
     tag: 'commercial',
     images: {
-      col1_1: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782197640/utkarsh%20construction/generated/office.webp',
-      col1_2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782197642/utkarsh%20construction/generated/reception.webp',
-      col2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782197639/utkarsh%20construction/generated/corridor.webp'
+      col1_1: assets.generated.office,
+      col1_2: assets.generated.reception,
+      col2: assets.generated.corridor
     }
   },
   {
@@ -459,9 +459,9 @@ const fallbackProjects: ProjectData[] = [
     description: 'A luxury fashion boutique and design office featuring custom wood paneling, premium layout spacing and modern design aesthetics.',
     tag: 'commercial',
     images: {
-      col1_1: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216541/utkarsh%20construction/projects/indie-col1-1.webp',
-      col1_2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216542/utkarsh%20construction/projects/indie-col1-2.webp',
-      col2: 'https://res.cloudinary.com/darmr4g5x/image/upload/v1782216542/utkarsh%20construction/projects/indie-col2.webp'
+      col1_1: assets.projects.indieCol1_1,
+      col1_2: assets.projects.indieCol1_2,
+      col2: assets.projects.indieCol2
     }
   }
 ];
