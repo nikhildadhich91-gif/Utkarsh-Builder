@@ -24,28 +24,31 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
     const wrapper = wrapperRef.current;
     if (!video || !wrapper) return;
 
-    let currentTarget = 0;
-    let seekPending = false;
+    let targetTime = 0;
+    let currentTime = 0;
+    let animationFrameId: number;
     let scrollTriggerInstance: ScrollTrigger | null = null;
     let footerScrollTriggerInstance: ScrollTrigger | null = null;
 
-    const doSeek = (time: number) => {
-      if (!video || !isFinite(time) || isNaN(time)) return;
-      if (video.seeking) {
-        seekPending = true;
-      } else {
-        video.currentTime = time;
+    const updateVideoFrame = () => {
+      if (video && video.duration && isFinite(video.duration)) {
+        // Smooth interpolation: currentTime += (targetTime - currentTime) * 0.08
+        currentTime += (targetTime - currentTime) * 0.08;
+
+        // Clamp currentTime within video bounds
+        if (currentTime < 0) currentTime = 0;
+        if (currentTime > video.duration) currentTime = video.duration;
+
+        // Seeking guard check
+        if (!video.seeking && Math.abs(video.currentTime - currentTime) > 0.01) {
+          video.currentTime = currentTime;
+        }
       }
+      animationFrameId = requestAnimationFrame(updateVideoFrame);
     };
 
-    const handleSeeked = () => {
-      if (seekPending) {
-        seekPending = false;
-        doSeek(currentTarget);
-      }
-    };
-
-    video.addEventListener('seeked', handleSeeked);
+    // Start requestAnimationFrame loop
+    animationFrameId = requestAnimationFrame(updateVideoFrame);
 
     // Set raw local video source for instant hardware-accelerated playback
     video.src = src;
@@ -75,8 +78,7 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
           // 1. Scrub video progress (finishes early at 68% scroll, leaving 32% as a hold phase)
           if (video.duration && isFinite(video.duration)) {
             const videoProgress = Math.min(1.0, self.progress / 0.68);
-            currentTarget = videoProgress * video.duration;
-            doSeek(currentTarget);
+            targetTime = videoProgress * video.duration;
           }
 
           // 2. Scrub Hero Text opacity (fades out in first 15% of scroll, fades back in on scroll up)
@@ -113,7 +115,7 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
                 duration: 0.3,
                 overwrite: 'auto',
               });
-            } else if (self.progress >= 0.2 && self.progress < 0.8) {
+            } else if (self.progress > 0.2 && self.progress < 0.8) {
               // Keep UI hidden during cinematic phase and early hold phase
               gsap.to('nav, .floating-cta-container', {
                 opacity: 0,
@@ -158,6 +160,24 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
     // Initial attempt
     initScrollAnimations();
 
+    const handleLoadedMetadata = () => {
+      if (video && video.duration && isFinite(video.duration)) {
+        const progress = scrollTriggerInstance ? scrollTriggerInstance.progress : 0;
+        const videoProgress = Math.min(1.0, progress / 0.68);
+        targetTime = videoProgress * video.duration;
+        currentTime = targetTime;
+        if (!video.seeking) {
+          video.currentTime = targetTime;
+        }
+      }
+    };
+
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
+
+    if (video.readyState >= 1 && video.duration && isFinite(video.duration)) {
+      handleLoadedMetadata();
+    }
+
     // Refresh and reinitialize when layout changes (e.g. dynamic pages mount)
     const resizeObserver = new ResizeObserver(() => {
       if (initScrollAnimations()) {
@@ -170,7 +190,8 @@ export const ScrollVideoBanner: React.FC<ScrollVideoBannerProps> = ({
     }
 
     return () => {
-      video.removeEventListener('seeked', handleSeeked);
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      cancelAnimationFrame(animationFrameId);
       if (scrollTriggerInstance) {
         scrollTriggerInstance.kill();
       }
