@@ -1,0 +1,16 @@
+{
+  "name": "Utkarsh Builder",
+  "short_name": "Utkarsh Builder",
+  "description": "Premium residential and commercial construction in Rajasthan with 30+ years of experience.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF7F5",
+  "theme_color": "#C92C15",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

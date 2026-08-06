@@ -1,0 +1,41 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Google AI (Gemini training)
+User-agent: Google-Extended
+Allow: /
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Common Crawl (feeds many AI training sets)
+User-agent: CCBot
+Allow: /
+
+# ByteDance
+User-agent: Bytespider
+Allow: /
+
+# Apple
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://utkarsh-builder.vercel.app/sitemap.xml
