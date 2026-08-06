@@ -65,7 +65,7 @@ export const WhyChooseUs: React.FC = () => {
         </div>
 
         {/* Grid elements */}
-        <StaggerContainer className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 md:gap-8">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {reasonsList.map((reason, index) => {
             const Icon = reason.icon;
             return (
@@ -73,21 +73,23 @@ export const WhyChooseUs: React.FC = () => {
                 key={index}
                 delay={index * 0.1}
                 y={30}
-                className="group p-2.5 min-[360px]:p-3 sm:p-5 md:p-8 rounded-2xl bg-white/30 backdrop-blur-xl border border-white/60 hover:border-[#C92C15]/60 transition-all duration-300 flex flex-col items-start text-left shadow-xl hover:shadow-2xl min-w-0"
+                className="group p-5 sm:p-6 md:p-8 rounded-2xl bg-white/30 backdrop-blur-xl border border-white/60 hover:border-[#C92C15]/60 transition-all duration-300 flex flex-row sm:flex-col items-start text-left shadow-xl hover:shadow-2xl gap-4 sm:gap-0"
               >
                 {/* Icon Circle */}
-                <div className="p-1.5 min-[360px]:p-2 md:p-3 rounded-xl bg-[#C92C15]/10 text-[#C92C15] border border-[#C92C15]/20 mb-2 sm:mb-3 md:mb-6 transition-all duration-300 group-hover:bg-[#C92C15] group-hover:text-white group-hover:scale-110 shrink-0">
-                  <Icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+                <div className="p-3 rounded-xl bg-[#C92C15]/10 text-[#C92C15] border border-[#C92C15]/20 sm:mb-4 md:mb-6 transition-all duration-300 group-hover:bg-[#C92C15] group-hover:text-white group-hover:scale-110 shrink-0">
+                  <Icon className="h-5 w-5 md:h-6 md:w-6" />
                 </div>
 
-                <h3 className="text-[10px] min-[360px]:text-[11px] min-[400px]:text-[12px] sm:text-sm md:text-lg font-bold text-[#111111] tracking-tight mb-1 sm:mb-2 md:mb-3 group-hover:text-[#C92C15] transition-colors duration-300 leading-snug break-normal [word-break:keep-all] w-full">
-                  {reason.title}
-                </h3>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-base sm:text-lg md:text-lg font-extrabold text-[#111111] mb-1 sm:mb-2 md:mb-3 group-hover:text-[#C92C15] transition-colors duration-300 leading-snug">
+                    {reason.title}
+                  </h3>
 
-                {/* Description */}
-                <p className="text-xs md:text-sm text-[#333333] font-medium leading-relaxed hidden md:block">
-                  {reason.description}
-                </p>
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-[#333333] font-medium leading-relaxed">
+                    {reason.description}
+                  </p>
+                </div>
               </FadeUp>
             );
           })}
