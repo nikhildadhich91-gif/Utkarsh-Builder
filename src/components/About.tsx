@@ -39,12 +39,12 @@ export const About: React.FC = () => {
                     {/* Absolute subtle outline overlay */}
                     <div className="absolute inset-4 border border-white/40 pointer-events-none rounded-xl" />
 
-                    {/* Floating brand badge */}
-                    <div className="absolute bottom-6 left-6 right-6 bg-white/60 backdrop-blur-md px-6 py-4 rounded-xl border border-white/80 flex items-center gap-3 shadow-lg">
-                      <Award className="h-8 w-8 text-[#C92C15] shrink-0" />
-                      <div>
-                        <h4 className="text-[#111111] text-xs font-extrabold uppercase tracking-wider">Legacy of Trust</h4>
-                        <p className="text-[#333333] text-xxs font-bold">30+ Years Construction Legacy</p>
+                    {/* Floating compact brand badge (occupies ~20% of image area) */}
+                    <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-white/75 backdrop-blur-md px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-xl border border-white/80 flex items-center gap-2 sm:gap-2.5 shadow-lg max-w-[75%] sm:max-w-[210px] z-10">
+                      <Award className="h-5 w-5 sm:h-6 sm:w-6 text-[#C92C15] shrink-0" />
+                      <div className="min-w-0">
+                        <h4 className="text-[#111111] text-[10px] sm:text-xs font-extrabold uppercase tracking-wider leading-tight truncate">Legacy of Trust</h4>
+                        <p className="text-[#333333] text-[9px] sm:text-[10px] font-bold leading-tight truncate">30+ Years Legacy</p>
                       </div>
                     </div>
                   </div>
