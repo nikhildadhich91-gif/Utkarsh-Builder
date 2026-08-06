@@ -45,7 +45,7 @@ const reasonsList: ReasonItem[] = [
 export const WhyChooseUs: React.FC = () => {
   return (
     <section className="py-12 md:py-32 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 md:px-12 lg:px-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 md:px-12 lg:px-16 relative z-10">
 
         {/* Title details inside Frosted Glass Panel */}
         <div className="bg-white/30 backdrop-blur-xl border border-white/60 rounded-[28px] p-5 sm:p-6 md:p-10 mb-10 md:mb-16 max-w-3xl mx-auto text-center shadow-2xl">
@@ -65,7 +65,7 @@ export const WhyChooseUs: React.FC = () => {
         </div>
 
         {/* Grid elements */}
-        <StaggerContainer className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 md:gap-8">
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 md:gap-8">
           {reasonsList.map((reason, index) => {
             const Icon = reason.icon;
             return (
@@ -73,14 +73,14 @@ export const WhyChooseUs: React.FC = () => {
                 key={index}
                 delay={index * 0.1}
                 y={30}
-                className="group p-3 sm:p-5 md:p-8 rounded-2xl bg-white/30 backdrop-blur-xl border border-white/60 hover:border-[#C92C15]/60 transition-all duration-300 flex flex-col items-start text-left shadow-xl hover:shadow-2xl min-w-0"
+                className="group p-2.5 min-[360px]:p-3 sm:p-5 md:p-8 rounded-2xl bg-white/30 backdrop-blur-xl border border-white/60 hover:border-[#C92C15]/60 transition-all duration-300 flex flex-col items-start text-left shadow-xl hover:shadow-2xl min-w-0"
               >
                 {/* Icon Circle */}
-                <div className="p-2 md:p-3 rounded-xl bg-[#C92C15]/10 text-[#C92C15] border border-[#C92C15]/20 mb-2.5 sm:mb-3 md:mb-6 transition-all duration-300 group-hover:bg-[#C92C15] group-hover:text-white group-hover:scale-110 shrink-0">
+                <div className="p-2 md:p-3 rounded-xl bg-[#C92C15]/10 text-[#C92C15] border border-[#C92C15]/20 mb-2 sm:mb-3 md:mb-6 transition-all duration-300 group-hover:bg-[#C92C15] group-hover:text-white group-hover:scale-110 shrink-0">
                   <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5 md:h-6 md:w-6" />
                 </div>
 
-                <h3 className="text-[12px] min-[360px]:text-[13px] sm:text-base md:text-lg font-extrabold text-[#111111] mb-1.5 md:mb-3 group-hover:text-[#C92C15] transition-colors duration-300 leading-tight break-words [overflow-wrap:anywhere] [hyphens:auto] w-full">
+                <h3 className="text-[11px] min-[360px]:text-[12px] min-[400px]:text-[13px] sm:text-base md:text-lg font-extrabold text-[#111111] mb-1.5 md:mb-3 group-hover:text-[#C92C15] transition-colors duration-300 leading-tight break-normal [word-break:keep-all] [overflow-wrap:normal] [hyphens:manual] w-full">
                   {reason.title}
                 </h3>
 

@@ -64,42 +64,42 @@ const AnimatedCounter: React.FC<CounterProps> = ({
 
 const MarketGridMobile = () => {
   return (
-    <div className="grid grid-cols-2 gap-2.5 sm:gap-3 text-left">
+    <div className="grid grid-cols-2 gap-2 sm:gap-3 text-left">
       {/* Card 1 */}
-      <div className="col-span-1 bg-white/30 backdrop-blur-xl p-3 sm:p-4 rounded-2xl border border-white/60 flex flex-col justify-between min-h-[120px] shadow-md min-w-0">
+      <div className="col-span-1 bg-white/30 backdrop-blur-xl p-2.5 min-[360px]:p-3 sm:p-4 rounded-2xl border border-white/60 flex flex-col justify-between min-h-[120px] shadow-md min-w-0">
         <div className="flex items-baseline select-none">
           <span className="text-2xl min-[360px]:text-3xl font-extrabold text-[#111111]">
             <AnimatedCounter value={30} />
           </span>
           <span className="text-[#C92C15] text-xs min-[360px]:text-sm font-bold ml-1">Yrs+</span>
         </div>
-        <div className="text-[10px] uppercase tracking-wider text-[#333333] font-extrabold leading-tight mt-2 break-words [overflow-wrap:anywhere]">
+        <div className="text-[10px] uppercase tracking-wider text-[#333333] font-extrabold leading-tight mt-2 break-normal [word-break:keep-all]">
           Construction Excellence
         </div>
       </div>
       
       {/* Card 2 */}
-      <div className="col-span-1 bg-white/30 backdrop-blur-xl p-3 sm:p-4 rounded-2xl border border-white/60 flex flex-col justify-between min-h-[120px] shadow-md min-w-0">
+      <div className="col-span-1 bg-white/30 backdrop-blur-xl p-2.5 min-[360px]:p-3 sm:p-4 rounded-2xl border border-white/60 flex flex-col justify-between min-h-[120px] shadow-md min-w-0">
         <div className="flex items-baseline select-none">
           <span className="text-2xl min-[360px]:text-3xl font-extrabold text-[#111111]">
             <AnimatedCounter value={100} />
           </span>
           <span className="text-[#C92C15] text-xs min-[360px]:text-sm font-bold ml-0.5">%</span>
         </div>
-        <div className="text-[10px] uppercase tracking-wider text-[#333333] font-extrabold leading-tight mt-2 break-words [overflow-wrap:anywhere]">
+        <div className="text-[10px] uppercase tracking-wider text-[#333333] font-extrabold leading-tight mt-2 break-normal [word-break:keep-all]">
           Client Satisfaction
         </div>
       </div>
 
       {/* Card 3 */}
-      <div className="col-span-2 bg-white/30 backdrop-blur-xl p-3.5 sm:p-4 rounded-2xl border border-white/60 flex flex-col justify-between min-h-[120px] shadow-md min-w-0">
+      <div className="col-span-2 bg-white/30 backdrop-blur-xl p-3 sm:p-4 rounded-2xl border border-white/60 flex flex-col justify-between min-h-[120px] shadow-md min-w-0">
         <div className="flex items-baseline select-none flex-wrap">
           <span className="text-2xl min-[360px]:text-3xl font-extrabold text-[#111111]">
             <AnimatedCounter value={1.5} decimals={1} />
           </span>
           <span className="text-[#C92C15] text-xs min-[360px]:text-sm font-bold ml-1">Million+ Sq. Ft.</span>
         </div>
-        <div className="text-[10px] uppercase tracking-wider text-[#333333] font-extrabold leading-tight mt-2 break-words [overflow-wrap:anywhere]">
+        <div className="text-[10px] uppercase tracking-wider text-[#333333] font-extrabold leading-tight mt-2 break-normal [word-break:keep-all]">
           Delivered Space
         </div>
       </div>
